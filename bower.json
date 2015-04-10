@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "homepage": "http://redmaterials.redooor.com",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
