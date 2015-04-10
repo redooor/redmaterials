@@ -1,0 +1,32 @@
+//
+// Labels
+// --------------------------------------------------
+.label {
+    font-weight: 500;
+}
+
+// Colors
+// Contextual variations (linked labels get darker on :hover)
+.label-default {
+    .label-variant(@grey);
+}
+
+.label-primary {
+    .label-variant(@blue);
+}
+
+.label-success {
+    .label-variant(@green);
+}
+
+.label-info {
+    .label-variant(@cyan);
+}
+
+.label-warning {
+    .label-variant(@orange);
+}
+
+.label-danger {
+    .label-variant(@deep-orange);
+}

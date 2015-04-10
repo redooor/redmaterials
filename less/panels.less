@@ -1,0 +1,79 @@
+//
+// Panels
+// --------------------------------------------------
+.panel {
+    border-radius: 0;
+    .box-shadow(@shadow-depth-1);
+    
+    .panel-heading,
+    .panel-heading .panel-title,
+    .panel-footer {
+        border-radius: 0;
+    }
+    
+    .panel-heading,
+    .panel-body,
+    .panel-footer {
+        padding: 1em 1.5em;
+    }
+    
+    .panel-footer {
+        border-top: none;
+    }
+}
+
+// .panel-variant(@border, @heading, @body, @footer) 
+
+//--------Default Panel---------//
+.panel-default {
+    .panel-variant(@grey, @grey, #fff, @grey-100);
+    .panel-heading,
+    .panel-heading .panel-title {
+        color: #fff;
+    }
+}
+
+//--------Primary Panel---------//
+.panel-primary {
+    .panel-variant(@blue, @blue, #fff, @blue-50);
+    .panel-heading,
+    .panel-heading .panel-title {
+        color: #fff;
+    }
+}
+
+//--------Success Panel---------//
+.panel-success {
+    .panel-variant(@green, @green, #fff, @green-50);
+    .panel-heading,
+    .panel-heading .panel-title {
+        color: #fff;
+    }
+}
+
+//--------Info Panel---------//
+.panel-info {
+    .panel-variant(@cyan, @cyan, #fff, @cyan-50);
+    .panel-heading,
+    .panel-heading .panel-title {
+        color: #fff;
+    }
+}
+
+//--------Warning Panel---------//
+.panel-warning {
+    .panel-variant(@orange, @orange, #fff, @orange-50);
+    .panel-heading,
+    .panel-heading .panel-title {
+        color: #fff;
+    }
+}
+
+//--------Danger Panel---------//
+.panel-danger {
+    .panel-variant(@deep-orange, @deep-orange, #fff, @deep-orange-50);
+    .panel-heading,
+    .panel-heading .panel-title {
+        color: #fff;
+    }
+}

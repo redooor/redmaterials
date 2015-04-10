@@ -1,0 +1,29 @@
+//
+// Alerts
+// --------------------------------------------------
+.alert {
+    padding: 2em;
+    border-radius: 2px;
+}
+
+.alert-success {
+    .alert-variant(@green, @green, #ffffff, #eeeeee);
+}
+
+.alert-info {
+    .alert-variant(@cyan, @cyan, #ffffff, #eeeeee);
+}
+
+.alert-warning {
+    .alert-variant(@orange, @orange, #ffffff, #eeeeee);
+}
+
+.alert-danger {
+    .alert-variant(@deep-orange, @deep-orange, #ffffff, #eeeeee);
+}
+
+.alert-dismissable .close,
+.alert-dismissible .close {
+    top: -1em;
+    right: -0.8em;
+}

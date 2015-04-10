@@ -1,0 +1,17 @@
+//
+// Panels
+// --------------------------------------------------
+.panel-variant(@border, @heading, @body, @footer) {
+    border-color: @border;
+    border-width: 0;
+    .panel-heading {
+        background: @heading;
+        border-color: @footer;
+    }
+    .panel-body {
+        background: @body;
+    }
+    .panel-footer {
+        background: @footer;
+    }
+}

@@ -1,0 +1,49 @@
+//
+// Tables
+// --------------------------------------------------
+// For styling different state color
+.table-state(@stateName; @stateColor) {
+    .table>tbody>tr.@{stateName}>td,
+    .table>tbody>tr.@{stateName}>th,
+    .table>tbody>tr>td.@{stateName},
+    .table>tbody>tr>th.@{stateName},
+    .table>tfoot>tr.@{stateName}>td,
+    .table>tfoot>tr.@{stateName}>th,
+    .table>tfoot>tr>td.@{stateName},
+    .table>tfoot>tr>th.@{stateName},
+    .table>thead>tr.@{stateName}>td,
+    .table>thead>tr.@{stateName}>th,
+    .table>thead>tr>td.@{stateName},
+    .table>thead>tr>th.@{stateName} {
+        background-color: @stateColor;
+    }
+}
+// For colored tables
+.table-colorize(@colorName; @table-bg-color; @table-striped-color; @table-hover-color) {
+    .table-striped.table-@{colorName} > tbody > tr:nth-child(odd) > td,
+    .table-striped.table-@{colorName} > tbody > tr:nth-child(odd) > th {
+        background-color: @table-striped-color;
+    }
+
+    .table-hover.table-@{colorName} > tbody > tr:hover > td,
+    .table-hover.table-@{colorName} > tbody > tr:hover > th {
+        background-color: @table-hover-color;
+    }
+
+    @media screen and (max-width: 767px) {
+        .table-responsive-vertical .table-striped.table-@{colorName} > tbody > tr > td,
+        .table-responsive-vertical .table-striped.table-@{colorName} > tbody > tr:nth-child(odd) {
+            background-color: @table-bg-color;
+        }
+        .table-responsive-vertical .table-striped.table-@{colorName} > tbody > tr > td:nth-child(odd) {
+            background-color: @table-striped-color;
+        }
+        .table-responsive-vertical .table-hover.table-@{colorName} > tbody > tr:hover > td,
+        .table-responsive-vertical .table-hover.table-@{colorName} > tbody > tr:hover {
+            background-color: @table-bg-color;
+        }
+        .table-responsive-vertical .table-hover.table-@{colorName} > tbody > tr > td:hover {
+            background-color: @table-hover-color
+        }
+    }
+}

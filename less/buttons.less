@@ -1,0 +1,432 @@
+//
+// Buttons
+// --------------------------------------------------
+// Main style
+// --------------------------------------------------
+.btn {
+    text-transform: uppercase;
+    color: #ffffff;
+}
+// Buttons style
+// --------------------------------------------------
+.btn {
+    outline: 0;
+    outline-offset: 0;
+    border: 0;
+    border-radius: 2px;
+    .transition(all .15s ease-in-out);
+    &:focus, &:active, &.active, &:active:focus, &.active:focus {
+        outline: 0;
+        outline-offset: 0;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+}
+// Buttons type
+// --------------------------------------------------
+.btn-raised {
+    // shadow depth 1
+    .box-shadow(@shadow-depth-1);
+    &:active, &.active, &:active:focus, &.active:focus {
+        // shadow depth 2
+        .box-shadow(@shadow-depth-2);
+    }
+    &:focus {
+        // shadow depth 2
+        .box-shadow(@shadow-depth-2);
+    }
+}
+.btn-flat {
+    font-weight: 500;
+}
+.btn.btn-circle {
+    padding: 0;
+    border-radius: 50%;
+}
+
+// Buttons colors
+// --------------------------------------------------
+.btn-default,
+.btn-default:hover {
+    color: @grey-800;
+}
+.btn-link {
+    color: @brand-primary;
+    &:disabled, &.disabled, &[disabled] {
+        color: rgba(0, 0, 0, 0.26);
+        opacity: 1;
+    }
+}
+
+//## Default // color: white
+.btn-default,
+.dropdown-toggle.btn-default {
+    .btn-template(@btn-default-bg-color; lighten(#999, 30%); lighten(#999, 20%); lighten(#999, 12%); lighten(#999, 20%);)
+}
+.btn-flat.btn-default {
+    .btn-flat-template(#212121; darken(#212121, 5%); darken(#212121, 12%); #000; #000;)
+}
+//## Primary // color: blue
+.btn-primary,
+.dropdown-toggle.btn-primary {
+    .btn-template(@blue; @blue-600; @blue-700; @blue-800; @blue-100;)
+}
+.btn-flat.btn-primary {
+    .btn-flat-template(@blue; @blue-600; @blue-700; @blue-800; @blue-100;)
+}
+//## Success // color: green
+.btn-success,
+.dropdown-toggle.btn-success {
+    .btn-template(@green; @green-600; @green-700; @green-800; @green-100;)
+}
+.btn-flat.btn-success {
+    .btn-flat-template(@green; @green-600; @green-700; @green-800; @green-100;)
+}
+//## Info // color: light blue
+.btn-info,
+.dropdown-toggle.btn-info {
+    .btn-template(@cyan; @cyan-600; @cyan-700; @cyan-800; @cyan-100;)
+}
+.btn-flat.btn-info {
+    .btn-flat-template(@cyan; @cyan-600; @cyan-700; @cyan-800; @cyan-100;)
+}
+//## Warning // color: amber
+.btn-warning,
+.dropdown-toggle.btn-warning {
+    .btn-template(@amber; @amber-600; @amber-700; @amber-800; @amber-100;)
+}
+.btn-flat.btn-warning {
+    .btn-flat-template(@amber; @amber-600; @amber-700; @amber-800; @amber-100;)
+}
+//## Danger // color: deep orange
+.btn-danger,
+.dropdown-toggle.btn-danger {
+    .btn-template(@deep-orange; @deep-orange-600; @deep-orange-700; @deep-orange-800; @deep-orange-100;)
+}
+.btn-flat.btn-danger {
+    .btn-flat-template(@deep-orange; @deep-orange-600; @deep-orange-700; @deep-orange-800; @deep-orange-100;)
+}
+
+// Various colors
+//----------------
+//Red
+.btn-red,
+.dropdown-toggle.btn-red {
+    .btn-template(@red; @red-600; @red-700; @red-800; @red-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-red {
+    .btn-flat-template(@red; @red-600; @red-700; @red-800; @red-100;);
+}
+
+//Pink
+.btn-pink,
+.dropdown-toggle.btn-pink {
+    .btn-template(@pink; @pink-600; @pink-700; @pink-800; @pink-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-pink {
+    .btn-flat-template(@pink; @pink-600; @pink-700; @pink-800; @pink-100;);
+}
+
+//Purple
+.btn-purple,
+.dropdown-toggle.btn-purple {
+    .btn-template(@purple; @purple-600; @purple-700; @purple-800; @purple-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-purple {
+    .btn-flat-template(@purple; @purple-600; @purple-700; @purple-800; @purple-100;);
+}
+
+//Deep-purple
+.btn-deep-purple,
+.dropdown-toggle.btn-deep-purple {
+    .btn-template(@deep-purple; @deep-purple-600; @deep-purple-700; @deep-purple-800; @deep-purple-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-deep-purple {
+    .btn-flat-template(@deep-purple; @deep-purple-600; @deep-purple-700; @deep-purple-800; @deep-purple-100;);
+}
+
+//Indigo
+.btn-indigo,
+.dropdown-toggle.btn-indigo {
+    .btn-template(@indigo; @indigo-600; @indigo-700; @indigo-800; @indigo-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-indigo {
+    .btn-flat-template(@indigo; @indigo-600; @indigo-700; @indigo-800; @indigo-100;);
+}
+
+//Blue
+.btn-blue,
+.dropdown-toggle.btn-blue {
+    .btn-template(@blue; @blue-600; @blue-700; @blue-800; @blue-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-blue {
+    .btn-flat-template(@blue; @blue-600; @blue-700; @blue-800; @blue-100;);
+}
+
+//Light-blue
+.btn-light-blue,
+.dropdown-toggle.btn-light-blue {
+    .btn-template(@light-blue; @light-blue-600; @light-blue-700; @light-blue-800; @light-blue-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-light-blue {
+    .btn-flat-template(@light-blue; @light-blue-600; @light-blue-700; @light-blue-800; @light-blue-100;);
+}
+
+//Cyan
+.btn-cyan,
+.dropdown-toggle.btn-cyan {
+    .btn-template(@cyan; @cyan-600; @cyan-700; @cyan-800; @cyan-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-cyan {
+    .btn-flat-template(@cyan; @cyan-600; @cyan-700; @cyan-800; @cyan-100;);
+}
+
+//Teal
+.btn-teal,
+.dropdown-toggle.btn-teal {
+    .btn-template(@teal; @teal-600; @teal-700; @teal-800; @teal-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-teal {
+    .btn-flat-template(@teal; @teal-600; @teal-700; @teal-800; @teal-100;);
+}
+
+//Green
+.btn-green,
+.dropdown-toggle.btn-green {
+    .btn-template(@green; @green-600; @green-700; @green-800; @green-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-green {
+    .btn-flat-template(@green; @green-600; @green-700; @green-800; @green-100;);
+}
+
+//Light-green
+.btn-light-green,
+.dropdown-toggle.btn-light-green {
+    .btn-template(@light-green; @light-green-600; @light-green-700; @light-green-800; @light-green-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-light-green {
+    .btn-flat-template(@light-green; @light-green-600; @light-green-700; @light-green-800; @light-green-100;);
+}
+
+//Lime
+.btn-lime,
+.dropdown-toggle.btn-lime {
+    .btn-template(@lime; @lime-600; @lime-700; @lime-800; @lime-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-lime {
+    .btn-flat-template(@lime; @lime-600; @lime-700; @lime-800; @lime-100;);
+}
+
+//Yellow
+.btn-yellow,
+.dropdown-toggle.btn-yellow {
+    .btn-template(@yellow; @yellow-600; @yellow-700; @yellow-800; @yellow-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-yellow {
+    .btn-flat-template(@yellow; @yellow-600; @yellow-700; @yellow-800; @yellow-100;);
+}
+
+//Amber
+.btn-amber,
+.dropdown-toggle.btn-amber {
+    .btn-template(@amber; @amber-600; @amber-700; @amber-800; @amber-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-amber {
+    .btn-flat-template(@amber; @amber-600; @amber-700; @amber-800; @amber-100;);
+}
+
+//Orange
+.btn-orange,
+.dropdown-toggle.btn-orange {
+    .btn-template(@orange; @orange-600; @orange-700; @orange-800; @orange-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-orange {
+    .btn-flat-template(@orange; @orange-600; @orange-700; @orange-800; @orange-100;);
+}
+
+//Deep-orange
+.btn-deep-orange,
+.dropdown-toggle.btn-deep-orange {
+    .btn-template(@deep-orange; @deep-orange-600; @deep-orange-700; @deep-orange-800; @deep-orange-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-deep-orange {
+    .btn-flat-template(@deep-orange; @deep-orange-600; @deep-orange-700; @deep-orange-800; @deep-orange-100;);
+}
+
+//Brown
+.btn-brown,
+.dropdown-toggle.btn-brown {
+    .btn-template(@brown; @brown-600; @brown-700; @brown-800; @brown-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-brown {
+    .btn-flat-template(@brown; @brown-600; @brown-700; @brown-800; @brown-100;);
+}
+
+//Grey
+.btn-grey,
+.dropdown-toggle.btn-grey {
+    .btn-template(@grey; @grey-600; @grey-700; @grey-800; @grey-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-grey {
+    .btn-flat-template(@grey; @grey-600; @grey-700; @grey-800; @grey-100;);
+}
+
+//Blue-grey
+.btn-blue-grey,
+.dropdown-toggle.btn-blue-grey {
+    .btn-template(@blue-grey; @blue-grey-600; @blue-grey-700; @blue-grey-800; @blue-grey-100;);
+    &:hover {
+        color: #fff;
+    }
+}
+.btn-flat.btn-blue-grey {
+    .btn-flat-template(@blue-grey; @blue-grey-600; @blue-grey-700; @blue-grey-800; @blue-grey-100;);
+}
+
+// Buttons sizes
+// --------------------------------------------------
+.btn {
+    min-width: 3em; //88px; em is easier to scale
+    padding: 0.8em 1.5em; //10px 14px; em is easier to scale
+}
+.btn-lg,
+.btn-group-lg>.btn {
+    font-size: 18px;
+}
+.btn-sm,
+.btn-group-sm>.btn {
+    font-size: 12px;
+    line-height: 1.1;
+}
+.btn-xs,
+.btn-group-xs>.btn {
+    font-size: 10px;
+    line-height: 1.1;
+}
+.btn-circle {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    letter-spacing: normal;
+    font-weight: 700;
+    line-height: 1;
+}
+.btn-circle.btn-lg {
+    width: 78px;
+    height: 78px;
+    min-width: 78px;
+}
+.btn-circle.btn-sm {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+}
+.btn-circle.btn-xs {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+}
+// Button groups
+// --------------------------------------------------
+.btn-group, .btn-group-vertical {
+    border-radius: 2px;
+}
+.btn-group .btn {
+    border-radius: 2px;
+    padding: 0.8em 1.5em; // Same as normal btn
+}
+.btn-group>.btn:last-child:not(:first-child),
+.btn-group>.dropdown-toggle:not(:first-child),
+.btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btn-group>.btn-group:not(:first-child) {
+    border-left: 1px solid #eee;
+}
+.btn-group >.btn-raised:last-child:not(:first-child),
+.btn-group >.btn-raised.dropdown-toggle:not(:first-child),
+.btn-group >.btn-raised:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btn-group >.btn-group:not(:first-child) {
+    border-left: 0; // Remove border if group button is raised
+}
+.btn-group .dropdown-toggle {
+    min-width: 3em; // touch friendly
+}
+.btn-group.open .dropdown-toggle {
+    outline: 0;
+    outline-offset: 0;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.btn-group .btn+.btn,
+.btn-group .btn+.btn-group,
+.btn-group .btn-group+.btn,
+.btn-group .btn-group+.btn-group {
+    margin-left: 0;
+}
+.btn-group>.btn:hover,
+.btn-group-vertical>.btn:hover {
+    z-index: 0;
+}
+.btn-group>.btn:focus:hover,
+.btn-group-vertical>.btn:focus:hover,
+.btn-group>.btn:active:hover,
+.btn-group-vertical>.btn:active:hover,
+.btn-group>.btn.active:hover,
+.btn-group-vertical>.btn.active:hover {
+    z-index: 2;
+}
