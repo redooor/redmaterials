@@ -2273,6 +2273,10 @@ input[type="checkbox"]:disabled:checked:after,
     padding: 22.5px 1.5em;
     margin: 0;
   }
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    margin-left: -1.5em;
+  }
 }
 .nav-tabs {
   margin-bottom: 1em;
@@ -2573,7 +2577,7 @@ input[type="checkbox"]:disabled:checked:after,
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f5f5f5;
+  background-color: #eeeeee;
 }
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
@@ -2681,7 +2685,7 @@ input[type="checkbox"]:disabled:checked:after,
     background-color: #ffffff;
   }
   .table-responsive-vertical > .table-striped > tbody > tr > td:nth-child(odd) {
-    background-color: #f5f5f5;
+    background-color: #eeeeee;
   }
   .table-responsive-vertical > .table-hover > tbody > tr:hover > td,
   .table-responsive-vertical > .table-hover > tbody > tr:hover {

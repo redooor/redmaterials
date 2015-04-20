@@ -1,6 +1,7 @@
 # Change log
 
 1. [Version 0.0.1](#version-001)
+2. [Version 0.0.2](#version-002)
 
 ## Version 0.0.1
 
@@ -11,3 +12,13 @@
     * Colored buttons based on Material Design Color Palette
     * Colored stripped tables based on Material Design Color Palette
     * Normal, Flat, Raised and Round buttons
+
+## Version 0.0.2
+
+1. Minor adjustments to:    
+    * Striped table accent color to darker grey so default button can be seen (issue #3)
+
+2. Bug fix:
+    * Text rendering issue, gibberish text (issue #1)
+    * Navbar brand margin left so it flushes with the container (issue #2)
+    
