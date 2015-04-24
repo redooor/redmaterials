@@ -98,7 +98,7 @@ a.text-danger:hover {
   font-weight: 500;
 }
 .btn.btn-circle {
-  padding: 0;
+  padding: 21px;
   border-radius: 50%;
 }
 .btn-default,
@@ -2256,6 +2256,11 @@ input[type="checkbox"]:disabled:checked:after,
 .navbar-form [type=tel].form-control,
 .navbar-form [contenteditable].form-control {
   font-size: 1em;
+}
+.navbar-toggle {
+  margin-top: 15px;
+  margin-right: 1.5em;
+  margin-bottom: 15px;
 }
 @media (min-width: 768px) {
   .navbar {
