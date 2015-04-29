@@ -2562,7 +2562,7 @@ input[type="checkbox"]:disabled:checked:after,
 .table-condensed > thead > tr > td,
 .table-condensed > tbody > tr > td,
 .table-condensed > tfoot > tr > td {
-  padding: 1.6rem/2;
+  padding: 0.8rem;
 }
 .table-bordered {
   border: 0;
