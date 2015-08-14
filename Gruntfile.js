@@ -37,7 +37,8 @@ module.exports = function (grunt) {
             '*/\n',
         clean: {
             dist: 'dist',
-            docs: 'docs/dist'
+            docs: 'docs/dist',
+            demo: ['docs/assets/fonts', 'docs/assets/js/bootstrap.*', 'docs/assets/js/jquery.*', 'docs/assets/js/angular.*', 'docs/assets/css/bootstrap.*', 'docs/assets/css/font-awesome.*']
         },
         concat: {
             options: {
@@ -128,17 +129,45 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            fonts: {
-                expand: true,
-                cwd: 'bower_components/bootstrap/fonts/',
-                src: '**',
-                dest: 'dist/fonts/',
-                flatten: true,
-                filter: 'isFile'
-            },
             docs: {
                 src: 'dist/*/*',
                 dest: 'docs/'
+            },
+            bootstrapjs: {
+                src: 'bower_components/bootstrap/dist/js/bootstrap.min.js',
+                dest: 'docs/assets/js/bootstrap.min.js'
+            },
+            bootstrapcss: {
+                src: 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                dest: 'docs/assets/css/bootstrap.min.css'
+            },
+            bootstrapfonts: {
+                expand: true,
+                cwd: 'bower_components/bootstrap/fonts/',
+                src: '**',
+                dest: 'docs/assets/fonts/',
+                flatten: true,
+                filter: 'isFile'
+            },
+            fontawesomecss: {
+                src: 'bower_components/font-awesome/css/font-awesome.min.css',
+                dest: 'docs/assets/css/font-awesome.min.css'
+            },
+            fontawesomefonts: {
+                expand: true,
+                cwd: 'bower_components/font-awesome/fonts/',
+                src: '**',
+                dest: 'docs/assets/fonts/',
+                flatten: true,
+                filter: 'isFile'
+            },
+            angularjs: {
+                src: 'bower_components/angular/angular.min.js',
+                dest: 'docs/assets/js/angular.min.js'
+            },
+            jqueryjs: {
+                src: 'bower_components/jquery/dist/jquery.min.js',
+                dest: 'docs/assets/js/jquery.min.js'
             }
         },
         watch: {
@@ -167,19 +196,20 @@ module.exports = function (grunt) {
     // CSS distribution task.
     grunt.registerTask('less-compile', ['less:compileCore']);
     grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'usebanner', 'cssmin:minifyCore']);
-
-    // Full distribution task.
-    //grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js']);
+    
     // Fonts should be included with bootstrap in HTML
     grunt.registerTask('dist', ['clean:dist', 'dist-css', 'dist-js']);
     
     // Docs task.
+    grunt.registerTask('docs-assets', ['copy:bootstrapjs', 'copy:bootstrapcss', 'copy:bootstrapfonts', 'copy:fontawesomecss', 'copy:fontawesomefonts', 'copy:angularjs', 'copy:jqueryjs']);
     grunt.registerTask('docs-css', ['less:docs', 'autoprefixer:docs', 'cssmin:docs']);
     grunt.registerTask('docs-js', ['uglify:docs']);
-    grunt.registerTask('docs', ['docs-css', 'docs-js', 'clean:docs', 'copy:docs']);
+    grunt.registerTask('docs-bare', ['docs-css', 'docs-js', 'clean:docs', 'copy:docs']);
+    grunt.registerTask('docs', ['docs-bare', 'docs-assets']);
     
-    // Default task. Full distribution plus docs
-    //grunt.registerTask('default', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js', 'docs']);
-    // Fonts should be included with bootstrap in HTML
+    // For submission to repository: exclude dependencies
+    grunt.registerTask('bare', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs-bare']);
+    
+    // Default setting: include all dependencies 
     grunt.registerTask('default', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
 };

@@ -26,11 +26,12 @@ Version 0.0.1 is an incomplete release. We're constantly adding new features to 
 # Installation for Contributors
 
 * Clone to a folder
-* Run "npm install" to install grunt and bower
-* Run "bower install" to install development dependencies
-* Run "grunt docs" to build assets for documentation
-* Run "grunt dist" to build assets for distribution
-* Run "grunt" to build assets for both distribution and documentation
+* Run `npm install` to install grunt and bower
+* Run `bower install` to install development dependencies
+* Run `grunt docs` to build assets for documentation
+* Run `grunt dist` to build assets for distribution
+* Run `grunt` to build assets for both distribution and documentation, for development only
+* Run `grunt bare` to include only assets for distribution without documentation dependencies, run this before submitting changes
 
 # Versioning
 
