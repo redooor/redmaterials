@@ -3256,22 +3256,18 @@ input[type="checkbox"]:disabled:checked:after,
 }
 /* Different positions */
 .corner-ribbon.top-left {
-  -webkit-transform-origin: top left;
-      -ms-transform-origin: top left;
-       -o-transform-origin: top left;
-          transform-origin: top left;
   top: 100px;
   left: -40px;
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -o-transform-origin: top left;
+     transform-origin: top left;
 }
 .corner-ribbon.top-right {
-  -webkit-transform-origin: top right;
-      -ms-transform-origin: top right;
-       -o-transform-origin: top right;
-          transform-origin: top right;
   top: 100px;
   right: -40px;
   left: auto;
@@ -3279,33 +3275,37 @@ input[type="checkbox"]:disabled:checked:after,
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+  -webkit-transform-origin: top right;
+  -ms-transform-origin: top right;
+  -o-transform-origin: top right;
+     transform-origin: top right;
 }
 .corner-ribbon.bottom-left {
-  -webkit-transform-origin: bottom left;
-      -ms-transform-origin: bottom left;
-       -o-transform-origin: bottom left;
-          transform-origin: bottom left;
   top: auto;
   bottom: 100px;
   left: -40px;
-  -ms-transform: rotate(45deg);
-   -o-transform: rotate(45deg);
-      transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: bottom left;
+  -ms-transform-origin: bottom left;
+  -o-transform-origin: bottom left;
+     transform-origin: bottom left;
 }
 .corner-ribbon.bottom-right {
-  -webkit-transform-origin: bottom right;
-      -ms-transform-origin: bottom right;
-       -o-transform-origin: bottom right;
-          transform-origin: bottom right;
   top: auto;
   right: -40px;
   bottom: 100px;
   left: auto;
-  -ms-transform: rotate(-45deg);
-   -o-transform: rotate(-45deg);
-      transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: bottom right;
+  -ms-transform-origin: bottom right;
+  -o-transform-origin: bottom right;
+     transform-origin: bottom right;
 }
 /* Colors */
 .corner-ribbon.white {

@@ -208,8 +208,8 @@ module.exports = function (grunt) {
     grunt.registerTask('docs', ['docs-bare', 'docs-assets']);
     
     // For submission to repository: exclude dependencies
-    grunt.registerTask('bare', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs-bare']);
+    grunt.registerTask('default', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs-bare']);
     
-    // Default setting: include all dependencies 
-    grunt.registerTask('default', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
+    // Demo: include all dependencies, for uploading to demo site
+    grunt.registerTask('demo', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
 };
