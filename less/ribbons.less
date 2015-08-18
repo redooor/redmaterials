@@ -28,35 +28,37 @@
 /* Different positions */
 
 .corner-ribbon.top-left {
+    transform-origin: top left;
     top: 100px;
     left: -40px;
     .rotate(-45deg);
-    .transform-origin(top left);
 }
 
 .corner-ribbon.top-right {
+    transform-origin: top right;
     top: 100px;
     right: -40px;
     left: auto;
     .rotate(45deg);
-    .transform-origin(top right);
 }
 
 .corner-ribbon.bottom-left {
+    transform-origin: bottom left;
     top: auto;
     bottom: 100px;
     left: -40px;
-    .rotate(45deg);
-    .transform-origin(bottom left);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
 
 .corner-ribbon.bottom-right {
+    transform-origin: bottom right;
     top: auto;
     right: -40px;
     bottom: 100px;
     left: auto;
-    .rotate(-45deg);
-    .transform-origin(bottom right);
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
 /* Colors */
 
