@@ -2270,6 +2270,26 @@ input[type="checkbox"]:disabled:checked:after,
   margin-right: 1.5em;
   margin-bottom: 15px;
 }
+/* Additional style */
+.navbar-nav.navbar-breadcrumb > .active > a,
+.navbar-nav.navbar-breadcrumb > .active > a:focus,
+.navbar-nav.navbar-breadcrumb > .active > a:hover {
+  background-color: transparent;
+}
+.navbar-nav.navbar-breadcrumb > li > a,
+.navbar-nav.navbar-breadcrumb > li > .navbar-text {
+  display: inline-block;
+  float: none;
+}
+.navbar-nav.navbar-breadcrumb > li + li:before {
+  font: normal normal normal 14px/1 FontAwesome;
+  color: #ccc;
+  content: "\f054";
+  padding: 0px 2px;
+  line-height: 23px;
+  position: relative;
+  display: inline-block;
+}
 @media (min-width: 768px) {
   .navbar {
     border-radius: 0;

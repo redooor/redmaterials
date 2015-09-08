@@ -175,6 +175,16 @@
         };
     });
     
+    app.directive("viewRedmaterialsNavbar", function () {
+        return {
+            restrict: "E",
+            templateUrl: "views/redmaterials/navbar.html",
+            link: {
+                post: sharedLinkFunction
+            }
+        };
+    });
+    
     // Scroll to anchor
     function sharedLinkFunction( scope, element, attributes ) {
         var hash = window.location.hash.substr(1);

@@ -21,4 +21,7 @@
 2. Bug fix:
     * Text rendering issue, gibberish text (issue #1)
     * Navbar brand margin left so it flushes with the container (issue #2)
+
+3. New features:
+    * Breadcrumb within Navbar (issue #9)
     
