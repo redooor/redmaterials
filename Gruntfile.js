@@ -196,20 +196,20 @@ module.exports = function (grunt) {
     // CSS distribution task.
     grunt.registerTask('less-compile', ['less:compileCore']);
     grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'usebanner', 'cssmin:minifyCore']);
-    
+
     // Fonts should be included with bootstrap in HTML
     grunt.registerTask('dist', ['clean:dist', 'dist-css', 'dist-js']);
-    
+
     // Docs task.
     grunt.registerTask('docs-assets', ['copy:bootstrapjs', 'copy:bootstrapcss', 'copy:bootstrapfonts', 'copy:fontawesomecss', 'copy:fontawesomefonts', 'copy:angularjs', 'copy:jqueryjs']);
     grunt.registerTask('docs-css', ['less:docs', 'autoprefixer:docs', 'cssmin:docs']);
     grunt.registerTask('docs-js', ['uglify:docs']);
     grunt.registerTask('docs-bare', ['docs-css', 'docs-js', 'clean:docs', 'copy:docs']);
     grunt.registerTask('docs', ['docs-bare', 'docs-assets']);
-    
+
     // For submission to repository: exclude dependencies
-    grunt.registerTask('default', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs-bare']);
-    
+    grunt.registerTask('bare', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs-bare']);
+
     // Demo: include all dependencies, for uploading to demo site
-    grunt.registerTask('demo', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
+    grunt.registerTask('default', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
 };

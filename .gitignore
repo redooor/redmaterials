@@ -36,3 +36,11 @@ validation-status.json
 # Folders to ignore
 bower_components
 node_modules
+
+# projects dependencies
+docs/assets/fonts
+docs/assets/*/bootstrap.min.*
+docs/assets/css/font-awesome.min.css
+docs/assets/js/angular.min.js
+docs/assets/js/bootstrap.min.js
+docs/assets/js/jquery.min.js
