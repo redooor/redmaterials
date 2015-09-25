@@ -4,25 +4,37 @@
 .panel {
     border-radius: 0;
     .box-shadow(@shadow-depth-1);
-    
+
     .panel-heading,
     .panel-heading .panel-title,
     .panel-footer {
         border-radius: 0;
     }
-    
+
     .panel-heading,
     .panel-body,
     .panel-footer {
         padding: 1em 1.5em;
     }
-    
+
     .panel-footer {
         border-top: none;
     }
 }
 
-// .panel-variant(@border, @heading, @body, @footer) 
+/* Override Bootstrap */
+.panel>.table-bordered {
+    border: 0;
+    > thead, > tbody, > tfoot {
+        > tr:first-child {
+            > th, > td {
+                border-bottom: 1px solid @table-border-color;
+            }
+        }
+    }
+}
+
+// .panel-variant(@border, @heading, @body, @footer)
 
 //--------Default Panel---------//
 .panel-default {
