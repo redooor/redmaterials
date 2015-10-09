@@ -185,6 +185,26 @@
         };
     });
     
+    app.directive("viewRedmaterialsPanels", function () {
+        return {
+            restrict: "E",
+            templateUrl: "views/redmaterials/panels.html",
+            link: {
+                post: sharedLinkFunction
+            }
+        };
+    });
+    
+    app.directive("viewRedmaterialsModals", function () {
+        return {
+            restrict: "E",
+            templateUrl: "views/redmaterials/modals.html",
+            link: {
+                post: sharedLinkFunction
+            }
+        };
+    });
+    
     // Scroll to anchor
     function sharedLinkFunction( scope, element, attributes ) {
         var hash = window.location.hash.substr(1);
