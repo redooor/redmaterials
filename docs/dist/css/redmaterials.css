@@ -1,7 +1,7 @@
 /*!
- * redmaterials v0.0.1
+ * redmaterials v0.0.3
  * Homepage: 
- * Copyright 2014-2015 Redooor LLP
+ * Copyright 2014-2016 Redooor LLP
  * Licensed under MIT
  * Based on Bootstrap
 */
@@ -1627,7 +1627,7 @@ input[type=number],
 [type=email].form-control,
 [type=tel].form-control,
 [contenteditable].form-control {
-  padding: 0;
+  padding: 0 2px;
   border: none;
   border-radius: 0;
   -webkit-appearance: none;
@@ -1714,7 +1714,8 @@ select.form-control {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding-left: 0;
+  padding-left: 2px;
+  padding-right: 1em;
   padding-right: 0\9;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
   -webkit-background-size: 13px 13px;
@@ -1921,6 +1922,9 @@ input[type="checkbox"]:disabled:checked:after,
 .has-success input:not([type=checkbox]):focus {
   -webkit-box-shadow: inset 0 -2px 0 #4caf50;
   box-shadow: inset 0 -2px 0 #4caf50;
+}
+.help-block {
+  padding: 0 2px;
 }
 .panel {
   border-radius: 0;
@@ -2455,7 +2459,7 @@ input[type="checkbox"]:disabled:checked:after,
   padding: 0.5em 1.5em;
 }
 .input-group .input-group-addon {
-  padding: 6px 16px;
+  padding: 6px 2px;
   font-size: 1em;
   font-weight: normal;
   line-height: 1;
