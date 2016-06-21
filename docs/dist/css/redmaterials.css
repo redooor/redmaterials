@@ -171,6 +171,14 @@ a.text-danger:hover {
 .btn-flat.btn-default .ink {
   background-color: #808080;
 }
+.btn-default:disabled,
+.dropdown-toggle.btn-default:disabled,
+.btn-default.disabled,
+.dropdown-toggle.btn-default.disabled,
+.btn-default[disabled],
+.dropdown-toggle.btn-default[disabled] {
+  background-color: #f1f1f1;
+}
 .btn-primary,
 .dropdown-toggle.btn-primary {
   background-color: #2196f3;

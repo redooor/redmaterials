@@ -67,6 +67,14 @@
 .btn-flat.btn-default {
     .btn-flat-template(#212121; darken(#212121, 5%); darken(#212121, 12%); #000; #000;)
 }
+.btn-default:disabled,
+.dropdown-toggle.btn-default:disabled,
+.btn-default.disabled,
+.dropdown-toggle.btn-default.disabled,
+.btn-default[disabled],
+.dropdown-toggle.btn-default[disabled] {
+    background-color: #f1f1f1;
+}
 //## Primary // color: blue
 .btn-primary,
 .dropdown-toggle.btn-primary {
