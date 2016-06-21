@@ -62,18 +62,10 @@
 //## Default // color: white
 .btn-default,
 .dropdown-toggle.btn-default {
-    .btn-template(@btn-default-bg-color; lighten(#999, 30%); lighten(#999, 20%); lighten(#999, 12%); lighten(#999, 20%);)
+    .btn-template(@btn-default-bg-color; lighten(#999, 30%); lighten(#999, 20%); lighten(#999, 12%); #f1f1f1;)
 }
 .btn-flat.btn-default {
-    .btn-flat-template(#212121; darken(#212121, 5%); darken(#212121, 12%); #000; #000;)
-}
-.btn-default:disabled,
-.dropdown-toggle.btn-default:disabled,
-.btn-default.disabled,
-.dropdown-toggle.btn-default.disabled,
-.btn-default[disabled],
-.dropdown-toggle.btn-default[disabled] {
-    background-color: #f1f1f1;
+    .btn-flat-template(#212121; darken(#212121, 5%); darken(#212121, 12%); #000; #f1f1f1;)
 }
 //## Primary // color: blue
 .btn-primary,

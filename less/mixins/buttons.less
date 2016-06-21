@@ -44,6 +44,13 @@
         color: @color800; // Color 800
         background-color: lighten(#999, 20%);
     }
+    &:disabled,
+    &.disabled,
+    &[disabled] {
+        color: rgba(0, 0, 0, 0.26);
+        background-color: @color100;
+        opacity: 1;
+    }
     //## color for riple-effect
     .ink {
         background-color: darken(#ccc, 30%);
