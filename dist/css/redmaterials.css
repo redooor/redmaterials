@@ -1787,6 +1787,8 @@ a.text-danger:hover {
 }
 label {
   font-weight: normal;
+}
+.control-label {
   color: #999;
 }
 textarea,

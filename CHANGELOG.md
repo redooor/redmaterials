@@ -54,3 +54,4 @@ Web Font Loader example:
 2. Improvements:
     * Improved padding for forms input
     * Improved btn-default disabled background color.
+    * Specify gray color only for .control-label.
