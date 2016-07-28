@@ -2,6 +2,7 @@
 
 1. [Version 0.0.1](#version-001)
 2. [Version 0.0.2](#version-002)
+3. [Version 0.0.3](#version-003)
 
 ## Version 0.0.1
 
@@ -31,4 +32,25 @@
     * Add Panel Card UI (issue #12)
     * Add progress bar to panel (issue #14)
     * Add progress bar to modal window (issue #15)
-    
+
+## Version 0.0.3
+
+1. Removed import Roboto font in CSS to improve loading speed.
+    * Remember to add `<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>` to the header to load Roboto font.
+    * Or you can use Web Font Loader to load dynamically. Read about [Web Font Loader](https://github.com/typekit/webfontloader).
+
+Web Font Loader example:
+```javascript
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Roboto']
+    }
+  });
+</script>
+```
+
+2. Improvements:
+    * Improved padding for forms input
+    * Improved btn-default disabled background color.

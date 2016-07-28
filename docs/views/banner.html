@@ -11,10 +11,28 @@
                 <p>This is a consolidation of many works by various people. Please refer to README.md Acknowledgement section for more information.</p>
                 <p>Refer to <a href="https://github.com/redooor/redmaterials/blob/master/CHANGELOG.md">CHANGE LOG</a> for the changes made to the latest release.</p>
                 <h2>Note to users</h2>
-                <p>Version 0.0.2 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.</p>
+                <p>Version 0.0.3 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.</p>
             </div>
             <div class="col-md-2">
                 <img src="assets/img/redmaterials_logo_sm.png" class="img-responsive"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Important Note</h3>
+                <p>From version 0.0.3, we will not import Roboto font within Redmaterials CSS file. To use it, you need to separately add a link in your header.</p>
+                <p>Add this to your header:</p>
+                <pre><code ng-prism class="language-markup">&lt;link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'&gt;</code></pre>
+                <p>Alternatively, you may use Web Font Loader to dynamically load Roboto font.</p>
+                <p>For example:</p>
+                <pre><code ng-prism class="language-markup">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  WebFont.load({
+    google: {
+      families: ['Roboto']
+    }
+  });
+&lt;/script&gt;</code></pre>
             </div>
         </div>
     </div>

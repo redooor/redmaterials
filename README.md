@@ -13,7 +13,31 @@ View demo at [http://redmaterials.redooor.com](http://redmaterials.redooor.com).
 
 # Note to users
 
-Version 0.0.2 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.
+Version 0.0.3 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.
+
+## Important Note
+
+From version 0.0.3, we will not import Roboto font within Redmaterials CSS file. To use it, you need to separately add a link in your header.
+
+Add this to your header:
+
+```javascript
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+```
+
+Alternatively, you may use [Web Font Loader](https://github.com/typekit/webfontloader) to dynamically load Roboto font.
+
+Web Font Loader example:
+```javascript
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Roboto']
+    }
+  });
+</script>
+```
 
 # Installation for Users
 
