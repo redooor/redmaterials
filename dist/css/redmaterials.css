@@ -1952,7 +1952,8 @@ input[type="radio"],
   border: none;
   background-color: transparent;
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   cursor: pointer;
 }
 input[type="radio"]:focus,
@@ -2026,7 +2027,8 @@ input[type="checkbox"],
   vertical-align: -4px;
   border: none;
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   cursor: pointer;
 }
 input[type="checkbox"]:focus,

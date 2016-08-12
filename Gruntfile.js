@@ -4,7 +4,7 @@
  * Copyright 2013-2015 Redooor LLP
  * Licensed under MIT
  */
-
+/*global module:false*/
 module.exports = function (grunt) {
     'use strict';
 
