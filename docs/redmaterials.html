@@ -19,56 +19,52 @@
 </head>
 
 <body ng-app="docs">
+    <div id="nav_sidebar1" class="nav-sidebar-wrapper">
+        <div class="nav-sidebar nav-sidebar-default nav-sidebar-right shadow-depth-1">
+            <div class="nav-sidebar-title">
+                <a href="#top" class="nav-sidebar-brand"><img src="assets/img/redmaterials_logo_favicon.png" title="RedminPortal"> Redmaterials</a>
+            </div>
+            <ul class="nav nav-sidebar-menu">
+                <li class="nav-sub-header"><span>Bootstrap</span></li>
+                <li><a href="index.html#navbar">Navbar</a></li>
+                <li><a href="index.html#buttons">Buttons</a></li>
+                <li><a href="index.html#type">Typography</a></li>
+                <li><a href="index.html#tables">Tables</a></li>
+                <li><a href="index.html#forms">Forms</a></li>
+                <li><a href="index.html#nav">Nav</a></li>
+                <li><a href="index.html#indicators">Indicators</a></li>
+                <li><a href="index.html#progress">Progress Bars</a></li>
+                <li><a href="index.html#container">Containers</a></li>
+                <li><a href="index.html#panels">Panels</a></li>
+                <li><a href="index.html#dialogs">Dialogs</a></li>
+                <li class="nav-sub-header"><span>Redmaterials</span></li>
+                <li><a href="#navbar">Navbar</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#shadows">Shadows</a></li>
+                <li><a href="#ribbons">Corner Ribbons</a></li>
+                <li><a href="#panels">Panels</a></li>
+                <li><a href="#modals">Modals</a></li>
+                <li class="nav-sub-header"><span></span></li>
+                <li><a href="https://twitter.com/redooor"><i class="fa fa-twitter"></i> twitter</a></li>
+                <li><a href="https://github.com/redooor/redmaterials"><i class="fa fa-github"></i> github</a></li>
+                <li><a href="#top">back to top</a></li>
+            </ul>
+        </div>
+        <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1"></div>
+    </div>
     <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <a href="index.html" class="navbar-brand"><img src="assets/img/redmaterials_logo_favicon.png"/>Redmaterials</a>
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <a href="#top" class="navbar-brand"><img src="assets/img/redmaterials_logo_favicon.png"/>Redmaterials</a>
+                <button type="button" class="navbar-toggle" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1">
+                    <span class="glyphicon glyphicon-option-vertical"></span>
                 </button>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bootstrap <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="index.html#navbar">Navbar</a></li>
-                            <li><a href="index.html#buttons">Buttons</a></li>
-                            <li><a href="index.html#type">Typography</a></li>
-                            <li><a href="index.html#tables">Tables</a></li>
-                            <li><a href="index.html#forms">Forms</a></li>
-                            <li><a href="index.html#nav">Nav</a></li>
-                            <li><a href="index.html#indicators">Indicators</a></li>
-                            <li><a href="index.html#progress">Progress Bars</a></li>
-                            <li><a href="index.html#container">Containers</a></li>
-                            <li><a href="index.html#panels">Panels</a></li>
-                            <li><a href="index.html#dialogs">Dialogs</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Redmaterials <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#navbar">Navbar</a></li>
-                            <li><a href="#buttons">Buttons</a></li>
-                            <li><a href="#tables">Tables</a></li>
-                            <li><a href="#shadows">Shadows</a></li>
-                            <li><a href="#ribbons">Corner Ribbons</a></li>
-                            <li><a href="#panels">Panels</a></li>
-                            <li><a href="#modals">Modals</a></li>
-                        </ul>
-                    </li>
-                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://twitter.com/redooor"><i class="fa fa-twitter"></i> twitter</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/redooor/redmaterials"><i class="fa fa-github"></i> github</a>
-                    </li>
-                    <li>
-                        <a href="#top">back to top</a>
+                        <a href="#" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1"><span class="glyphicon glyphicon-option-vertical"></span></a>
                     </li>
                 </ul>
             </div>
