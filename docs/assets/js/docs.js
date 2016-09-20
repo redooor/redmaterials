@@ -233,5 +233,14 @@
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
         $('[data-toggle="popover"]').popover();
+        function setActiveMenu() {
+            var anchor = window.location.hash;
+            $('#nav_sidebar1 .nav li a').each(function() {
+                if ($(this).attr('href') == anchor) {
+                    $(this).parent().addClass('active');
+                }
+            });
+        }
+        setActiveMenu();
     });
 }(window.jQuery));

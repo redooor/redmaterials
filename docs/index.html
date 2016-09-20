@@ -18,9 +18,9 @@
     <![endif]-->
 </head>
 
-<body ng-app="docs">
+<body ng-app="docs" data-spy="scroll" data-target="#nav_sidebar1">
     <div id="nav_sidebar1" class="nav-sidebar-wrapper">
-        <div class="nav-sidebar nav-sidebar-default nav-sidebar-right shadow-depth-1">
+        <div class="nav-sidebar nav-sidebar-default shadow-depth-1">
             <div class="nav-sidebar-title">
                 <a href="#top" class="nav-sidebar-brand"><img src="assets/img/redmaterials_logo_favicon.png" title="RedminPortal"> Redmaterials</a>
             </div>
@@ -55,18 +55,16 @@
     </div>
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+                </li>
+            </ul>
             <div class="navbar-header">
                 <a href="#top" class="navbar-brand"><img src="assets/img/redmaterials_logo_favicon.png"/>Redmaterials</a>
                 <button type="button" class="navbar-toggle" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1">
                     <span class="glyphicon glyphicon-option-vertical"></span>
                 </button>
-            </div>
-            <div class="navbar-collapse collapse" id="navbar-main">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1"><span class="glyphicon glyphicon-option-vertical"></span></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

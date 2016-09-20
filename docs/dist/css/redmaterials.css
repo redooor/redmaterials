@@ -2452,6 +2452,12 @@ input[type="checkbox"]:disabled:checked:after,
   line-height: 23px;
   height: 64px;
 }
+.navbar-brand img {
+  height: 23px;
+  display: inline;
+  margin-right: 5px;
+  vertical-align: top;
+}
 .navbar-inverse .form-control {
   color: #fff;
 }
