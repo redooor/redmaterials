@@ -52,7 +52,14 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                preserveComments: 'some'
+                preserveComments: false,
+                banner: '/*!\n' +
+                    ' * <%= pkg.name %> v<%= pkg.version %>\n' +
+                    ' * Homepage: <%= pkg.homepage %>\n' +
+                    ' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+                    ' * Licensed under <%= pkg.license %>\n' +
+                    ' * Based on Bootstrap\n' +
+                    '*/\n'
             },
             core: {
                 src: '<%= concat.redmaterials.dest %>',
