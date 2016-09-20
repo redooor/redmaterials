@@ -27,6 +27,7 @@ Web Font Loader example:
     * Improved btn-default disabled background color.
     * Specify gray color only for .control-label.
     * Fixed nav bar brand image size issue.
+    * Fixed nav bar issues on mobile screen.
 
 3. New:
     * Navigation side bar with color variations.
