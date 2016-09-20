@@ -12,7 +12,7 @@
 // Source: http://codepen.io/zavoloklom/pen/Gubja/
 (function ($) {
     "use strict";
-    $(document).on("click", ".ripple-effect", function (e) {
+    $(document).on("click touchstart", ".ripple-effect", function (e) {
         var ink, d, x, y,
             rippler = $(this);
 
@@ -44,5 +44,22 @@
             top: y + 'px',
             left: x + 'px'
         }).addClass("animate");
+    });
+}(jQuery));
+// Navigation sidebar slide in/out
+(function ($) {
+    "use strict";
+    $(document).on('click touchstart', '[data-toggle=nav-sidebar-toggle]', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var target, navbar;
+        target = $(this).attr('data-target');
+        if (target.length > 0) {
+            navbar = $(target);
+            if (navbar.length > 0) {
+                navbar.toggleClass('active');
+                $('body').toggleClass('rdm-ui-disable-scroll');
+            }
+        }
     });
 }(jQuery));

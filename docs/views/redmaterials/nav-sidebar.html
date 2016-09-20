@@ -1,0 +1,139 @@
+<!-- Navigation Sidebar
+================================================== -->
+<div id="nav-sidebar" class="container">
+    <div class="bs-docs-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>Redmaterials Nav Sidebar</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-component">
+                    <div id="nav_sidebar_demo1" class="nav-sidebar-wrapper">
+                        <div class="nav-sidebar nav-sidebar-default shadow-depth-1">
+                            <div class="nav-sidebar-title">
+                                <a href="#top" class="nav-sidebar-brand">Nav Sidebar</a>
+                            </div>
+                            <ul class="nav nav-sidebar-menu">
+                                <li class="nav-sub-header"><span>Header 1</span></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 2</a></li>
+                                <li class="active"><a href="#">Active 3</a></li>
+                                <li><a href="#">Test 4</a></li>
+                                <li class="nav-sub-header"><span>Header 2</span></li>
+                                <li><a href="#">Test 5</a></li>
+                                <li><a href="#">Test 6</a></li>
+                                <li><a href="#">Test 7</a></li>
+                                <li><a href="#">Test 8</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"></div>
+                    </div>
+                    <div id="nav_sidebar_demo2" class="nav-sidebar-wrapper">
+                        <div class="nav-sidebar nav-sidebar-pink nav-sidebar-right shadow-depth-1">
+                            <div class="nav-sidebar-title">
+                                <a href="#top" class="nav-sidebar-brand">Right Sidebar</a>
+                            </div>
+                            <ul class="nav nav-sidebar-menu">
+                                <li class="nav-sub-header"><span>Header 1</span></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 2</a></li>
+                                <li class="active"><a href="#">Active 3</a></li>
+                                <li><a href="#">Test 4</a></li>
+                                <li class="nav-sub-header"><span>Header 2</span></li>
+                                <li><a href="#">Test 5</a></li>
+                                <li><a href="#">Test 6</a></li>
+                                <li><a href="#">Test 7</a></li>
+                                <li><a href="#">Test 8</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo2"></div>
+                    </div>
+                    <p>
+                        <button type="button" class="btn btn-primary" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1">Show Sidebar</button>
+                        <button type="button" class="btn btn-pink" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo2">Show Sidebar (right)</button>
+                    </p>
+                    <p>Wrap the sidebar with a div class <i>nav-sidebar-wrapper</i> and give it a unque ID.</p>
+                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div id="nav_sidebar_demo1" class="nav-sidebar-wrapper"&gt;</code></pre></div>
+                    <p>Within the wrapper, you need 2 divs, <i>nav-sidebar</i> and <i>nav-sidebar-overlay</i> :</p>
+                    <p><i>nav-sidebar</i> contains the menu list <i>nav nav-sidebar-menu</i>. By default it's hidden from view.</p>
+                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div class="nav-sidebar nav-sidebar-default shadow-depth-1"&gt;
+    &lt;div class="nav-sidebar-title"&gt;
+        &lt;a href="#top" class="nav-sidebar-brand"&gt;Nav Sidebar&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;ul class="nav nav-sidebar-menu"&gt;
+        &lt;li class="nav-sub-header"&gt;&lt;span&gt;Header 1&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Test 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Test 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;&lt;a href="#"&gt;Active 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Test 4&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="nav-sub-header"&gt;&lt;span&gt;Header 2&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Test 5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Test 6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Test 7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Test 8&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre></div>
+                    <p><i>nav-sidebar-overlay</i> is the overlay when the sidebar is shown to prevent main body from scrolling.</p>
+                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"&gt;&lt;/div&gt;</code></pre></div>
+                    <p>To toggle the sidebar on/off, simply add the</p>
+                    <pre>data-toggle="nav-sidebar-toggle"</pre>
+                    <p>and</p>
+                    <pre>data-target="#your_wrapper_id"</pre>
+                    <p>to any element, such as button and overlay. <i>data-target</i> should contain your wrapper's ID.</p>
+                    <p>I had given the <i>nav-sidebar-overlay</i> those properties so that user can click the overlay to close the sidebar.</p>
+                    <p>Full example code:</p>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div id="nav_sidebar_demo1" class="nav-sidebar-wrapper"&gt;
+    &lt;div class="nav-sidebar nav-sidebar-default shadow-depth-1"&gt;
+        &lt;div class="nav-sidebar-title"&gt;
+            &lt;a href="#top" class="nav-sidebar-brand"&gt;Nav Sidebar&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;ul class="nav nav-sidebar-menu"&gt;
+            &lt;li class="nav-sub-header"&gt;&lt;span&gt;Header 1&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Test 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Test 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="active"&gt;&lt;a href="#"&gt;Active 3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Test 4&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="nav-sub-header"&gt;&lt;span&gt;Header 2&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Test 5&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Test 6&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Test 7&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Test 8&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+                    <h2>Color options</h2>
+                    <p>Nav Sidebar supports all material color palette.</p>
+                    <p>Remove <i>nav-sidebar-default</i> altogether for grey scale.</p>
+                    <p>Or replace it with the following to get different colors:</p>
+                    <ul>
+                        <li>.nav-sidebar-red</li>
+                        <li>.nav-sidebar-pink</li>
+                        <li>.nav-sidebar-purple</li>
+                        <li>.nav-sidebar-deep-purple</li>
+                        <li>.nav-sidebar-indigo</li>
+                        <li>.nav-sidebar-blue</li>
+                        <li>.nav-sidebar-light-blue</li>
+                        <li>.nav-sidebar-cyan</li>
+                        <li>.nav-sidebar-teal</li>
+                        <li>.nav-sidebar-green</li>
+                        <li>.nav-sidebar-light-green</li>
+                        <li>.nav-sidebar-lime</li>
+                        <li>.nav-sidebar-yellow</li>
+                        <li>.nav-sidebar-amber</li>
+                        <li>.nav-sidebar-orange</li>
+                        <li>.nav-sidebar-deep-orange</li>
+                        <li>.nav-sidebar-brown</li>
+                        <li>.nav-sidebar-grey</li>
+                        <li>.nav-sidebar-blue-grey</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

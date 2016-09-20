@@ -1,0 +1,136 @@
+/*
+ * Navigation sidebar
+ */
+/* Hide on load, show later when toggled */
+.nav-sidebar,
+.nav-sidebar-overlay {
+    display: none;
+}
+
+.nav-sidebar {
+    position: fixed;
+    width: 240px;
+    top: 0;
+    bottom: 0;
+    left: -240px;
+    z-index: 1052; /* above modal */
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+    padding-bottom: 2em;
+    transform: translateZ(0);
+    transform-style: preserve-3d;
+    transition-delay: 0.1s;
+    transition-duration: 0.2s;
+    transition-property: transform, left;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-sidebar-title {
+    position: relative;
+    padding: 15px;
+    background-color: #ffffff;
+    .nav-sidebar-brand {
+        font-size: 24px;
+        color: #333;
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+        img {
+            height: 28px;
+            vertical-align: text-top;
+        }
+    }
+}
+
+.nav-sidebar-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1051; /* above modal */
+    background: #333;
+    background: rgba(0,0,0,0.4);
+    transition: .3s ease all;
+}
+
+.nav-sidebar-wrapper.active {
+    .nav-sidebar {
+        left: 0px;
+    }
+    .nav-sidebar-overlay {
+        display: block;
+    }
+}
+
+/* Sidebar navigation */
+.nav-sidebar-menu {
+    ul {
+        padding: 0;
+    }
+    ul li {
+        list-style: none;
+        display: block;
+        padding: 0;
+    }
+    li span {
+        display: block;
+        padding: 10px 20px;
+    }
+    li a {
+        display: block;
+        padding: 10px 20px;
+        color: #333;
+    }
+    li a:hover,
+    li a:focus {
+        color: #333;
+        text-decoration: none;
+        background-color: #eee;
+    }
+    li.nav-sub-header {
+        &:before {
+            content: '';
+            display: block;
+            border-top: 1px solid #ddd;
+        }
+        span {
+            font-weight: 300;
+            color: #ccc;
+        }
+    }
+    li.active a,
+    li.active a:hover,
+    li.active a:focus {
+        color: #fff;
+        background-color: #666;
+    }
+}
+
+// Pull right, instead of left
+.nav-sidebar-right {
+    left: auto;
+    right: -240px;
+    transition-property: transform, right;
+}
+
+.nav-sidebar-wrapper.active {
+    .nav-sidebar-right {
+        left: auto;
+        right: 0px;
+    }
+}
+
+// Color variations
+@length : length(@colors);
+.make-color-nav-sidebars(@colors; @names; @index) when (@index > 0) {
+    .make-color-nav-sidebars(@colors; @names; (@index - 1));
+    @name: extract(@names, @index);
+    @color: extract(@colors, @index);
+    .nav-sidebar-@{name} {
+        .nav-sidebar-variant(@color);
+    }
+}
+.make-color-nav-sidebars(@colors; @names; @length); // run the mixin
