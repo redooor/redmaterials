@@ -67,13 +67,14 @@
 
 /* Sidebar navigation */
 .nav-sidebar-menu {
+    padding: 10px 0px;
     ul {
-        padding: 0;
+        padding: 0px;
     }
     ul li {
         list-style: none;
         display: block;
-        padding: 0;
+        padding: 0px;
     }
     li span {
         display: block;
@@ -91,15 +92,14 @@
         background-color: #eee;
     }
     li.nav-sub-header {
-        &:before {
-            content: '';
-            display: block;
-            border-top: 1px solid #ddd;
-        }
         span {
             font-weight: 300;
             color: #ccc;
         }
+    }
+    li.divider {
+        border-top: 1px solid #eee;
+        margin: 10px 0px;
     }
     li.active a,
     li.active a:hover,
