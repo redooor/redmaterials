@@ -7,11 +7,10 @@
 */
 /*jslint browser: true, plusplus: true, vars: true*/
 /*global $, jQuery*/
-
-// Ripple-effect animation
-// Source: http://codepen.io/zavoloklom/pen/Gubja/
 (function ($) {
     "use strict";
+    // Ripple-effect animation
+    // Source: http://codepen.io/zavoloklom/pen/Gubja/
     $(document).on("click touchstart", ".ripple-effect", function (e) {
         var ink, d, x, y,
             rippler = $(this);
@@ -45,10 +44,7 @@
             left: x + 'px'
         }).addClass("animate");
     });
-}(jQuery));
-// Navigation sidebar slide in/out
-(function ($) {
-    "use strict";
+    // Navigation sidebar slide in/out
     $(document).on('click touchstart', '[data-toggle=nav-sidebar-toggle]', function (e) {
         e.preventDefault();
         e.stopPropagation();
