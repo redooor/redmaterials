@@ -1,145 +1,122 @@
 /*jslint browser: true, plusplus: true, vars: true*/
-/*global $, jQuery, angular, Prism*/
+/*global $, jQuery, angular, Prism, WebFont*/
 (function () {
     'use strict';
     var app = angular.module("docs", []);
     
-    // Scroll to anchor on load
-    function sharedLinkFunction(scope, element, attributes) {
-        var hash = window.location.hash.substr(1);
-        var $hashTag = $('#' + hash);
-        if ($hashTag.length > 0) {
-            $('html, body').animate({scrollTop: $hashTag.offset().top}, 0);
-        }
-    }
+    app.controller("colorRepeater", ['$scope', function ($scope) {
+        $scope.colors = [
+            'default',
+            'red',
+            'pink',
+            'purple',
+            'deep-purple',
+            'indigo',
+            'blue',
+            'light-blue',
+            'cyan',
+            'teal',
+            'green',
+            'light-green',
+            'lime',
+            'yellow',
+            'amber',
+            'orange',
+            'deep-orange',
+            'brown',
+            'grey',
+            'blue-grey'
+        ];
+    }]);
     
     app.directive("viewBanner", function () {
         return {
             restrict: "E",
-            templateUrl: "views/banner.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/banner.html"
         };
     });
     
     app.directive("viewNavbar", function () {
         return {
             restrict: "E",
-            templateUrl: "views/navbar.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/navbar.html"
         };
     });
     
     app.directive("viewButtons", function () {
         return {
             restrict: "E",
-            templateUrl: "views/buttons.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/buttons.html"
         };
     });
     
     app.directive("viewTypography", function () {
         return {
             restrict: "E",
-            templateUrl: "views/typography.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/typography.html"
         };
     });
     
     app.directive("viewTables", function () {
         return {
             restrict: "E",
-            templateUrl: "views/tables.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/tables.html"
         };
     });
     
     app.directive("viewForms", function () {
         return {
             restrict: "E",
-            templateUrl: "views/forms.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/forms.html"
         };
     });
     
     app.directive("viewNavs", function () {
         return {
             restrict: "E",
-            templateUrl: "views/navs.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/navs.html"
         };
     });
     
     app.directive("viewIndicators", function () {
         return {
             restrict: "E",
-            templateUrl: "views/indicators.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/indicators.html"
         };
     });
     
     app.directive("viewProgressbars", function () {
         return {
             restrict: "E",
-            templateUrl: "views/progressbars.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/progressbars.html"
         };
     });
     
     app.directive("viewContainers", function () {
         return {
             restrict: "E",
-            templateUrl: "views/containers.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/containers.html"
         };
     });
   
     app.directive("viewPanels", function () {
         return {
             restrict: "E",
-            templateUrl: "views/panels.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/panels.html"
         };
     });
     
     app.directive("viewDialogs", function () {
         return {
             restrict: "E",
-            templateUrl: "views/dialogs.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/dialogs.html"
         };
     });
     
     app.directive("viewFooter", function () {
         return {
             restrict: "E",
-            templateUrl: "views/footer.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/footer.html"
         };
     });
     
@@ -147,40 +124,28 @@
     app.directive("viewRedmaterialsButtons", function () {
         return {
             restrict: "E",
-            templateUrl: "views/redmaterials/buttons.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/redmaterials/buttons.html"
         };
     });
   
     app.directive("viewRedmaterialsTables", function () {
         return {
             restrict: "E",
-            templateUrl: "views/redmaterials/tables.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/redmaterials/tables.html"
         };
     });
     
     app.directive("viewRedmaterialsShadow", function () {
         return {
             restrict: "E",
-            templateUrl: "views/redmaterials/shadows.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/redmaterials/shadows.html"
         };
     });
     
     app.directive("viewRedmaterialsRibbons", function () {
         return {
             restrict: "E",
-            templateUrl: "views/redmaterials/ribbons.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/redmaterials/ribbons.html"
         };
     });
     
@@ -188,8 +153,8 @@
         return {
             restrict: "E",
             templateUrl: "views/redmaterials/navbar.html",
-            link: {
-                post: sharedLinkFunction
+            scope: {
+                colors: "="
             }
         };
     });
@@ -197,20 +162,14 @@
     app.directive("viewRedmaterialsPanels", function () {
         return {
             restrict: "E",
-            templateUrl: "views/redmaterials/panels.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/redmaterials/panels.html"
         };
     });
     
     app.directive("viewRedmaterialsModals", function () {
         return {
             restrict: "E",
-            templateUrl: "views/redmaterials/modals.html",
-            link: {
-                post: sharedLinkFunction
-            }
+            templateUrl: "views/redmaterials/modals.html"
         };
     });
     
@@ -218,8 +177,8 @@
         return {
             restrict: "E",
             templateUrl: "views/redmaterials/nav-sidebar.html",
-            link: {
-                post: sharedLinkFunction
+            scope: {
+                colors: "="
             }
         };
     });
@@ -259,5 +218,29 @@
                 $('html, body').animate({scrollTop: hashTag.offset().top}, 300);
             }
         });
+        // Load webfont Roboto
+        var webfontsite = "https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js";
+        $.ajax({
+            url: webfontsite,
+            dataType: "script",
+            success: function () {
+                WebFont.load({
+                    google: {
+                        families: ['Roboto']
+                    }
+                });
+            }
+        });
+        // Scroll to anchor on load
+        var scrollToLoop;
+        function sharedLinkFunction() {
+            var hash = window.location.hash.substr(1);
+            var $hashTag = $('#' + hash);
+            if ($hashTag.length > 0) {
+                $('html, body').animate({scrollTop: $hashTag.offset().top}, 0);
+                window.clearInterval(scrollToLoop); // stop the loop
+            }
+        }
+        scrollToLoop = window.setInterval(sharedLinkFunction, 500);
     });
-}(window.jQuery));
+}(jQuery));

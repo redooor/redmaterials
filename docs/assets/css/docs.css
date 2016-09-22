@@ -28,4 +28,7 @@
 .bs-component .modal .modal-dialog {
   width: 80%;
 }
+.demo-nav-sidebar .nav-sidebar-title {
+  display: block;
+}
 /*# sourceMappingURL=docs.css.map */

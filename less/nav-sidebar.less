@@ -125,12 +125,13 @@
 
 // Color variations
 @length : length(@colors);
-.make-color-nav-sidebars(@colors; @names; @index) when (@index > 0) {
-    .make-color-nav-sidebars(@colors; @names; (@index - 1));
+.make-color-nav-sidebars(@colors; @names; @textcolors; @index) when (@index > 0) {
+    .make-color-nav-sidebars(@colors; @names; @textcolors; (@index - 1));
     @name: extract(@names, @index);
     @color: extract(@colors, @index);
+    @textcolor: extract(@textcolors, @index);
     .nav-sidebar-@{name} {
-        .nav-sidebar-variant(@color);
+        .nav-sidebar-variant(@color, @textcolor);
     }
 }
-.make-color-nav-sidebars(@colors; @names; @length); // run the mixin
+.make-color-nav-sidebars(@colors; @names; @textcolors; @length); // run the mixin

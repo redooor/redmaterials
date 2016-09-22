@@ -1,18 +1,18 @@
 //
 // Navigation sidebar
 // --------------------------------------------------
-.nav-sidebar-variant(@color) {
+.nav-sidebar-variant(@color, @textcolor) {
     .nav-sidebar-title {
         background-color: @color;
         .nav-sidebar-brand {
-            color: #fff;
+            color: @textcolor;
         }
     }
     .nav-sidebar-menu {
         li.active a,
         li.active a:hover,
         li.active a:focus {
-            color: #fff;
+            color: @textcolor;
             background-color: @color;
         }
     }

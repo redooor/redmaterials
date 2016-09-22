@@ -1,0 +1,27 @@
+//
+// Navigation bar
+// --------------------------------------------------
+.navbar-variant(@color, @textcolor) {
+    color: @textcolor;
+    background-color: @color;
+    .form-control {
+        color: #fff;
+        .placeholder(@textcolor);
+        &[type=text] {
+            .box-shadow(inset 0 -1px 0 @textcolor);
+            &:focus {
+                .box-shadow(inset 0 -2px 0 #fff);
+            }
+        }
+    }
+    .navbar-brand,
+    .navbar-nav > li >a,
+    .navbar-text {
+        color: @textcolor;
+    }
+    .nav .open > a,
+    .nav .open > a:focus,
+    .nav .open > a:hover {
+        background-color: darken(@color, 10%);
+    }
+}
