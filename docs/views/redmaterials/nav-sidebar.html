@@ -119,28 +119,11 @@
                     <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div class="nav-sidebar nav-sidebar-default nav-sidebar-right shadow-depth-1"&gt;</code></pre></div>
                     <h2>Color options</h2>
                     <p>Nav Sidebar supports all material color palette.</p>
-                    <p>Remove <i>nav-sidebar-default</i> altogether for grey scale.</p>
-                    <p>Or replace it with the following to get different colors:</p>
-                    <ul>
-                        <li>.nav-sidebar-red</li>
-                        <li>.nav-sidebar-pink</li>
-                        <li>.nav-sidebar-purple</li>
-                        <li>.nav-sidebar-deep-purple</li>
-                        <li>.nav-sidebar-indigo</li>
-                        <li>.nav-sidebar-blue</li>
-                        <li>.nav-sidebar-light-blue</li>
-                        <li>.nav-sidebar-cyan</li>
-                        <li>.nav-sidebar-teal</li>
-                        <li>.nav-sidebar-green</li>
-                        <li>.nav-sidebar-light-green</li>
-                        <li>.nav-sidebar-lime</li>
-                        <li>.nav-sidebar-yellow</li>
-                        <li>.nav-sidebar-amber</li>
-                        <li>.nav-sidebar-orange</li>
-                        <li>.nav-sidebar-deep-orange</li>
-                        <li>.nav-sidebar-brown</li>
-                        <li>.nav-sidebar-grey</li>
-                        <li>.nav-sidebar-blue-grey</li>
+                    <p>Replace <i>nav-sidebar-default</i> with the following to get different colors:</p>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="color in colors" class="demo-nav-sidebar nav-sidebar-{{ color }}">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-{{ color }}</span></span>
+                        </li>
                     </ul>
                 </div>
             </div>

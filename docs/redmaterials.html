@@ -18,7 +18,7 @@
     <![endif]-->
 </head>
 
-<body ng-app="docs" data-spy="scroll" data-target="#nav_sidebar1">
+<body ng-app="docs" data-spy="scroll" data-target="#nav_sidebar1" ng-controller="colorRepeater">
     <div id="nav_sidebar1" class="nav-sidebar-wrapper">
         <div class="nav-sidebar nav-sidebar-default shadow-depth-1">
             <div class="nav-sidebar-title">
@@ -75,9 +75,9 @@
     
     <view-banner></view-banner>
     
-    <view-redmaterials-navbar></view-redmaterials-navbar>
+    <view-redmaterials-navbar colors="colors"></view-redmaterials-navbar>
     
-    <view-redmaterials-nav-sidebar></view-redmaterials-nav-sidebar>
+    <view-redmaterials-nav-sidebar colors="colors"></view-redmaterials-nav-sidebar>
     
     <view-redmaterials-buttons></view-redmaterials-buttons>
     
@@ -99,14 +99,6 @@
     <script src="assets/js/prism.js"></script>
     <script src="assets/js/docs.min.js"></script>
     <script src="dist/js/redmaterials.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js"></script>
-    <script>
-      WebFont.load({
-        google: {
-          families: ['Roboto']
-        }
-      });
-    </script>
 </body>
 
 </html>
