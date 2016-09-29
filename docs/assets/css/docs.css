@@ -16,6 +16,10 @@
   padding: 60px 20px;
   text-align: center;
 }
+.bs-component {
+  display: block;
+  margin-bottom: 15px;
+}
 .bs-component .modal {
   position: relative;
   top: auto;

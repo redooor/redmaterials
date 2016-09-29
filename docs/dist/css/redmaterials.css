@@ -146,6 +146,27 @@ a.text-danger:hover {
   background-color: #f1f1f1;
   opacity: 1;
 }
+.btn-default:disabled.focus,
+.dropdown-toggle.btn-default:disabled.focus,
+.btn-default.disabled.focus,
+.dropdown-toggle.btn-default.disabled.focus,
+.btn-default[disabled].focus,
+.dropdown-toggle.btn-default[disabled].focus,
+.btn-default:disabled:focus,
+.dropdown-toggle.btn-default:disabled:focus,
+.btn-default.disabled:focus,
+.dropdown-toggle.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+.dropdown-toggle.btn-default[disabled]:focus,
+.btn-default:disabled:hover,
+.dropdown-toggle.btn-default:disabled:hover,
+.btn-default.disabled:hover,
+.dropdown-toggle.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+.dropdown-toggle.btn-default[disabled]:hover {
+  cursor: auto;
+  background-color: #f1f1f1;
+}
 .btn-default .ink,
 .dropdown-toggle.btn-default .ink {
   background-color: #b8b8b8;
@@ -205,6 +226,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #BBDEFB;
   opacity: 1;
+}
+.btn-primary:disabled.focus,
+.dropdown-toggle.btn-primary:disabled.focus,
+.btn-primary.disabled.focus,
+.dropdown-toggle.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+.dropdown-toggle.btn-primary[disabled].focus,
+.btn-primary:disabled:focus,
+.dropdown-toggle.btn-primary:disabled:focus,
+.btn-primary.disabled:focus,
+.dropdown-toggle.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+.dropdown-toggle.btn-primary[disabled]:focus,
+.btn-primary:disabled:hover,
+.dropdown-toggle.btn-primary:disabled:hover,
+.btn-primary.disabled:hover,
+.dropdown-toggle.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+.dropdown-toggle.btn-primary[disabled]:hover {
+  cursor: auto;
+  background-color: #BBDEFB;
 }
 .btn-primary .ink,
 .dropdown-toggle.btn-primary .ink {
@@ -266,6 +308,27 @@ a.text-danger:hover {
   background-color: #C8E6C9;
   opacity: 1;
 }
+.btn-success:disabled.focus,
+.dropdown-toggle.btn-success:disabled.focus,
+.btn-success.disabled.focus,
+.dropdown-toggle.btn-success.disabled.focus,
+.btn-success[disabled].focus,
+.dropdown-toggle.btn-success[disabled].focus,
+.btn-success:disabled:focus,
+.dropdown-toggle.btn-success:disabled:focus,
+.btn-success.disabled:focus,
+.dropdown-toggle.btn-success.disabled:focus,
+.btn-success[disabled]:focus,
+.dropdown-toggle.btn-success[disabled]:focus,
+.btn-success:disabled:hover,
+.dropdown-toggle.btn-success:disabled:hover,
+.btn-success.disabled:hover,
+.dropdown-toggle.btn-success.disabled:hover,
+.btn-success[disabled]:hover,
+.dropdown-toggle.btn-success[disabled]:hover {
+  cursor: auto;
+  background-color: #C8E6C9;
+}
 .btn-success .ink,
 .dropdown-toggle.btn-success .ink {
   background-color: #2E7D32;
@@ -325,6 +388,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #B2EBF2;
   opacity: 1;
+}
+.btn-info:disabled.focus,
+.dropdown-toggle.btn-info:disabled.focus,
+.btn-info.disabled.focus,
+.dropdown-toggle.btn-info.disabled.focus,
+.btn-info[disabled].focus,
+.dropdown-toggle.btn-info[disabled].focus,
+.btn-info:disabled:focus,
+.dropdown-toggle.btn-info:disabled:focus,
+.btn-info.disabled:focus,
+.dropdown-toggle.btn-info.disabled:focus,
+.btn-info[disabled]:focus,
+.dropdown-toggle.btn-info[disabled]:focus,
+.btn-info:disabled:hover,
+.dropdown-toggle.btn-info:disabled:hover,
+.btn-info.disabled:hover,
+.dropdown-toggle.btn-info.disabled:hover,
+.btn-info[disabled]:hover,
+.dropdown-toggle.btn-info[disabled]:hover {
+  cursor: auto;
+  background-color: #B2EBF2;
 }
 .btn-info .ink,
 .dropdown-toggle.btn-info .ink {
@@ -386,6 +470,27 @@ a.text-danger:hover {
   background-color: #FFECB3;
   opacity: 1;
 }
+.btn-warning:disabled.focus,
+.dropdown-toggle.btn-warning:disabled.focus,
+.btn-warning.disabled.focus,
+.dropdown-toggle.btn-warning.disabled.focus,
+.btn-warning[disabled].focus,
+.dropdown-toggle.btn-warning[disabled].focus,
+.btn-warning:disabled:focus,
+.dropdown-toggle.btn-warning:disabled:focus,
+.btn-warning.disabled:focus,
+.dropdown-toggle.btn-warning.disabled:focus,
+.btn-warning[disabled]:focus,
+.dropdown-toggle.btn-warning[disabled]:focus,
+.btn-warning:disabled:hover,
+.dropdown-toggle.btn-warning:disabled:hover,
+.btn-warning.disabled:hover,
+.dropdown-toggle.btn-warning.disabled:hover,
+.btn-warning[disabled]:hover,
+.dropdown-toggle.btn-warning[disabled]:hover {
+  cursor: auto;
+  background-color: #FFECB3;
+}
 .btn-warning .ink,
 .dropdown-toggle.btn-warning .ink {
   background-color: #FF8F00;
@@ -446,6 +551,27 @@ a.text-danger:hover {
   background-color: #FFCCBC;
   opacity: 1;
 }
+.btn-danger:disabled.focus,
+.dropdown-toggle.btn-danger:disabled.focus,
+.btn-danger.disabled.focus,
+.dropdown-toggle.btn-danger.disabled.focus,
+.btn-danger[disabled].focus,
+.dropdown-toggle.btn-danger[disabled].focus,
+.btn-danger:disabled:focus,
+.dropdown-toggle.btn-danger:disabled:focus,
+.btn-danger.disabled:focus,
+.dropdown-toggle.btn-danger.disabled:focus,
+.btn-danger[disabled]:focus,
+.dropdown-toggle.btn-danger[disabled]:focus,
+.btn-danger:disabled:hover,
+.dropdown-toggle.btn-danger:disabled:hover,
+.btn-danger.disabled:hover,
+.dropdown-toggle.btn-danger.disabled:hover,
+.btn-danger[disabled]:hover,
+.dropdown-toggle.btn-danger[disabled]:hover {
+  cursor: auto;
+  background-color: #FFCCBC;
+}
 .btn-danger .ink,
 .dropdown-toggle.btn-danger .ink {
   background-color: #D84315;
@@ -505,6 +631,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #FFCDD2;
   opacity: 1;
+}
+.btn-red:disabled.focus,
+.dropdown-toggle.btn-red:disabled.focus,
+.btn-red.disabled.focus,
+.dropdown-toggle.btn-red.disabled.focus,
+.btn-red[disabled].focus,
+.dropdown-toggle.btn-red[disabled].focus,
+.btn-red:disabled:focus,
+.dropdown-toggle.btn-red:disabled:focus,
+.btn-red.disabled:focus,
+.dropdown-toggle.btn-red.disabled:focus,
+.btn-red[disabled]:focus,
+.dropdown-toggle.btn-red[disabled]:focus,
+.btn-red:disabled:hover,
+.dropdown-toggle.btn-red:disabled:hover,
+.btn-red.disabled:hover,
+.dropdown-toggle.btn-red.disabled:hover,
+.btn-red[disabled]:hover,
+.dropdown-toggle.btn-red[disabled]:hover {
+  cursor: auto;
+  background-color: #FFCDD2;
 }
 .btn-red .ink,
 .dropdown-toggle.btn-red .ink {
@@ -570,6 +717,27 @@ a.text-danger:hover {
   background-color: #F8BBD0;
   opacity: 1;
 }
+.btn-pink:disabled.focus,
+.dropdown-toggle.btn-pink:disabled.focus,
+.btn-pink.disabled.focus,
+.dropdown-toggle.btn-pink.disabled.focus,
+.btn-pink[disabled].focus,
+.dropdown-toggle.btn-pink[disabled].focus,
+.btn-pink:disabled:focus,
+.dropdown-toggle.btn-pink:disabled:focus,
+.btn-pink.disabled:focus,
+.dropdown-toggle.btn-pink.disabled:focus,
+.btn-pink[disabled]:focus,
+.dropdown-toggle.btn-pink[disabled]:focus,
+.btn-pink:disabled:hover,
+.dropdown-toggle.btn-pink:disabled:hover,
+.btn-pink.disabled:hover,
+.dropdown-toggle.btn-pink.disabled:hover,
+.btn-pink[disabled]:hover,
+.dropdown-toggle.btn-pink[disabled]:hover {
+  cursor: auto;
+  background-color: #F8BBD0;
+}
 .btn-pink .ink,
 .dropdown-toggle.btn-pink .ink {
   background-color: #AD1457;
@@ -633,6 +801,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #E1BEE7;
   opacity: 1;
+}
+.btn-purple:disabled.focus,
+.dropdown-toggle.btn-purple:disabled.focus,
+.btn-purple.disabled.focus,
+.dropdown-toggle.btn-purple.disabled.focus,
+.btn-purple[disabled].focus,
+.dropdown-toggle.btn-purple[disabled].focus,
+.btn-purple:disabled:focus,
+.dropdown-toggle.btn-purple:disabled:focus,
+.btn-purple.disabled:focus,
+.dropdown-toggle.btn-purple.disabled:focus,
+.btn-purple[disabled]:focus,
+.dropdown-toggle.btn-purple[disabled]:focus,
+.btn-purple:disabled:hover,
+.dropdown-toggle.btn-purple:disabled:hover,
+.btn-purple.disabled:hover,
+.dropdown-toggle.btn-purple.disabled:hover,
+.btn-purple[disabled]:hover,
+.dropdown-toggle.btn-purple[disabled]:hover {
+  cursor: auto;
+  background-color: #E1BEE7;
 }
 .btn-purple .ink,
 .dropdown-toggle.btn-purple .ink {
@@ -698,6 +887,27 @@ a.text-danger:hover {
   background-color: #D1C4E9;
   opacity: 1;
 }
+.btn-deep-purple:disabled.focus,
+.dropdown-toggle.btn-deep-purple:disabled.focus,
+.btn-deep-purple.disabled.focus,
+.dropdown-toggle.btn-deep-purple.disabled.focus,
+.btn-deep-purple[disabled].focus,
+.dropdown-toggle.btn-deep-purple[disabled].focus,
+.btn-deep-purple:disabled:focus,
+.dropdown-toggle.btn-deep-purple:disabled:focus,
+.btn-deep-purple.disabled:focus,
+.dropdown-toggle.btn-deep-purple.disabled:focus,
+.btn-deep-purple[disabled]:focus,
+.dropdown-toggle.btn-deep-purple[disabled]:focus,
+.btn-deep-purple:disabled:hover,
+.dropdown-toggle.btn-deep-purple:disabled:hover,
+.btn-deep-purple.disabled:hover,
+.dropdown-toggle.btn-deep-purple.disabled:hover,
+.btn-deep-purple[disabled]:hover,
+.dropdown-toggle.btn-deep-purple[disabled]:hover {
+  cursor: auto;
+  background-color: #D1C4E9;
+}
 .btn-deep-purple .ink,
 .dropdown-toggle.btn-deep-purple .ink {
   background-color: #4527A0;
@@ -761,6 +971,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #C5CAE9;
   opacity: 1;
+}
+.btn-indigo:disabled.focus,
+.dropdown-toggle.btn-indigo:disabled.focus,
+.btn-indigo.disabled.focus,
+.dropdown-toggle.btn-indigo.disabled.focus,
+.btn-indigo[disabled].focus,
+.dropdown-toggle.btn-indigo[disabled].focus,
+.btn-indigo:disabled:focus,
+.dropdown-toggle.btn-indigo:disabled:focus,
+.btn-indigo.disabled:focus,
+.dropdown-toggle.btn-indigo.disabled:focus,
+.btn-indigo[disabled]:focus,
+.dropdown-toggle.btn-indigo[disabled]:focus,
+.btn-indigo:disabled:hover,
+.dropdown-toggle.btn-indigo:disabled:hover,
+.btn-indigo.disabled:hover,
+.dropdown-toggle.btn-indigo.disabled:hover,
+.btn-indigo[disabled]:hover,
+.dropdown-toggle.btn-indigo[disabled]:hover {
+  cursor: auto;
+  background-color: #C5CAE9;
 }
 .btn-indigo .ink,
 .dropdown-toggle.btn-indigo .ink {
@@ -826,6 +1057,27 @@ a.text-danger:hover {
   background-color: #BBDEFB;
   opacity: 1;
 }
+.btn-blue:disabled.focus,
+.dropdown-toggle.btn-blue:disabled.focus,
+.btn-blue.disabled.focus,
+.dropdown-toggle.btn-blue.disabled.focus,
+.btn-blue[disabled].focus,
+.dropdown-toggle.btn-blue[disabled].focus,
+.btn-blue:disabled:focus,
+.dropdown-toggle.btn-blue:disabled:focus,
+.btn-blue.disabled:focus,
+.dropdown-toggle.btn-blue.disabled:focus,
+.btn-blue[disabled]:focus,
+.dropdown-toggle.btn-blue[disabled]:focus,
+.btn-blue:disabled:hover,
+.dropdown-toggle.btn-blue:disabled:hover,
+.btn-blue.disabled:hover,
+.dropdown-toggle.btn-blue.disabled:hover,
+.btn-blue[disabled]:hover,
+.dropdown-toggle.btn-blue[disabled]:hover {
+  cursor: auto;
+  background-color: #BBDEFB;
+}
 .btn-blue .ink,
 .dropdown-toggle.btn-blue .ink {
   background-color: #1565C0;
@@ -889,6 +1141,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #B3E5FC;
   opacity: 1;
+}
+.btn-light-blue:disabled.focus,
+.dropdown-toggle.btn-light-blue:disabled.focus,
+.btn-light-blue.disabled.focus,
+.dropdown-toggle.btn-light-blue.disabled.focus,
+.btn-light-blue[disabled].focus,
+.dropdown-toggle.btn-light-blue[disabled].focus,
+.btn-light-blue:disabled:focus,
+.dropdown-toggle.btn-light-blue:disabled:focus,
+.btn-light-blue.disabled:focus,
+.dropdown-toggle.btn-light-blue.disabled:focus,
+.btn-light-blue[disabled]:focus,
+.dropdown-toggle.btn-light-blue[disabled]:focus,
+.btn-light-blue:disabled:hover,
+.dropdown-toggle.btn-light-blue:disabled:hover,
+.btn-light-blue.disabled:hover,
+.dropdown-toggle.btn-light-blue.disabled:hover,
+.btn-light-blue[disabled]:hover,
+.dropdown-toggle.btn-light-blue[disabled]:hover {
+  cursor: auto;
+  background-color: #B3E5FC;
 }
 .btn-light-blue .ink,
 .dropdown-toggle.btn-light-blue .ink {
@@ -954,6 +1227,27 @@ a.text-danger:hover {
   background-color: #B2EBF2;
   opacity: 1;
 }
+.btn-cyan:disabled.focus,
+.dropdown-toggle.btn-cyan:disabled.focus,
+.btn-cyan.disabled.focus,
+.dropdown-toggle.btn-cyan.disabled.focus,
+.btn-cyan[disabled].focus,
+.dropdown-toggle.btn-cyan[disabled].focus,
+.btn-cyan:disabled:focus,
+.dropdown-toggle.btn-cyan:disabled:focus,
+.btn-cyan.disabled:focus,
+.dropdown-toggle.btn-cyan.disabled:focus,
+.btn-cyan[disabled]:focus,
+.dropdown-toggle.btn-cyan[disabled]:focus,
+.btn-cyan:disabled:hover,
+.dropdown-toggle.btn-cyan:disabled:hover,
+.btn-cyan.disabled:hover,
+.dropdown-toggle.btn-cyan.disabled:hover,
+.btn-cyan[disabled]:hover,
+.dropdown-toggle.btn-cyan[disabled]:hover {
+  cursor: auto;
+  background-color: #B2EBF2;
+}
 .btn-cyan .ink,
 .dropdown-toggle.btn-cyan .ink {
   background-color: #00838F;
@@ -1017,6 +1311,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #B2DFDB;
   opacity: 1;
+}
+.btn-teal:disabled.focus,
+.dropdown-toggle.btn-teal:disabled.focus,
+.btn-teal.disabled.focus,
+.dropdown-toggle.btn-teal.disabled.focus,
+.btn-teal[disabled].focus,
+.dropdown-toggle.btn-teal[disabled].focus,
+.btn-teal:disabled:focus,
+.dropdown-toggle.btn-teal:disabled:focus,
+.btn-teal.disabled:focus,
+.dropdown-toggle.btn-teal.disabled:focus,
+.btn-teal[disabled]:focus,
+.dropdown-toggle.btn-teal[disabled]:focus,
+.btn-teal:disabled:hover,
+.dropdown-toggle.btn-teal:disabled:hover,
+.btn-teal.disabled:hover,
+.dropdown-toggle.btn-teal.disabled:hover,
+.btn-teal[disabled]:hover,
+.dropdown-toggle.btn-teal[disabled]:hover {
+  cursor: auto;
+  background-color: #B2DFDB;
 }
 .btn-teal .ink,
 .dropdown-toggle.btn-teal .ink {
@@ -1082,6 +1397,27 @@ a.text-danger:hover {
   background-color: #C8E6C9;
   opacity: 1;
 }
+.btn-green:disabled.focus,
+.dropdown-toggle.btn-green:disabled.focus,
+.btn-green.disabled.focus,
+.dropdown-toggle.btn-green.disabled.focus,
+.btn-green[disabled].focus,
+.dropdown-toggle.btn-green[disabled].focus,
+.btn-green:disabled:focus,
+.dropdown-toggle.btn-green:disabled:focus,
+.btn-green.disabled:focus,
+.dropdown-toggle.btn-green.disabled:focus,
+.btn-green[disabled]:focus,
+.dropdown-toggle.btn-green[disabled]:focus,
+.btn-green:disabled:hover,
+.dropdown-toggle.btn-green:disabled:hover,
+.btn-green.disabled:hover,
+.dropdown-toggle.btn-green.disabled:hover,
+.btn-green[disabled]:hover,
+.dropdown-toggle.btn-green[disabled]:hover {
+  cursor: auto;
+  background-color: #C8E6C9;
+}
 .btn-green .ink,
 .dropdown-toggle.btn-green .ink {
   background-color: #2E7D32;
@@ -1145,6 +1481,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #DCEDC8;
   opacity: 1;
+}
+.btn-light-green:disabled.focus,
+.dropdown-toggle.btn-light-green:disabled.focus,
+.btn-light-green.disabled.focus,
+.dropdown-toggle.btn-light-green.disabled.focus,
+.btn-light-green[disabled].focus,
+.dropdown-toggle.btn-light-green[disabled].focus,
+.btn-light-green:disabled:focus,
+.dropdown-toggle.btn-light-green:disabled:focus,
+.btn-light-green.disabled:focus,
+.dropdown-toggle.btn-light-green.disabled:focus,
+.btn-light-green[disabled]:focus,
+.dropdown-toggle.btn-light-green[disabled]:focus,
+.btn-light-green:disabled:hover,
+.dropdown-toggle.btn-light-green:disabled:hover,
+.btn-light-green.disabled:hover,
+.dropdown-toggle.btn-light-green.disabled:hover,
+.btn-light-green[disabled]:hover,
+.dropdown-toggle.btn-light-green[disabled]:hover {
+  cursor: auto;
+  background-color: #DCEDC8;
 }
 .btn-light-green .ink,
 .dropdown-toggle.btn-light-green .ink {
@@ -1210,6 +1567,27 @@ a.text-danger:hover {
   background-color: #F0F4C3;
   opacity: 1;
 }
+.btn-lime:disabled.focus,
+.dropdown-toggle.btn-lime:disabled.focus,
+.btn-lime.disabled.focus,
+.dropdown-toggle.btn-lime.disabled.focus,
+.btn-lime[disabled].focus,
+.dropdown-toggle.btn-lime[disabled].focus,
+.btn-lime:disabled:focus,
+.dropdown-toggle.btn-lime:disabled:focus,
+.btn-lime.disabled:focus,
+.dropdown-toggle.btn-lime.disabled:focus,
+.btn-lime[disabled]:focus,
+.dropdown-toggle.btn-lime[disabled]:focus,
+.btn-lime:disabled:hover,
+.dropdown-toggle.btn-lime:disabled:hover,
+.btn-lime.disabled:hover,
+.dropdown-toggle.btn-lime.disabled:hover,
+.btn-lime[disabled]:hover,
+.dropdown-toggle.btn-lime[disabled]:hover {
+  cursor: auto;
+  background-color: #F0F4C3;
+}
 .btn-lime .ink,
 .dropdown-toggle.btn-lime .ink {
   background-color: #9E9D24;
@@ -1273,6 +1651,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #FFF9C4;
   opacity: 1;
+}
+.btn-yellow:disabled.focus,
+.dropdown-toggle.btn-yellow:disabled.focus,
+.btn-yellow.disabled.focus,
+.dropdown-toggle.btn-yellow.disabled.focus,
+.btn-yellow[disabled].focus,
+.dropdown-toggle.btn-yellow[disabled].focus,
+.btn-yellow:disabled:focus,
+.dropdown-toggle.btn-yellow:disabled:focus,
+.btn-yellow.disabled:focus,
+.dropdown-toggle.btn-yellow.disabled:focus,
+.btn-yellow[disabled]:focus,
+.dropdown-toggle.btn-yellow[disabled]:focus,
+.btn-yellow:disabled:hover,
+.dropdown-toggle.btn-yellow:disabled:hover,
+.btn-yellow.disabled:hover,
+.dropdown-toggle.btn-yellow.disabled:hover,
+.btn-yellow[disabled]:hover,
+.dropdown-toggle.btn-yellow[disabled]:hover {
+  cursor: auto;
+  background-color: #FFF9C4;
 }
 .btn-yellow .ink,
 .dropdown-toggle.btn-yellow .ink {
@@ -1338,6 +1737,27 @@ a.text-danger:hover {
   background-color: #FFECB3;
   opacity: 1;
 }
+.btn-amber:disabled.focus,
+.dropdown-toggle.btn-amber:disabled.focus,
+.btn-amber.disabled.focus,
+.dropdown-toggle.btn-amber.disabled.focus,
+.btn-amber[disabled].focus,
+.dropdown-toggle.btn-amber[disabled].focus,
+.btn-amber:disabled:focus,
+.dropdown-toggle.btn-amber:disabled:focus,
+.btn-amber.disabled:focus,
+.dropdown-toggle.btn-amber.disabled:focus,
+.btn-amber[disabled]:focus,
+.dropdown-toggle.btn-amber[disabled]:focus,
+.btn-amber:disabled:hover,
+.dropdown-toggle.btn-amber:disabled:hover,
+.btn-amber.disabled:hover,
+.dropdown-toggle.btn-amber.disabled:hover,
+.btn-amber[disabled]:hover,
+.dropdown-toggle.btn-amber[disabled]:hover {
+  cursor: auto;
+  background-color: #FFECB3;
+}
 .btn-amber .ink,
 .dropdown-toggle.btn-amber .ink {
   background-color: #FF8F00;
@@ -1401,6 +1821,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #FFE0B2;
   opacity: 1;
+}
+.btn-orange:disabled.focus,
+.dropdown-toggle.btn-orange:disabled.focus,
+.btn-orange.disabled.focus,
+.dropdown-toggle.btn-orange.disabled.focus,
+.btn-orange[disabled].focus,
+.dropdown-toggle.btn-orange[disabled].focus,
+.btn-orange:disabled:focus,
+.dropdown-toggle.btn-orange:disabled:focus,
+.btn-orange.disabled:focus,
+.dropdown-toggle.btn-orange.disabled:focus,
+.btn-orange[disabled]:focus,
+.dropdown-toggle.btn-orange[disabled]:focus,
+.btn-orange:disabled:hover,
+.dropdown-toggle.btn-orange:disabled:hover,
+.btn-orange.disabled:hover,
+.dropdown-toggle.btn-orange.disabled:hover,
+.btn-orange[disabled]:hover,
+.dropdown-toggle.btn-orange[disabled]:hover {
+  cursor: auto;
+  background-color: #FFE0B2;
 }
 .btn-orange .ink,
 .dropdown-toggle.btn-orange .ink {
@@ -1466,6 +1907,27 @@ a.text-danger:hover {
   background-color: #FFCCBC;
   opacity: 1;
 }
+.btn-deep-orange:disabled.focus,
+.dropdown-toggle.btn-deep-orange:disabled.focus,
+.btn-deep-orange.disabled.focus,
+.dropdown-toggle.btn-deep-orange.disabled.focus,
+.btn-deep-orange[disabled].focus,
+.dropdown-toggle.btn-deep-orange[disabled].focus,
+.btn-deep-orange:disabled:focus,
+.dropdown-toggle.btn-deep-orange:disabled:focus,
+.btn-deep-orange.disabled:focus,
+.dropdown-toggle.btn-deep-orange.disabled:focus,
+.btn-deep-orange[disabled]:focus,
+.dropdown-toggle.btn-deep-orange[disabled]:focus,
+.btn-deep-orange:disabled:hover,
+.dropdown-toggle.btn-deep-orange:disabled:hover,
+.btn-deep-orange.disabled:hover,
+.dropdown-toggle.btn-deep-orange.disabled:hover,
+.btn-deep-orange[disabled]:hover,
+.dropdown-toggle.btn-deep-orange[disabled]:hover {
+  cursor: auto;
+  background-color: #FFCCBC;
+}
 .btn-deep-orange .ink,
 .dropdown-toggle.btn-deep-orange .ink {
   background-color: #D84315;
@@ -1529,6 +1991,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #D7CCC8;
   opacity: 1;
+}
+.btn-brown:disabled.focus,
+.dropdown-toggle.btn-brown:disabled.focus,
+.btn-brown.disabled.focus,
+.dropdown-toggle.btn-brown.disabled.focus,
+.btn-brown[disabled].focus,
+.dropdown-toggle.btn-brown[disabled].focus,
+.btn-brown:disabled:focus,
+.dropdown-toggle.btn-brown:disabled:focus,
+.btn-brown.disabled:focus,
+.dropdown-toggle.btn-brown.disabled:focus,
+.btn-brown[disabled]:focus,
+.dropdown-toggle.btn-brown[disabled]:focus,
+.btn-brown:disabled:hover,
+.dropdown-toggle.btn-brown:disabled:hover,
+.btn-brown.disabled:hover,
+.dropdown-toggle.btn-brown.disabled:hover,
+.btn-brown[disabled]:hover,
+.dropdown-toggle.btn-brown[disabled]:hover {
+  cursor: auto;
+  background-color: #D7CCC8;
 }
 .btn-brown .ink,
 .dropdown-toggle.btn-brown .ink {
@@ -1594,6 +2077,27 @@ a.text-danger:hover {
   background-color: #F5F5F5;
   opacity: 1;
 }
+.btn-grey:disabled.focus,
+.dropdown-toggle.btn-grey:disabled.focus,
+.btn-grey.disabled.focus,
+.dropdown-toggle.btn-grey.disabled.focus,
+.btn-grey[disabled].focus,
+.dropdown-toggle.btn-grey[disabled].focus,
+.btn-grey:disabled:focus,
+.dropdown-toggle.btn-grey:disabled:focus,
+.btn-grey.disabled:focus,
+.dropdown-toggle.btn-grey.disabled:focus,
+.btn-grey[disabled]:focus,
+.dropdown-toggle.btn-grey[disabled]:focus,
+.btn-grey:disabled:hover,
+.dropdown-toggle.btn-grey:disabled:hover,
+.btn-grey.disabled:hover,
+.dropdown-toggle.btn-grey.disabled:hover,
+.btn-grey[disabled]:hover,
+.dropdown-toggle.btn-grey[disabled]:hover {
+  cursor: auto;
+  background-color: #F5F5F5;
+}
 .btn-grey .ink,
 .dropdown-toggle.btn-grey .ink {
   background-color: #424242;
@@ -1657,6 +2161,27 @@ a.text-danger:hover {
   color: rgba(0, 0, 0, 0.26);
   background-color: #CFD8DC;
   opacity: 1;
+}
+.btn-blue-grey:disabled.focus,
+.dropdown-toggle.btn-blue-grey:disabled.focus,
+.btn-blue-grey.disabled.focus,
+.dropdown-toggle.btn-blue-grey.disabled.focus,
+.btn-blue-grey[disabled].focus,
+.dropdown-toggle.btn-blue-grey[disabled].focus,
+.btn-blue-grey:disabled:focus,
+.dropdown-toggle.btn-blue-grey:disabled:focus,
+.btn-blue-grey.disabled:focus,
+.dropdown-toggle.btn-blue-grey.disabled:focus,
+.btn-blue-grey[disabled]:focus,
+.dropdown-toggle.btn-blue-grey[disabled]:focus,
+.btn-blue-grey:disabled:hover,
+.dropdown-toggle.btn-blue-grey:disabled:hover,
+.btn-blue-grey.disabled:hover,
+.dropdown-toggle.btn-blue-grey.disabled:hover,
+.btn-blue-grey[disabled]:hover,
+.dropdown-toggle.btn-blue-grey[disabled]:hover {
+  cursor: auto;
+  background-color: #CFD8DC;
 }
 .btn-blue-grey .ink,
 .dropdown-toggle.btn-blue-grey .ink {
@@ -3410,6 +3935,27 @@ input[type="checkbox"]:disabled:checked:after,
   color: rgba(0, 0, 0, 0.26);
   background-color: #cccccc;
   opacity: 1;
+}
+.pagination > li > a:disabled.focus,
+.pagination > li > span:disabled.focus,
+.pagination > li > a.disabled.focus,
+.pagination > li > span.disabled.focus,
+.pagination > li > a[disabled].focus,
+.pagination > li > span[disabled].focus,
+.pagination > li > a:disabled:focus,
+.pagination > li > span:disabled:focus,
+.pagination > li > a.disabled:focus,
+.pagination > li > span.disabled:focus,
+.pagination > li > a[disabled]:focus,
+.pagination > li > span[disabled]:focus,
+.pagination > li > a:disabled:hover,
+.pagination > li > span:disabled:hover,
+.pagination > li > a.disabled:hover,
+.pagination > li > span.disabled:hover,
+.pagination > li > a[disabled]:hover,
+.pagination > li > span[disabled]:hover {
+  cursor: auto;
+  background-color: #cccccc;
 }
 .pagination > li > a .ink,
 .pagination > li > span .ink {
