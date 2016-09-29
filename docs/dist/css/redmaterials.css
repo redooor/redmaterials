@@ -82,6 +82,11 @@ a.text-danger:hover {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
 }
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: auto;
+}
 .btn-raised {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
@@ -164,7 +169,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-default.disabled:hover,
 .btn-default[disabled]:hover,
 .dropdown-toggle.btn-default[disabled]:hover {
-  cursor: auto;
   background-color: #f1f1f1;
 }
 .btn-default .ink,
@@ -245,7 +249,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-primary.disabled:hover,
 .btn-primary[disabled]:hover,
 .dropdown-toggle.btn-primary[disabled]:hover {
-  cursor: auto;
   background-color: #BBDEFB;
 }
 .btn-primary .ink,
@@ -326,7 +329,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-success.disabled:hover,
 .btn-success[disabled]:hover,
 .dropdown-toggle.btn-success[disabled]:hover {
-  cursor: auto;
   background-color: #C8E6C9;
 }
 .btn-success .ink,
@@ -407,7 +409,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-info.disabled:hover,
 .btn-info[disabled]:hover,
 .dropdown-toggle.btn-info[disabled]:hover {
-  cursor: auto;
   background-color: #B2EBF2;
 }
 .btn-info .ink,
@@ -488,7 +489,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-warning.disabled:hover,
 .btn-warning[disabled]:hover,
 .dropdown-toggle.btn-warning[disabled]:hover {
-  cursor: auto;
   background-color: #FFECB3;
 }
 .btn-warning .ink,
@@ -569,7 +569,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-danger.disabled:hover,
 .btn-danger[disabled]:hover,
 .dropdown-toggle.btn-danger[disabled]:hover {
-  cursor: auto;
   background-color: #FFCCBC;
 }
 .btn-danger .ink,
@@ -650,7 +649,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-red.disabled:hover,
 .btn-red[disabled]:hover,
 .dropdown-toggle.btn-red[disabled]:hover {
-  cursor: auto;
   background-color: #FFCDD2;
 }
 .btn-red .ink,
@@ -735,7 +733,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-pink.disabled:hover,
 .btn-pink[disabled]:hover,
 .dropdown-toggle.btn-pink[disabled]:hover {
-  cursor: auto;
   background-color: #F8BBD0;
 }
 .btn-pink .ink,
@@ -820,7 +817,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-purple.disabled:hover,
 .btn-purple[disabled]:hover,
 .dropdown-toggle.btn-purple[disabled]:hover {
-  cursor: auto;
   background-color: #E1BEE7;
 }
 .btn-purple .ink,
@@ -905,7 +901,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-deep-purple.disabled:hover,
 .btn-deep-purple[disabled]:hover,
 .dropdown-toggle.btn-deep-purple[disabled]:hover {
-  cursor: auto;
   background-color: #D1C4E9;
 }
 .btn-deep-purple .ink,
@@ -990,7 +985,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-indigo.disabled:hover,
 .btn-indigo[disabled]:hover,
 .dropdown-toggle.btn-indigo[disabled]:hover {
-  cursor: auto;
   background-color: #C5CAE9;
 }
 .btn-indigo .ink,
@@ -1075,7 +1069,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-blue.disabled:hover,
 .btn-blue[disabled]:hover,
 .dropdown-toggle.btn-blue[disabled]:hover {
-  cursor: auto;
   background-color: #BBDEFB;
 }
 .btn-blue .ink,
@@ -1160,7 +1153,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-light-blue.disabled:hover,
 .btn-light-blue[disabled]:hover,
 .dropdown-toggle.btn-light-blue[disabled]:hover {
-  cursor: auto;
   background-color: #B3E5FC;
 }
 .btn-light-blue .ink,
@@ -1245,7 +1237,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-cyan.disabled:hover,
 .btn-cyan[disabled]:hover,
 .dropdown-toggle.btn-cyan[disabled]:hover {
-  cursor: auto;
   background-color: #B2EBF2;
 }
 .btn-cyan .ink,
@@ -1330,7 +1321,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-teal.disabled:hover,
 .btn-teal[disabled]:hover,
 .dropdown-toggle.btn-teal[disabled]:hover {
-  cursor: auto;
   background-color: #B2DFDB;
 }
 .btn-teal .ink,
@@ -1415,7 +1405,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-green.disabled:hover,
 .btn-green[disabled]:hover,
 .dropdown-toggle.btn-green[disabled]:hover {
-  cursor: auto;
   background-color: #C8E6C9;
 }
 .btn-green .ink,
@@ -1500,7 +1489,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-light-green.disabled:hover,
 .btn-light-green[disabled]:hover,
 .dropdown-toggle.btn-light-green[disabled]:hover {
-  cursor: auto;
   background-color: #DCEDC8;
 }
 .btn-light-green .ink,
@@ -1585,7 +1573,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-lime.disabled:hover,
 .btn-lime[disabled]:hover,
 .dropdown-toggle.btn-lime[disabled]:hover {
-  cursor: auto;
   background-color: #F0F4C3;
 }
 .btn-lime .ink,
@@ -1670,7 +1657,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-yellow.disabled:hover,
 .btn-yellow[disabled]:hover,
 .dropdown-toggle.btn-yellow[disabled]:hover {
-  cursor: auto;
   background-color: #FFF9C4;
 }
 .btn-yellow .ink,
@@ -1755,7 +1741,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-amber.disabled:hover,
 .btn-amber[disabled]:hover,
 .dropdown-toggle.btn-amber[disabled]:hover {
-  cursor: auto;
   background-color: #FFECB3;
 }
 .btn-amber .ink,
@@ -1840,7 +1825,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-orange.disabled:hover,
 .btn-orange[disabled]:hover,
 .dropdown-toggle.btn-orange[disabled]:hover {
-  cursor: auto;
   background-color: #FFE0B2;
 }
 .btn-orange .ink,
@@ -1925,7 +1909,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-deep-orange.disabled:hover,
 .btn-deep-orange[disabled]:hover,
 .dropdown-toggle.btn-deep-orange[disabled]:hover {
-  cursor: auto;
   background-color: #FFCCBC;
 }
 .btn-deep-orange .ink,
@@ -2010,7 +1993,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-brown.disabled:hover,
 .btn-brown[disabled]:hover,
 .dropdown-toggle.btn-brown[disabled]:hover {
-  cursor: auto;
   background-color: #D7CCC8;
 }
 .btn-brown .ink,
@@ -2095,7 +2077,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-grey.disabled:hover,
 .btn-grey[disabled]:hover,
 .dropdown-toggle.btn-grey[disabled]:hover {
-  cursor: auto;
   background-color: #F5F5F5;
 }
 .btn-grey .ink,
@@ -2180,7 +2161,6 @@ a.text-danger:hover {
 .dropdown-toggle.btn-blue-grey.disabled:hover,
 .btn-blue-grey[disabled]:hover,
 .dropdown-toggle.btn-blue-grey[disabled]:hover {
-  cursor: auto;
   background-color: #CFD8DC;
 }
 .btn-blue-grey .ink,
@@ -3954,7 +3934,6 @@ input[type="checkbox"]:disabled:checked:after,
 .pagination > li > span.disabled:hover,
 .pagination > li > a[disabled]:hover,
 .pagination > li > span[disabled]:hover {
-  cursor: auto;
   background-color: #cccccc;
 }
 .pagination > li > a .ink,
