@@ -28,9 +28,13 @@ Web Font Loader example:
     * Specify gray color only for .control-label.
     * Fixed nav bar brand image size issue.
     * Fixed nav bar issues on mobile screen.
+    * Removed all table and panel border radius.
+    * Fixed Panel with list-group display issue #10.
+    * Fixed Panel border issue between the body and group list.
 
 3. New:
     * Navigation side bar with color variations.
+    * Added color variations for Navigation bar.
     
 4. Updated bower and npm dependencies.
 
