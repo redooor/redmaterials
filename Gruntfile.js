@@ -1,7 +1,7 @@
 /*!
  * Redmaterials' Gruntfile
  * http://redmaterials.redooor.com
- * Copyright 2013-2015 Redooor LLP
+ * Copyright 2013-2016 Redooor LLP
  * Licensed under MIT
  */
 /*global module:false*/
@@ -215,8 +215,8 @@ module.exports = function (grunt) {
     grunt.registerTask('docs', ['docs-bare', 'docs-assets']);
 
     // For submission to repository: exclude dependencies
-    grunt.registerTask('bare', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs-bare']);
+    grunt.registerTask('default', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs-bare']);
 
     // Demo: include all dependencies, for uploading to demo site
-    grunt.registerTask('default', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
+    grunt.registerTask('deprecated', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
 };
