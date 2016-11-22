@@ -1,6 +1,6 @@
 ![alt text][logo]
 
-[logo]: http://redmaterials.redooor.com/assets/img/redmaterials_logo_sm.png "Redmaterials"
+[logo]: https://redooor.github.io/redmaterials/assets/img/redmaterials_logo_sm.png "Redmaterials"
 
 #Redmaterials by Redooor
 
@@ -9,7 +9,7 @@ It is a consolidation of many works by various people. Please refer to [Acknowle
 
 Redmaterials was initially developed/consolidated by Redooor to be used in another open-sourced project [Redminportal](https://github.com/redooor/redminportal). We've decided to create a separate open-sourced project and make it available to the public.
 
-View demo at [http://redmaterials.redooor.com](http://redmaterials.redooor.com).
+View demo at [https://redooor.github.io/redmaterials](https://redooor.github.io/redmaterials).
 
 # Note to users
 
