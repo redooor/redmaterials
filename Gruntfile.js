@@ -1,7 +1,7 @@
 /*!
  * Redmaterials' Gruntfile
  * https://redooor.github.io/redmaterials
- * Copyright 2013-2016 Redooor LLP
+ * Copyright 2013-2018 Redooor LLP
  * Licensed under MIT
  */
 /*global module:false*/

@@ -28,6 +28,7 @@ _site
 *.sublime-workspace
 nbproject
 Thumbs.db
+package-lock.json
 
 # grunt-html-validation
 validation-report.json

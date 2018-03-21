@@ -1,6 +1,6 @@
 {
   "name": "redmaterials",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Bootstrap theme inspired by Google Material Design and various projects",
   "main": "dist/css/redmaterials.css",
   "moduleType": [
@@ -35,11 +35,11 @@
   "devDependencies": {
     "respond": "~1.4.2",
     "html5shiv": "~3.7.3",
-    "font-awesome": "~4.6.3",
+    "font-awesome": "~4.7.0",
     "angular": "~1.5.8"
   },
   "dependencies": {
-    "jquery": "~2.1.4",
-    "bootstrap": "~3.3.7"
+    "jquery": "~3.3.1",
+    "bootstrap": "~4.0.0"
   }
 }
