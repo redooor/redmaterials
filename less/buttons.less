@@ -397,18 +397,6 @@ fieldset[disabled] .btn {
     border-radius: 2px;
     padding: 0.8em 1.5em; // Same as normal btn
 }
-.btn-group>.btn:last-child:not(:first-child),
-.btn-group>.dropdown-toggle:not(:first-child),
-.btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
-.btn-group>.btn-group:not(:first-child) {
-    border-left: 1px solid #eee;
-}
-.btn-group >.btn-raised:last-child:not(:first-child),
-.btn-group >.btn-raised.dropdown-toggle:not(:first-child),
-.btn-group >.btn-raised:not(:first-child):not(:last-child):not(.dropdown-toggle),
-.btn-group >.btn-group:not(:first-child) {
-    border-left: 0; // Remove border if group button is raised
-}
 .btn-group .dropdown-toggle {
     min-width: 3em; // touch friendly
 }
@@ -418,12 +406,6 @@ fieldset[disabled] .btn {
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
-}
-.btn-group .btn+.btn,
-.btn-group .btn+.btn-group,
-.btn-group .btn-group+.btn,
-.btn-group .btn-group+.btn-group {
-    margin-left: 0;
 }
 .btn-group>.btn:hover,
 .btn-group-vertical>.btn:hover {
