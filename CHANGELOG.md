@@ -3,6 +3,13 @@
 1. [Version 0.0.1](#version-001)
 2. [Version 0.0.2](#version-002)
 3. [Version 0.0.3](#version-003)
+3. [Version 0.1.0](#version-010)
+
+## Version 0.1.0
+
+1. Support for Bootstrap v4. For Bootstrap v3, please use version 0.0.3.
+
+A lot of changes have been made to support Bootstrap v4 including removing many padding and margin to give way for v4 utilities. Designers are free to use the utilities instead of overwriting Redmaterials defaults.
 
 ## Version 0.0.3
 
