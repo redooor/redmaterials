@@ -1,3 +1,4 @@
+/*eslint-disable*/
 /*jslint browser: true, plusplus: true, vars: true*/
 /*global $, jQuery, angular, Prism, WebFont*/
 (function () {
@@ -235,9 +236,12 @@
         var scrollToLoop;
         function sharedLinkFunction() {
             var hash = window.location.hash.substr(1);
-            var $hashTag = $('#' + hash);
-            if ($hashTag.length > 0) {
-                $('html, body').animate({scrollTop: $hashTag.offset().top}, 0);
+            if (hash.length === 0) {
+                return;
+            }
+            var hashTag = $('#' + hash);
+            if (hashTag.length > 0) {
+                $('html, body').animate({scrollTop: hashTag.offset().top}, 0);
                 window.clearInterval(scrollToLoop); // stop the loop
             }
         }
