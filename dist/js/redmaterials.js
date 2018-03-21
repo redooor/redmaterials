@@ -1,10 +1,11 @@
 /*!
- * redmaterials v0.0.3
+ * redmaterials v0.1.0
  * Homepage: 
- * Copyright 2014-2016 Redooor LLP
+ * Copyright 2014-2018 Redooor LLP
  * Licensed under MIT
  * Based on Bootstrap
 */
+/*eslint-disable*/
 /*jslint browser: true, plusplus: true, vars: true*/
 /*global $, jQuery*/
 (function ($) {
