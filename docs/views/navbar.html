@@ -8,8 +8,8 @@
                     <h1>Navbar</h1>
                 </div>
                 
-                <div class="bs-component">
-                    <p>Default Navbar</p>
+                <div class="bs-component mb-4">
+                    <h4>Default Navbar</h4>
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <a class="navbar-brand" href="#">Navbar</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,10 +46,46 @@
                             </ul>
                         </div>
                     </nav>
+                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
+    &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+        &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;div class="collapse navbar-collapse" id="navbarSupportedContent1"&gt;
+        &lt;ul class="navbar-nav mr-auto"&gt;
+            &lt;li class="nav-item active"&gt;
+                &lt;a class="nav-link" href="#"&gt;Home &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item dropdown"&gt;
+                &lt;a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                    Dropdown
+                &lt;/a&gt;
+                &lt;div class="dropdown-menu" aria-labelledby="navbarDropdown"&gt;
+                    &lt;a class="dropdown-item" href="#"&gt;Action&lt;/a&gt;
+                    &lt;a class="dropdown-item" href="#"&gt;Another action&lt;/a&gt;
+                    &lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+                    &lt;a class="dropdown-item" href="#"&gt;Something else here&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link disabled" href="#"&gt;Disabled&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;span class="navbar-text"&gt;
+                    Navbar text with an inline element
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre></div>
                 </div>
                 
-                <div class="bs-component">
-                    <p>Navbar with items set to .px-3</p>
+                <div class="bs-component mb-4">
+                    <h4>Navbar with items set to .px-3</h4>
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <a class="navbar-brand" href="#">Navbar</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,10 +127,51 @@
                             </form>
                         </div>
                     </nav>
+                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
+    &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+        &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;div class="collapse navbar-collapse" id="navbarSupportedContent1"&gt;
+        &lt;ul class="navbar-nav mr-auto"&gt;
+            &lt;li class="nav-item active"&gt;
+                &lt;a class="nav-link px-3" href="#"&gt;Home &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link px-3" href="#"&gt;Link&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item dropdown"&gt;
+                &lt;a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                    Dropdown
+                &lt;/a&gt;
+                &lt;div class="dropdown-menu" aria-labelledby="navbarDropdown"&gt;
+                    &lt;a class="dropdown-item" href="#"&gt;Action&lt;/a&gt;
+                    &lt;a class="dropdown-item" href="#"&gt;Another action&lt;/a&gt;
+                    &lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+                    &lt;div class="dropdown-header"&gt;Dropdown header&lt;/div&gt;
+                    &lt;a class="dropdown-item" href="#"&gt;Something else here&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link px-3 disabled" href="#"&gt;Disabled&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;span class="navbar-text px-3"&gt;
+                    Navbar text with an inline element
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;form class="form-inline my-2 my-lg-0"&gt;
+            &lt;input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"&gt;
+            &lt;button class="btn btn-outline-dark my-2 my-sm-0" type="submit"&gt;Search&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre></div>
                 </div>
                 
-                <div class="bs-component">
-                    <p>Dark Navbar</p>
+                <div class="bs-component mb-4">
+                    <h4>Dark Navbar</h4>
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <a class="navbar-brand" href="#">Navbar</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -136,6 +213,9 @@
                             </form>
                         </div>
                     </nav>
+                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+    ...
+&lt;/nav&gt;</code></pre></div>
                 </div>
             </div>
         </div>
