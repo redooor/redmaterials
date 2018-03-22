@@ -2,45 +2,27 @@
 // Tables
 // --------------------------------------------------
 .table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: @table-bottom-margin;
-    background-color: @table-bg;
     > thead, > tbody, > tfoot {
         > tr {
             .transition(all .3s ease);
             > th, > td {
                 padding: @table-cell-padding;
-                border-top: 0;
                 .transition(all .3s ease);
             }
         }
     }
     > thead > tr > th {
-        font-weight: @table-header-font-weight;
-        color: @table-header-font-color;
         vertical-align: bottom;
-        border-bottom: 1px solid @table-border-color;
-    }
-    > caption + thead,
-    > colgroup + thead,
-    > thead:first-child {
-        > tr:first-child {
-            > th, > td {
-                border-top: 0;
-            }
-        }
-    }
-    > tbody + tbody {
-        border-top: 1px solid @table-border-color;
-    }
-    // Nesting
-    .table {
-        background-color: @table-bg;
     }
     // Remove border
-    .no-border {
-        border: 0;
+    &.table-no-border {
+        > thead, > tbody, > tfoot {
+            > tr {
+                > th, > td {
+                    border: 0;
+                }
+            }
+        }
     }
 }
 
@@ -77,10 +59,11 @@
 }
 
 // Various state colors
-.table-state(~'info'; @cyan-50);
-.table-state(~'warning'; @amber-50);
-.table-state(~'success'; @green-50);
-.table-state(~'danger'; @deep-orange-50);
+.table-state(~'table-primary'; @blue-50);
+.table-state(~'table-info'; @cyan-50);
+.table-state(~'table-warning'; @amber-50);
+.table-state(~'table-success'; @green-50);
+.table-state(~'table-danger'; @deep-orange-50);
 
 // Responsive tables (vertical)
 //
@@ -104,7 +87,6 @@
                     border-radius: 0;
                     margin-bottom: @table-cell-padding;
                     > td {
-                        background-color: @table-bg;
                         display: block;
                         vertical-align: middle;
                         text-align: right;
@@ -137,9 +119,6 @@
         }
         // Special overrides for the striped tables
         > .table-striped {
-            > tbody > tr > td, > tbody > tr:nth-child(odd) {
-                background-color: @table-bg;
-            }
             > tbody > tr > td:nth-child(odd) {
                 background-color: @table-bg-accent;
             }
@@ -147,9 +126,6 @@
         // Special overrides for hover tables
         > .table-hover {
             > tbody {
-                > tr:hover > td, > tr:hover {
-                    background-color: @table-bg;
-                }
                 > tr > td:hover {
                     background-color: @table-bg-hover;
                 }
@@ -161,20 +137,20 @@
 // Material Design Color variations
 //
 // --------------------------------
-.table-colorize(~'red'; @table-bg; @red-50; @red-100);
-.table-colorize(~'pink'; @table-bg; @pink-50; @pink-100);
-.table-colorize(~'purple'; @table-bg; @purple-50; @purple-100);
-.table-colorize(~'deep-purple'; @table-bg; @deep-purple-50; @deep-purple-100);
-.table-colorize(~'indigo'; @table-bg; @indigo-50; @indigo-100);
-.table-colorize(~'blue'; @table-bg; @blue-50; @blue-100);
-.table-colorize(~'light-blue'; @table-bg; @light-blue-50; @light-blue-100);
-.table-colorize(~'cyan'; @table-bg; @cyan-50; @cyan-100);
-.table-colorize(~'teal'; @table-bg; @teal-50; @teal-100);
-.table-colorize(~'green'; @table-bg; @green-50; @green-100);
-.table-colorize(~'light-green'; @table-bg; @light-green-50; @light-green-100);
-.table-colorize(~'lime'; @table-bg; @lime-50; @lime-100);
-.table-colorize(~'yellow'; @table-bg; @yellow-50; @yellow-100);
-.table-colorize(~'amber'; @table-bg; @amber-50; @amber-100);
-.table-colorize(~'orange'; @table-bg; @orange-50; @orange-100);
-.table-colorize(~'deep-orange'; @table-bg; @deep-orange-50; @deep-orange-100);
-.table-colorize(~'brown'; @table-bg; @brown-50; @brown-100);
+.table-colorize(~'red'; @red-50; @red-100);
+.table-colorize(~'pink'; @pink-50; @pink-100);
+.table-colorize(~'purple'; @purple-50; @purple-100);
+.table-colorize(~'deep-purple'; @deep-purple-50; @deep-purple-100);
+.table-colorize(~'indigo'; @indigo-50; @indigo-100);
+.table-colorize(~'blue'; @blue-50; @blue-100);
+.table-colorize(~'light-blue'; @light-blue-50; @light-blue-100);
+.table-colorize(~'cyan'; @cyan-50; @cyan-100);
+.table-colorize(~'teal'; @teal-50; @teal-100);
+.table-colorize(~'green'; @green-50; @green-100);
+.table-colorize(~'light-green'; @light-green-50; @light-green-100);
+.table-colorize(~'lime'; @lime-50; @lime-100);
+.table-colorize(~'yellow'; @yellow-50; @yellow-100);
+.table-colorize(~'amber'; @amber-50; @amber-100);
+.table-colorize(~'orange'; @orange-50; @orange-100);
+.table-colorize(~'deep-orange'; @deep-orange-50; @deep-orange-100);
+.table-colorize(~'brown'; @brown-50; @brown-100);

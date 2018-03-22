@@ -3960,12 +3960,6 @@ input[type="checkbox"]:disabled:checked:after,
 .popover.bottom > .arrow {
   border-bottom-color: #E0E0E0;
 }
-.table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 2rem;
-  background-color: #fff;
-}
 .table > thead > tr,
 .table > tbody > tr,
 .table > tfoot > tr {
@@ -3979,31 +3973,18 @@ input[type="checkbox"]:disabled:checked:after,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   padding: 1.6rem;
-  border-top: 0;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .table > thead > tr > th {
-  font-weight: 400;
-  color: #757575;
   vertical-align: bottom;
-  border-bottom: 1px solid #E0E0E0;
 }
-.table > caption + thead > tr:first-child > th,
-.table > colgroup + thead > tr:first-child > th,
-.table > thead:first-child > tr:first-child > th,
-.table > caption + thead > tr:first-child > td,
-.table > colgroup + thead > tr:first-child > td,
-.table > thead:first-child > tr:first-child > td {
-  border-top: 0;
-}
-.table > tbody + tbody {
-  border-top: 1px solid #E0E0E0;
-}
-.table .table {
-  background-color: #fff;
-}
-.table .no-border {
+.table.table-no-border > thead > tr > th,
+.table.table-no-border > tbody > tr > th,
+.table.table-no-border > tfoot > tr > th,
+.table.table-no-border > thead > tr > td,
+.table.table-no-border > tbody > tr > td,
+.table.table-no-border > tfoot > tr > td {
   border: 0;
 }
 .table-condensed > thead > tr > th,
@@ -4022,60 +4003,74 @@ input[type="checkbox"]:disabled:checked:after,
 .table-hover > tbody > tr:hover > th {
   background-color: rgba(0, 0, 0, 0.12);
 }
-.table > tbody > tr.info > td,
-.table > tbody > tr.info > th,
-.table > tbody > tr > td.info,
-.table > tbody > tr > th.info,
-.table > tfoot > tr.info > td,
-.table > tfoot > tr.info > th,
-.table > tfoot > tr > td.info,
-.table > tfoot > tr > th.info,
-.table > thead > tr.info > td,
-.table > thead > tr.info > th,
-.table > thead > tr > td.info,
-.table > thead > tr > th.info {
+.table > tbody > tr.table-primary > td,
+.table > tbody > tr.table-primary > th,
+.table > tbody > tr > td.table-primary,
+.table > tbody > tr > th.table-primary,
+.table > tfoot > tr.table-primary > td,
+.table > tfoot > tr.table-primary > th,
+.table > tfoot > tr > td.table-primary,
+.table > tfoot > tr > th.table-primary,
+.table > thead > tr.table-primary > td,
+.table > thead > tr.table-primary > th,
+.table > thead > tr > td.table-primary,
+.table > thead > tr > th.table-primary {
+  background-color: #E3F2FD;
+}
+.table > tbody > tr.table-info > td,
+.table > tbody > tr.table-info > th,
+.table > tbody > tr > td.table-info,
+.table > tbody > tr > th.table-info,
+.table > tfoot > tr.table-info > td,
+.table > tfoot > tr.table-info > th,
+.table > tfoot > tr > td.table-info,
+.table > tfoot > tr > th.table-info,
+.table > thead > tr.table-info > td,
+.table > thead > tr.table-info > th,
+.table > thead > tr > td.table-info,
+.table > thead > tr > th.table-info {
   background-color: #E0F7FA;
 }
-.table > tbody > tr.warning > td,
-.table > tbody > tr.warning > th,
-.table > tbody > tr > td.warning,
-.table > tbody > tr > th.warning,
-.table > tfoot > tr.warning > td,
-.table > tfoot > tr.warning > th,
-.table > tfoot > tr > td.warning,
-.table > tfoot > tr > th.warning,
-.table > thead > tr.warning > td,
-.table > thead > tr.warning > th,
-.table > thead > tr > td.warning,
-.table > thead > tr > th.warning {
+.table > tbody > tr.table-warning > td,
+.table > tbody > tr.table-warning > th,
+.table > tbody > tr > td.table-warning,
+.table > tbody > tr > th.table-warning,
+.table > tfoot > tr.table-warning > td,
+.table > tfoot > tr.table-warning > th,
+.table > tfoot > tr > td.table-warning,
+.table > tfoot > tr > th.table-warning,
+.table > thead > tr.table-warning > td,
+.table > thead > tr.table-warning > th,
+.table > thead > tr > td.table-warning,
+.table > thead > tr > th.table-warning {
   background-color: #FFF8E1;
 }
-.table > tbody > tr.success > td,
-.table > tbody > tr.success > th,
-.table > tbody > tr > td.success,
-.table > tbody > tr > th.success,
-.table > tfoot > tr.success > td,
-.table > tfoot > tr.success > th,
-.table > tfoot > tr > td.success,
-.table > tfoot > tr > th.success,
-.table > thead > tr.success > td,
-.table > thead > tr.success > th,
-.table > thead > tr > td.success,
-.table > thead > tr > th.success {
+.table > tbody > tr.table-success > td,
+.table > tbody > tr.table-success > th,
+.table > tbody > tr > td.table-success,
+.table > tbody > tr > th.table-success,
+.table > tfoot > tr.table-success > td,
+.table > tfoot > tr.table-success > th,
+.table > tfoot > tr > td.table-success,
+.table > tfoot > tr > th.table-success,
+.table > thead > tr.table-success > td,
+.table > thead > tr.table-success > th,
+.table > thead > tr > td.table-success,
+.table > thead > tr > th.table-success {
   background-color: #E8F5E9;
 }
-.table > tbody > tr.danger > td,
-.table > tbody > tr.danger > th,
-.table > tbody > tr > td.danger,
-.table > tbody > tr > th.danger,
-.table > tfoot > tr.danger > td,
-.table > tfoot > tr.danger > th,
-.table > tfoot > tr > td.danger,
-.table > tfoot > tr > th.danger,
-.table > thead > tr.danger > td,
-.table > thead > tr.danger > th,
-.table > thead > tr > td.danger,
-.table > thead > tr > th.danger {
+.table > tbody > tr.table-danger > td,
+.table > tbody > tr.table-danger > th,
+.table > tbody > tr > td.table-danger,
+.table > tbody > tr > th.table-danger,
+.table > tfoot > tr.table-danger > td,
+.table > tfoot > tr.table-danger > th,
+.table > tfoot > tr > td.table-danger,
+.table > tfoot > tr > th.table-danger,
+.table > thead > tr.table-danger > td,
+.table > thead > tr.table-danger > th,
+.table > thead > tr > td.table-danger,
+.table > thead > tr > th.table-danger {
   background-color: #FBE9E7;
 }
 @media screen and (max-width: 768px) {
@@ -4097,7 +4092,6 @@ input[type="checkbox"]:disabled:checked:after,
     margin-bottom: 1.6rem;
   }
   .table-responsive-vertical > .table > tbody > tr > td {
-    background-color: #fff;
     display: block;
     vertical-align: middle;
     text-align: right;
@@ -4119,16 +4113,8 @@ input[type="checkbox"]:disabled:checked:after,
   .table-responsive-vertical > .table-bordered > tbody > tr > td:last-child {
     border-bottom: 0;
   }
-  .table-responsive-vertical > .table-striped > tbody > tr > td,
-  .table-responsive-vertical > .table-striped > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical > .table-striped > tbody > tr > td:nth-child(odd) {
     background-color: #EEEEEE;
-  }
-  .table-responsive-vertical > .table-hover > tbody > tr:hover > td,
-  .table-responsive-vertical > .table-hover > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical > .table-hover > tbody > tr > td:hover {
     background-color: rgba(0, 0, 0, 0.12);
@@ -4143,16 +4129,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #FFCDD2;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-red > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-red > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-red > tbody > tr > td:nth-child(odd) {
     background-color: #FFEBEE;
-  }
-  .table-responsive-vertical .table-hover.table-red > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-red > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-red > tbody > tr > td:hover {
     background-color: #FFCDD2;
@@ -4167,16 +4145,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #F8BBD0;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-pink > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-pink > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-pink > tbody > tr > td:nth-child(odd) {
     background-color: #FCE4EC;
-  }
-  .table-responsive-vertical .table-hover.table-pink > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-pink > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-pink > tbody > tr > td:hover {
     background-color: #F8BBD0;
@@ -4191,16 +4161,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #E1BEE7;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-purple > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-purple > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-purple > tbody > tr > td:nth-child(odd) {
     background-color: #F3E5F5;
-  }
-  .table-responsive-vertical .table-hover.table-purple > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-purple > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-purple > tbody > tr > td:hover {
     background-color: #E1BEE7;
@@ -4215,16 +4177,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #D1C4E9;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-deep-purple > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-deep-purple > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-deep-purple > tbody > tr > td:nth-child(odd) {
     background-color: #EDE7F6;
-  }
-  .table-responsive-vertical .table-hover.table-deep-purple > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-deep-purple > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-deep-purple > tbody > tr > td:hover {
     background-color: #D1C4E9;
@@ -4239,16 +4193,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #C5CAE9;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-indigo > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-indigo > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-indigo > tbody > tr > td:nth-child(odd) {
     background-color: #E8EAF6;
-  }
-  .table-responsive-vertical .table-hover.table-indigo > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-indigo > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-indigo > tbody > tr > td:hover {
     background-color: #C5CAE9;
@@ -4263,16 +4209,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #BBDEFB;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-blue > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-blue > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-blue > tbody > tr > td:nth-child(odd) {
     background-color: #E3F2FD;
-  }
-  .table-responsive-vertical .table-hover.table-blue > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-blue > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-blue > tbody > tr > td:hover {
     background-color: #BBDEFB;
@@ -4287,16 +4225,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #B3E5FC;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-light-blue > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-light-blue > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-light-blue > tbody > tr > td:nth-child(odd) {
     background-color: #E1F5FE;
-  }
-  .table-responsive-vertical .table-hover.table-light-blue > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-light-blue > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-light-blue > tbody > tr > td:hover {
     background-color: #B3E5FC;
@@ -4311,16 +4241,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #B2EBF2;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-cyan > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-cyan > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-cyan > tbody > tr > td:nth-child(odd) {
     background-color: #E0F7FA;
-  }
-  .table-responsive-vertical .table-hover.table-cyan > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-cyan > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-cyan > tbody > tr > td:hover {
     background-color: #B2EBF2;
@@ -4335,16 +4257,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #B2DFDB;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-teal > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-teal > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-teal > tbody > tr > td:nth-child(odd) {
     background-color: #E0F2F1;
-  }
-  .table-responsive-vertical .table-hover.table-teal > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-teal > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-teal > tbody > tr > td:hover {
     background-color: #B2DFDB;
@@ -4359,16 +4273,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #C8E6C9;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-green > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-green > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-green > tbody > tr > td:nth-child(odd) {
     background-color: #E8F5E9;
-  }
-  .table-responsive-vertical .table-hover.table-green > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-green > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-green > tbody > tr > td:hover {
     background-color: #C8E6C9;
@@ -4383,16 +4289,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #DCEDC8;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-light-green > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-light-green > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-light-green > tbody > tr > td:nth-child(odd) {
     background-color: #F1F8E9;
-  }
-  .table-responsive-vertical .table-hover.table-light-green > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-light-green > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-light-green > tbody > tr > td:hover {
     background-color: #DCEDC8;
@@ -4407,16 +4305,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #F0F4C3;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-lime > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-lime > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-lime > tbody > tr > td:nth-child(odd) {
     background-color: #F9FBE7;
-  }
-  .table-responsive-vertical .table-hover.table-lime > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-lime > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-lime > tbody > tr > td:hover {
     background-color: #F0F4C3;
@@ -4431,16 +4321,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #FFF9C4;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-yellow > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-yellow > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-yellow > tbody > tr > td:nth-child(odd) {
     background-color: #FFFDE7;
-  }
-  .table-responsive-vertical .table-hover.table-yellow > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-yellow > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-yellow > tbody > tr > td:hover {
     background-color: #FFF9C4;
@@ -4455,16 +4337,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #FFECB3;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-amber > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-amber > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-amber > tbody > tr > td:nth-child(odd) {
     background-color: #FFF8E1;
-  }
-  .table-responsive-vertical .table-hover.table-amber > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-amber > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-amber > tbody > tr > td:hover {
     background-color: #FFECB3;
@@ -4479,16 +4353,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #FFE0B2;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-orange > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-orange > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-orange > tbody > tr > td:nth-child(odd) {
     background-color: #FFF3E0;
-  }
-  .table-responsive-vertical .table-hover.table-orange > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-orange > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-orange > tbody > tr > td:hover {
     background-color: #FFE0B2;
@@ -4503,16 +4369,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #FFCCBC;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-deep-orange > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-deep-orange > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-deep-orange > tbody > tr > td:nth-child(odd) {
     background-color: #FBE9E7;
-  }
-  .table-responsive-vertical .table-hover.table-deep-orange > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-deep-orange > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-deep-orange > tbody > tr > td:hover {
     background-color: #FFCCBC;
@@ -4527,16 +4385,8 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #D7CCC8;
 }
 @media screen and (max-width: 767px) {
-  .table-responsive-vertical .table-striped.table-brown > tbody > tr > td,
-  .table-responsive-vertical .table-striped.table-brown > tbody > tr:nth-child(odd) {
-    background-color: #fff;
-  }
   .table-responsive-vertical .table-striped.table-brown > tbody > tr > td:nth-child(odd) {
     background-color: #EFEBE9;
-  }
-  .table-responsive-vertical .table-hover.table-brown > tbody > tr:hover > td,
-  .table-responsive-vertical .table-hover.table-brown > tbody > tr:hover {
-    background-color: #fff;
   }
   .table-responsive-vertical .table-hover.table-brown > tbody > tr > td:hover {
     background-color: #D7CCC8;
