@@ -1,0 +1,37 @@
+//
+// Badges
+// --------------------------------------------------
+.badge {
+    font-weight: 500;
+    border-radius: .1rem;
+}
+
+.badge-pill {
+    border-radius: 10rem;
+}
+
+// Colors
+// Contextual variations (linked badges get darker on :hover)
+.badge-default {
+    .badge-variant(@grey);
+}
+
+.badge-primary {
+    .badge-variant(@blue);
+}
+
+.badge-success {
+    .badge-variant(@green);
+}
+
+.badge-info {
+    .badge-variant(@cyan);
+}
+
+.badge-warning {
+    .badge-variant(@orange);
+}
+
+.badge-danger {
+    .badge-variant(@deep-orange);
+}
