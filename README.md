@@ -90,4 +90,4 @@ This project is inspired by and adapted from the work of these people, without w
 * [Bootswatch Paper](http://bootswatch.com/paper/)
 * [Bootstrap Material Design - Buttons, pen by Sergey Kupletsky](http://codepen.io/zavoloklom/details/Gubja)
 * [Bootstrap Material Design - Responsive Table, pen by Sergey Kupletsky](http://codepen.io/zavoloklom/pen/IGkDz)
-* [Glyphicons, included in Bootstrap](http://glyphicons.com/)
+* [Material Design Icon](https://material.io/icons/)

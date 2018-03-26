@@ -33,8 +33,7 @@ module.exports = function (grunt) {
             '*/\n',
         clean: {
             dist: 'dist',
-            docs: 'docs/dist',
-            demo: ['docs/assets/fonts', 'docs/assets/js/bootstrap.*', 'docs/assets/js/jquery.*', 'docs/assets/js/angular.*', 'docs/assets/css/bootstrap.*', 'docs/assets/css/font-awesome.*']
+            docs: 'docs/dist'
         },
         concat: {
             options: {
@@ -170,5 +169,5 @@ module.exports = function (grunt) {
     grunt.registerTask('docs', ['docs-css', 'docs-js', 'clean:docs', 'copy:docs']);
 
     // For submission to repository: exclude dependencies
-    grunt.registerTask('default', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs']);
+    grunt.registerTask('default', ['dist', 'docs']);
 };
