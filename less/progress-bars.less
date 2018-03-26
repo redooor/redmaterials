@@ -9,23 +9,6 @@
     .box-shadow(none);
     &-bar {
         background-color: @progress-bar-bg;
-        .box-shadow(none);
-        &:last-child {
-            border-radius: 0 3px 3px 0;
-        }
-        &:last-child {
-            &:before {
-                display: block;
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                left: 0;
-                right: 0;
-                z-index: -1;
-                background-color: lighten(@progress-bar-bg, 35%);
-            }
-        }
         &-success {
             background-color: @progress-bar-success-bg;
             &:last-child.progress-bar:before {
