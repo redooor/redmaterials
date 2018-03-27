@@ -2,8 +2,16 @@
 // Typography
 // --------------------------------------------------
 .text-emphasis-variant(@color) {
-    color: @color;
+    color: @color !important;
     a&:hover {
-        color: darken(@color, 10%);
+        color: darken(@color, 10%) !important;
     }
+}
+// Background
+.bg-variant(@color) {
+    background: @color !important;
+}
+// Border
+.border-variant(@color) {
+    border-color: @color !important;
 }
