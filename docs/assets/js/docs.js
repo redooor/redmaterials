@@ -100,10 +100,10 @@
         };
     });
   
-    app.directive("viewPanels", function () {
+    app.directive("viewCards", function () {
         return {
             restrict: "E",
-            templateUrl: "views/panels.html"
+            templateUrl: "views/cards.html"
         };
     });
     

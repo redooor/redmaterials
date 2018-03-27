@@ -1,0 +1,577 @@
+<!-- Panels
+================================================== -->
+<div id="cards" class="container">
+    <div class="bs-docs-section">
+        <div class="row">
+            <div class="col">
+                <div class="page-header">
+                    <h1>Cards</h1>
+                    <p>Panels have been replaced by Cards in Bootstrap v4.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="lead">Basic Card</p>
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;
+    This is some text within a card body.
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <p class="lead">Titles, text, and links</p>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;div class="card" style="width: 18rem;"&gt;
+&lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;Card title&lt;/h5&gt;
+    &lt;h6 class="card-subtitle mb-2 text-muted"&gt;Card subtitle&lt;/h6&gt;
+    &lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+    &lt;a href="#" class="card-link"&gt;Card link&lt;/a&gt;
+    &lt;a href="#" class="card-link"&gt;Another link&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <p class="lead">Card with image</p>
+                <div class="d-flex justify-content-start">
+                    <div class="card mr-4" style="width: 18rem;">
+                        <img class="card-img-top" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16265b3fe10%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16265b3fe10%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4296875%22%20y%3D%2296.6%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card mr-4" style="width: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        <img class="card-img-bottom" alt="Image cap [100%x180]" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16265b3fe10%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16265b3fe10%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4296875%22%20y%3D%2296.6%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                    </div>
+                    <div class="card bg-dark text-white" style="width: 18rem;">
+                        <img class="card-img" alt="Card image" style="height: 100%; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16265b3fe10%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16265b3fe10%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4296875%22%20y%3D%2296.6%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Card Image Overlay</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">Last updated 3 mins ago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;div class="card" style="width: 18rem;"&gt;
+    &lt;img class="card-img-top" src="..." alt="Card image cap top"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="card" style="width: 18rem;"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;img class="card-img-bottom" src="..." alt="Card image cap bottom"&gt;
+&lt;/div&gt;
+
+&lt;div class="card bg-dark text-white" style="width: 18rem;"&gt;
+    &lt;img class="card-img" alt="Card image" src="..."&gt;
+    &lt;div class="card-img-overlay"&gt;
+        &lt;h5 class="card-title"&gt;Card Image Overlay&lt;/h5&gt;
+        &lt;p class="card-text"&gt;This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;/p&gt;
+        &lt;p class="card-text"&gt;Last updated 3 mins ago&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <p class="lead">Card with Header/Footer</p>
+                <p>Similar to previous Panels.</p>
+                <div class="card text-center">
+                    <h5 class="card-header">
+                        Featured
+                    </h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;div class="card text-center"&gt;
+    &lt;h5 class="card-header"&gt;
+        Featured
+    &lt;/h5&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Special title treatment&lt;/h5&gt;
+        &lt;p class="card-text"&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer text-muted"&gt;
+        2 days ago
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <p class="lead">Card with Navigation</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs card-header-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" href="#">Disabled</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="highlight mb-4">
+                            <pre><code ng-prism class="language-markup">&lt;div class="card text-center"&gt;
+    &lt;div class="card-header"&gt;
+        &lt;ul class="nav nav-tabs card-header-tabs"&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link active" href="#"&gt;Active&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link disabled" href="#"&gt;Disabled&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Special title treatment&lt;/h5&gt;
+        &lt;p class="card-text"&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <ul class="nav nav-pills card-header-pills">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" href="#">Disabled</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="highlight mb-4">
+                            <pre><code ng-prism class="language-markup">&lt;div class="card text-center"&gt;
+    &lt;div class="card-header"&gt;
+        &lt;ul class="nav nav-pills card-header-pills"&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link active" href="#"&gt;Active&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link disabled" href="#"&gt;Disabled&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Special title treatment&lt;/h5&gt;
+        &lt;p class="card-text"&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="lead">Card with List Group</p>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;div class="card" style="width: 18rem;"&gt;
+    &lt;div class="card-header"&gt;
+        Featured
+    &lt;/div&gt;
+    &lt;ul class="list-group list-group-flush"&gt;
+        &lt;li class="list-group-item"&gt;Cras justo odio&lt;/li&gt;
+        &lt;li class="list-group-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+        &lt;li class="list-group-item"&gt;Vestibulum at eros&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                
+                <p class="lead">Card with Table</p>
+                <p>Cards in Bootstrap v4 do not support table by default. But we can still use utilities to create the same effect.</p>
+                <div class="card">
+                    <h5 class="card-header">
+                        Featured table
+                    </h5>
+                    <table class="table table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">Col 1</th>
+                                <th class="border-top-0">Col 2</th>
+                                <th class="border-top-0">Col 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Row 1</td>
+                                <td>Row 1</td>
+                                <td>Row 1</td>
+                            </tr>
+                            <tr>
+                                <td>Row 2</td>
+                                <td>Row 2</td>
+                                <td>Row 2</td>
+                            </tr>
+                            <tr>
+                                <td>Row 3</td>
+                                <td>Row 3</td>
+                                <td>Row 3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;div class="card"&gt;
+    &lt;h5 class="card-header"&gt;
+        Featured table
+    &lt;/h5&gt;
+    &lt;table class="table table-striped mb-0"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th class="border-top-0"&gt;Col 1&lt;/th&gt;
+                &lt;th class="border-top-0"&gt;Col 2&lt;/th&gt;
+                &lt;th class="border-top-0"&gt;Col 3&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Row 1&lt;/td&gt;
+                &lt;td&gt;Row 1&lt;/td&gt;
+                &lt;td&gt;Row 1&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Row 2&lt;/td&gt;
+                &lt;td&gt;Row 2&lt;/td&gt;
+                &lt;td&gt;Row 2&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Row 3&lt;/td&gt;
+                &lt;td&gt;Row 3&lt;/td&gt;
+                &lt;td&gt;Row 3&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            <!-- col -->
+        </div>
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="bs-component">
+                    <!-- Panel Default 1 -->
+                    <div class="panel panel-default">
+                        <div class="panel-body">Basic Panel</div>
+                    </div>
+                    
+                    <!-- Panel Default 2 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel heading</div>
+                        <div class="panel-body">Panel content</div>
+                    </div>
+
+                    <!-- Panel Default 3 -->
+                    <div class="panel panel-default">
+                        <div class="panel-body">Panel body</div>
+                        <div class="panel-footer">Panel footer</div>
+                    </div>
+
+                    <!-- Panel Default 4 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Panel default</h3>
+                        </div>
+                        <div class="panel-body">Panel body</div>
+                        <div class="panel-footer">Panel footer</div>
+                    </div>
+                    <!-- Panel-primary -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Panel primary</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <div class="panel-footer">Panel footer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="bs-component">
+                    <!-- Panel-success -->
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Panel Success</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <div class="panel-footer">Panel footer</div>
+                    </div>
+
+                    <!-- Panel-info -->
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Panel info</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <div class="panel-footer">Panel footer</div>
+                    </div>
+
+                    <!-- Panel-warning -->
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Panel Warning</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <div class="panel-footer">Panel footer</div>
+                    </div>
+
+                    <!-- Panel-danger -->
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Panel Danger</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <div class="panel-footer">Panel footer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="bs-component">
+                    <!-- Panel with table and body -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel with table and body</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <div class="table-responsive">
+                            <!-- Table -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Andrews</td>
+                                        <td>Ang</td>
+                                        <td>@kongnir</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Panel with table but no body -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel with table but no body</div>
+                        <div class="table-responsive">
+                            <!-- Table -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Andrews</td>
+                                        <td>Ang</td>
+                                        <td>@kongnir</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Panel with table and body -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel with table-bordered and table-striped</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <div class="table-responsive">
+                            <!-- Table -->
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Andrews</td>
+                                        <td>Ang</td>
+                                        <td>@kongnir</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="bs-component">
+                    <!-- Panel with List group -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel with List group</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <!-- List group -->
+                        <ul class="list-group">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                    <!-- Panel with List group, no body -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel with List group, no body</div>
+                        <!-- List group -->
+                        <ul class="list-group">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                    <!-- Panel with List group -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel with List group within a wrapping div</div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                        <div>
+                            <!-- List group -->
+                            <ul class="list-group">
+                                <li class="list-group-item">Cras justo odio</li>
+                                <li class="list-group-item">Dapibus ac facilisis in</li>
+                                <li class="list-group-item">Morbi leo risus</li>
+                                <li class="list-group-item">Porta ac consectetur ac</li>
+                                <li class="list-group-item">Vestibulum at eros</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
