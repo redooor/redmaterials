@@ -1,50 +1,48 @@
 // Pagination
 // --------------------------------------------------
-.pagination>li>a,
-.pagination>li>span {
-    padding: 0.8em 1.5em;
-    border: 0;
-    color: @brand-primary;
-    transition: all .15s ease-in-out;
-    .btn-template(@btn-default-bg-color;
-    lighten(#999, 30%);
-    lighten(#999, 20%);
-    lighten(#999, 12%);
-    lighten(#999, 20%));
-}
-
-.pagination>li:first-child>a,
-.pagination>li:first-child>span {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-}
-
-.pagination>li:last-child>a,
-.pagination>li:last-child>span {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-}
-
-.pagination>li:not(:first-child)>a,
-.pagination>li:not(:first-child)>span {
-    border-left: 1px solid @grey-200;
-}
-
-.pagination>.disabled>a,
-.pagination>.disabled>a:focus,
-.pagination>.disabled>a:hover,
-.pagination>.disabled>span,
-.pagination>.disabled>span:focus,
-.pagination>.disabled>span:hover {
-    background-color: @btn-default-bg-color;
-}
-
-.pagination>.active>a,
-.pagination>.active>a:focus,
-.pagination>.active>a:hover,
-.pagination>.active>span,
-.pagination>.active>span:focus,
-.pagination>.active>span:hover {
-    background-color: @brand-primary;
-    border-left: 1px solid @grey-200;
+.page-item {
+    .page-link {
+        padding: 0.8em 1.5em;
+        border: 0;
+        color: @brand-primary;
+        transition: all .15s ease-in-out;
+        background-color: @btn-default-bg-color;
+        &:hover {
+            background-color: lighten(#999, 30%);
+        }
+        &:active,
+        &.active {
+            background-color: lighten(#999, 30%);
+        }
+        &:focus {
+            color: #fff;
+            background-color: lighten(#999, 20%);
+        }
+    }
+    &.active .page-link {
+        background-color: @brand-primary;
+        &:hover {
+            background-color: darken(@brand-primary, 10%);
+        }
+    }
+    // Disabled
+    &.disabled .page-link {
+        color: rgba(0, 0, 0, 0.26);
+        background-color: #eee;
+        opacity: 1;
+        &.focus,
+        &:focus,
+        &:hover {
+            background-color: #eee;
+        }
+    }
+    // reduce radius
+    &:first-child .page-link {
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    &:last-child .page-link {
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
 }
