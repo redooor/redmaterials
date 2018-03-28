@@ -1,21 +1,28 @@
 //
 // Popover
 // --------------------------------------------------
-
 .popover {
     border-radius: 2px;
     border-color: @popover-border-color;
     .box-shadow(@shadow-depth-2);
 }
-.popover.left>.arrow {
+
+.bs-popover-auto[x-placement^=left] .arrow::before,
+.bs-popover-left .arrow::before {
     border-left-color: @popover-arrow-color;
 }
-.popover.right>.arrow {
+
+.bs-popover-auto[x-placement^=right] .arrow::before,
+.bs-popover-right .arrow::before {
     border-right-color: @popover-arrow-color;
 }
-.popover.top>.arrow {
+
+.bs-popover-auto[x-placement^=top] .arrow::before,
+.bs-popover-top .arrow::before {
     border-top-color: @popover-arrow-color;
 }
-.popover.bottom>.arrow {
+
+.bs-popover-auto[x-placement^=bottom] .arrow::before,
+.bs-popover-bottom .arrow::before {
     border-bottom-color: @popover-arrow-color;
 }

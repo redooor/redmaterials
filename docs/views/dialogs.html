@@ -5,24 +5,25 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <h1>Dialogs</h1>
+                    <h1>Modals</h1>
                 </div>
-                <h2>Modals</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-9">
                 <div class="bs-component">
-                    <p>With default shadow depth 5</p>
-                    <div class="modal">
-                        <div class="modal-dialog">
+                    <p class="lead">Modal with default shadow depth 5</p>
+                    <div class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h4 class="modal-title">Modal title</h4>
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>One fine body…</p>
+                                    <p>Modal body text goes here.</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
@@ -33,18 +34,49 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="bs-component mb-4">
+                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div class="modal" tabindex="-1" role="dialog"&gt;
+    &lt;div class="modal-dialog" role="document"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;div class="modal-header"&gt;
+                &lt;h5 class="modal-title"&gt;Modal title&lt;/h5&gt;
+                &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
+                    &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-body"&gt;
+                &lt;p&gt;Modal body text goes here.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-footer"&gt;
+                &lt;button type="button" class="btn btn-link" data-dismiss="modal"&gt;Close&lt;/button&gt;
+                &lt;button type="button" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-9">
                 <div class="bs-component">
-                    <p>Change to shadow depth 2 by adding class shadow-depth-2 to modal-content</p>
-                    <div class="modal">
-                        <div class="modal-dialog">
+                    <p class="lead">Change to shadow depth 2</p>
+                    <p>Add class shadow-depth-2 to modal-content.</p>
+                    <p>See <a href="redmaterials.html#shadows">Shadow utility</a>.</p>
+                    <div class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content shadow-depth-2">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h4 class="modal-title">Modal title</h4>
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>One fine body…</p>
+                                    <p>Modal body text goes here.</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
@@ -55,7 +87,31 @@
                     </div>
                 </div>
             </div>
-            
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="bs-component mb-4">
+                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div class="modal" tabindex="-1" role="dialog"&gt;
+    &lt;div class="modal-dialog" role="document"&gt;
+        &lt;div class="modal-content shadow-depth-2"&gt;
+            &lt;div class="modal-header"&gt;
+                &lt;h5 class="modal-title"&gt;Modal title&lt;/h5&gt;
+                &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
+                    &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-body"&gt;
+                &lt;p&gt;Modal body text goes here.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-footer"&gt;
+                &lt;button type="button" class="btn btn-link" data-dismiss="modal"&gt;Close&lt;/button&gt;
+                &lt;button type="button" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
