@@ -61,36 +61,6 @@ a.text-warning:hover {
 a.text-danger:hover {
   color: #ea1c0d !important;
 }
-.bg-primary {
-  background: #2196F3 !important;
-}
-.bg-success {
-  background: #4CAF50 !important;
-}
-.bg-danger {
-  background: #F44336 !important;
-}
-.bg-warning {
-  background: #FFC107 !important;
-}
-.bg-info {
-  background: #00BCD4 !important;
-}
-.border-primary {
-  border-color: #2196F3 !important;
-}
-.border-success {
-  border-color: #4CAF50 !important;
-}
-.border-danger {
-  border-color: #F44336 !important;
-}
-.border-warning {
-  border-color: #FFC107 !important;
-}
-.border-info {
-  border-color: #00BCD4 !important;
-}
 .btn {
   text-transform: uppercase;
 }
@@ -109,8 +79,6 @@ a.text-danger:hover {
   outline: 0;
   outline-offset: 0;
   box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
 }
 .btn.disabled,
 .btn[disabled],
@@ -2492,7 +2460,8 @@ input[type="radio"]:before,
   left: 0;
   top: 0;
   background-color: #2196F3;
-  transform: scale(0);
+  -ms-transform: scale(0);
+      transform: scale(0);
 }
 input[type="radio"]:after,
 .radio input[type="radio"]:after,
@@ -2502,7 +2471,8 @@ input[type="radio"]:after,
 input[type="radio"]:checked:before,
 .radio input[type="radio"]:checked:before,
 .radio-inline input[type="radio"]:checked:before {
-  transform: scale(0.5);
+  -ms-transform: scale(0.5);
+      transform: scale(0.5);
 }
 input[type="radio"]:disabled:checked:before,
 .radio input[type="radio"]:disabled:checked:before,
@@ -2564,7 +2534,8 @@ input[type="checkbox"]:checked:before,
   border: 2px solid #fff;
   border-top-width: 0;
   border-left-width: 0;
-  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
 }
 input[type="checkbox"]:checked:after,
 .checkbox input[type="checkbox"]:checked:after,
@@ -3718,7 +3689,7 @@ input[type="checkbox"]:disabled:checked:after,
 .table > thead > tr,
 .table > tbody > tr,
 .table > tfoot > tr {
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -3727,7 +3698,7 @@ input[type="checkbox"]:disabled:checked:after,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   padding: 1.6rem;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
@@ -4207,6 +4178,7 @@ input[type="checkbox"]:disabled:checked:after,
   position: absolute;
   pointer-events: none;
   border-radius: 50%;
+  -ms-transform: scale(0);
   transform: scale(0);
   background: #fff;
   opacity: 1;
@@ -4243,30 +4215,38 @@ input[type="checkbox"]:disabled:checked:after,
 .corner-ribbon.top-left {
   top: 100px;
   left: -40px;
-  transform: rotate(-45deg);
-  transform-origin: top left;
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  -ms-transform-origin: top left;
+      transform-origin: top left;
 }
 .corner-ribbon.top-right {
   top: 100px;
   right: -40px;
   left: auto;
-  transform: rotate(45deg);
-  transform-origin: top right;
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+  -ms-transform-origin: top right;
+      transform-origin: top right;
 }
 .corner-ribbon.bottom-left {
   top: auto;
   bottom: 100px;
   left: -40px;
-  transform: rotate(45deg);
-  transform-origin: bottom left;
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+  -ms-transform-origin: bottom left;
+      transform-origin: bottom left;
 }
 .corner-ribbon.bottom-right {
   top: auto;
   right: -40px;
   bottom: 100px;
   left: auto;
-  transform: rotate(-45deg);
-  transform-origin: bottom right;
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  -ms-transform-origin: bottom right;
+      transform-origin: bottom right;
 }
 /* Colors */
 .corner-ribbon.white {
@@ -4688,5 +4668,35 @@ input[type="checkbox"]:disabled:checked:after,
 }
 .rdm-ui-disable-scroll {
   overflow: hidden;
+}
+.bg-primary {
+  background: #2196F3 !important;
+}
+.bg-success {
+  background: #4CAF50 !important;
+}
+.bg-danger {
+  background: #F44336 !important;
+}
+.bg-warning {
+  background: #FFC107 !important;
+}
+.bg-info {
+  background: #00BCD4 !important;
+}
+.border-primary {
+  border-color: #2196F3 !important;
+}
+.border-success {
+  border-color: #4CAF50 !important;
+}
+.border-danger {
+  border-color: #F44336 !important;
+}
+.border-warning {
+  border-color: #FFC107 !important;
+}
+.border-info {
+  border-color: #00BCD4 !important;
 }
 /*# sourceMappingURL=redmaterials.css.map */

@@ -6,8 +6,6 @@
 .corner-ribbon-wrapper {
     position: relative;
     overflow: hidden;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
@@ -30,24 +28,24 @@
 .corner-ribbon.top-left {
     top: 100px;
     left: -40px;
-    .rotate(-45deg);
-    .transform-origin(top left);
+    transform: rotate(-45deg);
+    transform-origin: top left;
 }
 
 .corner-ribbon.top-right {
     top: 100px;
     right: -40px;
     left: auto;
-    .rotate(45deg);
-    .transform-origin(top right);
+    transform: rotate(45deg);
+    transform-origin: top right;
 }
 
 .corner-ribbon.bottom-left {
     top: auto;
     bottom: 100px;
     left: -40px;
-    .rotate(45deg);
-    .transform-origin(bottom left);
+    transform: rotate(45deg);
+    transform-origin: bottom left;
 }
 
 .corner-ribbon.bottom-right {
@@ -55,8 +53,8 @@
     right: -40px;
     bottom: 100px;
     left: auto;
-    .rotate(-45deg);
-    .transform-origin(bottom right);
+    transform: rotate(-45deg);
+    transform-origin: bottom right;
 }
 /* Colors */
 

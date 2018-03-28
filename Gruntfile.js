@@ -90,6 +90,9 @@ module.exports = function (grunt) {
             }
         },
         autoprefixer: {
+            options: {
+                browsers: ['last 3 versions', 'ie 9']
+            },
             core: {
                 options: {
                     map: true
