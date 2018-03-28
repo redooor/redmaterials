@@ -4,6 +4,19 @@
     @color: extract(@colors, @index);
     @textcolor: extract(@textcolors, @index);
     .nav-sidebar-@{name} {
-        .nav-sidebar-variant(@color, @textcolor);
+        .nav-sidebar-title {
+            background-color: @color;
+            .nav-sidebar-brand {
+                color: @textcolor;
+            }
+        }
+        .nav-sidebar-menu {
+            li.active a,
+            li.active a:hover,
+            li.active a:focus {
+                color: @textcolor;
+                background-color: @color;
+            }
+        }
     }
 }

@@ -123,6 +123,5 @@
     }
 }
 
-// Color variations
-@length : length(@colors);
-.make-color-nav-sidebars(@colors; @names; @textcolors; @length); // run the loop
+// Color variations base on background color
+.make-color-nav-sidebars(@colors; @names; @textcolors; length(@colors)); // run the loop
