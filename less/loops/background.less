@@ -10,3 +10,14 @@
         background-color: @@brandColor !important;
     }
 }
+
+// For color palette
+.make-color-bg(@colors; @names; @index) when (@index > 0) {
+    .make-color-bg(@colors; @names; (@index - 1));
+    @name: extract(@names, @index);
+    @color: extract(@colors, @index);
+    // Run it
+    .bg-@{name} {
+        background-color: @color !important;
+    }
+}
