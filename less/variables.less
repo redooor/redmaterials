@@ -5,21 +5,19 @@
 @default-text: #333;
 
 @brand-primary: @blue;
+@brand-secondary: @grey-600;
 @brand-warning: @amber;
 @brand-danger: @red;
 @brand-success: @green;
 @brand-info: @cyan;
+@brand-light: #f8f9fa;
+@brand-dark: #343a40;
+@brand-white: #fff;
+@brand-muted: @grey-500;
 
 // Font
 @font-size-small: 12px;
 @font-size-large: 17px;
-
-// Typography
-@state-muted-text: @grey-500;
-@state-success-text: @brand-success;
-@state-info-text: @brand-info;
-@state-warning-text: @brand-warning;
-@state-danger-text: @brand-danger;
 
 // Forms
 @form-primary: @grey-700;
@@ -61,12 +59,10 @@
 @table-bg-active:               @table-bg-hover;
 @table-border-color:            @grey-300;
 
-// Progress bars
-@progress-bar-bg: @brand-primary;
-@progress-bar-success-bg: @brand-success;
-@progress-bar-info-bg: @brand-info;
-@progress-bar-warning-bg: @brand-warning;
-@progress-bar-danger-bg: @brand-danger;
+
+// For creating contexture variations
+// uses brand colors stated on top of this file
+@contextures: primary, secondary, warning, danger, success, info, light, dark, white, muted;
 
 // For creating color variations
 // You may restrict them to only colors you need

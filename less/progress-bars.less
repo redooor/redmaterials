@@ -8,30 +8,6 @@
     border-radius: 0;
     box-shadow: none;
     &-bar {
-        background-color: @progress-bar-bg;
-        &-success {
-            background-color: @progress-bar-success-bg;
-            &:last-child.progress-bar:before {
-                background-color: lighten(@progress-bar-success-bg, 35%);
-            }
-        }
-        &-info {
-            background-color: @progress-bar-info-bg;
-            &:last-child.progress-bar:before {
-                background-color: lighten(@progress-bar-info-bg, 45%);
-            }
-        }
-        &-warning {
-            background-color: @progress-bar-warning-bg;
-            &:last-child.progress-bar:before {
-                background-color: lighten(@progress-bar-warning-bg, 35%);
-            }
-        }
-        &-danger {
-            background-color: @progress-bar-danger-bg;
-            &:last-child.progress-bar:before {
-                background-color: lighten(@progress-bar-danger-bg, 25%);
-            }
-        }
+        background-color: @brand-primary;
     }
 }

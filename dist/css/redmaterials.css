@@ -25,42 +25,6 @@ pre {
 a {
   color: #2196F3;
 }
-.text-muted {
-  color: #9E9E9E !important;
-}
-a.text-muted:hover {
-  color: #858585 !important;
-}
-.text-primary {
-  color: #2196F3 !important;
-}
-a.text-primary:hover {
-  color: #0c7cd5 !important;
-}
-.text-success {
-  color: #4CAF50 !important;
-}
-a.text-success:hover {
-  color: #3d8b40 !important;
-}
-.text-info {
-  color: #00BCD4 !important;
-}
-a.text-info:hover {
-  color: #008fa1 !important;
-}
-.text-warning {
-  color: #FFC107 !important;
-}
-a.text-warning:hover {
-  color: #d39e00 !important;
-}
-.text-danger {
-  color: #F44336 !important;
-}
-a.text-danger:hover {
-  color: #ea1c0d !important;
-}
 .btn {
   text-transform: uppercase;
 }
@@ -4126,30 +4090,6 @@ input[type="checkbox"]:disabled:checked:after,
 .progress-bar {
   background-color: #2196F3;
 }
-.progress-bar-success {
-  background-color: #4CAF50;
-}
-.progress-bar-success:last-child.progress-bar:before {
-  background-color: #c7e7c8;
-}
-.progress-bar-info {
-  background-color: #00BCD4;
-}
-.progress-bar-info:last-child.progress-bar:before {
-  background-color: #bbf7ff;
-}
-.progress-bar-warning {
-  background-color: #FFC107;
-}
-.progress-bar-warning:last-child.progress-bar:before {
-  background-color: #ffeeb9;
-}
-.progress-bar-danger {
-  background-color: #F44336;
-}
-.progress-bar-danger:last-child.progress-bar:before {
-  background-color: #fbb4af;
-}
 .shadow-depth-0 {
   box-shadow: none;
 }
@@ -4670,33 +4610,123 @@ input[type="checkbox"]:disabled:checked:after,
   overflow: hidden;
 }
 .bg-primary {
-  background: #2196F3 !important;
+  background-color: #2196F3 !important;
 }
-.bg-success {
-  background: #4CAF50 !important;
-}
-.bg-danger {
-  background: #F44336 !important;
+.bg-secondary {
+  background-color: #757575 !important;
 }
 .bg-warning {
-  background: #FFC107 !important;
+  background-color: #FFC107 !important;
+}
+.bg-danger {
+  background-color: #F44336 !important;
+}
+.bg-success {
+  background-color: #4CAF50 !important;
 }
 .bg-info {
-  background: #00BCD4 !important;
+  background-color: #00BCD4 !important;
+}
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+.bg-dark {
+  background-color: #343a40 !important;
+}
+.bg-white {
+  background-color: #fff !important;
+}
+.bg-muted {
+  background-color: #9E9E9E !important;
 }
 .border-primary {
   border-color: #2196F3 !important;
 }
-.border-success {
-  border-color: #4CAF50 !important;
-}
-.border-danger {
-  border-color: #F44336 !important;
+.border-secondary {
+  border-color: #757575 !important;
 }
 .border-warning {
   border-color: #FFC107 !important;
 }
+.border-danger {
+  border-color: #F44336 !important;
+}
+.border-success {
+  border-color: #4CAF50 !important;
+}
 .border-info {
   border-color: #00BCD4 !important;
+}
+.border-light {
+  border-color: #f8f9fa !important;
+}
+.border-dark {
+  border-color: #343a40 !important;
+}
+.border-white {
+  border-color: #fff !important;
+}
+.border-muted {
+  border-color: #9E9E9E !important;
+}
+.text-primary {
+  color: #2196F3 !important;
+}
+a.text-primary:hover {
+  color: #0c7cd5 !important;
+}
+.text-secondary {
+  color: #757575 !important;
+}
+a.text-secondary:hover {
+  color: #5b5b5b !important;
+}
+.text-warning {
+  color: #FFC107 !important;
+}
+a.text-warning:hover {
+  color: #d39e00 !important;
+}
+.text-danger {
+  color: #F44336 !important;
+}
+a.text-danger:hover {
+  color: #ea1c0d !important;
+}
+.text-success {
+  color: #4CAF50 !important;
+}
+a.text-success:hover {
+  color: #3d8b40 !important;
+}
+.text-info {
+  color: #00BCD4 !important;
+}
+a.text-info:hover {
+  color: #008fa1 !important;
+}
+.text-light {
+  color: #f8f9fa !important;
+}
+a.text-light:hover {
+  color: #dae0e5 !important;
+}
+.text-dark {
+  color: #343a40 !important;
+}
+a.text-dark:hover {
+  color: #1d2124 !important;
+}
+.text-white {
+  color: #fff !important;
+}
+a.text-white:hover {
+  color: #e6e6e6 !important;
+}
+.text-muted {
+  color: #9E9E9E !important;
+}
+a.text-muted:hover {
+  color: #858585 !important;
 }
 /*# sourceMappingURL=redmaterials.css.map */
