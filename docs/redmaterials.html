@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>Redmaterials by Redooor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="dist/css/redmaterials.min.css" media="screen">
     <link rel="stylesheet" href="assets/css/docs.min.css" media="screen">
@@ -13,8 +14,8 @@
     <link rel="shortcut icon" type="image/png" href="assets/img/redmaterials_logo_favicon.png">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="../bower_components/html5shiv/dist/html5shiv.min.js"></script>
-      <script src="../bower_components/respond/dest/respond.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
     <![endif]-->
 </head>
 
@@ -24,7 +25,7 @@
             <div class="nav-sidebar-title">
                 <a href="#top" class="nav-sidebar-brand"><img src="assets/img/redmaterials_logo_favicon.png" title="RedminPortal"> Redmaterials</a>
             </div>
-            <ul class="nav nav-sidebar-menu">
+            <ul class="nav flex-column nav-sidebar-menu">
                 <li class="nav-sub-header"><span>Bootstrap</span></li>
                 <li><a href="index.html#navbar">Navbar</a></li>
                 <li><a href="index.html#buttons">Buttons</a></li>
@@ -35,8 +36,10 @@
                 <li><a href="index.html#indicators">Indicators</a></li>
                 <li><a href="index.html#progress">Progress Bars</a></li>
                 <li><a href="index.html#container">Containers</a></li>
-                <li><a href="index.html#panels">Panels</a></li>
-                <li><a href="index.html#dialogs">Dialogs</a></li>
+                <li><a href="index.html#cards">Cards</a></li>
+                <li><a href="index.html#dialogs">Modals</a></li>
+                <li><a href="index.html#popover">Popover</a></li>
+                <li><a href="index.html#tooltips">Tooltips</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="nav-sub-header"><span>Redmaterials</span></li>
                 <li><a href="#navbar">Navbar</a></li>
@@ -45,7 +48,7 @@
                 <li><a href="#tables">Tables</a></li>
                 <li><a href="#shadows">Shadows</a></li>
                 <li><a href="#ribbons">Corner Ribbons</a></li>
-                <li><a href="#panels">Panels</a></li>
+                <li><a href="#cards">Cards</a></li>
                 <li><a href="#modals">Modals</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="https://twitter.com/redooor"><i class="fa fa-twitter"></i> twitter</a></li>
@@ -55,23 +58,12 @@
         </div>
         <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1"></div>
     </div>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav hidden-xs">
-                <li>
-                    <a href="#" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
-                </li>
-            </ul>
-            <div class="navbar-header">
-                <a href="#top" class="navbar-brand"><img src="assets/img/redmaterials_logo_favicon.png"/>Redmaterials</a>
-                <button type="button" class="navbar-toggle" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-        </div>
-    </div>
+    <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg">
+        <button type="button" class="navbar-toggle mr-2" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1">
+            <i class="material-icons">&#xE5D2;</i>
+        </button>
+        <a href="#top" class="navbar-brand"><img src="assets/img/redmaterials_logo_favicon.png" width="29" height="29" class="d-inline-block align-top mr-2" alt=""/>Redmaterials</a>
+    </nav>
     
     <view-banner></view-banner>
     
@@ -87,17 +79,18 @@
     
     <view-redmaterials-ribbons></view-redmaterials-ribbons>
     
-    <view-redmaterials-panels></view-redmaterials-panels>
+    <view-redmaterials-cards></view-redmaterials-cards>
     
     <view-redmaterials-modals></view-redmaterials-modals>
     
     <view-footer></view-footer>
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="assets/js/prism.js"></script>
-    <script src="assets/js/docs.min.js"></script>
+    <script src="assets/js/docs.min.js?v=1.0"></script>
     <script src="dist/js/redmaterials.min.js"></script>
 </body>
 

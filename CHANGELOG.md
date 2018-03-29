@@ -3,6 +3,19 @@
 1. [Version 0.0.1](#version-001)
 2. [Version 0.0.2](#version-002)
 3. [Version 0.0.3](#version-003)
+3. [Version 0.1.0](#version-010)
+
+## Version 0.1.0
+
+Bootstrap v4 has removed many default padding and margin to give way for v4 utilities. 
+This is a good change! To match that I've removed many padding and margin in Redmaterials as well. 
+Designers are then free to use the utilities to suit their needs. 
+Do let me know if I've missed out any padding or margin.
+
+Loving Bootstrap v4.
+
+1. Support for Bootstrap v4. For Bootstrap v3, please use version 0.0.3.
+2. Removed many padding and margin. Use utilities instead.
 
 ## Version 0.0.3
 

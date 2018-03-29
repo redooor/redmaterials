@@ -10,68 +10,252 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
-            <div class="col-lg-12">
-                <h2>Alerts</h2>
-                <div class="bs-component">
-                    <div class="alert alert-dismissable alert-warning">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <h4>Warning!</h4>
-                        <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+            <div class="col">
+                <h4>Alerts with links</h4>
+                <div class="bs-component mb-4">
+                    <div class="alert alert-primary" role="alert">
+                        This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                    </div>
+                    <div class="alert alert-secondary" role="alert">
+                        This is a secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        This is a warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        This is a info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                    </div>
+                    <div class="alert alert-light" role="alert">
+                        This is a light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                    </div>
+                    <div class="alert alert-dark" role="alert">
+                        This is a dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                    </div>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="alert alert-primary" role="alert"&gt;
+    This is a primary alert with &lt;a href="#" class="alert-link"&gt;an example link&lt;/a&gt;. Give it a click if you like.
+&lt;/div&gt;
+&lt;div class="alert alert-secondary" role="alert"&gt;
+    This is a secondary alert with &lt;a href="#" class="alert-link"&gt;an example link&lt;/a&gt;. Give it a click if you like.
+&lt;/div&gt;
+&lt;div class="alert alert-success" role="alert"&gt;
+    This is a success alert with &lt;a href="#" class="alert-link"&gt;an example link&lt;/a&gt;. Give it a click if you like.
+&lt;/div&gt;
+&lt;div class="alert alert-danger" role="alert"&gt;
+    This is a danger alert with &lt;a href="#" class="alert-link"&gt;an example link&lt;/a&gt;. Give it a click if you like.
+&lt;/div&gt;
+&lt;div class="alert alert-warning" role="alert"&gt;
+    This is a warning alert with &lt;a href="#" class="alert-link"&gt;an example link&lt;/a&gt;. Give it a click if you like.
+&lt;/div&gt;
+&lt;div class="alert alert-info" role="alert"&gt;
+    This is a info alert with &lt;a href="#" class="alert-link"&gt;an example link&lt;/a&gt;. Give it a click if you like.
+&lt;/div&gt;
+&lt;div class="alert alert-light" role="alert"&gt;
+    This is a light alert with &lt;a href="#" class="alert-link"&gt;an example link&lt;/a&gt;. Give it a click if you like.
+&lt;/div&gt;
+&lt;div class="alert alert-dark" role="alert"&gt;
+    This is a dark alert with &lt;a href="#" class="alert-link"&gt;an example link&lt;/a&gt;. Give it a click if you like.
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="bs-component mb-4">
+                    <h4>Alerts with Additional Content</h4>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <h4 class="alert-heading">Well done!</h4>
+                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                        <hr>
+                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="alert alert-warning alert-dismissible fade show" role="alert"&gt;
+    &lt;h4 class="alert-heading"&gt;Well done!&lt;/h4&gt;
+    &lt;p&gt;Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p class="mb-0"&gt;Whenever you need to, be sure to use margin utilities to keep things nice and tidy.&lt;/p&gt;
+    &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;
+        &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="bs-component">
-                    <div class="alert alert-dismissable alert-danger">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>Oh snap!</strong>  <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+            <div class="col">
+                <h4>Dismissible Alerts</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="bs-component mb-4">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col">
                 <div class="bs-component">
-                    <div class="alert alert-dismissable alert-success">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <div class="alert alert-dismissible alert-success">
                         <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col">
                 <div class="bs-component">
-                    <div class="alert alert-dismissable alert-info">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <div class="alert alert-dismissible alert-info">
                         <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Labels</h2>
-                <div class="bs-component" style="margin-bottom: 40px;">
-                    <span class="label label-default">Default</span>
-                    <span class="label label-primary">Primary</span>
-                    <span class="label label-success">Success</span>
-                    <span class="label label-warning">Warning</span>
-                    <span class="label label-danger">Danger</span>
-                    <span class="label label-info">Info</span>
+            <div class="col">
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;div class="alert alert-danger alert-dismissible fade show" role="alert"&gt;
+    &lt;strong&gt;Oh snap!&lt;/strong&gt; &lt;a href="#" class="alert-link"&gt;Change a few things up&lt;/a&gt; and try submitting again.
+    &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;
+        &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+            
+&lt;div class="alert alert-dismissible alert-success"&gt;
+    &lt;strong&gt;Well done!&lt;/strong&gt; You successfully read &lt;a href="#" class="alert-link"&gt;this important alert message&lt;/a&gt;.
+    &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;
+        &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+            
+&lt;div class="alert alert-dismissible alert-info"&gt;
+    &lt;strong&gt;Heads up!&lt;/strong&gt; This &lt;a href="#" class="alert-link"&gt;alert needs your attention&lt;/a&gt;, but it's not super important.
+    &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;
+        &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Badges</h2>
-                <div class="bs-component">
-                    <ul class="nav nav-pills">
-                        <li class="active"><a href="#">Home <span class="badge">42</span></a>
-                        </li>
-                        <li><a href="#">Profile <span class="badge"></span></a>
-                        </li>
-                        <li><a href="#">Messages <span class="badge">3</span></a>
-                        </li>
-                    </ul>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Badges in headings</h4>
+                <div class="well">
+                    <h1>Example heading <span class="badge badge-secondary">New</span></h1>
+                    <h2>Example heading <span class="badge badge-secondary">New</span></h2>
+                    <h3>Example heading <span class="badge badge-secondary">New</span></h3>
+                    <h4>Example heading <span class="badge badge-secondary">New</span></h4>
+                    <h5>Example heading <span class="badge badge-secondary">New</span></h5>
+                    <h6>Example heading <span class="badge badge-secondary">New</span></h6>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;h1&gt;Example heading &lt;span class="badge badge-secondary"&gt;New&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;Example heading &lt;span class="badge badge-secondary"&gt;New&lt;/span&gt;&lt;/h2&gt;
+&lt;h3&gt;Example heading &lt;span class="badge badge-secondary"&gt;New&lt;/span&gt;&lt;/h3&gt;
+&lt;h4&gt;Example heading &lt;span class="badge badge-secondary"&gt;New&lt;/span&gt;&lt;/h4&gt;
+&lt;h5&gt;Example heading &lt;span class="badge badge-secondary"&gt;New&lt;/span&gt;&lt;/h5&gt;
+&lt;h6&gt;Example heading &lt;span class="badge badge-secondary"&gt;New&lt;/span&gt;&lt;/h6&gt;</code></pre>
+                </div>
+                <h4>Badges in buttons</h4>
+                <div class="well">
+                    <button type="button" class="btn btn-primary">
+                        Notifications <span class="badge badge-light ml-2">4</span>
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        Profile <span class="badge badge-light ml-2">9</span>
+                        <span class="sr-only">unread messages</span>
+                    </button>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;button type="button" class="btn btn-primary"&gt;
+  Notifications &lt;span class="badge badge-light ml-2"&gt;4&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-primary"&gt;
+  Profile &lt;span class="badge badge-light ml-2"&gt;9&lt;/span&gt;
+  &lt;span class="sr-only"&gt;unread messages&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+                <h4>Badges as Labels</h4>
+                <p>Labels are deprecated in Bootstrap v4, so we use Badges to replace them.</p>
+                <div class="well">
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-secondary">Secondary</span>
+                    <span class="badge badge-success">Success</span>
+                    <span class="badge badge-danger">Danger</span>
+                    <span class="badge badge-warning">Warning</span>
+                    <span class="badge badge-info">Info</span>
+                    <span class="badge badge-light">Light</span>
+                    <span class="badge badge-dark">Dark</span>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge-secondary"&gt;Secondary&lt;/span&gt;
+&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge-danger"&gt;Danger&lt;/span&gt;
+&lt;span class="badge badge-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="badge badge-info"&gt;Info&lt;/span&gt;
+&lt;span class="badge badge-light"&gt;Light&lt;/span&gt;
+&lt;span class="badge badge-dark"&gt;Dark&lt;/span&gt;</code></pre>
+                </div>
+                <h4>Pill Badges</h4>
+                <p>This is similar to the old badges in Bootstrap v3.</p>
+                <div class="well">
+                    <span class="badge badge-pill badge-primary">Primary</span>
+                    <span class="badge badge-pill badge-secondary">Secondary</span>
+                    <span class="badge badge-pill badge-success">Success</span>
+                    <span class="badge badge-pill badge-danger">Danger</span>
+                    <span class="badge badge-pill badge-warning">Warning</span>
+                    <span class="badge badge-pill badge-info">Info</span>
+                    <span class="badge badge-pill badge-light">Light</span>
+                    <span class="badge badge-pill badge-dark">Dark</span>
+                </div>
+                <div class="highlight mb-4">
+                    <pre><code ng-prism class="language-markup">&lt;span class="badge badge-pill badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge-pill badge-secondary"&gt;Secondary&lt;/span&gt;
+&lt;span class="badge badge-pill badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge-pill badge-danger"&gt;Danger&lt;/span&gt;
+&lt;span class="badge badge-pill badge-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="badge badge-pill badge-info"&gt;Info&lt;/span&gt;
+&lt;span class="badge badge-pill badge-light"&gt;Light&lt;/span&gt;
+&lt;span class="badge badge-pill badge-dark"&gt;Dark&lt;/span&gt;</code></pre>
+                </div>
+                <h4>Link Badges</h4>
+                <div class="well">
+                    <a href="#" class="badge badge-primary">Primary</a>
+                    <a href="#" class="badge badge-secondary">Secondary</a>
+                    <a href="#" class="badge badge-success">Success</a>
+                    <a href="#" class="badge badge-danger">Danger</a>
+                    <a href="#" class="badge badge-warning">Warning</a>
+                    <a href="#" class="badge badge-info">Info</a>
+                    <a href="#" class="badge badge-light">Light</a>
+                    <a href="#" class="badge badge-dark">Dark</a>
+                </div>
+                <div class="highlight">
+                    <pre><code ng-prism class="language-markup">&lt;a href="#" class="badge badge-primary"&gt;Primary&lt;/a&gt;
+&lt;a href="#" class="badge badge-secondary"&gt;Secondary&lt;/a&gt;
+&lt;a href="#" class="badge badge-success"&gt;Success&lt;/a&gt;
+&lt;a href="#" class="badge badge-danger"&gt;Danger&lt;/a&gt;
+&lt;a href="#" class="badge badge-warning"&gt;Warning&lt;/a&gt;
+&lt;a href="#" class="badge badge-info"&gt;Info&lt;/a&gt;
+&lt;a href="#" class="badge badge-light"&gt;Light&lt;/a&gt;
+&lt;a href="#" class="badge badge-dark"&gt;Dark&lt;/a&gt;</code></pre>
                 </div>
             </div>
         </div>

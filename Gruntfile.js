@@ -1,7 +1,7 @@
 /*!
  * Redmaterials' Gruntfile
  * https://redooor.github.io/redmaterials
- * Copyright 2013-2016 Redooor LLP
+ * Copyright 2013-2018 Redooor LLP
  * Licensed under MIT
  */
 /*global module:false*/
@@ -19,10 +19,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    var configBridge = grunt.file.readJSON('./bower_components/bootstrap/grunt/configBridge.json', {
-        encoding: 'utf8'
-    });
-
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -37,8 +33,7 @@ module.exports = function (grunt) {
             '*/\n',
         clean: {
             dist: 'dist',
-            docs: 'docs/dist',
-            demo: ['docs/assets/fonts', 'docs/assets/js/bootstrap.*', 'docs/assets/js/jquery.*', 'docs/assets/js/angular.*', 'docs/assets/css/bootstrap.*', 'docs/assets/css/font-awesome.*']
+            docs: 'docs/dist'
         },
         concat: {
             options: {
@@ -96,7 +91,7 @@ module.exports = function (grunt) {
         },
         autoprefixer: {
             options: {
-                browsers: configBridge.config.autoprefixerBrowsers
+                browsers: ['last 3 versions', 'ie 9']
             },
             core: {
                 options: {
@@ -139,42 +134,6 @@ module.exports = function (grunt) {
             docs: {
                 src: 'dist/*/*',
                 dest: 'docs/'
-            },
-            bootstrapjs: {
-                src: 'bower_components/bootstrap/dist/js/bootstrap.min.js',
-                dest: 'docs/assets/js/bootstrap.min.js'
-            },
-            bootstrapcss: {
-                src: 'bower_components/bootstrap/dist/css/bootstrap.min.css',
-                dest: 'docs/assets/css/bootstrap.min.css'
-            },
-            bootstrapfonts: {
-                expand: true,
-                cwd: 'bower_components/bootstrap/fonts/',
-                src: '**',
-                dest: 'docs/assets/fonts/',
-                flatten: true,
-                filter: 'isFile'
-            },
-            fontawesomecss: {
-                src: 'bower_components/font-awesome/css/font-awesome.min.css',
-                dest: 'docs/assets/css/font-awesome.min.css'
-            },
-            fontawesomefonts: {
-                expand: true,
-                cwd: 'bower_components/font-awesome/fonts/',
-                src: '**',
-                dest: 'docs/assets/fonts/',
-                flatten: true,
-                filter: 'isFile'
-            },
-            angularjs: {
-                src: 'bower_components/angular/angular.min.js',
-                dest: 'docs/assets/js/angular.min.js'
-            },
-            jqueryjs: {
-                src: 'bower_components/jquery/dist/jquery.min.js',
-                dest: 'docs/assets/js/jquery.min.js'
             }
         },
         watch: {
@@ -208,15 +167,10 @@ module.exports = function (grunt) {
     grunt.registerTask('dist', ['clean:dist', 'dist-css', 'dist-js']);
 
     // Docs task.
-    grunt.registerTask('docs-assets', ['copy:bootstrapjs', 'copy:bootstrapcss', 'copy:bootstrapfonts', 'copy:fontawesomecss', 'copy:fontawesomefonts', 'copy:angularjs', 'copy:jqueryjs']);
     grunt.registerTask('docs-css', ['less:docs', 'autoprefixer:docs', 'cssmin:docs']);
     grunt.registerTask('docs-js', ['uglify:docs']);
-    grunt.registerTask('docs-bare', ['docs-css', 'docs-js', 'clean:docs', 'copy:docs']);
-    grunt.registerTask('docs', ['docs-bare', 'docs-assets']);
+    grunt.registerTask('docs', ['docs-css', 'docs-js', 'clean:docs', 'copy:docs']);
 
     // For submission to repository: exclude dependencies
-    grunt.registerTask('default', ['clean:demo', 'clean:dist', 'dist-css', 'dist-js', 'docs-bare']);
-
-    // Demo: include all dependencies, for uploading to demo site
-    grunt.registerTask('deprecated', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
+    grunt.registerTask('default', ['dist', 'docs']);
 };

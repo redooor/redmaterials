@@ -1,3 +1,4 @@
+/*eslint-disable*/
 /*jslint browser: true, plusplus: true, vars: true*/
 /*global $, jQuery, angular, Prism, WebFont*/
 (function () {
@@ -99,10 +100,10 @@
         };
     });
   
-    app.directive("viewPanels", function () {
+    app.directive("viewCards", function () {
         return {
             restrict: "E",
-            templateUrl: "views/panels.html"
+            templateUrl: "views/cards.html"
         };
     });
     
@@ -159,10 +160,10 @@
         };
     });
     
-    app.directive("viewRedmaterialsPanels", function () {
+    app.directive("viewRedmaterialsCards", function () {
         return {
             restrict: "E",
-            templateUrl: "views/redmaterials/panels.html"
+            templateUrl: "views/redmaterials/cards.html"
         };
     });
     
@@ -235,9 +236,12 @@
         var scrollToLoop;
         function sharedLinkFunction() {
             var hash = window.location.hash.substr(1);
-            var $hashTag = $('#' + hash);
-            if ($hashTag.length > 0) {
-                $('html, body').animate({scrollTop: $hashTag.offset().top}, 0);
+            if (hash.length === 0) {
+                return;
+            }
+            var hashTag = $('#' + hash);
+            if (hashTag.length > 0) {
+                $('html, body').animate({scrollTop: hashTag.offset().top}, 0);
                 window.clearInterval(scrollToLoop); // stop the loop
             }
         }

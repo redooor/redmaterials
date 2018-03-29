@@ -1,3 +1,4 @@
+/*eslint-disable*/
 /*jslint browser: true, plusplus: true, vars: true*/
 /*global $, jQuery*/
 (function ($) {

@@ -1,39 +1,32 @@
 //
 // Navs
 // --------------------------------------------------
+.nav-link.disabled {
+    cursor: not-allowed;
+}
+
 .nav-tabs {
-    margin-bottom: 1em;
-    > li > a, > li > a:focus {
-        margin-right: 0;
-        background-color: transparent;
+    .nav-link, .nav-link:focus {
         border: none;
-        border-radius: 2px 2px 0 0;
-        color: @navbar-default-link-color;
-        .box-shadow(inset 0 -1px 0 #ddd);
-        .transition(all 0.2s);
+        box-shadow: inset 0 -1px 0 #ddd;
+        transition: all 0.2s;
         &:hover {
-            background-color: transparent;
-            .box-shadow(inset 0 -2px 0 @brand-primary);
-            color: @brand-primary;
+            box-shadow: inset 0 -2px 0 @brand-primary;
         }
     }
-    & > li.active > a,
-    & > li.active > a:focus {
+    .nav-item.show .nav-link,
+    .nav-link.active,
+    .nav-link.active:focus {
         border: none;
-        .box-shadow(inset 0 -2px 0 @brand-primary);
-        color: @brand-primary;
+        box-shadow: inset 0 -2px 0 @brand-primary;
         &:hover {
             border: none;
-            color: @brand-primary;
         }
     }
-    & > li.disabled > a {
-        .box-shadow(inset 0 -1px 0 #ddd);
-    }
-    &.nav-justified {
-        & > li > a, & > li > a:hover, & > .active > a, & > .active > a:hover {
-            border: none;
-        }
+    .nav-link.disabled,
+    .nav-tabs .nav-link:focus:hover,
+    .nav-tabs .nav-link:hover{
+        box-shadow: inset 0 -1px 0 #ddd;
     }
 }
 
@@ -45,7 +38,7 @@
 
 .nav-pills > li > a {
     border-radius: 2px;
-    .transition(all .15s ease-in-out);
+    transition: all .15s ease-in-out;
 }
 
 .pager li>a,
@@ -55,7 +48,7 @@
     color: @brand-primary;
     border-radius: 2px;
     background-color: @btn-default-bg-color;
-    .transition(all .15s ease-in-out);
+    transition: all .15s ease-in-out;
 }
 
 .pager .disabled>a,
@@ -63,8 +56,4 @@
 .pager .disabled>a:hover,
 .pager .disabled>span {
     background-color: @btn-default-bg-color;
-}
-
-.breadcrumb {
-    border-radius: 2px;
 }

@@ -4,67 +4,275 @@
     <div class="bs-docs-section">
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col">
                 <div class="page-header">
                     <h1>Containers</h1>
                 </div>
-                <div class="bs-component">
+                <div class="bs-component mb-4">
+                    <h4>Jumbotron</h4>
                     <div class="jumbotron">
-                        <h1>Jumbotron</h1>
-                        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                        <p><a class="btn btn-primary btn-lg">Learn more</a>
+                        <h1 class="display-4">Hello, world!</h1>
+                        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                        <hr class="my-4">
+                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
                         </p>
                     </div>
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h1 class="display-4">Fluid jumbotron</h1>
+                            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="jumbotron"&gt;
+    &lt;h1 class="display-4"&gt;Hello, world!&lt;/h1&gt;
+    &lt;p class="lead"&gt;This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.&lt;/p&gt;
+    &lt;hr class="my-4"&gt;
+    &lt;p&gt;It uses utility classes for typography and spacing to space content out within the larger container.&lt;/p&gt;
+    &lt;p class="lead"&gt;
+        &lt;a class="btn btn-primary btn-lg" href="#" role="button"&gt;Learn more&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="jumbotron jumbotron-fluid"&gt;
+    &lt;div class="container"&gt;
+        &lt;h1 class="display-4"&gt;Fluid jumbotron&lt;/h1&gt;
+        &lt;p class="lead"&gt;This is a modified jumbotron that occupies the entire horizontal space of its parent.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
                 </div>
             </div>
         </div>
 
 
         <div class="row">
-            <div class="col-lg-12">
-                <h2>List groups</h2>
+            <div class="col">
+                <h4>List groups</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="bs-component">
+            <div class="col">
+                <div class="bs-component mb-4">
+                    <p class="lead">Normal list</p>
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="badge">14</span> Cras justo odio
+                        <li class="list-group-item active">Active List</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item disabled">Disabled list</li>
+                    </ul>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;ul class="list-group"&gt;
+    &lt;li class="list-group-item active"&gt;Active List&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Morbi leo risus&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Porta ac consectetur ac&lt;/li&gt;
+    &lt;li class="list-group-item disabled"&gt;Disabled list&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="bs-component mb-4">
+                    <p class="lead">Link list</p>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active">Active List</a>
+                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item list-group-item-action disabled">Disabled List</a>
+                    </div>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="list-group"&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action active"&gt;Active List&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action"&gt;Dapibus ac facilisis in&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action"&gt;Morbi leo risus&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action"&gt;Porta ac consectetur ac&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action disabled"&gt;Disabled List&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="bs-component mb-4">
+                    <p class="lead">Button list</p>
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action active">Active List</button>
+                        <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                        <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                        <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                        <button type="button" class="list-group-item list-group-item-action" disabled>Disabled List</button>
+                    </div>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="list-group"&gt;
+    &lt;button type="button" class="list-group-item list-group-item-action active"&gt;Active List&lt;/button&gt;
+    &lt;button type="button" class="list-group-item list-group-item-action"&gt;Dapibus ac facilisis in&lt;/button&gt;
+    &lt;button type="button" class="list-group-item list-group-item-action"&gt;Morbi leo risus&lt;/button&gt;
+    &lt;button type="button" class="list-group-item list-group-item-action"&gt;Porta ac consectetur ac&lt;/button&gt;
+    &lt;button type="button" class="list-group-item list-group-item-action" disabled&gt;Disabled List&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="bs-component mb-4">
+                    <p class="lead">Flushed List</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;ul class="list-group list-group-flush"&gt;
+    &lt;li class="list-group-item"&gt;Cras justo odio&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Morbi leo risus&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Porta ac consectetur ac&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Vestibulum at eros&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="bs-component mb-4">
+                    <p class="lead">Contexture List</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
+                        <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
+                        <li class="list-group-item list-group-item-success">This is a success list group item</li>
+                        <li class="list-group-item list-group-item-danger">This is a danger list group item</li>
+                        <li class="list-group-item list-group-item-warning">This is a warning list group item</li>
+                        <li class="list-group-item list-group-item-info">This is a info list group item</li>
+                        <li class="list-group-item list-group-item-light">This is a light list group item</li>
+                        <li class="list-group-item list-group-item-dark">This is a dark list group item</li>
+                    </ul>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;ul class="list-group"&gt;
+    &lt;li class="list-group-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+    &lt;li class="list-group-item list-group-item-primary"&gt;This is a primary list group item&lt;/li&gt;
+    &lt;li class="list-group-item list-group-item-secondary"&gt;This is a secondary list group item&lt;/li&gt;
+    &lt;li class="list-group-item list-group-item-success"&gt;This is a success list group item&lt;/li&gt;
+    &lt;li class="list-group-item list-group-item-danger"&gt;This is a danger list group item&lt;/li&gt;
+    &lt;li class="list-group-item list-group-item-warning"&gt;This is a warning list group item&lt;/li&gt;
+    &lt;li class="list-group-item list-group-item-info"&gt;This is a info list group item&lt;/li&gt;
+    &lt;li class="list-group-item list-group-item-light"&gt;This is a light list group item&lt;/li&gt;
+    &lt;li class="list-group-item list-group-item-dark"&gt;This is a dark list group item&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="bs-component mb-4">
+                    <p class="lead">Action Contexture List</p>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">This is a secondary list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-success">This is a success list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">This is a danger list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-warning">This is a warning list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-info">This is a info list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a light list group item</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-dark">This is a dark list group item</a>
+                    </div>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="list-group"&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action"&gt;Dapibus ac facilisis in&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action list-group-item-primary"&gt;This is a primary list group item&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action list-group-item-secondary"&gt;This is a secondary list group item&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action list-group-item-success"&gt;This is a success list group item&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action list-group-item-danger"&gt;This is a danger list group item&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action list-group-item-warning"&gt;This is a warning list group item&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action list-group-item-info"&gt;This is a info list group item&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action list-group-item-light"&gt;This is a light list group item&lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action list-group-item-dark"&gt;This is a dark list group item&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="bs-component mb-4">
+                    <p class="lead">List with Badges</p>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Cras justo odio
+                            <span class="badge badge-primary badge-pill">14</span>
                         </li>
-                        <li class="list-group-item">
-                            <span class="badge">2</span> Dapibus ac facilisis in
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Dapibus ac facilisis in
+                            <span class="badge badge-primary badge-pill">2</span>
                         </li>
-                        <li class="list-group-item">
-                            <span class="badge">1</span> Morbi leo risus
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Morbi leo risus
+                            <span class="badge badge-primary badge-pill">1</span>
                         </li>
                     </ul>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="bs-component">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active">
-                  Cras justo odio
-                </a>
-                        <a href="#" class="list-group-item">Dapibus ac facilisis in
-                </a>
-                        <a href="#" class="list-group-item">Morbi leo risus
-                </a>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;ul class="list-group"&gt;
+    &lt;li class="list-group-item d-flex justify-content-between align-items-center"&gt;
+        Cras justo odio
+        &lt;span class="badge badge-primary badge-pill"&gt;14&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class="list-group-item d-flex justify-content-between align-items-center"&gt;
+        Dapibus ac facilisis in
+        &lt;span class="badge badge-primary badge-pill"&gt;2&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class="list-group-item d-flex justify-content-between align-items-center"&gt;
+        Morbi leo risus
+        &lt;span class="badge badge-primary badge-pill"&gt;1&lt;/span&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="bs-component">
+                <div class="bs-component mb-4">
+                    <p class="lead">Custom content</p>
                     <div class="list-group">
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small>3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small>Donec id elit non mi porta.</small>
                         </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small class="text-muted">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
                         </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small class="text-muted">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                        </a>
+                    </div>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="list-group"&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action flex-column align-items-start active"&gt;
+        &lt;div class="d-flex w-100 justify-content-between"&gt;
+            &lt;h5 class="mb-1"&gt;List group item heading&lt;/h5&gt;
+            &lt;small&gt;3 days ago&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;p class="mb-1"&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.&lt;/p&gt;
+        &lt;small&gt;Donec id elit non mi porta.&lt;/small&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action flex-column align-items-start"&gt;
+        &lt;div class="d-flex w-100 justify-content-between"&gt;
+            &lt;h5 class="mb-1"&gt;List group item heading&lt;/h5&gt;
+            &lt;small class="text-muted"&gt;3 days ago&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;p class="mb-1"&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.&lt;/p&gt;
+        &lt;small class="text-muted"&gt;Donec id elit non mi porta.&lt;/small&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="list-group-item list-group-item-action flex-column align-items-start"&gt;
+        &lt;div class="d-flex w-100 justify-content-between"&gt;
+            &lt;h5 class="mb-1"&gt;List group item heading&lt;/h5&gt;
+            &lt;small class="text-muted"&gt;3 days ago&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;p class="mb-1"&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.&lt;/p&gt;
+        &lt;small class="text-muted"&gt;Donec id elit non mi porta.&lt;/small&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</code></pre>
                     </div>
                 </div>
             </div>
@@ -72,44 +280,48 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h2>Wells</h2>
+                <h4>Wells</h4>
+                <p>We're keeping the wells from Bootstrap v3.</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col">
                 <div class="bs-component">
-                    <h3>Normal</h3>
+                    <p class="lead">Normal</p>
                     <div class="well">
                         Look, I'm in a well!
                     </div>
-                    <pre>
-&lt;div class="well"&gt;
+                    <div class="highlight mb-4">
+                        <pre><code ng-prism class="language-markup">&lt;div class="well"&gt;
     Look, I'm in a well!
-&lt;/div&gt;</pre>
+&lt;/div&gt;</code></pre>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col">
                 <div class="bs-component">
-                    <h3>Small</h3>
+                    <p class="lead">Small</p>
                     <div class="well well-sm">
                         Look, I'm in a small well!
                     </div>
-                    <pre>
-&lt;div class="well well-sm"&gt;
+                    <div class="highlight mb-4">
+                        <pre><code ng-prism class="language-markup">&lt;div class="well well-sm"&gt;
     Look, I'm in a small well!
-&lt;/div&gt;</pre>
+&lt;/div&gt;</code></pre>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col">
                 <div class="bs-component">
-                    <h3>Large</h3>
+                    <p class="lead">Large</p>
                     <div class="well well-lg">
                         Look, I'm in a large well!
                     </div>
-                    <pre>
-&lt;div class="well well-lg"&gt;
+                    <div class="highlight mb-4">
+                        <pre><code ng-prism class="language-markup">&lt;div class="well well-lg"&gt;
     Look, I'm in a large well!
-&lt;/div&gt;</pre>
+&lt;/div&gt;</code></pre>
+                    </div>
                 </div>
             </div>
         </div>

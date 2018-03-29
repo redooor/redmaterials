@@ -1,9 +1,0 @@
-.make-color-navbars(@colors; @names; @textcolors; @index) when (@index > 0) {
-    .make-color-navbars(@colors; @names; @textcolors; (@index - 1));
-    @name: extract(@names, @index);
-    @color: extract(@colors, @index);
-    @textcolor: extract(@textcolors, @index);
-    .navbar-@{name} {
-        .navbar-variant(@color, @textcolor);
-    }
-}

@@ -13,24 +13,27 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="well bs-component">
-                    <form class="form-horizontal">
+                    <form>
                         <fieldset>
                             <legend>Legend</legend>
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" id="inputEmail" placeholder="Email">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                                 <div class="col-lg-10">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" aria-describedby="passwordHelpBlock">
+                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                    </small>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <label class="sr-only col-lg-2 control-label">Checkbox</label>
-                                <div class="col-lg-10">
+                                <div class="col-lg-10 offset-lg-2">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox">Checkbox
@@ -38,14 +41,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <label for="textArea" class="col-lg-2 control-label">Textarea</label>
                                 <div class="col-lg-10">
                                     <textarea class="form-control" rows="3" id="textArea"></textarea>
-                                    <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                                    <small class="form-text text-muted">A longer block of help text that breaks onto a new line and may extend beyond one line.</small>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <label class="col-lg-2 control-label">Radios</label>
                                 <div class="col-lg-10">
                                     <div class="radio">
@@ -60,7 +63,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <label for="select" class="col-lg-2 control-label">Selects</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" id="select">
@@ -80,8 +83,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
+                            <div class="form-group row">
+                                <div class="col-lg-10 offset-lg-2 text-right">
                                     <button class="btn btn-default">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
@@ -90,8 +93,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4 col-lg-offset-1">
-
+            <div class="col-lg-6">
                 <form class="bs-component">
                     <div class="form-group">
                         <label class="control-label" for="focusedInput">Focused input</label>

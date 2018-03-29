@@ -1,0 +1,15 @@
+// Text variations
+
+// For contexture text
+.make-color-context-text(@this_contextures; @index) when (@index > 0) {
+    .make-color-context-text(@this_contextures; (@index - 1));
+    @context:extract(@this_contextures, @index);
+    // Run it
+    .text-@{context} {
+        @brandColor: "brand-@{context}";
+        color: @@brandColor !important;
+        a&:hover {
+            color: darken(@@brandColor, 10%) !important;
+        }
+    }
+}

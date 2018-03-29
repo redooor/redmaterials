@@ -1,0 +1,49 @@
+// Buttons variations
+
+// For contexture backgrounds
+.make-color-context-btn(@this_contextures; @index) when (@index > 0) {
+    .make-color-context-btn(@this_contextures; (@index - 1));
+    @context:extract(@this_contextures, @index);
+    // Run it
+    .btn-@{context} {
+        @brandColor: "brand-@{context}";
+        background-color: @@brandColor;
+        &:hover {
+            background-color: darken(@@brandColor, 10%);
+        }
+        &:active,
+        &.active {
+            background-color: darken(@@brandColor, 10%);
+
+        }
+        &:focus {
+            background-color: darken(@@brandColor, 20%);
+        }
+        //## color for riple-effect
+        .ink {
+            background-color: darken(@@brandColor, 30%);
+        }
+        
+        &.btn-flat {
+            color: @@brandColor;
+            background-color: transparent;
+            &:hover {
+                color: darken(@@brandColor, 10%);
+                background-color: lighten(#999, 30%);
+            }
+            &:active,
+            &.active {
+                color: darken(@@brandColor, 20%);
+                background-color: lighten(#999, 20%);
+            }
+            &:focus {
+                color: darken(@@brandColor, 30%);
+                background-color: lighten(#999, 20%);
+            }
+            //## color for riple-effect
+            .ink {
+                background-color: darken(#ccc, 30%);
+            }
+        }
+    }
+}

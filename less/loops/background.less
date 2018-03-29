@@ -1,0 +1,49 @@
+// Background variations
+
+// For contexture backgrounds
+.make-color-context-bg(@this_contextures; @index) when (@index > 0) {
+    .make-color-context-bg(@this_contextures; (@index - 1));
+    @context:extract(@this_contextures, @index);
+    // Run it
+    .bg-@{context} {
+        @brandColor: "brand-@{context}";
+        background-color: @@brandColor !important;
+    }
+}
+
+// For color palette
+.make-color-bg(@colors; @names; @index) when (@index > 0) {
+    .make-color-bg(@colors; @names; (@index - 1));
+    @name: extract(@names, @index);
+    @color: extract(@colors, @index);
+    // Run it
+    .bg-@{name} {
+        background-color: @color;
+        // Support btn hover
+        &.btn:hover {
+            background-color: darken(@color, 10%);
+        }
+        // Support flat btn
+        &.btn-flat {
+            color: @color;
+            background-color: transparent;
+            &:hover {
+                color: darken(@color, 10%);
+                background-color: lighten(#999, 30%);
+            }
+            &:active,
+            &.active {
+                color: darken(@color, 20%);
+                background-color: lighten(#999, 20%);
+            }
+            &:focus {
+                color: darken(@color, 30%);
+                background-color: lighten(#999, 20%);
+            }
+            //## color for riple-effect
+            .ink {
+                background-color: darken(#ccc, 30%);
+            }
+        }
+    }
+}

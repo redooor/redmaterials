@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <h1>Redmaterials Nav Sidebar</h1>
+                    <h1>Nav Sidebar</h1>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
                             <div class="nav-sidebar-title">
                                 <a href="#top" class="nav-sidebar-brand">Nav Sidebar</a>
                             </div>
-                            <ul class="nav nav-sidebar-menu">
+                            <ul class="nav flex-column nav-sidebar-menu">
                                 <li class="nav-sub-header"><span>Header 1</span></li>
                                 <li><a href="#">Test 1</a></li>
                                 <li><a href="#">Test 2</a></li>
@@ -38,7 +38,7 @@
                             <div class="nav-sidebar-title">
                                 <a href="#top" class="nav-sidebar-brand">Right Sidebar</a>
                             </div>
-                            <ul class="nav nav-sidebar-menu">
+                            <ul class="nav flex-column nav-sidebar-menu">
                                 <li class="nav-sub-header"><span>Header 1</span></li>
                                 <li><a href="#">Test 1</a></li>
                                 <li><a href="#">Test 2</a></li>
@@ -56,7 +56,7 @@
                     </div>
                     <p>
                         <button type="button" class="btn btn-primary" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1">Show Sidebar</button>
-                        <button type="button" class="btn btn-pink" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo2">Show Sidebar (right)</button>
+                        <button type="button" class="btn bg-pink text-white" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo2">Show Sidebar (right)</button>
                     </p>
                     <p>Wrap the sidebar with a div class <i>nav-sidebar-wrapper</i> and give it a unque ID.</p>
                     <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div id="nav_sidebar_demo1" class="nav-sidebar-wrapper"&gt;</code></pre></div>
@@ -66,7 +66,7 @@
     &lt;div class="nav-sidebar-title"&gt;
         &lt;a href="#top" class="nav-sidebar-brand"&gt;Nav Sidebar&lt;/a&gt;
     &lt;/div&gt;
-    &lt;ul class="nav nav-sidebar-menu"&gt;
+    &lt;ul class="nav flex-column nav-sidebar-menu"&gt;
         &lt;li class="nav-sub-header"&gt;&lt;span&gt;Header 1&lt;/span&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="#"&gt;Test 1&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="#"&gt;Test 2&lt;/a&gt;&lt;/li&gt;
@@ -83,19 +83,19 @@
                     <p><i>nav-sidebar-overlay</i> is the overlay when the sidebar is shown to prevent main body from scrolling.</p>
                     <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"&gt;&lt;/div&gt;</code></pre></div>
                     <p>To toggle the sidebar on/off, simply add the</p>
-                    <pre>data-toggle="nav-sidebar-toggle"</pre>
+                    <div class="highlight"><pre><code ng-prism class="language-markup">data-toggle="nav-sidebar-toggle"</code></pre></div>
                     <p>and</p>
-                    <pre>data-target="#your_wrapper_id"</pre>
+                    <div class="highlight"><pre><code ng-prism class="language-markup">data-target="#your_wrapper_id"</code></pre></div>
                     <p>to any element, such as button and overlay. <i>data-target</i> should contain your wrapper's ID.</p>
                     <p>I had given the <i>nav-sidebar-overlay</i> those properties so that user can click the overlay to close the sidebar.</p>
                     <p>Full example code:</p>
-                    <div class="highlight">
+                    <div class="highlight mb-4">
                         <pre><code ng-prism class="language-markup">&lt;div id="nav_sidebar_demo1" class="nav-sidebar-wrapper"&gt;
     &lt;div class="nav-sidebar nav-sidebar-default shadow-depth-1"&gt;
         &lt;div class="nav-sidebar-title"&gt;
             &lt;a href="#top" class="nav-sidebar-brand"&gt;Nav Sidebar&lt;/a&gt;
         &lt;/div&gt;
-        &lt;ul class="nav nav-sidebar-menu"&gt;
+        &lt;ul class="nav flex-column nav-sidebar-menu"&gt;
             &lt;li class="nav-sub-header"&gt;&lt;span&gt;Header 1&lt;/span&gt;&lt;/li&gt;
             &lt;li&gt;&lt;a href="#"&gt;Test 1&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;a href="#"&gt;Test 2&lt;/a&gt;&lt;/li&gt;
@@ -111,15 +111,15 @@
     &lt;/div&gt;
     &lt;div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre></div>
-                    <h2>Right Sidebar</h2>
+                    <h4>Right Sidebar</h4>
                     <p>By default the sidebar sticks to the left of the screen.</p>
                     <p>If you want the sidebar to stick to the right instead, add class:</p>
                     <div class="highlight"><pre><code ng-prism class="language-markup">nav-sidebar-right</code></pre></div>
                     <p>Like this:</p>
-                    <div class="highlight"><pre><code ng-prism class="language-markup">&lt;div class="nav-sidebar nav-sidebar-default nav-sidebar-right shadow-depth-1"&gt;</code></pre></div>
-                    <h2>Color options</h2>
+                    <div class="highlight mb-4"><pre><code ng-prism class="language-markup">&lt;div class="nav-sidebar nav-sidebar-default nav-sidebar-right shadow-depth-1"&gt;</code></pre></div>
+                    <h4>Color options</h4>
                     <p>Nav Sidebar supports all material color palette.</p>
-                    <p>Replace <i>nav-sidebar-default</i> with the following to get different colors:</p>
+                    <p>Replace <i>nav-sidebar-default</i> with the following to get different colors (active menu will be colored as well):</p>
                     <ul class="list-unstyled">
                         <li ng-repeat="color in colors" class="demo-nav-sidebar nav-sidebar-{{ color }}">
                             <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-{{ color }}</span></span>

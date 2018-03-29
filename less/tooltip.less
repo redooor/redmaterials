@@ -1,25 +1,27 @@
 //
 // Tooltip
 // --------------------------------------------------
-
 .tooltip-inner {
     background-color: @tooltip-bg-color;
     border-radius: 2px;
 }
-.tooltip.right .tooltip-arrow {
+
+.bs-tooltip-auto[x-placement^=right] .arrow::before,
+.bs-tooltip-right .arrow::before {
     border-right-color: @tooltip-bg-color;
 }
-.tooltip.left .tooltip-arrow {
+
+.bs-tooltip-auto[x-placement^=left] .arrow::before,
+.bs-tooltip-left .arrow::before {
     border-left-color: @tooltip-bg-color;
 }
-.tooltip.top .tooltip-arrow {
+
+.bs-tooltip-auto[x-placement^=top] .arrow::before,
+.bs-tooltip-top .arrow::before {
     border-top-color: @tooltip-bg-color;
 }
-.tooltip.bottom .tooltip-arrow {
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
     border-bottom-color: @tooltip-bg-color;
-}
-// Hide arrow
-// Based on Material Design guideline, no need arrow
-.tooltip-arrow {
-    display: none;
 }
