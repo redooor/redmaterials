@@ -1191,22 +1191,6 @@ input[type="checkbox"]:disabled:checked:after,
 .modal-content {
   background-color: rgba(250, 250, 250, 0.87);
 }
-.modal .modal-progress {
-  height: 6px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-}
-.modal .modal-progress .progress {
-  margin-bottom: 0;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  background-color: #333;
-}
-.modal .modal-progress .progress-bar:last-child {
-  border-radius: 0;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-}
 @media (min-width: 768px) {
   .modal-content {
     box-shadow: 0 13px 25px -2px rgba(0, 0, 0, 0.16), 0 13px 28px -2px rgba(0, 0, 0, 0.23);
