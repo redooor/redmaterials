@@ -1736,11 +1736,10 @@ input[type="checkbox"]:disabled:checked:after,
 .corner-ribbon {
   width: 200px;
   padding: 10px;
-  background: #e43;
+  background: #fff;
   position: absolute;
   text-align: center;
   line-height: 1;
-  color: #f0f0f0;
   z-index: 1;
 }
 /* Custom styles */
@@ -1783,71 +1782,6 @@ input[type="checkbox"]:disabled:checked:after,
       transform: rotate(-45deg);
   -ms-transform-origin: bottom right;
       transform-origin: bottom right;
-}
-/* Colors */
-.corner-ribbon.white {
-  background: #FFFFFF;
-  color: #424242;
-}
-.corner-ribbon.black {
-  background: #000000;
-}
-.corner-ribbon.grey {
-  background: #9E9E9E;
-}
-.corner-ribbon.blue-grey {
-  background: #607D8B;
-}
-.corner-ribbon.red {
-  background: #F44336;
-}
-.corner-ribbon.pink {
-  background: #E91E63;
-}
-.corner-ribbon.purple {
-  background: #9C27B0;
-}
-.corner-ribbon.deep-purple {
-  background: #673AB7;
-}
-.corner-ribbon.indigo {
-  background: #3F51B5;
-}
-.corner-ribbon.blue {
-  background: #2196F3;
-}
-.corner-ribbon.light-blue {
-  background: #03A9F4;
-}
-.corner-ribbon.cyan {
-  background: #00BCD4;
-}
-.corner-ribbon.teal {
-  background: #009688;
-}
-.corner-ribbon.green {
-  background: #4CAF50;
-}
-.corner-ribbon.light-green {
-  background: #8BC34A;
-}
-.corner-ribbon.lime {
-  background: #CDDC39;
-}
-.corner-ribbon.orange {
-  background: #FF9800;
-}
-.corner-ribbon.deep-orange {
-  background: #FF5722;
-}
-.corner-ribbon.yellow {
-  background: #FFEB3B;
-}
-.corner-ribbon.amber {
-  background: #FFC107;
-}
-.corner-ribbon.brown {
-  background: #795548;
 }
 /*
  * Navigation sidebar
