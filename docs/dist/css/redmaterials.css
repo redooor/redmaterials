@@ -557,6 +557,15 @@ fieldset[disabled] .btn {
 .btn-group-vertical > .btn.active:hover {
   z-index: 2;
 }
+.card-action {
+  position: relative;
+}
+.card-action .btn-action {
+  position: absolute;
+  bottom: -27px;
+  right: 1.5em;
+  z-index: 2;
+}
 label {
   font-weight: normal;
 }

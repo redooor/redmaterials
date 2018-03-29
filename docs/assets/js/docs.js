@@ -160,10 +160,10 @@
         };
     });
     
-    app.directive("viewRedmaterialsPanels", function () {
+    app.directive("viewRedmaterialsCards", function () {
         return {
             restrict: "E",
-            templateUrl: "views/redmaterials/panels.html"
+            templateUrl: "views/redmaterials/cards.html"
         };
     });
     
