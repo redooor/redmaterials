@@ -4,10 +4,10 @@
   "description": "Bootstrap theme inspired by Google Material Design and various projects",
   "main": "dist/css/redmaterials.css",
   "scripts": {
-    "build:css": "lessc --source-map less/redmaterials.less dist/css/redmaterials.css && postcss dist/css/redmaterials.css --use autoprefixer -o dist/css/redmaterials.css --map",
+    "build:css": "sass scss/redmaterials.scss dist/css/redmaterials.css --style=expanded --source-map && postcss dist/css/redmaterials.css --use autoprefixer -o dist/css/redmaterials.css --map",
     "build:css:min": "cleancss -o dist/css/redmaterials.min.css dist/css/redmaterials.css",
     "build:js": "esbuild js/redmaterials.js --bundle=false --outfile=dist/js/redmaterials.js && esbuild js/redmaterials.js --bundle=false --minify --outfile=dist/js/redmaterials.min.js",
-    "build:docs:css": "lessc --source-map docs/assets/css/docs.less docs/assets/css/docs.css && postcss docs/assets/css/docs.css --use autoprefixer -o docs/assets/css/docs.css --map && cleancss -o docs/assets/css/docs.min.css docs/assets/css/docs.css",
+    "build:docs:css": "sass scss/docs/docs.scss docs/assets/css/docs.css --style=expanded --source-map && postcss docs/assets/css/docs.css --use autoprefixer -o docs/assets/css/docs.css --map && cleancss -o docs/assets/css/docs.min.css docs/assets/css/docs.css",
     "build:docs:js": "esbuild docs/assets/js/docs.js --bundle=false --minify --outfile=docs/assets/js/docs.min.js",
     "build:docs:copy": "cp -r dist/css docs/dist/ && cp -r dist/js docs/dist/",
     "build:docs": "npm run build:docs:css && npm run build:docs:js && npm run build:docs:copy && npm run build:fonts",
@@ -42,8 +42,8 @@
     "autoprefixer": "^10.4.21",
     "clean-css-cli": "^5.6.3",
     "esbuild": "^0.25.4",
-    "less": "^4.2.2",
     "postcss": "^8.5.3",
-    "postcss-cli": "^11.0.1"
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.100.0"
   }
 }
