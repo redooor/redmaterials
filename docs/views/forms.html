@@ -4,9 +4,7 @@
     <div class="bs-docs-section">
         <div class="row">
             <div class="col-lg-12">
-                <div class="page-header">
-                    <h1>Forms</h1>
-                </div>
+                <h1>Forms</h1>
             </div>
         </div>
 
@@ -17,13 +15,13 @@
                         <fieldset>
                             <legend>Legend</legend>
                             <div class="form-group row">
-                                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                                <label for="inputEmail" class="col-lg-2 col-form-label">Email</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" id="inputEmail" placeholder="Email">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                                <label for="inputPassword" class="col-lg-2 col-form-label">Password</label>
                                 <div class="col-lg-10">
                                     <input type="password" class="form-control" id="inputPassword" placeholder="Password" aria-describedby="passwordHelpBlock">
                                     <small id="passwordHelpBlock" class="form-text text-muted">
@@ -32,39 +30,36 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="sr-only col-lg-2 control-label">Checkbox</label>
+                                <label class="sr-only col-lg-2 col-form-label">Checkbox</label>
                                 <div class="col-lg-10 offset-lg-2">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox">Checkbox
-                                        </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkboxLegend">
+                                        <label class="form-check-label" for="checkboxLegend">Checkbox</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+                                <label for="textArea" class="col-lg-2 col-form-label">Textarea</label>
                                 <div class="col-lg-10">
                                     <textarea class="form-control" rows="3" id="textArea"></textarea>
                                     <small class="form-text text-muted">A longer block of help text that breaks onto a new line and may extend beyond one line.</small>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-2 control-label">Radios</label>
+                                <label class="col-lg-2 col-form-label">Radios</label>
                                 <div class="col-lg-10">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">Option one is this
-                                        </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                        <label class="form-check-label" for="optionsRadios1">Option one is this</label>
                                     </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Option two can be something else
-                                        </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                        <label class="form-check-label" for="optionsRadios2">Option two can be something else</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="select" class="col-lg-2 control-label">Selects</label>
+                                <label for="select" class="col-lg-2 col-form-label">Selects</label>
                                 <div class="col-lg-10">
                                     <select class="form-control" id="select">
                                         <option>1</option>
@@ -85,7 +80,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-lg-10 offset-lg-2 text-right">
-                                    <button class="btn btn-default">Cancel</button>
+                                    <button class="btn btn-secondary">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
@@ -96,68 +91,271 @@
             <div class="col-lg-6">
                 <form class="bs-component">
                     <div class="form-group">
-                        <label class="control-label" for="focusedInput">Focused input</label>
+                        <label for="focusedInput">Focused input</label>
                         <input class="form-control" id="focusedInput" type="text" value="This is focused...">
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="disabledInput">Disabled input</label>
+                        <label for="disabledInput">Disabled input</label>
                         <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
                     </div>
 
-                    <div class="form-group has-warning">
-                        <label class="control-label" for="inputWarning">Input warning</label>
-                        <input type="text" class="form-control" id="inputWarning">
-                    </div>
-
-                    <div class="form-group has-error">
-                        <label class="control-label" for="inputError">Input error</label>
-                        <input type="text" class="form-control" id="inputError">
-                    </div>
-
-                    <div class="form-group has-success">
-                        <label class="control-label" for="inputSuccess">Input success</label>
-                        <input type="text" class="form-control" id="inputSuccess">
+                    <div class="form-group">
+                        <label for="inputWarning">Input warning</label>
+                        <input type="text" class="form-control is-invalid" id="inputWarning">
+                        <div class="invalid-feedback">Please provide a valid value (warning).</div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="inputLarge">Large input</label>
-                        <input class="form-control input-lg" type="text" id="inputLarge">
+                        <label for="inputError">Input error</label>
+                        <input type="text" class="form-control is-invalid" id="inputError">
+                        <div class="invalid-feedback">This field has an error.</div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="inputDefault">Default input</label>
+                        <label for="inputSuccess">Input success</label>
+                        <input type="text" class="form-control is-valid" id="inputSuccess">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputLarge">Large input</label>
+                        <input class="form-control form-control-lg" type="text" id="inputLarge">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputDefault">Default input</label>
                         <input type="text" class="form-control" id="inputDefault">
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="inputSmall">Small input</label>
-                        <input class="form-control input-sm" type="text" id="inputSmall">
+                        <label for="inputSmall">Small input</label>
+                        <input class="form-control form-control-sm" type="text" id="inputSmall">
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">Input addons</label>
+                        <label>Input addons</label>
                         <div class="input-group">
-                            <span class="input-group-addon">$</span>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
                             <input type="text" class="form-control">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Button</button>
-                            </span>
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="button">Button</button>
+                            </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label class="control-label">Input addons with flat btn</label>
+                        <label>Input addons with flat btn</label>
                         <div class="input-group">
-                            <span class="input-group-addon">$</span>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
                             <input type="text" class="form-control">
-                            <span class="input-group-btn">
+                            <div class="input-group-append">
                                 <button class="btn btn-primary btn-flat" type="button">Button</button>
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </form>
 
+            </div>
+        </div>
+
+        <!-- Custom Controls -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Custom Controls</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component mb-4">
+                    <form>
+                        <div class="form-group">
+                            <label>Custom Switch</label>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                <label class="custom-control-label" for="customSwitch1">Toggle this switch</label>
+                            </div>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch2" checked>
+                                <label class="custom-control-label" for="customSwitch2">Checked switch</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customRange1">Custom Range</label>
+                            <input type="range" class="custom-range" id="customRange1">
+                        </div>
+                        <div class="form-group">
+                            <label>Custom File Input</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile1">
+                                <label class="custom-file-label" for="customFile1">Choose file</label>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="custom-control custom-switch"&gt;
+    &lt;input type="checkbox" class="custom-control-input" id="customSwitch1"&gt;
+    &lt;label class="custom-control-label" for="customSwitch1"&gt;Toggle this switch&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;input type="range" class="custom-range" id="customRange1"&gt;
+
+&lt;div class="custom-file"&gt;
+    &lt;input type="file" class="custom-file-input" id="customFile1"&gt;
+    &lt;label class="custom-file-label" for="customFile1"&gt;Choose file&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Validation -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Form Validation</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component mb-4">
+                    <form class="was-validated">
+                        <div class="form-group">
+                            <label for="validationFirstName">First name</label>
+                            <input type="text" class="form-control" id="validationFirstName" value="John" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="validationLastName">Last name</label>
+                            <input type="text" class="form-control" id="validationLastName" value="" required>
+                            <div class="invalid-feedback">Please provide a last name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="validationEmail">Email</label>
+                            <input type="email" class="form-control" id="validationEmail" value="not-an-email" required>
+                            <div class="invalid-feedback">Please provide a valid email address.</div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
+                    <div class="highlight mt-2">
+                        <pre><code ng-prism class="language-markup">&lt;form class="was-validated"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label for="validationFirstName"&gt;First name&lt;/label&gt;
+        &lt;input type="text" class="form-control" id="validationFirstName" value="John" required&gt;
+        &lt;div class="valid-feedback"&gt;Looks good!&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label for="validationLastName"&gt;Last name&lt;/label&gt;
+        &lt;input type="text" class="form-control" id="validationLastName" value="" required&gt;
+        &lt;div class="invalid-feedback"&gt;Please provide a last name.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="btn btn-primary" type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Groups -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Input Groups (Bootstrap 4)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component mb-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username">
+                        <div class="input-group-append">
+                            <span class="input-group-text">@example.com</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Amount">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary" type="button">Search</button>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search query">
+                    </div>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="input-group mb-3"&gt;
+    &lt;div class="input-group-prepend"&gt;
+        &lt;span class="input-group-text"&gt;@&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;input type="text" class="form-control" placeholder="Username"&gt;
+&lt;/div&gt;
+
+&lt;div class="input-group mb-3"&gt;
+    &lt;div class="input-group-prepend"&gt;
+        &lt;span class="input-group-text"&gt;$&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;input type="text" class="form-control" placeholder="Amount"&gt;
+    &lt;div class="input-group-append"&gt;
+        &lt;span class="input-group-text"&gt;.00&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="input-group mb-3"&gt;
+    &lt;div class="input-group-prepend"&gt;
+        &lt;button class="btn btn-secondary" type="button"&gt;Search&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;input type="text" class="form-control" placeholder="Search query"&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plaintext input -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Plaintext Input</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component mb-4">
+                    <form>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword2" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;div class="form-group row"&gt;
+    &lt;label for="staticEmail" class="col-sm-2 col-form-label"&gt;Email&lt;/label&gt;
+    &lt;div class="col-sm-10"&gt;
+        &lt;input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -5,9 +5,7 @@
 
         <div class="row">
             <div class="col">
-                <div class="page-header">
-                    <h1>Containers</h1>
-                </div>
+                <h1>Containers</h1>
                 <div class="bs-component mb-4">
                     <h4>Jumbotron</h4>
                     <div class="jumbotron">
@@ -273,6 +271,115 @@
         &lt;small class="text-muted"&gt;Donec id elit non mi porta.&lt;/small&gt;
     &lt;/a&gt;
 &lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breadcrumbs -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Breadcrumbs</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="bs-component mb-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home</li>
+                        </ol>
+                    </nav>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        </ol>
+                    </nav>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                        </ol>
+                    </nav>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;nav aria-label="breadcrumb"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Data&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Pagination</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="bs-component mb-4">
+                    <p class="lead">Basic</p>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                    <p class="lead">With disabled and active states</p>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                    <div class="highlight">
+                        <pre><code ng-prism class="language-markup">&lt;nav aria-label="Page navigation"&gt;
+    &lt;ul class="pagination"&gt;
+        &lt;li class="page-item disabled"&gt;&lt;a class="page-link" href="#" tabindex="-1"&gt;Previous&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="page-item active"&gt;&lt;a class="page-link" href="#"&gt;1 &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;Next&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- List Group Horizontal -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>List Group Horizontal</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="bs-component mb-4">
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                    </ul>
+                    <div class="highlight mt-2">
+                        <pre><code ng-prism class="language-markup">&lt;ul class="list-group list-group-horizontal"&gt;
+    &lt;li class="list-group-item"&gt;Cras justo odio&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+    &lt;li class="list-group-item"&gt;Morbi leo risus&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
                     </div>
                 </div>
             </div>
