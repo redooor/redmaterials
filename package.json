@@ -2,7 +2,22 @@
   "name": "redmaterials",
   "version": "0.1.0",
   "description": "Bootstrap theme inspired by Google Material Design and various projects",
+  "main": "dist/css/redmaterials.css",
   "scripts": {
+    "build:css": "lessc --source-map less/redmaterials.less dist/css/redmaterials.css && postcss dist/css/redmaterials.css --use autoprefixer -o dist/css/redmaterials.css --map",
+    "build:css:min": "cleancss -o dist/css/redmaterials.min.css dist/css/redmaterials.css",
+    "build:js": "esbuild js/redmaterials.js --bundle=false --outfile=dist/js/redmaterials.js && esbuild js/redmaterials.js --bundle=false --minify --outfile=dist/js/redmaterials.min.js",
+    "build:docs:css": "lessc --source-map docs/assets/css/docs.less docs/assets/css/docs.css && postcss docs/assets/css/docs.css --use autoprefixer -o docs/assets/css/docs.css --map && cleancss -o docs/assets/css/docs.min.css docs/assets/css/docs.css",
+    "build:docs:js": "esbuild docs/assets/js/docs.js --bundle=false --minify --outfile=docs/assets/js/docs.min.js",
+    "build:docs:copy": "cp -r dist/css docs/dist/ && cp -r dist/js docs/dist/",
+    "build:docs": "npm run build:docs:css && npm run build:docs:js && npm run build:docs:copy && npm run build:fonts",
+    "build:fonts": "cp -r dist/fonts docs/dist/fonts",
+    "clean": "rm -rf dist/css dist/js",
+    "clean:docs": "rm -rf docs/dist",
+    "dist": "npm run clean && mkdir -p dist/css dist/js dist/fonts && npm run build:css && npm run build:css:min && npm run build:js",
+    "docs": "npm run build:docs",
+    "build": "npm run dist && npm run docs",
+    "watch": "npm run dist -- && nodemon --watch less --ext less --exec 'npm run dist'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -20,20 +35,14 @@
   "author": "Redooor LLP",
   "license": "MIT",
   "engines": {
-    "node": ">= 0.10.1"
+    "node": ">= 18"
   },
   "devDependencies": {
-    "bower": "^1.8.2",
-    "grunt": "^1.0.2",
-    "grunt-autoprefixer": "^3.0.4",
-    "grunt-banner": "^0.6.0",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-contrib-less": "^1.4.1",
-    "grunt-contrib-uglify": "^2.3.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "autoprefixer": "^10.4.21",
+    "clean-css-cli": "^5.6.3",
+    "esbuild": "^0.25.4",
+    "less": "^4.2.2",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1"
   }
 }
