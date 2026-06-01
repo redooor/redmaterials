@@ -1,0 +1,11 @@
+// Text variations
+
+// For contexture text
+@each $context, $color in $brand-color-map {
+    .text-#{$context} {
+        color: $color !important;
+    }
+    a.text-#{$context}:hover {
+        color: darken($color, 10%) !important;
+    }
+}

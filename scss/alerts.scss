@@ -1,0 +1,31 @@
+//
+// Alerts
+// --------------------------------------------------
+.alert {
+    padding: 2em;
+    border-radius: 2px;
+}
+
+.alert-primary {
+    @include alert-variant($brand-primary, $brand-primary, $blue-text, $blue-50);
+}
+
+.alert-success {
+    @include alert-variant($brand-success, $brand-success, $green-text, $green-50);
+}
+
+.alert-info {
+    @include alert-variant($brand-info, $brand-info, $cyan-text, $cyan-50);
+}
+
+.alert-warning {
+    @include alert-variant($brand-warning, $brand-warning, $orange-text, #111111);
+}
+
+.alert-danger {
+    @include alert-variant($brand-danger, $brand-danger, $deep-orange-text, $deep-orange-50);
+}
+
+.alert-dismissible .close {
+    padding: .5rem .75rem;
+}

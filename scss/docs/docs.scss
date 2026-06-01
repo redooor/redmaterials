@@ -1,0 +1,42 @@
+//
+// Documents
+// --------------------------------------------------
+.bs-docs-footer {
+    margin: 5em 0;
+}
+
+.bs-docs-section {
+    padding-top: 6em;
+}
+
+.bs-docs-shadow {
+    align-content: center;
+    color: #03A9F4;
+    display: inline-block;
+    margin: 15px 19px;
+    max-width: 150px;
+    max-height: 150px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.bs-component {
+    display: block;
+    margin-bottom: 15px;
+    .modal {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        z-index: 1;
+        display: block;
+        .modal-dialog {
+            width: 80%;
+        }
+    }
+}
+
+.demo-nav-sidebar .nav-sidebar-title {
+    display: block;
+}
