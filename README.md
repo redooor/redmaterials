@@ -11,6 +11,8 @@ Redmaterials was initially developed/consolidated by Redooor to be used in anoth
 
 View demo at [https://redooor.github.io/redmaterials](https://redooor.github.io/redmaterials).
 
+> Upgrading from a previous version? See [UPGRADE.md](UPGRADE.md).
+
 # Note to users
 
 Version 0.1.0 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.
@@ -50,11 +52,10 @@ Web Font Loader example:
 # Installation for Contributors
 
 * Clone to a folder
-* Run `npm install` to install grunt and bower
-* Run `bower install` to install development dependencies
-* Run `grunt docs` to build assets for documentation
-* Run `grunt dist` to build assets for distribution
-* Run `grunt` to build assets for both distribution and documentation, for development only
+* Run `npm install` to install dependencies
+* Run `npm run docs` to build assets for documentation
+* Run `npm run dist` to build assets for distribution
+* Run `npm run build` to build assets for both distribution and documentation
 
 # Versioning
 
@@ -91,3 +92,4 @@ This project is inspired by and adapted from the work of these people, without w
 * [Bootstrap Material Design - Buttons, pen by Sergey Kupletsky](http://codepen.io/zavoloklom/details/Gubja)
 * [Bootstrap Material Design - Responsive Table, pen by Sergey Kupletsky](http://codepen.io/zavoloklom/pen/IGkDz)
 * [Material Design Icon](https://material.io/icons/)
+* [Glyphicons Halflings](https://glyphicons.com/sets/halflings/) — the version bundled in this project is sourced from [Bootstrap v3.3.7](https://github.com/twbs/bootstrap/tree/v3.3.7/fonts) and is licensed under the [MIT license](https://github.com/twbs/bootstrap/blob/v3.3.7/LICENSE). Glyphicons Halflings are normally not free, but were made available for Bootstrap projects at no cost by their author.
