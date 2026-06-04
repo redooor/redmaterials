@@ -1,90 +1,93 @@
 // Material Colors
-@import "colors"; // TODO: migrate to @use
+@use "colors";
 
 // Mixins
-@import "mixins"; // TODO: migrate to @use
+@use "mixins";
 
 // Variables
-@import "variables"; // TODO: migrate to @use
+@use "variables";
 
 // Body
-@import "scaffolding"; // TODO: migrate to @use
+@use "scaffolding";
 
 // Code
-@import "code"; // TODO: migrate to @use
+@use "code";
 
 // Typography
-@import "type"; // TODO: migrate to @use
+@use "type";
 
 // Buttons
-@import "buttons"; // TODO: migrate to @use
+@use "buttons";
+@use "loops/buttons" as loop-buttons;
+@use "buttons-post-loops";
 
 // Forms
-@import "forms"; // TODO: migrate to @use
+@use "forms";
 
 // Alerts
-@import "alerts"; // TODO: migrate to @use
+@use "alerts";
 
 // Badges
-@import "badges"; // TODO: migrate to @use
+@use "badges";
 
 // Wells
-@import "wells"; // TODO: migrate to @use
+@use "wells";
 
 // Jumbotron
-@import "jumbotron"; // TODO: migrate to @use
+@use "jumbotron";
 
 // List Group
-@import "list-group"; // TODO: migrate to @use
+@use "list-group";
 
 // Navbar
-@import "navbar"; // TODO: migrate to @use
+@use "navbar";
 
 // Navs
-@import "navs"; // TODO: migrate to @use
+@use "navs";
 
 // Drop downs
-@import "dropdowns"; // TODO: migrate to @use
+@use "dropdowns";
 
 // Input groups
-@import "input-groups"; // TODO: migrate to @use
+@use "input-groups";
 
 // Pagination
-@import "pagination"; // TODO: migrate to @use
+@use "pagination";
 
 // Modals
-@import "modals"; // TODO: migrate to @use
+@use "modals";
 
 // Tooltip
-@import "tooltip"; // TODO: migrate to @use
+@use "tooltip";
 
 // Popover
-@import "popover"; // TODO: migrate to @use
+@use "popover";
 
 // Tables
-@import "tables"; // TODO: migrate to @use
+@use "tables";
 
 // Progress Bars
-@import "progress-bars"; // TODO: migrate to @use
+@use "progress-bars";
 
 // Shadows
-@import "shadows"; // TODO: migrate to @use
+@use "shadows";
 
 // Effects
-@import "ripples"; // TODO: migrate to @use
+@use "ripples";
 
 // Ribbons
-@import "ribbons"; // TODO: migrate to @use
+@use "ribbons";
 
 // Navigation sidebar
-@import "nav-sidebar"; // TODO: migrate to @use
+@use "nav-sidebar";
+@use "loops/nav-sidebar" as loop-nav-sidebar;
 
 // Scroll
-@import "scroll"; // TODO: migrate to @use
+@use "scroll";
 
 // Utilities
-@import "utilities"; // TODO: migrate to @use
+@use "utilities";
 
 // Bootstrap 3 compatibility — keep deprecated classes working for existing projects
-@import "compat-glyphicons"; // TODO: migrate to @use
-@import "compat-bootstrap3"; // TODO: migrate to @use
+@use "compat-glyphicons";
+@use "compat-bootstrap3";

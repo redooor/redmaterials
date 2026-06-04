@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 @each $name, $pair in $color-name-text-map {
     $color: nth($pair, 1);
     $textcolor: nth($pair, 2);

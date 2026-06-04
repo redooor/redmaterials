@@ -1,6 +1,6 @@
 // Loops
-@import "loops/background"; // TODO: migrate to @use
-@import "loops/border"; // TODO: migrate to @use
-@import "loops/buttons"; // TODO: migrate to @use
-@import "loops/nav-sidebar"; // TODO: migrate to @use
-@import "loops/text"; // TODO: migrate to @use
+@use "loops/background";
+@use "loops/border";
+@use "loops/buttons";
+@use "loops/nav-sidebar";
+@use "loops/text";

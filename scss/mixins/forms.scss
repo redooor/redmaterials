@@ -1,3 +1,6 @@
+@use "../colors" as *;
+@use "vendor-prefixes" as *;
+
 // Forms
 $input-border-focus: $blue;
 

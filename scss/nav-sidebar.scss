@@ -123,5 +123,4 @@
     }
 }
 
-// Color variations base on background color
-@import "loops/nav-sidebar"; // TODO: migrate to @use
+// Color variations base on background color — loaded via entry point after this file
