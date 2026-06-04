@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../variables" as *;
 
 // Text variations
@@ -8,6 +9,6 @@
         color: $color !important;
     }
     a.text-#{$context}:hover {
-        color: darken($color, 10%) !important;
+        color: color.adjust($color, $lightness: -10%) !important;
     }
 }
