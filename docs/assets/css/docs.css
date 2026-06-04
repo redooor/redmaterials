@@ -1,12 +1,13 @@
 .bs-docs-footer {
   margin: 5em 0;
 }
+
 .bs-docs-section {
   padding-top: 6em;
 }
+
 .bs-docs-shadow {
-  -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   color: #03A9F4;
   display: inline-block;
   margin: 15px 19px;
@@ -15,6 +16,7 @@
   padding: 60px 20px;
   text-align: center;
 }
+
 .bs-component {
   display: block;
   margin-bottom: 15px;
@@ -31,7 +33,9 @@
 .bs-component .modal .modal-dialog {
   width: 80%;
 }
+
 .demo-nav-sidebar .nav-sidebar-title {
   display: block;
 }
+
 /*# sourceMappingURL=docs.css.map */

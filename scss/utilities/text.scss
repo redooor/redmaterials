@@ -1,4 +1,4 @@
 // Text
 
 // Run loops/text.scss for Contexture colors
-@import "../loops/text"; // TODO: migrate to @use
+@use "../loops/text";
