@@ -356,7 +356,7 @@ fieldset[disabled] .btn {
   background-color: rgb(6.275862069, 7, 7.724137931);
 }
 .btn-dark .ink {
-  background-color: black;
+  background-color: hsl(210, 10.3448275862%, -7.2549019608%);
 }
 .btn-dark.btn-flat {
   color: #343a40;
@@ -371,7 +371,7 @@ fieldset[disabled] .btn {
   background-color: #cccccc;
 }
 .btn-dark.btn-flat:focus {
-  color: black;
+  color: hsl(210, 10.3448275862%, -7.2549019608%);
   background-color: #cccccc;
 }
 .btn-dark.btn-flat .ink {
@@ -2523,7 +2523,7 @@ input[type=checkbox]:disabled:checked:after,
   background-color: #cccccc;
 }
 .bg-teal.btn-flat:focus {
-  color: black;
+  color: hsl(174.4, 100%, -0.5882352941%);
   background-color: #cccccc;
 }
 .bg-teal.btn-flat .ink {
