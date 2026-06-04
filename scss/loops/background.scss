@@ -1,0 +1,47 @@
+@use "sass:color";
+@use "sass:list";
+@use "../variables" as *;
+
+// Background variations
+
+// For contexture backgrounds
+@each $context, $color in $brand-color-map {
+    .bg-#{$context} {
+        background-color: $color !important;
+    }
+}
+
+// For color palette
+@each $name, $pair in $color-name-text-map {
+    $color: list.nth($pair, 1);
+    $textcolor: list.nth($pair, 2); // stylelint-disable-line no-unused-variable
+    .bg-#{$name} {
+        background-color: $color;
+        // Support btn hover
+        &.btn:hover {
+            background-color: color.adjust($color, $lightness: -10%);
+        }
+        // Support flat btn
+        &.btn-flat {
+            color: $color;
+            background-color: transparent;
+            &:hover {
+                color: color.adjust($color, $lightness: -10%);
+                background-color: color.adjust(#999, $lightness: 30%);
+            }
+            &:active,
+            &.active {
+                color: color.adjust($color, $lightness: -20%);
+                background-color: color.adjust(#999, $lightness: 20%);
+            }
+            &:focus {
+                color: color.adjust($color, $lightness: -30%);
+                background-color: color.adjust(#999, $lightness: 20%);
+            }
+            //## color for riple-effect
+            .ink {
+                background-color: color.adjust(#ccc, $lightness: -30%);
+            }
+        }
+    }
+}

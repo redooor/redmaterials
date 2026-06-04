@@ -1,0 +1,40 @@
+@use "colors" as *;
+@use "mixins/badges" as *;
+
+//
+// Badges
+// --------------------------------------------------
+.badge {
+    font-weight: 500;
+    border-radius: .1rem;
+}
+
+.badge-pill {
+    border-radius: 10rem;
+}
+
+// Colors
+// Contextual variations (linked badges get darker on :hover)
+.badge-default {
+    @include badge-variant($grey);
+}
+
+.badge-primary {
+    @include badge-variant($blue);
+}
+
+.badge-success {
+    @include badge-variant($green);
+}
+
+.badge-info {
+    @include badge-variant($cyan);
+}
+
+.badge-warning {
+    @include badge-variant($orange);
+}
+
+.badge-danger {
+    @include badge-variant($deep-orange);
+}

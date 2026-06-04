@@ -1,0 +1,53 @@
+@use "variables" as *;
+@use "colors" as *;
+
+//
+// Buttons
+// --------------------------------------------------
+
+// Buttons style
+// --------------------------------------------------
+.btn {
+    border: 0;
+    border-radius: 2px;
+    transition: all .15s ease-in-out;
+    &:focus, &:active, &.active, &:active:focus, &.active:focus {
+        box-shadow: none;
+    }
+}
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+    cursor: auto;
+}
+// Buttons type
+// --------------------------------------------------
+.btn-raised {
+    // shadow depth 1
+    box-shadow: $shadow-depth-1;
+    &:active, &.active, &:active:focus, &.active:focus {
+        // shadow depth 2
+        box-shadow: $shadow-depth-2;
+    }
+    &:focus {
+        // shadow depth 2
+        box-shadow: $shadow-depth-2;
+    }
+}
+.btn-flat {
+    font-weight: 500;
+}
+
+// Buttons colors
+// --------------------------------------------------
+.btn-default,
+.btn-default:hover {
+    color: $grey-800;
+}
+.btn-link {
+    color: $brand-primary;
+    &:disabled, &.disabled, &[disabled] {
+        color: rgba(0, 0, 0, 0.26);
+        opacity: 1;
+    }
+}

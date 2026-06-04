@@ -1,0 +1,15 @@
+@use "variables" as *;
+
+//
+// Jumbotron
+// --------------------------------------------------
+.jumbotron {
+    background-color: $btn-default-bg-color;
+    p {
+        font-weight: 300;
+    }
+    .container &,
+    .container-fluid & {
+        border-radius: 0;
+    }
+}

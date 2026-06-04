@@ -1,0 +1,48 @@
+@use "sass:color";
+@use "../variables" as *;
+
+// Buttons variations
+
+// For contexture backgrounds
+@each $context, $color in $brand-color-map {
+    .btn-#{$context} {
+        background-color: $color;
+        &:hover {
+            background-color: color.adjust($color, $lightness: -10%);
+        }
+        &:active,
+        &.active {
+            background-color: color.adjust($color, $lightness: -10%);
+
+        }
+        &:focus {
+            background-color: color.adjust($color, $lightness: -20%);
+        }
+        //## color for riple-effect
+        .ink {
+            background-color: color.adjust($color, $lightness: -30%);
+        }
+
+        &.btn-flat {
+            color: $color;
+            background-color: transparent;
+            &:hover {
+                color: color.adjust($color, $lightness: -10%);
+                background-color: color.adjust(#999, $lightness: 30%);
+            }
+            &:active,
+            &.active {
+                color: color.adjust($color, $lightness: -20%);
+                background-color: color.adjust(#999, $lightness: 20%);
+            }
+            &:focus {
+                color: color.adjust($color, $lightness: -30%);
+                background-color: color.adjust(#999, $lightness: 20%);
+            }
+            //## color for riple-effect
+            .ink {
+                background-color: color.adjust(#ccc, $lightness: -30%);
+            }
+        }
+    }
+}

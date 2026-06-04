@@ -1,0 +1,10 @@
+@use "../variables" as *;
+
+// Border variations
+
+// For contexture borders
+@each $context, $color in $brand-color-map {
+    .border-#{$context} {
+        border-color: $color !important;
+    }
+}
