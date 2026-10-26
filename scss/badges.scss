@@ -1,0 +1,29 @@
+@use "colors" as *;
+@use "variables" as *;
+@use "mixins/badges" as *;
+
+//
+// Badges
+// --------------------------------------------------
+.badge {
+    font-weight: 500;
+    border-radius: 2px;
+}
+
+// Bootstrap 5's pill modifier is .rounded-pill.  Keep only the theme-owned
+// .badge-default variant; contextual badges use .text-bg-* / .bg-*.
+.badge-default {
+    @include badge-variant($grey);
+}
+
+// Bootstrap paints .text-bg-light and .text-bg-warning with a dark text
+// colour, but .bg-* leaves the badge's white text in place.  Keep the light
+// Material backgrounds readable.
+.badge.bg-light,
+.badge.bg-warning,
+.badge.bg-yellow,
+.badge.bg-lime,
+.badge.bg-amber,
+.badge.bg-orange {
+    color: $default-text;
+}

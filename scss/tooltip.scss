@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+//
+// Tooltip
+// --------------------------------------------------
+// Bootstrap 5.3 paints tooltips and their arrows from CSS variables, so no
+// direction-specific arrow selectors are needed.
+.tooltip {
+    --bs-tooltip-bg: #{$tooltip-bg-color};
+    --bs-tooltip-color: #{$brand-white};
+    --bs-tooltip-border-radius: 2px;
+    --bs-tooltip-opacity: 1;
+}

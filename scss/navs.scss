@@ -1,0 +1,69 @@
+@use "variables" as *;
+
+//
+// Navs
+// --------------------------------------------------
+.nav-link.disabled {
+    cursor: not-allowed;
+}
+
+// Bootstrap 5 marks the active tab on the link itself (.nav-link.active),
+// not on the list item.
+.nav-tabs {
+    --bs-nav-tabs-border-width: 0;
+    --bs-nav-tabs-link-active-color: #{$brand-primary};
+    --bs-nav-tabs-link-active-bg: transparent;
+    --bs-nav-tabs-link-active-border-color: transparent;
+    border-bottom: 0;
+
+    .nav-link {
+        border: none;
+        box-shadow: inset 0 -1px 0 #ddd;
+        transition: all 0.2s;
+        &:hover,
+        &:focus {
+            border: none;
+            box-shadow: inset 0 -2px 0 $brand-primary;
+        }
+        &.active {
+            color: $brand-primary;
+            border: none;
+            box-shadow: inset 0 -2px 0 $brand-primary;
+            &:hover,
+            &:focus {
+                border: none;
+                box-shadow: inset 0 -2px 0 $brand-primary;
+            }
+        }
+        &.disabled {
+            box-shadow: inset 0 -1px 0 #ddd;
+            &:hover,
+            &:focus {
+                box-shadow: inset 0 -1px 0 #ddd;
+            }
+        }
+    }
+
+    .nav-item.show .nav-link {
+        color: $brand-primary;
+        border: none;
+        box-shadow: inset 0 -2px 0 $brand-primary;
+    }
+}
+
+.nav-pills {
+    --bs-nav-pills-border-radius: 2px;
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #{$brand-primary};
+
+    .nav-link {
+        border-radius: 2px;
+        transition: all .15s ease-in-out;
+    }
+
+    .nav-link.active,
+    .show > .nav-link {
+        color: #fff;
+        background-color: $brand-primary;
+    }
+}

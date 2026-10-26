@@ -1,0 +1,76 @@
+@use "sass:color";
+@use "variables" as *;
+
+// Pagination
+// --------------------------------------------------
+.pagination {
+    --bs-pagination-color: #{$brand-primary};
+    --bs-pagination-bg: #{$btn-default-bg-color};
+    --bs-pagination-border-width: 0;
+    --bs-pagination-border-color: transparent;
+    --bs-pagination-border-radius: 2px;
+    --bs-pagination-hover-color: #{$brand-primary};
+    --bs-pagination-hover-bg: #{color.adjust(#999, $lightness: 30%)};
+    --bs-pagination-hover-border-color: transparent;
+    --bs-pagination-focus-color: #fff;
+    --bs-pagination-focus-bg: #{color.adjust(#999, $lightness: 20%)};
+    --bs-pagination-focus-box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .35);
+    --bs-pagination-active-color: #fff;
+    --bs-pagination-active-bg: #{$brand-primary};
+    --bs-pagination-active-border-color: #{$brand-primary};
+    --bs-pagination-disabled-color: rgba(0, 0, 0, 0.26);
+    --bs-pagination-disabled-bg: #eee;
+    --bs-pagination-disabled-border-color: transparent;
+}
+
+.page-item {
+    &:not(:first-child) .page-link {
+        margin-left: 0;
+    }
+    .page-link {
+        padding: 0.8em 1.5em;
+        border: 0;
+        transition: all .15s ease-in-out;
+        &:active {
+            background-color: color.adjust(#999, $lightness: 30%);
+        }
+        // Keep the keyboard focus ring, including on the active page.
+        &:focus-visible {
+            outline: 0;
+            box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .35);
+        }
+        // ...but keep the flat Material look for pointer focus.
+        &:focus:not(:focus-visible) {
+            box-shadow: none;
+        }
+    }
+    &.active .page-link {
+        color: #fff;
+        background-color: $brand-primary;
+        &:focus-visible {
+            box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .35);
+        }
+        &:hover {
+            color: #fff;
+            background-color: color.adjust($brand-primary, $lightness: -10%);
+        }
+    }
+    // Disabled
+    &.disabled .page-link {
+        opacity: 1;
+        &.focus,
+        &:focus,
+        &:hover {
+            background-color: var(--bs-pagination-disabled-bg);
+        }
+    }
+    // reduce radius
+    &:first-child .page-link {
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    &:last-child .page-link {
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+}

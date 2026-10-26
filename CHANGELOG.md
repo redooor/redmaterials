@@ -1,9 +1,22 @@
 # Change log
 
-1. [Version 0.0.1](#version-001)
-2. [Version 0.0.2](#version-002)
+1. [Version 0.2.0](#version-020)
+2. [Version 0.1.0](#version-010)
 3. [Version 0.0.3](#version-003)
-3. [Version 0.1.0](#version-010)
+4. [Version 0.0.2](#version-002)
+5. [Version 0.0.1](#version-001)
+
+## Version 0.2.0
+
+Bootstrap 5.3 support (tested with Bootstrap 5.3.8).
+
+1. Support for Bootstrap 5.3. For older versions, use Redmaterials 0.1.x with Bootstrap 4 or 0.0.x with Bootstrap 3.
+2. CSS custom-property theming: the `:root` `--bs-*` variables are mapped to the Material palette.
+3. New form-check, form-switch, and form-range styling.
+4. Table colouring now uses the `--bs-table-*` variables.
+5. Tooltip and popover styling now uses the Bootstrap 5.3 CSS variables.
+6. Removed the Bootstrap 3/4 shims (`compat-bootstrap3`, `compat-glyphicons`), the Glyphicons font, and the Jumbotron component. See [BREAKING.md](BREAKING.md).
+7. The unreleased intermediate Bootstrap 4.6 / Sass migration work also ships in this release. Since 0.1.0 the build uses Dart Sass and npm scripts instead of Grunt/Bower (0.1.0 itself was LESS/Grunt).
 
 ## Version 0.1.0
 

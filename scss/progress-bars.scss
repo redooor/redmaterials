@@ -1,0 +1,15 @@
+@use "variables" as *;
+
+//
+// Progress Bars
+// --------------------------------------------------
+.progress {
+    position: relative;
+    z-index: 1;
+    height: 6px;
+    border-radius: 0;
+    box-shadow: none;
+    &-bar {
+        background-color: $brand-primary;
+    }
+}

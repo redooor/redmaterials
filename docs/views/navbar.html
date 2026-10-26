@@ -4,28 +4,26 @@
     <div class="bs-docs-section clearfix">
         <div class="row">
             <div class="col-lg-12">
-                <div class="page-header">
-                    <h1>Navbar</h1>
-                </div>
+                <h1>Navbar</h1>
                 
                 <div class="bs-component mb-4">
                     <h4>Default Navbar</h4>
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Link</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Dropdown
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -48,20 +46,20 @@
                     </nav>
                     <div class="highlight"><pre><code ng-prism class="language-markup">&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
     &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
-    &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+    &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
         &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
     &lt;/button&gt;
 
     &lt;div class="collapse navbar-collapse" id="navbarSupportedContent1"&gt;
-        &lt;ul class="navbar-nav mr-auto"&gt;
-            &lt;li class="nav-item active"&gt;
-                &lt;a class="nav-link" href="#"&gt;Home &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;ul class="navbar-nav me-auto"&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link active" href="#" aria-current="page"&gt;Home &lt;span class="visually-hidden"&gt;(current)&lt;/span&gt;&lt;/a&gt;
             &lt;/li&gt;
             &lt;li class="nav-item"&gt;
                 &lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
             &lt;/li&gt;
             &lt;li class="nav-item dropdown"&gt;
-                &lt;a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                &lt;a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
                     Dropdown
                 &lt;/a&gt;
                 &lt;div class="dropdown-menu" aria-labelledby="navbarDropdown"&gt;
@@ -88,20 +86,20 @@
                     <h4>Navbar with items set to .px-3</h4>
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link px-3" href="#">Home <span class="sr-only">(current)</span></a>
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link px-3 active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link px-3" href="#">Link</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Dropdown
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -121,28 +119,28 @@
                                     </span>
                                 </li>
                             </ul>
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <form class="d-flex my-2 my-lg-0">
+                                <input class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
                             </form>
                         </div>
                     </nav>
                     <div class="highlight"><pre><code ng-prism class="language-markup">&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
     &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
-    &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+    &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
         &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
     &lt;/button&gt;
 
     &lt;div class="collapse navbar-collapse" id="navbarSupportedContent1"&gt;
-        &lt;ul class="navbar-nav mr-auto"&gt;
-            &lt;li class="nav-item active"&gt;
-                &lt;a class="nav-link px-3" href="#"&gt;Home &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;ul class="navbar-nav me-auto"&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link px-3 active" href="#" aria-current="page"&gt;Home &lt;span class="visually-hidden"&gt;(current)&lt;/span&gt;&lt;/a&gt;
             &lt;/li&gt;
             &lt;li class="nav-item"&gt;
                 &lt;a class="nav-link px-3" href="#"&gt;Link&lt;/a&gt;
             &lt;/li&gt;
             &lt;li class="nav-item dropdown"&gt;
-                &lt;a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                &lt;a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
                     Dropdown
                 &lt;/a&gt;
                 &lt;div class="dropdown-menu" aria-labelledby="navbarDropdown"&gt;
@@ -162,8 +160,8 @@
                 &lt;/span&gt;
             &lt;/li&gt;
         &lt;/ul&gt;
-        &lt;form class="form-inline my-2 my-lg-0"&gt;
-            &lt;input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"&gt;
+        &lt;form class="d-flex my-2 my-lg-0"&gt;
+            &lt;input class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search"&gt;
             &lt;button class="btn btn-outline-dark my-2 my-sm-0" type="submit"&gt;Search&lt;/button&gt;
         &lt;/form&gt;
     &lt;/div&gt;
@@ -174,20 +172,20 @@
                     <h4>Dark Navbar</h4>
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent2">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link px-3" href="#">Home <span class="sr-only">(current)</span></a>
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link px-3 active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link px-3" href="#">Link</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Dropdown
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -207,8 +205,8 @@
                                     </span>
                                 </li>
                             </ul>
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <form class="d-flex my-2 my-lg-0">
+                                <input class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                             </form>
                         </div>

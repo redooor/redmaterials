@@ -1,0 +1,30 @@
+@use "variables" as *;
+
+//
+// Modals
+// --------------------------------------------------
+.modal {
+    --bs-modal-bg: #{$btn-default-bg-color};
+    --bs-modal-border-radius: 2px;
+    --bs-modal-inner-border-radius: 2px;
+    --bs-modal-box-shadow: #{$shadow-depth-5};
+    --bs-modal-header-border-width: 0;
+    --bs-modal-footer-border-width: 0;
+}
+
+.modal-header,
+.modal-footer {
+    border: 0;
+}
+
+.modal-content {
+    background-color: $btn-default-bg-color;
+}
+
+@media (min-width: 768px) {
+    .modal-content {
+        box-shadow: $shadow-depth-5;
+        border-radius: 2px;
+        border: 0;
+    }
+}

@@ -1,6 +1,6 @@
 /*eslint-disable*/
 /*jslint browser: true, plusplus: true, vars: true*/
-/*global $, jQuery, angular, Prism, WebFont*/
+/*global $, jQuery, angular, bootstrap, Prism, WebFont*/
 (function () {
     'use strict';
     var app = angular.module("docs", []);
@@ -200,8 +200,12 @@
 (function ($) {
     'use strict';
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-        $('[data-toggle="popover"]').popover();
+        Array.prototype.forEach.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'), function (element) {
+            new bootstrap.Tooltip(element);
+        });
+        Array.prototype.forEach.call(document.querySelectorAll('[data-bs-toggle="popover"]'), function (element) {
+            new bootstrap.Popover(element);
+        });
         function setActiveMenu() {
             var anchor = window.location.hash;
             $('#nav_sidebar1 .nav li a').each(function () {

@@ -1,0 +1,14 @@
+@use "sass:color";
+@use "../variables" as *;
+
+// Text variations
+
+// For contexture text
+@each $context, $color in $brand-color-map {
+    .text-#{$context} {
+        color: $color !important;
+    }
+    a.text-#{$context}:hover {
+        color: color.adjust($color, $lightness: -10%) !important;
+    }
+}

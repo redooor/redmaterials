@@ -1,0 +1,121 @@
+@use "sass:color";
+@use "sass:math";
+@use "variables" as *;
+
+//
+// Bootstrap 5.3 theme bridge
+// --------------------------------------------------
+// Bootstrap 5.3 exposes its palette through CSS custom properties.  Map the
+// Material brand colours onto those variables so utilities and components
+// (text-bg-*, link-*, nav-pills, focus rings, ...) pick up the theme.  A few
+// Bootstrap components still hard-code per-class values (notably the outline
+// buttons), so those variables are remapped below as well.
+
+// Format a colour as the comma separated RGB triplet Bootstrap expects.
+@function rgb-triplet($color) {
+    @return "#{color.channel($color, "red", $space: rgb)}, #{color.channel($color, "green", $space: rgb)}, #{color.channel($color, "blue", $space: rgb)}";
+}
+
+@function tint-color($color, $weight) {
+    @return color.mix(#fff, $color, $weight);
+}
+
+@function shade-color($color, $weight) {
+    @return color.mix(#000, $color, $weight);
+}
+
+// Keep generated values free of fractional RGB channels.
+@function round-color($color) {
+    @return rgb(
+        math.round(color.channel($color, "red", $space: rgb)),
+        math.round(color.channel($color, "green", $space: rgb)),
+        math.round(color.channel($color, "blue", $space: rgb))
+    );
+}
+
+@mixin theme-color($name, $color) {
+    --bs-#{$name}: #{$color};
+    --bs-#{$name}-rgb: #{rgb-triplet($color)};
+}
+
+@mixin theme-color-derived($name, $color) {
+    --bs-#{$name}-text-emphasis: #{round-color(shade-color($color, 60%))};
+    --bs-#{$name}-bg-subtle: #{round-color(tint-color($color, 80%))};
+    --bs-#{$name}-border-subtle: #{round-color(tint-color($color, 60%))};
+}
+
+$bs-theme-colors: (
+    "primary": $brand-primary,
+    "secondary": $brand-secondary,
+    "success": $brand-success,
+    "info": $brand-info,
+    "warning": $brand-warning,
+    "danger": $brand-danger,
+    "light": $brand-light,
+    "dark": $brand-dark,
+);
+
+$bs-link-hover: color.adjust($brand-primary, $lightness: -10%);
+
+:root {
+    @each $name, $color in $bs-theme-colors {
+        @include theme-color($name, $color);
+    }
+
+    --bs-link-color: #{$brand-primary};
+    --bs-link-color-rgb: #{rgb-triplet($brand-primary)};
+    --bs-link-hover-color: #{round-color($bs-link-hover)};
+    --bs-link-hover-color-rgb: #{rgb-triplet(round-color($bs-link-hover))};
+
+    --bs-body-font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    --bs-border-radius: 2px;
+    --bs-border-radius-sm: 2px;
+    --bs-border-radius-lg: 2px;
+
+    --bs-focus-ring-color: rgba(#{rgb-triplet($brand-primary)}, .25);
+}
+
+// The emphasis/subtle values are derived from the light Material palette.
+// Do not leak them into Bootstrap's dark theme: :root alone also matches
+// <html data-bs-theme="dark">, and this stylesheet loads after Bootstrap, so
+// it would overwrite Bootstrap's own dark values.  Excluding the dark theme
+// here preserves Bootstrap's dark palette while keeping the light defaults.
+:root:not([data-bs-theme="dark"]),
+[data-bs-theme="light"] {
+    @each $name, $color in $bs-theme-colors {
+        @include theme-color-derived($name, $color);
+    }
+}
+
+// Pick a readable foreground for filled outline-button states.
+@function outline-text-color($name) {
+    @if $name == "info" or $name == "warning" or $name == "light" {
+        @return $default-text;
+    }
+    @return $brand-white;
+}
+
+// Bootstrap 5.3 hard-codes the outline button variables per class, so expose
+// the same Material colours there as CSS variables.
+@each $name, $color in $bs-theme-colors {
+    $text-color: outline-text-color($name);
+    .btn-outline-#{$name} {
+        --bs-btn-color: #{$color};
+        --bs-btn-border-color: #{$color};
+        --bs-btn-hover-color: #{$text-color};
+        --bs-btn-hover-bg: #{$color};
+        --bs-btn-hover-border-color: #{$color};
+        --bs-btn-focus-shadow-rgb: #{rgb-triplet($color)};
+        --bs-btn-active-color: #{$text-color};
+        --bs-btn-active-bg: #{round-color(shade-color($color, 10%))};
+        --bs-btn-active-border-color: #{round-color(shade-color($color, 10%))};
+        --bs-btn-disabled-color: #{$color};
+        --bs-btn-disabled-bg: transparent;
+        --bs-btn-disabled-border-color: #{$color};
+    }
+
+    .btn-#{$name} {
+        --bs-btn-focus-shadow-rgb: #{rgb-triplet($color)};
+    }
+}
