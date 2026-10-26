@@ -1,4 +1,5 @@
 @use "colors" as *;
+@use "variables" as *;
 @use "mixins/badges" as *;
 
 //
@@ -6,35 +7,23 @@
 // --------------------------------------------------
 .badge {
     font-weight: 500;
-    border-radius: .1rem;
+    border-radius: 2px;
 }
 
-.badge-pill {
-    border-radius: 10rem;
-}
-
-// Colors
-// Contextual variations (linked badges get darker on :hover)
+// Bootstrap 5's pill modifier is .rounded-pill.  Keep only the theme-owned
+// .badge-default variant; contextual badges use .text-bg-* / .bg-*.
 .badge-default {
     @include badge-variant($grey);
 }
 
-.badge-primary {
-    @include badge-variant($blue);
-}
-
-.badge-success {
-    @include badge-variant($green);
-}
-
-.badge-info {
-    @include badge-variant($cyan);
-}
-
-.badge-warning {
-    @include badge-variant($orange);
-}
-
-.badge-danger {
-    @include badge-variant($deep-orange);
+// Bootstrap paints .text-bg-light and .text-bg-warning with a dark text
+// colour, but .bg-* leaves the badge's white text in place.  Keep the light
+// Material backgrounds readable.
+.badge.bg-light,
+.badge.bg-warning,
+.badge.bg-yellow,
+.badge.bg-lime,
+.badge.bg-amber,
+.badge.bg-orange {
+    color: $default-text;
 }

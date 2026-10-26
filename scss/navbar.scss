@@ -1,11 +1,15 @@
+@use "variables" as *;
+
 //
 // Navbar
 // --------------------------------------------------
 
 .navbar {
+    --bs-navbar-toggler-border-radius: 2px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
 }
 
+// Kept for the docs navigation sidebar toggle button.
 .navbar-toggle {
     margin: 0px;
     padding: 0px;
@@ -16,10 +20,28 @@
     cursor: pointer;
 }
 
+// Search fields inside a dark navbar must not inherit the light body colour.
+.navbar-dark {
+    .form-control {
+        color: $brand-white;
+        background-color: transparent;
+        box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .35);
+        &::placeholder {
+            color: rgba(255, 255, 255, .75);
+            opacity: 1;
+        }
+        &:focus {
+            color: $brand-white;
+            background-color: transparent;
+            box-shadow: inset 0 -2px 0 $brand-white;
+        }
+    }
+}
+
 /* Additional style */
-.navbar-nav.navbar-breadcrumb>.active>a,
-.navbar-nav.navbar-breadcrumb>.active>a:focus,
-.navbar-nav.navbar-breadcrumb>.active>a:hover {
+.navbar-nav.navbar-breadcrumb>.nav-item>.nav-link.active,
+.navbar-nav.navbar-breadcrumb>.nav-item>.nav-link.active:focus,
+.navbar-nav.navbar-breadcrumb>.nav-item>.nav-link.active:hover {
     background-color: transparent;
 }
 .navbar-nav.navbar-breadcrumb>li>a,

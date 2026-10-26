@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "variables" as *;
 
 //
@@ -6,10 +7,6 @@
 
 label {
     font-weight: normal;
-}
-
-.control-label {
-    color: #999;
 }
 
 textarea,
@@ -40,26 +37,18 @@ input[type=number],
         box-shadow: none;
         border-bottom: 1px dotted #ddd;
     }
-    &.input {
-        &-sm {
-            font-size: $font-size-small;
-        }
-        &-lg {
-            font-size: $font-size-large;
-        }
-    }
 }
 
-select,
-select.form-control {
+// Plain selects and selects using .form-control.  .form-select keeps the
+// Bootstrap 5 arrow (and its valid/invalid icon) from --bs-form-select-bg-img.
+select:not(.form-select) {
     border: 0;
     border-radius: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     padding-left: 2px;
-    padding-right: 1em;
-    padding-right: 0\9; // remove padding for < ie9 since default arrow can't be removed
+    padding-right: 2.25rem;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
     background-size: 13px;
     background-repeat: no-repeat;
@@ -71,157 +60,172 @@ select.form-control {
     &::-ms-expand {
         display: none;
     }
-    &.input {
-        &-sm {
-            font-size: $font-size-small;
-        }
-        &-lg {
-            font-size: $font-size-large;
-        }
-    }
     &:focus {
         background-color: transparent;
         box-shadow: inset 0 -2px 0 $brand-primary;
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
     }
-    &[multiple] {
-        background: none;
-    }
 }
 
-.radio,
-.radio-inline,
-.checkbox,
-.checkbox-inline {
-    label {
-        padding-left: 25px;
-    }
-    input[type="radio"],
-    input[type="checkbox"] {
-        margin-left: -25px;
-    }
-}
-
-input[type="radio"],
-.radio input[type="radio"],
-.radio-inline input[type="radio"] {
-    position: relative;
-    margin-top: 5px;
-    margin-right: 4px;
-    vertical-align: -4px;
-    border: none;
+.form-select {
+    padding-left: 2px;
+    padding-right: 2.25rem;
+    border: 0;
+    border-radius: 0;
     background-color: transparent;
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer;
+    background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    box-shadow: inset 0 -1px 0 #ddd;
+    font-size: 16px;
+    line-height: 1.5;
     &:focus {
-        outline: none;
+        background-color: transparent;
+        box-shadow: inset 0 -2px 0 $brand-primary;
     }
-    &:before,
-    &:after {
-        content: "";
-        display: block;
-        width: 18px;
-        height: 18px;
-        margin-top: -3px;
+}
+
+// Multiple / sized selects need a visible box; the underline-only treatment
+// makes them look borderless and broken.
+select[multiple],
+select[size]:not([size="1"]),
+.form-select[multiple],
+.form-select[size]:not([size="1"]) {
+    padding: 0.375rem 0.5rem;
+    border: 1px solid $form-secondary;
+    border-radius: 2px;
+    background-image: none;
+    box-shadow: none;
+    &:focus {
+        border-color: $brand-primary;
+        box-shadow: inset 0 -2px 0 $brand-primary;
+    }
+}
+
+// Bootstrap 5 checkboxes and radios are .form-check-input elements.
+.form-check-input {
+    width: 1.15em;
+    height: 1.15em;
+    margin-top: 0.15em;
+    border: 2px solid $form-primary;
+    border-radius: 2px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 240ms;
+    &:focus {
+        border-color: $brand-primary;
+        box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), .25);
+    }
+    &[type=radio] {
         border-radius: 50%;
-        transition: 240ms;
     }
-    &:before {
-        position: absolute;
-        left: 0;
-        top: 0;
+    &:checked {
         background-color: $brand-primary;
-        transform: scale(0);
-    }
-    &:after {
-        border: 2px solid $form-primary;
-    }
-    &:checked:before {
-        transform: scale(0.5);
-    }
-    &:disabled:checked:before {
-        background-color: $form-secondary;
-    }
-    &:checked:after {
         border-color: $brand-primary;
     }
-    &:disabled:after,
-    &:disabled:checked:after {
+    &[type=checkbox]:indeterminate {
+        background-color: $brand-primary;
+        border-color: $brand-primary;
+    }
+    &:disabled {
+        border-color: $form-secondary;
+        background-color: transparent;
+        opacity: 0.5;
+        cursor: default;
+    }
+    &:disabled:checked,
+    &:disabled:indeterminate {
+        background-color: $form-secondary;
         border-color: $form-secondary;
     }
 }
 
-input[type="checkbox"],
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
-    position: relative;
-    vertical-align: -4px;
-    border: none;
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer;
+.form-switch .form-check-input {
+    width: 2em;
+    height: 1.15em;
+    border: 2px solid $form-secondary;
+    border-radius: 2em;
+    background-color: transparent;
+    &:checked {
+        background-color: $brand-primary;
+        border-color: $brand-primary;
+    }
     &:focus {
-        outline: none;
-    }
-    &:after {
-        content: "";
-        display: block;
-        width: 18px;
-        height: 18px;
-        margin-top: -2px;
-        margin-right: 5px;
-        border: 2px solid $form-primary;
-        border-radius: 2px;
-        transition: 240ms;
-    }
-    &:checked:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 6px;
-        display: table;
-        width: 6px;
-        height: 12px;
-        border: 2px solid #fff;
-        border-top-width: 0;
-        border-left-width: 0;
-        transform: rotate(45deg);
-    }
-    &:checked:after {
-        background-color: $brand-primary;
         border-color: $brand-primary;
     }
-    &:disabled:after {
+    &:disabled {
+        border-color: $form-secondary;
+        background-color: transparent;
+    }
+    &:disabled:checked {
+        background-color: $form-secondary;
         border-color: $form-secondary;
     }
-    &:disabled:checked:after {
-        background-color: $form-secondary;
-        border-color: transparent;
+}
+
+// Range track and thumb use the theme primary.
+.form-range {
+    &::-webkit-slider-thumb {
+        background-color: $brand-primary;
+        &:active {
+            background-color: color.adjust($brand-primary, $lightness: 30%);
+        }
+    }
+    &::-moz-range-thumb {
+        background-color: $brand-primary;
+        &:active {
+            background-color: color.adjust($brand-primary, $lightness: 30%);
+        }
+    }
+    &::-webkit-slider-runnable-track {
+        background-color: rgba(var(--bs-primary-rgb), .25);
+    }
+    &::-moz-range-track {
+        background-color: rgba(var(--bs-primary-rgb), .25);
+    }
+    &:focus {
+        &::-webkit-slider-thumb {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(var(--bs-primary-rgb), .25);
+        }
+        &::-moz-range-thumb {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(var(--bs-primary-rgb), .25);
+        }
+    }
+    &:disabled {
+        &::-webkit-slider-thumb {
+            background-color: $form-secondary;
+        }
+        &::-moz-range-thumb {
+            background-color: $form-secondary;
+        }
+        &::-webkit-slider-runnable-track {
+            background-color: var(--bs-secondary-bg);
+        }
+        &::-moz-range-track {
+            background-color: var(--bs-secondary-bg);
+        }
     }
 }
 
-.has-warning {
-    input:not([type=checkbox]),
-    input:not([type=checkbox]):focus {
-        box-shadow: inset 0 -2px 0 $brand-warning;
-    }
-}
-
-.has-error {
-    input:not([type=checkbox]),
-    input:not([type=checkbox]):focus {
-        box-shadow: inset 0 -2px 0 $brand-danger;
-    }
-}
-
-.has-success {
-    input:not([type=checkbox]),
-    input:not([type=checkbox]):focus {
+// Keep Bootstrap 5's valid/invalid icons while matching their underline to
+// the theme's status colours.
+.form-control.is-valid,
+.was-validated .form-control:valid,
+.form-select.is-valid,
+.was-validated .form-select:valid {
+    box-shadow: inset 0 -2px 0 $brand-success;
+    &:focus {
         box-shadow: inset 0 -2px 0 $brand-success;
     }
 }
 
-.help-block {
-    padding: 0 2px;
+.form-control.is-invalid,
+.was-validated .form-control:invalid,
+.form-select.is-invalid,
+.was-validated .form-select:invalid {
+    box-shadow: inset 0 -2px 0 $brand-danger;
+    &:focus {
+        box-shadow: inset 0 -2px 0 $brand-danger;
+    }
 }

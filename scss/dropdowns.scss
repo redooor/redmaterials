@@ -1,10 +1,21 @@
+@use "variables" as *;
+
 //
 // Dropdown menus
 // --------------------------------------------------
-
 .dropdown-menu {
+    --bs-dropdown-border-radius: 0;
+    --bs-dropdown-border-width: 0;
+    --bs-dropdown-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    --bs-dropdown-link-active-bg: #{$brand-primary};
+    --bs-dropdown-item-padding-x: 1.25rem;
+    text-align: left;
     border-radius: 0;
     border: none;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.dropdown-item {
+    text-align: left;
 }

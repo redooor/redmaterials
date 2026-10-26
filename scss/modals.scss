@@ -3,6 +3,15 @@
 //
 // Modals
 // --------------------------------------------------
+.modal {
+    --bs-modal-bg: #{$btn-default-bg-color};
+    --bs-modal-border-radius: 2px;
+    --bs-modal-inner-border-radius: 2px;
+    --bs-modal-box-shadow: #{$shadow-depth-5};
+    --bs-modal-header-border-width: 0;
+    --bs-modal-footer-border-width: 0;
+}
+
 .modal-header,
 .modal-footer {
     border: 0;

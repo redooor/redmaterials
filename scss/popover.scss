@@ -3,28 +3,16 @@
 //
 // Popover
 // --------------------------------------------------
+// Bootstrap 5.3 paints popovers and their arrows from CSS variables, so no
+// direction-specific arrow selectors are needed.
 .popover {
+    --bs-popover-bg: #{$btn-default-bg-color};
+    --bs-popover-header-bg: #{$btn-default-bg-color};
+    --bs-popover-border-color: #{$popover-border-color};
+    --bs-popover-border-radius: 2px;
+    --bs-popover-inner-border-radius: 2px;
+    --bs-popover-box-shadow: #{$shadow-depth-2};
     border-radius: 2px;
     border-color: $popover-border-color;
     box-shadow: $shadow-depth-2;
-}
-
-.bs-popover-auto[x-placement^=left] .arrow::before,
-.bs-popover-left .arrow::before {
-    border-left-color: $popover-arrow-color;
-}
-
-.bs-popover-auto[x-placement^=right] .arrow::before,
-.bs-popover-right .arrow::before {
-    border-right-color: $popover-arrow-color;
-}
-
-.bs-popover-auto[x-placement^=top] .arrow::before,
-.bs-popover-top .arrow::before {
-    border-top-color: $popover-arrow-color;
-}
-
-.bs-popover-auto[x-placement^=bottom] .arrow::before,
-.bs-popover-bottom .arrow::before {
-    border-bottom-color: $popover-arrow-color;
 }

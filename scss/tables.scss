@@ -5,69 +5,56 @@
 //
 // Tables
 // --------------------------------------------------
+// Bootstrap 5.3 paints cell backgrounds with an inset box-shadow driven by the
+// --bs-table-* variables.  Feed those variables instead of writing
+// background-color on the cells.
 .table {
-    > thead, > tbody, > tfoot {
-        > tr {
-            transition: all .3s ease;
-            > th, > td {
-                padding: $table-cell-padding;
-                transition: all .3s ease;
-            }
-        }
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-bg: #{$table-bg-accent};
+    --bs-table-hover-bg: #{$table-bg-hover};
+    --bs-table-active-bg: #{$table-bg-active};
+    --bs-table-border-color: #{$table-border-color};
+
+    > :not(caption) > * {
+        transition: all .3s ease;
+    }
+    > :not(caption) > * > * {
+        padding: $table-cell-padding;
+        transition: all .3s ease;
     }
     > thead > tr > th {
         vertical-align: bottom;
     }
     // Remove border
     &.table-no-border {
-        > thead, > tbody, > tfoot {
-            > tr {
-                > th, > td {
-                    border: 0;
-                }
-            }
+        > :not(caption) > * > * {
+            border: 0;
         }
     }
 }
 
-// Condensed table w/ half padding
+// Condensed table w/ half padding.  .table-sm is Bootstrap 5's name; keep
+// .table-condensed as a backwards-compatible alias.
+.table-sm,
 .table-condensed {
-    > thead, > tbody, > tfoot {
-        > tr {
-            > th, > td {
-                padding: $table-condensed-cell-padding;
-            }
-        }
-    }
-}
-
-// Zebra-striping
-//
-// Default zebra-stripe styles (alternating gray and transparent backgrounds)
-.table-striped {
-    > tbody > tr:nth-child(odd) {
-        > td, > th {
-            background-color: $table-bg-accent;
-        }
-    }
-}
-
-// Hover effect
-//
-.table-hover {
-    > tbody > tr:hover {
-        > td, > th {
-            background-color: $table-bg-hover;
-        }
+    > :not(caption) > * > * {
+        padding: $table-condensed-cell-padding;
     }
 }
 
 // Various state colors
 @include table-state('table-primary', $blue-50);
+@include table-state('table-secondary', $grey-100);
+@include table-state('table-success', $green-50);
 @include table-state('table-info', $cyan-50);
 @include table-state('table-warning', $amber-50);
-@include table-state('table-success', $green-50);
 @include table-state('table-danger', $deep-orange-50);
+@include table-state('table-light', $brand-light);
+@include table-state('table-dark', $brand-dark, $brand-white, true);
+
+// Zebra-striping and hover are handled by Bootstrap 5.3 through
+// --bs-table-striped-bg / --bs-table-hover-bg set above and by table-colorize.
 
 // Responsive tables (vertical)
 //
@@ -87,13 +74,21 @@
                 display: block;
                 > tr {
                     display: block;
-                    border: 1px solid $table-border-color;
+                    background-color: var(--bs-table-bg);
+                    border: 1px solid var(--bs-table-border-color);
                     border-radius: 0;
                     margin-bottom: $table-cell-padding;
                     > td {
                         display: block;
                         vertical-align: middle;
                         text-align: right;
+                        // Bootstrap 5 paints row-level striping/hover on each
+                        // cell.  In the stacked layout that alternates cells
+                        // instead of rows, so drop the cell paint and colour
+                        // whole rows below.
+                        --bs-table-bg-type: initial;
+                        --bs-table-bg-state: initial;
+                        box-shadow: none;
                     }
                     > td[data-title]:before {
                         content: attr(data-title);
@@ -113,7 +108,7 @@
                 > tr {
                     > td {
                         border: 0;
-                        border-bottom: 1px solid $table-border-color;
+                        border-bottom: 1px solid var(--bs-table-border-color);
                     }
                     > td:last-child {
                         border-bottom: 0;
@@ -123,15 +118,33 @@
         }
         // Special overrides for the striped tables
         > .table-striped {
-            > tbody > tr > td:nth-child(odd) {
-                background-color: $table-bg-accent;
+            > tbody > tr:nth-child(odd) {
+                background-color: var(--bs-table-striped-bg);
+                > td {
+                    background-color: transparent;
+                }
             }
+        }
+        // Keep contextual row/table colours visible now that the stacked
+        // layout paints the base background on the row instead of each cell.
+        > .table > tbody > tr.table-active,
+        > .table-active > tbody > tr {
+            background-color: var(--bs-table-active-bg);
+            > td {
+                background-color: transparent;
+            }
+        }
+        > .table > tbody > tr > td.table-active {
+            background-color: var(--bs-table-active-bg);
         }
         // Special overrides for hover tables
         > .table-hover {
             > tbody {
-                > tr > td:hover {
-                    background-color: $table-bg-hover;
+                > tr:hover {
+                    background-color: var(--bs-table-hover-bg);
+                    > td {
+                        background-color: transparent;
+                    }
                 }
             }
         }

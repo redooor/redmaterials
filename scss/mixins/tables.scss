@@ -1,41 +1,42 @@
+@use "sass:color";
+@use "../variables" as *;
+
 //
 // Tables
 // --------------------------------------------------
-// For styling different state color
-@mixin table-state($stateName, $stateColor) {
-    .table>tbody>tr.#{$stateName}>td,
-    .table>tbody>tr.#{$stateName}>th,
-    .table>tbody>tr>td.#{$stateName},
-    .table>tbody>tr>th.#{$stateName},
-    .table>tfoot>tr.#{$stateName}>td,
-    .table>tfoot>tr.#{$stateName}>th,
-    .table>tfoot>tr>td.#{$stateName},
-    .table>tfoot>tr>th.#{$stateName},
-    .table>thead>tr.#{$stateName}>td,
-    .table>thead>tr.#{$stateName}>th,
-    .table>thead>tr>td.#{$stateName},
-    .table>thead>tr>th.#{$stateName} {
-        background-color: $stateColor;
+// For styling different state colour.  Bootstrap 5.3 paints cells from the
+// --bs-table-* variables, so only the variables need to change.
+@mixin table-state($stateName, $stateColor, $stateText: $default-text, $dark: false) {
+    .#{$stateName} {
+        --bs-table-bg: #{$stateColor};
+        --bs-table-color: #{$stateText};
+        --bs-table-striped-color: #{$stateText};
+        --bs-table-active-color: #{$stateText};
+        --bs-table-hover-color: #{$stateText};
+        @if $dark {
+            --bs-table-border-color: #{color.mix(#fff, $stateColor, 20%)};
+            --bs-table-striped-bg: #{color.mix(#fff, $stateColor, 8%)};
+            --bs-table-active-bg: #{color.mix(#fff, $stateColor, 16%)};
+            --bs-table-hover-bg: #{color.mix(#fff, $stateColor, 12%)};
+        } @else {
+            --bs-table-border-color: #{color.mix(#000, $stateColor, 20%)};
+            --bs-table-striped-bg: #{color.mix(#000, $stateColor, 4%)};
+            --bs-table-active-bg: #{color.mix(#000, $stateColor, 8%)};
+            --bs-table-hover-bg: #{color.mix(#000, $stateColor, 6%)};
+        }
+        color: var(--bs-table-color);
+        border-color: var(--bs-table-border-color);
     }
 }
-// For colored tables
+
+// For coloured tables
 @mixin table-colorize($colorName, $table-striped-color, $table-hover-color) {
-    .table-striped.table-#{$colorName} > tbody > tr:nth-child(odd) > td,
-    .table-striped.table-#{$colorName} > tbody > tr:nth-child(odd) > th {
-        background-color: $table-striped-color;
-    }
-
-    .table-hover.table-#{$colorName} > tbody > tr:hover > td,
-    .table-hover.table-#{$colorName} > tbody > tr:hover > th {
-        background-color: $table-hover-color;
-    }
-
-    @media screen and (max-width: 767px) {
-        .table-responsive-vertical .table-striped.table-#{$colorName} > tbody > tr > td:nth-child(odd) {
-            background-color: $table-striped-color;
-        }
-        .table-responsive-vertical .table-hover.table-#{$colorName} > tbody > tr > td:hover {
-            background-color: $table-hover-color
-        }
+    .table-#{$colorName} {
+        --bs-table-striped-bg: #{$table-striped-color};
+        --bs-table-hover-bg: #{$table-hover-color};
+        --bs-table-active-bg: #{$table-hover-color};
+        --bs-table-striped-color: #{$default-text};
+        --bs-table-hover-color: #{$default-text};
+        --bs-table-active-color: #{$default-text};
     }
 }

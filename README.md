@@ -2,20 +2,42 @@
 
 [logo]: https://redooor.github.io/redmaterials/assets/img/redmaterials_logo_sm.png "Redmaterials"
 
-#Redmaterials by Redooor
+# Redmaterials by Redooor
 
-Redmaterials is a Bootstrap theme inspired by Google Material Design and various projects.
+Redmaterials is a Bootstrap 5 theme inspired by Google Material Design and various projects.
 It is a consolidation of many works by various people. Please refer to [Acknowledgement](#acknowledgement) for more information.
 
 Redmaterials was initially developed/consolidated by Redooor to be used in another open-sourced project [Redminportal](https://github.com/redooor/redminportal). We've decided to create a separate open-sourced project and make it available to the public.
 
 View demo at [https://redooor.github.io/redmaterials](https://redooor.github.io/redmaterials).
 
-> Upgrading from a previous version? See [UPGRADE.md](UPGRADE.md).
+> Upgrading from a previous version? See [UPGRADE.md](UPGRADE.md). For removed classes and selectors, see [BREAKING.md](BREAKING.md).
 
 # Note to users
 
-Version 0.1.0 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.
+Version 0.2.0 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.
+
+## Compatibility
+
+| Redmaterials | Bootstrap |
+| --- | --- |
+| 0.0.x | Bootstrap 3 |
+| 0.1.x | Bootstrap 4 |
+| 0.2.x | Bootstrap 5.3.x |
+
+## Requirements and load order
+
+Redmaterials 0.2.x requires **Bootstrap 5.3.x** CSS and JS. Use the Bootstrap **bundle** build, which includes Popper.
+
+jQuery 3.x is required only by Redmaterials' own JavaScript (the ripple effect and the nav-sidebar toggle). Bootstrap 5 itself does not need jQuery.
+
+Load the assets in this order:
+
+1. Bootstrap 5.3 CSS
+2. `redmaterials.css`
+3. Bootstrap 5.3 bundle JS
+4. jQuery 3.x
+5. `redmaterials.js`
 
 ## Important Note
 
@@ -44,10 +66,33 @@ Web Font Loader example:
 # Installation for Users
 
 * Copy "dist/css" and "dist/js" to your project folder
-* Use "dist/css/redmaterials.min.css" and "dist/js/redmaterials.min.css"
+* Use "dist/css/redmaterials.min.css" and "dist/js/redmaterials.min.js"
 * Redmaterials CSS and JS must be
     * used together with Bootstrap's CSS and JS
     * declared after Bootstrap's CSS and JS
+
+## CDN example
+
+```html
+<!-- Bootstrap 5.3 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+<!-- Redmaterials CSS (after Bootstrap) -->
+<link rel="stylesheet" href="dist/css/redmaterials.min.css">
+
+<!-- Bootstrap 5.3 bundle JS (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- jQuery 3.x for Redmaterials' own JS only -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+<!-- Redmaterials JS (after Bootstrap) -->
+<script src="dist/js/redmaterials.min.js"></script>
+```
+
+# Icons
+
+Glyphicons are no longer bundled with Redmaterials. Use [Font Awesome Free](https://fontawesome.com/) (or another maintained icon set such as Bootstrap Icons or Material Icons) instead of the removed `.glyphicon-*` classes.
 
 # Installation for Contributors
 
@@ -56,6 +101,8 @@ Web Font Loader example:
 * Run `npm run docs` to build assets for documentation
 * Run `npm run dist` to build assets for distribution
 * Run `npm run build` to build assets for both distribution and documentation
+
+The Sass sources are compiled with Dart Sass through the npm scripts; Grunt and Bower are no longer used.
 
 # Versioning
 
@@ -87,9 +134,9 @@ Redmaterials is open-sourced software licensed under the [MIT license](http://op
 This project is inspired by and adapted from the work of these people, without whom this project will not be possible. Kudos to:
 
 * [Google Material Design](http://www.google.com/design/spec/material-design/introduction.html)
-* [Bootstrap by Twitter](http://getbootstrap.com/)
+* [Bootstrap](https://getbootstrap.com/)
 * [Bootswatch Paper](http://bootswatch.com/paper/)
 * [Bootstrap Material Design - Buttons, pen by Sergey Kupletsky](http://codepen.io/zavoloklom/details/Gubja)
 * [Bootstrap Material Design - Responsive Table, pen by Sergey Kupletsky](http://codepen.io/zavoloklom/pen/IGkDz)
 * [Material Design Icon](https://material.io/icons/)
-* [Glyphicons Halflings](https://glyphicons.com/sets/halflings/) — the version bundled in this project is sourced from [Bootstrap v3.3.7](https://github.com/twbs/bootstrap/tree/v3.3.7/fonts) and is licensed under the [MIT license](https://github.com/twbs/bootstrap/blob/v3.3.7/LICENSE). Glyphicons Halflings are normally not free, but were made available for Bootstrap projects at no cost by their author.
+* [Font Awesome Free](https://fontawesome.com/) — the recommended replacement for the Glyphicons that were previously bundled with Redmaterials.

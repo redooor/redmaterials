@@ -30,6 +30,6 @@
     @include alert-variant($brand-danger, $brand-danger, $deep-orange-text, $deep-orange-50);
 }
 
-.alert-dismissible .close {
+.alert-dismissible .btn-close {
     padding: .5rem .75rem;
 }

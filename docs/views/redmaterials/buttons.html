@@ -176,41 +176,41 @@
                 <p>Note: Previous .btn-{color} classes have been removed to give way for bg utilities.</p>
                 <p class="lead">Normal button</p>
                 <div class="mb-4">
-                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} text-white mb-2 mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title=".bg-{{ color }}">Button</button>
+                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-{{ color }}">Button</button>
                 </div>
                 <p class="lead">Raised button</p>
                 <p>Add .btn-raised to .btn.</p>
                 <div class="mb-4">
-                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-raised text-white mb-2 mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title=".btn-raised.bg-{{ color }}">Button</button>
+                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-{{ color }}">Button</button>
                 </div>
                 <p class="lead">Ripple effect</p>
                 <p>Add .ripple-effect to .btn.</p>
                 <div class="mb-4">
-                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} ripple-effect text-white mb-2 mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title=".ripple-effect.bg-{{ color }}">Button</button>
+                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-{{ color }}">Button</button>
                 </div>
                 <p class="lead">Flat button</p>
                 <p>Add .btn-flat to .btn.</p>
                 <div class="mb-4">
-                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-flat mb-2 mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title=".btn-flat.bg-{{ color }}">Button</button>
+                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-{{ color }}">Button</button>
                 </div>
                 <p class="lead">Circle button</p>
                 <p>Add .btn-circle to .btn.</p>
                 <div class="mb-4">
-                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-circle text-white mb-2 mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title=".btn-circle.bg-{{ color }}"><i class="material-icons">&#xE87D;</i></button>
+                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-{{ color }}"><i class="material-icons">&#xE87D;</i></button>
                 </div>
                 <p class="lead">Raised circle button</p>
                 <p>Add .btn-raised to .btn.btn-circle.</p>
                 <div class="mb-4">
-                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-circle btn-raised text-white mb-2 mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title=".btn-circle.btn-raised.bg-{{ color }}"><i class="material-icons">&#xE87D;</i></button>
+                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-{{ color }}"><i class="material-icons">&#xE87D;</i></button>
                 </div>
                 <p class="lead">Flat circle button</p>
                 <p>Add .btn-flat to .btn.btn-circle.</p>
                 <div class="mb-4">
-                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-circle btn-flat mb-2 mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title=".btn-circle.btn-flat.bg-{{ color }}"><i class="material-icons">&#xE87D;</i></button>
+                    <button type="button" ng-repeat="color in colors" ng-if="color != 'default'" class="btn bg-{{ color }} btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-{{ color }}"><i class="material-icons">&#xE87D;</i></button>
                 </div>
 
                 <h2 id="buttons-sizes">Sizes</h2>
-                <p>Fancy larger or smaller buttons? Add <code>.btn-lg</code>, <code>.btn-sm</code>, or <code>.btn-xs</code> for additional sizes.</p>
+                <p>Fancy larger or smaller buttons? Add <code>.btn-lg</code> or <code>.btn-sm</code> for additional sizes.</p>
                 <div class="bs-example bs-example-type">
                     <p class="lead">Using &lt;button&gt;</p>
                     <table class="table">
@@ -250,11 +250,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <button type="button" class="btn btn-xs btn-raised ripple-effect btn-primary">Raised</button>
-                                    <button type="button" class="btn btn-xs btn-flat ripple-effect btn-primary">Flat</button>
-                                    <button type="button" class="btn btn-xs btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                    <button type="button" class="btn btn-sm btn-raised ripple-effect btn-primary">Raised</button>
+                                    <button type="button" class="btn btn-sm btn-flat ripple-effect btn-primary">Flat</button>
+                                    <button type="button" class="btn btn-sm btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
                                         </button>
-                                    <button type="button" class="btn btn-xs btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                    <button type="button" class="btn btn-sm btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
                                         </button>
                                 </td>
                                 <td class="type-info">Extra small buttons</td>
@@ -299,11 +299,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="" class="btn btn-xs btn-raised ripple-effect btn-primary">Raised</a>
-                                    <a href="" class="btn btn-xs btn-flat ripple-effect btn-primary">Flat</a>
-                                    <a href="" class="btn btn-xs btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                    <a href="" class="btn btn-sm btn-raised ripple-effect btn-primary">Raised</a>
+                                    <a href="" class="btn btn-sm btn-flat ripple-effect btn-primary">Flat</a>
+                                    <a href="" class="btn btn-sm btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
                                         </a>
-                                    <a href="" class="btn btn-xs btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                    <a href="" class="btn btn-sm btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
                                         </a>
                                 </td>
                                 <td class="type-info">Extra small buttons</td>
@@ -327,10 +327,10 @@
 <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-circle btn-raised ripple-effect btn-primary btn-sm"</span><span class="nt">&gt;</span>Small button<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-circle btn-flat ripple-effect btn-primary btn-sm"</span><span class="nt">&gt;</span>Small button<span class="nt">&lt;/button&gt;</span>
 
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-raised ripple-effect btn-primary btn-xs"</span><span class="nt">&gt;</span>Extra small button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-flat ripple-effect btn-primary btn-xs"</span><span class="nt">&gt;</span>Extra small button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-circle btn-raised ripple-effect btn-primary btn-xs"</span><span class="nt">&gt;</span>Extra small button<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-circle btn-flat ripple-effect btn-primary btn-xs"</span><span class="nt">&gt;</span>Extra small button<span class="nt">&lt;/button&gt;</span></code></pre>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-raised ripple-effect btn-primary btn-sm"</span><span class="nt">&gt;</span>Extra small button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-flat ripple-effect btn-primary btn-sm"</span><span class="nt">&gt;</span>Extra small button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-circle btn-raised ripple-effect btn-primary btn-sm"</span><span class="nt">&gt;</span>Extra small button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-circle btn-flat ripple-effect btn-primary btn-sm"</span><span class="nt">&gt;</span>Extra small button<span class="nt">&lt;/button&gt;</span></code></pre>
                 </div>
             </div>
         </div>

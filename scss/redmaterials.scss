@@ -7,6 +7,9 @@
 // Variables
 @use "variables";
 
+// Bootstrap 5.3 CSS variable bridge
+@use "bootstrap5-theme";
+
 // Body
 @use "scaffolding";
 
@@ -32,9 +35,6 @@
 
 // Wells
 @use "wells";
-
-// Jumbotron
-@use "jumbotron";
 
 // List Group
 @use "list-group";
@@ -87,7 +87,3 @@
 
 // Utilities
 @use "utilities";
-
-// Bootstrap 3 compatibility — keep deprecated classes working for existing projects
-@use "compat-glyphicons";
-@use "compat-bootstrap3";
