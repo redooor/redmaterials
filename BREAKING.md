@@ -21,7 +21,8 @@ uses the left-hand column.
 | `.jumbotron` | `.p-5`, `.bg-light`, `.rounded-*` (or a custom component) | The Jumbotron component no longer exists in Bootstrap 5. |
 | `.btn-block` | `.d-grid` with `.w-100`, or `.w-100` | Bootstrap 5 uses layout/width utilities instead of `.btn-block`. `.btn-raised.w-100` and `.btn-flat.w-100` keep the Material button look. |
 | `.btn-xs`, `.btn-group-xs` | `.btn-sm`, `.btn-group-sm` | The extra-small button size was removed from Bootstrap and Redmaterials. |
-| `.panel`, `.panel-*` | `.card`, `.card-*` | Bootstrap 4 renamed panels to cards; Bootstrap 5 has no panel component. |
+| `.panel`, `.panel-heading`, `.panel-title`, `.panel-body`, `.panel-footer` | `.card`, `.card-header`, `.card-title`, `.card-body`, `.card-footer` | Bootstrap 4 renamed panels to cards; Bootstrap 5 has no panel component. There is no `.card-heading`. |
+| `.panel-primary`, `.panel-success`, `.panel-info`, `.panel-warning`, `.panel-danger` | `.card` with `.border-*` (outline) or `.text-bg-*` (filled) | Bootstrap has no `.card-success` etc.; use the border or `text-bg-*` utilities. |
 | `.media` | Flex utilities (`.d-flex`, `.align-items-*`, `.gap-*`) | The `.media` component was removed in Bootstrap 5. |
 | `.close` | `.btn-close` | Bootstrap 5 close buttons use `.btn-close`; `.alert-dismissible .close` was removed. |
 | `.dropdown-menu-left`, `.dropdown-menu-right` | `.dropdown-menu-start`, `.dropdown-menu-end` | Bootstrap 5 uses logical start/end alignment classes. |
