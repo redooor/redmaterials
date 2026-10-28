@@ -1,96 +1,2433 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Redmaterials by Redooor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="assets/img/redmaterials_logo_favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="dist/css/redmaterials.min.css" media="screen">
-    <link rel="stylesheet" href="assets/css/docs.min.css" media="screen">
-    <link rel="stylesheet" href="assets/css/prism.css" media="screen">
-    <link rel="shortcut icon" type="image/png" href="assets/img/redmaterials_logo_favicon.png">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="dist/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/redmaterials.min.css" id="redmaterials-css">
+    <script>(function () {
+    'use strict';
+    var root = document.documentElement, MODES = ['light', 'dark', 'auto'], THEMES = ['bootstrap', 'redmaterials'];
+    var state = { mode: 'auto', theme: 'redmaterials' };
+    try {
+        state.mode = localStorage.getItem('docs-color-mode') || state.mode;
+        state.theme = localStorage.getItem('docs-theme') || state.theme;
+    } catch (e) { /* storage unavailable: defaults */ }
+    if (MODES.indexOf(state.mode) < 0) { state.mode = 'auto'; }
+    if (THEMES.indexOf(state.theme) < 0) { state.theme = 'redmaterials'; }
+
+    function resolve(mode) {
+        if (mode !== 'auto') { return mode; }
+        return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function render() {
+        root.setAttribute('data-bs-theme', resolve(state.mode));
+        root.setAttribute('data-docs-theme', state.theme);
+        var link = document.getElementById('redmaterials-css'); // must precede this script in <head>
+        if (link) { link.disabled = state.theme === 'bootstrap'; }
+    }
+    function broadcast() {
+        document.querySelectorAll('iframe.docs-demo').forEach(function (f) {
+            try { f.contentWindow.postMessage({ type: 'docs-state', mode: state.mode, theme: state.theme }, '*'); } catch (e) { /* ignore */ }
+        });
+    }
+    function set(next) {
+        if (next.mode && MODES.indexOf(next.mode) >= 0) { state.mode = next.mode; }
+        if (next.theme && THEMES.indexOf(next.theme) >= 0) { state.theme = next.theme; }
+        try { localStorage.setItem('docs-color-mode', state.mode); localStorage.setItem('docs-theme', state.theme); } catch (e) { /* ignore */ }
+        render();
+        broadcast();
+    }
+    render();
+    window.docsState = { get: function () { return { mode: state.mode, theme: state.theme }; }, set: set, render: render, broadcast: broadcast };
+
+    // A demo frame takes its state from its parent: localStorage may not be shared between file:// pages.
+    window.addEventListener('message', function (e) {
+        var d = e.data;
+        if (e.source !== window.parent || !d || d.type !== 'docs-state') { return; }
+        if (MODES.indexOf(d.mode) >= 0) { state.mode = d.mode; }
+        if (THEMES.indexOf(d.theme) >= 0) { state.theme = d.theme; }
+        render();
+    });
+    if (window.matchMedia) {
+        matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { if (state.mode === 'auto') { render(); } });
+    }
+}());
+</script>
 </head>
-
-<body ng-app="docs" data-bs-spy="scroll" data-bs-target="#nav_sidebar1" ng-controller="colorRepeater">
-    <div id="nav_sidebar1" class="nav-sidebar-wrapper">
-        <div class="nav-sidebar nav-sidebar-default shadow-depth-1">
-            <div class="nav-sidebar-title">
-                <a href="#top" class="nav-sidebar-brand"><img src="assets/img/redmaterials_logo_favicon.png" title="RedminPortal"> Redmaterials</a>
-            </div>
-            <ul class="nav flex-column nav-sidebar-menu">
-                <li class="nav-sub-header"><span>Bootstrap</span></li>
-                <li><a href="index.html#navbar">Navbar</a></li>
-                <li><a href="index.html#buttons">Buttons</a></li>
-                <li><a href="index.html#type">Typography</a></li>
-                <li><a href="index.html#tables">Tables</a></li>
-                <li><a href="index.html#forms">Forms</a></li>
-                <li><a href="index.html#nav">Nav</a></li>
-                <li><a href="index.html#indicators">Indicators</a></li>
-                <li><a href="index.html#progress">Progress Bars</a></li>
-                <li><a href="index.html#container">Containers</a></li>
-                <li><a href="index.html#cards">Cards</a></li>
-                <li><a href="index.html#dialogs">Modals</a></li>
-                <li><a href="index.html#popover">Popover</a></li>
-                <li><a href="index.html#tooltips">Tooltips</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="nav-sub-header"><span>Redmaterials</span></li>
-                <li><a href="#navbar">Navbar</a></li>
-                <li><a href="#nav-sidebar">Nav Sidebar</a></li>
-                <li><a href="#buttons">Buttons</a></li>
-                <li><a href="#tables">Tables</a></li>
-                <li><a href="#shadows">Shadows</a></li>
-                <li><a href="#ribbons">Corner Ribbons</a></li>
-                <li><a href="#cards">Cards</a></li>
-                <li><a href="#modals">Modals</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="https://twitter.com/redooor"><i class="fa fa-twitter"></i> twitter</a></li>
-                <li><a href="https://github.com/redooor/redmaterials"><i class="fa fa-github"></i> github</a></li>
-                <li><a href="#top">back to top</a></li>
-            </ul>
-        </div>
-        <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1"></div>
+<body>
+<nav class="navbar bg-body-tertiary sticky-top d-lg-none">
+    <div class="container-fluid">
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#docs-sidebar" aria-controls="docs-sidebar" aria-label="Open navigation"><i class="material-icons">menu</i></button>
+        <a class="navbar-brand" href="#top"><img src="assets/img/redmaterials_logo_favicon.png" width="29" height="29" class="d-inline-block align-top me-2" alt="">Redmaterials</a>
     </div>
-    <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg">
-        <button type="button" class="navbar-toggle me-2" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar1">
-            <i class="material-icons">&#xE5D2;</i>
-        </button>
-        <a href="#top" class="navbar-brand"><img src="assets/img/redmaterials_logo_favicon.png" width="29" height="29" class="d-inline-block align-top me-2" alt=""/>Redmaterials</a>
-    </nav>
-    
-    <view-banner></view-banner>
-    
-    <view-redmaterials-navbar colors="colors"></view-redmaterials-navbar>
-    
-    <view-redmaterials-nav-sidebar colors="colors"></view-redmaterials-nav-sidebar>
-    
-    <view-redmaterials-buttons></view-redmaterials-buttons>
-    
-    <view-redmaterials-tables></view-redmaterials-tables>
-    
-    <view-redmaterials-shadow></view-redmaterials-shadow>
-    
-    <view-redmaterials-ribbons></view-redmaterials-ribbons>
-    
-    <view-redmaterials-cards></view-redmaterials-cards>
-    
-    <view-redmaterials-modals></view-redmaterials-modals>
-    
-    <view-footer></view-footer>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/prism.js"></script>
-    <script src="assets/js/docs.min.js?v=1.0"></script>
-    <script src="dist/js/redmaterials.min.js"></script>
-</body>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="offcanvas-lg offcanvas-start col-lg-3 col-xl-2 sticky-lg-top vh-100 overflow-auto p-0" id="docs-sidebar" tabindex="-1" aria-labelledby="docs-sidebar-title">
+            <div class="offcanvas-header d-lg-none">
+                <h5 class="offcanvas-title" id="docs-sidebar-title">Redmaterials</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body d-block p-0">
+                <a class="navbar-brand d-none d-lg-block px-3 pt-3" href="#top"><img src="assets/img/redmaterials_logo_favicon.png" width="29" height="29" class="d-inline-block align-top me-2" alt="">Redmaterials</a>
+                <div class="m-3 d-grid gap-2">
+  <div class="btn-group btn-group-sm" role="group" aria-label="Theme">
+    <input type="radio" class="btn-check" name="theme" id="theme-bs" value="bootstrap">
+    <label class="btn btn-outline-secondary" for="theme-bs">Bootstrap</label>
+    <input type="radio" class="btn-check" name="theme" id="theme-rdm" value="redmaterials">
+    <label class="btn btn-outline-secondary" for="theme-rdm">Redmaterials</label>
+  </div>
+  <div class="btn-group btn-group-sm" role="group" aria-label="Colour mode">
+    <input type="radio" class="btn-check" name="color-mode" id="mode-light" value="light">
+    <label class="btn btn-outline-secondary" for="mode-light">Light</label>
+    <input type="radio" class="btn-check" name="color-mode" id="mode-dark" value="dark">
+    <label class="btn btn-outline-secondary" for="mode-dark">Dark</label>
+    <input type="radio" class="btn-check" name="color-mode" id="mode-auto" value="auto">
+    <label class="btn btn-outline-secondary" for="mode-auto">Auto</label>
+  </div>
+</div>
 
+                <ul class="nav flex-column" id="nav_spy">
+<li class="nav-item px-3 pt-3 text-uppercase fw-bold small text-body-secondary">Redmaterials</li>
+<li class="nav-item"><a class="nav-link" href="#navbar">Navbar</a></li>
+<li class="nav-item"><a class="nav-link" href="#nav-sidebar">Nav Sidebar</a></li>
+<li class="nav-item"><a class="nav-link" href="#buttons">Buttons</a></li>
+<li class="nav-item"><a class="nav-link" href="#tables">Tables</a></li>
+<li class="nav-item"><a class="nav-link" href="#shadows">Shadows</a></li>
+<li class="nav-item"><a class="nav-link" href="#ribbons">Corner Ribbons</a></li>
+<li class="nav-item"><a class="nav-link" href="#cards">Cards</a></li>
+<li class="nav-item"><a class="nav-link" href="#modals">Modals</a></li>
+</ul>
+<ul class="nav flex-column">
+<li class="nav-item px-3 pt-3 text-uppercase fw-bold small text-body-secondary">Bootstrap</li>
+<li class="nav-item"><a class="nav-link" href="index.html#navbar">Navbar</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#buttons">Buttons</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#type">Typography</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#tables">Tables</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#forms">Forms</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#nav">Nav</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#indicators">Indicators</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#progress">Progress Bars</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#container">Containers</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#cards">Cards</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#dialogs">Modals</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#popover">Popover</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#tooltips">Tooltips</a></li>
+</ul>
+                <ul class="nav flex-column mb-4">
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/redooor/redmaterials"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#top">Back to top</a></li>
+                </ul>
+            </div>
+        </div>
+        <main class="col-lg-9 col-xl-10" data-bs-spy="scroll" data-bs-target="#nav_spy" tabindex="0">
+
+<!-- Banner
+================================================== -->
+<div id="top" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>Redmaterials <small>by Redooor</small></h1>
+                    <p class="lead">Bootstrap theme inspired by Google Material Design and various projects</p>
+                <p>This is a consolidation of many works by various people. Please refer to README.md Acknowledgement section for more information.</p>
+                <p>Refer to <a href="https://github.com/redooor/redmaterials/blob/master/CHANGELOG.md">CHANGE LOG</a> for the changes made to the latest release.</p>
+                <h2>Note to users</h2>
+                <p>Version 0.1.0 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.</p>
+            </div>
+            <div class="col-md-2">
+                <img src="assets/img/redmaterials_logo_sm.png" class="w-100"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Important Note</h3>
+                <p>From version 0.0.3, we will not import Roboto font within Redmaterials CSS file. To use it, you need to separately add a link in your header.</p>
+                <p>Add this to your header:</p>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'&gt;</code></pre>
+                <p>Alternatively, you may use Web Font Loader to dynamically load Roboto font.</p>
+                <p>For example:</p>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  WebFont.load({
+    google: {
+      families: ['Roboto']
+    }
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Navbar
+================================================== -->
+<div id="navbar" class="container pt-3">
+    <div class="pt-5 clearfix">
+        <div class="row">
+            <div class="col">
+                <h1>Navbar <small>(with breadcrumb)</small></h1>
+
+                <div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-rdm1" aria-controls="navbarSupportedContent-rdm1" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-rdm1">
+                            <ul class="navbar-nav navbar-breadcrumb me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link px-3 active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown-rdm1" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-rdm1">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <div class="dropdown-header">Dropdown header</div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text px-3">
+                                        Nonlink
+                                    </span>
+                                </li>
+                            </ul>
+                            <form class="d-flex my-2 my-lg-0">
+                                <input class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+                <div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <a class="navbar-brand" href="#">Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-rdm2" aria-controls="navbarSupportedContent-rdm2" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-rdm2">
+                            <ul class="navbar-nav navbar-breadcrumb me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link px-3 active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown-rdm2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-rdm2">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <div class="dropdown-header">Dropdown header</div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text px-3">
+                                        Nonlink
+                                    </span>
+                                </li>
+                            </ul>
+                            <form class="d-flex my-2 my-lg-0">
+                                <input class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Simply add class "navbar-breadcrumb" to "navbar-nav" div</p>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;navbar-nav navbar-breadcrumb&quot;&gt;</code></pre>
+                <p>Full example code:</p>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot;&gt;
+    &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Navbar&lt;/a&gt;
+    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarSupportedContent1&quot; aria-controls=&quot;navbarSupportedContent&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+        &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent1&quot;&gt;
+        &lt;ul class=&quot;navbar-nav navbar-breadcrumb me-auto&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;a class=&quot;nav-link px-3 active&quot; href=&quot;#&quot; aria-current=&quot;page&quot;&gt;Home &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;a class=&quot;nav-link px-3&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                &lt;a class=&quot;nav-link px-3 dropdown-toggle&quot; href=&quot;#&quot; id=&quot;navbarDropdown&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
+                    Dropdown
+                &lt;/a&gt;
+                &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;navbarDropdown&quot;&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;
+                    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;dropdown-header&quot;&gt;Dropdown header&lt;/div&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;span class=&quot;navbar-text px-3&quot;&gt;
+                    Nonlink
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;form class=&quot;d-flex my-2 my-lg-0&quot;&gt;
+            &lt;input class=&quot;form-control me-sm-2&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot;&gt;
+            &lt;button class=&quot;btn btn-outline-dark my-2 my-sm-0&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 id="color-options">Color options</h2>
+                <p>Navbar supports all material color palette using bg utilities.
+                <br>Add respective class to .navbar to get different colors.</p>
+                <p>Note: You may need to toggle between .navbar-light and .navbar-dark to a matching text color.
+                <br>The examples below all use .navbar-light.</p>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-default">
+                        <a class="navbar-brand" href="#">.bg-default</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-default" aria-controls="navbarSupportedContent-default" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-default">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-default" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-default">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-red">
+                        <a class="navbar-brand" href="#">.bg-red</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-red" aria-controls="navbarSupportedContent-red" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-red">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-red" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-red">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-pink">
+                        <a class="navbar-brand" href="#">.bg-pink</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-pink" aria-controls="navbarSupportedContent-pink" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-pink">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-pink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-pink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-purple">
+                        <a class="navbar-brand" href="#">.bg-purple</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-purple" aria-controls="navbarSupportedContent-purple" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-purple">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-purple" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-purple">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-deep-purple">
+                        <a class="navbar-brand" href="#">.bg-deep-purple</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-deep-purple" aria-controls="navbarSupportedContent-deep-purple" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-deep-purple">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-deep-purple" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-deep-purple">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-indigo">
+                        <a class="navbar-brand" href="#">.bg-indigo</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-indigo" aria-controls="navbarSupportedContent-indigo" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-indigo">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-indigo" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-indigo">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-blue">
+                        <a class="navbar-brand" href="#">.bg-blue</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-blue" aria-controls="navbarSupportedContent-blue" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-blue">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-blue" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-blue">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light-blue">
+                        <a class="navbar-brand" href="#">.bg-light-blue</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-light-blue" aria-controls="navbarSupportedContent-light-blue" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-light-blue">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-light-blue" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-light-blue">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-cyan">
+                        <a class="navbar-brand" href="#">.bg-cyan</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-cyan" aria-controls="navbarSupportedContent-cyan" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-cyan">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-cyan" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-cyan">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-teal">
+                        <a class="navbar-brand" href="#">.bg-teal</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-teal" aria-controls="navbarSupportedContent-teal" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-teal">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-teal" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-teal">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-green">
+                        <a class="navbar-brand" href="#">.bg-green</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-green" aria-controls="navbarSupportedContent-green" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-green">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-green" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-green">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light-green">
+                        <a class="navbar-brand" href="#">.bg-light-green</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-light-green" aria-controls="navbarSupportedContent-light-green" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-light-green">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-light-green" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-light-green">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-lime">
+                        <a class="navbar-brand" href="#">.bg-lime</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-lime" aria-controls="navbarSupportedContent-lime" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-lime">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-lime" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-lime">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-yellow">
+                        <a class="navbar-brand" href="#">.bg-yellow</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-yellow" aria-controls="navbarSupportedContent-yellow" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-yellow">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-yellow" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-yellow">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-amber">
+                        <a class="navbar-brand" href="#">.bg-amber</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-amber" aria-controls="navbarSupportedContent-amber" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-amber">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-amber" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-amber">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-orange">
+                        <a class="navbar-brand" href="#">.bg-orange</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-orange" aria-controls="navbarSupportedContent-orange" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-orange">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-orange" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-orange">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-deep-orange">
+                        <a class="navbar-brand" href="#">.bg-deep-orange</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-deep-orange" aria-controls="navbarSupportedContent-deep-orange" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-deep-orange">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-deep-orange" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-deep-orange">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-brown">
+                        <a class="navbar-brand" href="#">.bg-brown</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-brown" aria-controls="navbarSupportedContent-brown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-brown">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-brown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-brown">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+                        <a class="navbar-brand" href="#">.bg-grey</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-grey" aria-controls="navbarSupportedContent-grey" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-grey">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-grey" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-grey">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+<div class="bs-component">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-blue-grey">
+                        <a class="navbar-brand" href="#">.bg-blue-grey</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-blue-grey" aria-controls="navbarSupportedContent-blue-grey" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-blue-grey">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-blue-grey" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-blue-grey">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">
+                                        Navbar text with an inline element
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation Sidebar
+================================================== -->
+<div id="nav-sidebar" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Nav Sidebar</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-component">
+                    <div id="nav_sidebar_demo1" class="nav-sidebar-wrapper">
+                        <div class="nav-sidebar nav-sidebar-default shadow-depth-1">
+                            <div class="nav-sidebar-title">
+                                <a href="#top" class="nav-sidebar-brand">Nav Sidebar</a>
+                            </div>
+                            <ul class="nav flex-column nav-sidebar-menu">
+                                <li class="nav-sub-header"><span>Header 1</span></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 2</a></li>
+                                <li class="active"><a href="#">Active 3</a></li>
+                                <li><a href="#">Test 4</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="nav-sub-header"><span>Header 2</span></li>
+                                <li><a href="#">Test 5</a></li>
+                                <li><a href="#">Test 6</a></li>
+                                <li><a href="#">Test 7</a></li>
+                                <li><a href="#">Test 8</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"></div>
+                    </div>
+                    <div id="nav_sidebar_demo2" class="nav-sidebar-wrapper">
+                        <div class="nav-sidebar nav-sidebar-pink nav-sidebar-right shadow-depth-1">
+                            <div class="nav-sidebar-title">
+                                <a href="#top" class="nav-sidebar-brand">Right Sidebar</a>
+                            </div>
+                            <ul class="nav flex-column nav-sidebar-menu">
+                                <li class="nav-sub-header"><span>Header 1</span></li>
+                                <li><a href="#">Test 1</a></li>
+                                <li><a href="#">Test 2</a></li>
+                                <li class="active"><a href="#">Active 3</a></li>
+                                <li><a href="#">Test 4</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="nav-sub-header"><span>Header 2</span></li>
+                                <li><a href="#">Test 5</a></li>
+                                <li><a href="#">Test 6</a></li>
+                                <li><a href="#">Test 7</a></li>
+                                <li><a href="#">Test 8</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo2"></div>
+                    </div>
+                    <p>
+                        <button type="button" class="btn btn-primary" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1">Show Sidebar</button>
+                        <button type="button" class="btn bg-pink text-white" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo2">Show Sidebar (right)</button>
+                    </p>
+                    <p>Wrap the sidebar with a div class <i>nav-sidebar-wrapper</i> and give it a unque ID.</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div id=&quot;nav_sidebar_demo1&quot; class=&quot;nav-sidebar-wrapper&quot;&gt;</code></pre>
+                    <p>Within the wrapper, you need 2 divs, <i>nav-sidebar</i> and <i>nav-sidebar-overlay</i> :</p>
+                    <p><i>nav-sidebar</i> contains the menu list <i>nav nav-sidebar-menu</i>. By default it's hidden from view.</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;nav-sidebar nav-sidebar-default shadow-depth-1&quot;&gt;
+    &lt;div class=&quot;nav-sidebar-title&quot;&gt;
+        &lt;a href=&quot;#top&quot; class=&quot;nav-sidebar-brand&quot;&gt;Nav Sidebar&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;nav flex-column nav-sidebar-menu&quot;&gt;
+        &lt;li class=&quot;nav-sub-header&quot;&gt;&lt;span&gt;Header 1&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 4&lt;/a&gt;&lt;/li&gt;
+        &lt;li role=&quot;separator&quot; class=&quot;divider&quot;&gt;&lt;/li&gt;
+        &lt;li class=&quot;nav-sub-header&quot;&gt;&lt;span&gt;Header 2&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 8&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                    <p><i>nav-sidebar-overlay</i> is the overlay when the sidebar is shown to prevent main body from scrolling.</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;nav-sidebar-overlay&quot; data-toggle=&quot;nav-sidebar-toggle&quot; data-target=&quot;#nav_sidebar_demo1&quot;&gt;&lt;/div&gt;</code></pre>
+                    <p>To toggle the sidebar on/off, simply add the</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>data-toggle=&quot;nav-sidebar-toggle&quot;</code></pre>
+                    <p>and</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>data-target=&quot;#your_wrapper_id&quot;</code></pre>
+                    <p>to any element, such as button and overlay. <i>data-target</i> should contain your wrapper's ID.</p>
+                    <p>I had given the <i>nav-sidebar-overlay</i> those properties so that user can click the overlay to dismiss the sidebar.</p>
+                    <p>Full example code:</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div id=&quot;nav_sidebar_demo1&quot; class=&quot;nav-sidebar-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-sidebar nav-sidebar-default shadow-depth-1&quot;&gt;
+        &lt;div class=&quot;nav-sidebar-title&quot;&gt;
+            &lt;a href=&quot;#top&quot; class=&quot;nav-sidebar-brand&quot;&gt;Nav Sidebar&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;ul class=&quot;nav flex-column nav-sidebar-menu&quot;&gt;
+            &lt;li class=&quot;nav-sub-header&quot;&gt;&lt;span&gt;Header 1&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active 3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 4&lt;/a&gt;&lt;/li&gt;
+            &lt;li role=&quot;separator&quot; class=&quot;divider&quot;&gt;&lt;/li&gt;
+            &lt;li class=&quot;nav-sub-header&quot;&gt;&lt;span&gt;Header 2&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 5&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 6&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 7&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test 8&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;nav-sidebar-overlay&quot; data-toggle=&quot;nav-sidebar-toggle&quot; data-target=&quot;#nav_sidebar_demo1&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    <h4>Right Sidebar</h4>
+                    <p>By default the sidebar sticks to the left of the screen.</p>
+                    <p>If you want the sidebar to stick to the right instead, add class:</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>nav-sidebar-right</code></pre>
+                    <p>Like this:</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;nav-sidebar nav-sidebar-default nav-sidebar-right shadow-depth-1&quot;&gt;</code></pre>
+                    <h4>Color options</h4>
+                    <p>Nav Sidebar supports all material color palette.</p>
+                    <p>Replace <i>nav-sidebar-default</i> with the following to get different colors (active menu will be colored as well):</p>
+                    <ul class="list-unstyled">
+                        <li class="demo-nav-sidebar nav-sidebar-default">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-default</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-red">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-red</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-pink">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-pink</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-purple">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-purple</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-deep-purple">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-deep-purple</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-indigo">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-indigo</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-blue">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-blue</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-light-blue">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-light-blue</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-cyan">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-cyan</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-teal">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-teal</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-green">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-green</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-light-green">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-light-green</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-lime">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-lime</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-yellow">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-yellow</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-amber">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-amber</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-orange">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-orange</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-deep-orange">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-deep-orange</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-brown">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-brown</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-grey">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-grey</span></span>
+                        </li>
+<li class="demo-nav-sidebar nav-sidebar-blue-grey">
+                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-blue-grey</span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Redmaterials Buttons
+================================================== -->
+<div id="buttons" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col">
+                <h1>Buttons</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Raised buttons</h4>
+                <p>Add .btn-raised to .btn to create a raised effect.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn btn-default btn-raised mb-2">Default</button>
+                    <button type="button" class="btn btn-primary btn-raised mb-2">Primary</button>
+                    <button type="button" class="btn btn-secondary btn-raised mb-2">Secondary</button>
+                    <button type="button" class="btn btn-success btn-raised mb-2">Success</button>
+                    <button type="button" class="btn btn-info btn-raised mb-2">Info</button>
+                    <button type="button" class="btn btn-warning btn-raised mb-2">Warning</button>
+                    <button type="button" class="btn btn-danger btn-raised mb-2">Danger</button>
+                    <button type="button" class="btn btn-light btn-raised mb-2">Light</button>
+                    <button type="button" class="btn btn-dark btn-raised mb-2">Dark</button>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-raised mb-2&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-raised mb-2&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-raised mb-2&quot;&gt;Secondary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-raised mb-2&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info btn-raised mb-2&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning btn-raised mb-2&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger btn-raised mb-2&quot;&gt;Danger&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-light btn-raised mb-2&quot;&gt;Light&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-dark btn-raised mb-2&quot;&gt;Dark&lt;/button&gt;</code></pre>
+                </div>
+                <h4>Flat buttons</h4>
+                <p>Add .btn-flat to .btn to create a raised effect.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn btn-default btn-flat mb-2">Default</button>
+                    <button type="button" class="btn btn-primary btn-flat mb-2">Primary</button>
+                    <button type="button" class="btn btn-secondary btn-flat mb-2">Secondary</button>
+                    <button type="button" class="btn btn-success btn-flat mb-2">Success</button>
+                    <button type="button" class="btn btn-info btn-flat mb-2">Info</button>
+                    <button type="button" class="btn btn-warning btn-flat mb-2">Warning</button>
+                    <button type="button" class="btn btn-danger btn-flat mb-2">Danger</button>
+                    <button type="button" class="btn btn-light btn-flat mb-2">Light</button>
+                    <button type="button" class="btn btn-dark btn-flat mb-2">Dark</button>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-flat mb-2&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-flat mb-2&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-flat mb-2&quot;&gt;Secondary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-flat mb-2&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info btn-flat mb-2&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning btn-flat mb-2&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger btn-flat mb-2&quot;&gt;Danger&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-light btn-flat mb-2&quot;&gt;Light&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-dark btn-flat mb-2&quot;&gt;Dark&lt;/button&gt;</code></pre>
+                </div>
+
+                <h4>Circle buttons</h4>
+                <p>Add .btn-circle to .btn to create a circle buttons. Supports <a href="https://material.io/icons/">Material Design Icons</a>.</p>
+                <div class="table-responsive"><table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-circle btn-primary"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-secondary"><i class="material-icons">&#xE5CA;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-info"><i class="material-icons">&#xE5CD;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-success"><i class="material-icons">&#xE145;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-danger"><i class="material-icons">&#xE15B;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-warning"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                            </td>
+                            <td class="type-info">Circle buttons (FAB), using button</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="" class="btn btn-circle btn-primary"><i class="material-icons">&#xE87D;</i>
+                                </a>
+                                <a href="" class="btn btn-circle btn-secondary"><i class="material-icons">&#xE5CA;</i>
+                                </a>
+                                <a href="" class="btn btn-circle btn-info"><i class="material-icons">&#xE5CD;</i>
+                                </a>
+                                <a href="" class="btn btn-circle btn-success"><i class="material-icons">&#xE145;</i>
+                                </a>
+                                <a href="" class="btn btn-circle btn-danger"><i class="material-icons">&#xE15B;</i>
+                                </a>
+                                <a href="" class="btn btn-circle btn-warning"><i class="material-icons">&#xE87D;</i>
+                                </a>
+                            </td>
+                            <td class="type-info">Circle buttons (FAB), using link</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-circle btn-raised btn-primary"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-raised btn-secondary"><i class="material-icons">&#xE5CA;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-raised btn-info"><i class="material-icons">&#xE5CD;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-raised btn-success"><i class="material-icons">&#xE145;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-raised btn-danger"><i class="material-icons">&#xE15B;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-raised btn-warning"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                            </td>
+                            <td class="type-info">Circle + Raised buttons</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-circle btn-flat btn-primary"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-flat btn-secondary"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-flat btn-info"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-flat btn-success"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-flat btn-danger"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                                <button type="button" class="btn btn-circle btn-flat btn-warning"><i class="material-icons">&#xE87D;</i>
+                                </button>
+                            </td>
+                            <td class="type-info">Circle + Flat buttons</td>
+                        </tr>
+                    </tbody>
+                </table></div>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;span class=&quot;c&quot;&gt;&lt;!-- Circle button (FAB) --&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-default&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Default&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&lt;!-- Circle + Raised button --&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-raised btn-default&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Default&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&lt;!-- Circle + Flat button --&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-flat btn-default&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Default&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;</code></pre>
+
+                <!-- Ripple effect -->
+                <h4>Ripple effect</h4>
+                <p>Ripple effect requiers JS for creating DOM-element and controlling animation. Animation work on CSS3. If you want to use this effect, you should add class <code>.ripple-effect</code> to your button.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn btn-default btn-raised ripple-effect mb-2">Default</button>
+                    <button type="button" class="btn btn-primary btn-raised ripple-effect mb-2">Primary</button>
+                    <button type="button" class="btn btn-secondary btn-raised ripple-effect mb-2">Secondary</button>
+                    <button type="button" class="btn btn-success btn-raised ripple-effect mb-2">Success</button>
+                    <button type="button" class="btn btn-info btn-raised ripple-effect mb-2">Info</button>
+                    <button type="button" class="btn btn-warning btn-raised ripple-effect mb-2">Warning</button>
+                    <button type="button" class="btn btn-danger btn-raised ripple-effect mb-2">Danger</button>
+                    <button type="button" class="btn btn-light btn-raised ripple-effect mb-2">Light</button>
+                    <button type="button" class="btn btn-dark btn-raised ripple-effect mb-2">Dark</button>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-raised ripple-effect mb-2&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-raised ripple-effect mb-2&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-raised ripple-effect mb-2&quot;&gt;Secondary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-raised ripple-effect mb-2&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info btn-raised ripple-effect mb-2&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning btn-raised ripple-effect mb-2&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger btn-raised ripple-effect mb-2&quot;&gt;Danger&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-light btn-raised ripple-effect mb-2&quot;&gt;Light&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-dark btn-raised ripple-effect mb-2&quot;&gt;Dark&lt;/button&gt;</code></pre>
+                </div>
+
+                <!-- Types -->
+                <h4 id="buttons-colors">Colors</h4>
+                <p>Turn any buttons to various colors using the bg and text color utilities.</p>
+                <p>Note: Previous .btn-{color} classes have been removed to give way for bg utilities.</p>
+                <p class="lead">Normal button</p>
+                <div class="mb-4">
+                    <button type="button" class="btn bg-red text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-red">Button</button>
+<button type="button" class="btn bg-pink text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-pink">Button</button>
+<button type="button" class="btn bg-purple text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-purple">Button</button>
+<button type="button" class="btn bg-deep-purple text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-deep-purple">Button</button>
+<button type="button" class="btn bg-indigo text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-indigo">Button</button>
+<button type="button" class="btn bg-blue text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-blue">Button</button>
+<button type="button" class="btn bg-light-blue text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-light-blue">Button</button>
+<button type="button" class="btn bg-cyan text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-cyan">Button</button>
+<button type="button" class="btn bg-teal text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-teal">Button</button>
+<button type="button" class="btn bg-green text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-green">Button</button>
+<button type="button" class="btn bg-light-green text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-light-green">Button</button>
+<button type="button" class="btn bg-lime text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-lime">Button</button>
+<button type="button" class="btn bg-yellow text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-yellow">Button</button>
+<button type="button" class="btn bg-amber text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-amber">Button</button>
+<button type="button" class="btn bg-orange text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-orange">Button</button>
+<button type="button" class="btn bg-deep-orange text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-deep-orange">Button</button>
+<button type="button" class="btn bg-brown text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-brown">Button</button>
+<button type="button" class="btn bg-grey text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-grey">Button</button>
+<button type="button" class="btn bg-blue-grey text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".bg-blue-grey">Button</button>
+                </div>
+                <p class="lead">Raised button</p>
+                <p>Add .btn-raised to .btn.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn bg-red btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-red">Button</button>
+<button type="button" class="btn bg-pink btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-pink">Button</button>
+<button type="button" class="btn bg-purple btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-purple">Button</button>
+<button type="button" class="btn bg-deep-purple btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-deep-purple">Button</button>
+<button type="button" class="btn bg-indigo btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-indigo">Button</button>
+<button type="button" class="btn bg-blue btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-blue">Button</button>
+<button type="button" class="btn bg-light-blue btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-light-blue">Button</button>
+<button type="button" class="btn bg-cyan btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-cyan">Button</button>
+<button type="button" class="btn bg-teal btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-teal">Button</button>
+<button type="button" class="btn bg-green btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-green">Button</button>
+<button type="button" class="btn bg-light-green btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-light-green">Button</button>
+<button type="button" class="btn bg-lime btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-lime">Button</button>
+<button type="button" class="btn bg-yellow btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-yellow">Button</button>
+<button type="button" class="btn bg-amber btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-amber">Button</button>
+<button type="button" class="btn bg-orange btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-orange">Button</button>
+<button type="button" class="btn bg-deep-orange btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-deep-orange">Button</button>
+<button type="button" class="btn bg-brown btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-brown">Button</button>
+<button type="button" class="btn bg-grey btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-grey">Button</button>
+<button type="button" class="btn bg-blue-grey btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-raised.bg-blue-grey">Button</button>
+                </div>
+                <p class="lead">Ripple effect</p>
+                <p>Add .ripple-effect to .btn.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn bg-red ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-red">Button</button>
+<button type="button" class="btn bg-pink ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-pink">Button</button>
+<button type="button" class="btn bg-purple ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-purple">Button</button>
+<button type="button" class="btn bg-deep-purple ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-deep-purple">Button</button>
+<button type="button" class="btn bg-indigo ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-indigo">Button</button>
+<button type="button" class="btn bg-blue ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-blue">Button</button>
+<button type="button" class="btn bg-light-blue ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-light-blue">Button</button>
+<button type="button" class="btn bg-cyan ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-cyan">Button</button>
+<button type="button" class="btn bg-teal ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-teal">Button</button>
+<button type="button" class="btn bg-green ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-green">Button</button>
+<button type="button" class="btn bg-light-green ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-light-green">Button</button>
+<button type="button" class="btn bg-lime ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-lime">Button</button>
+<button type="button" class="btn bg-yellow ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-yellow">Button</button>
+<button type="button" class="btn bg-amber ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-amber">Button</button>
+<button type="button" class="btn bg-orange ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-orange">Button</button>
+<button type="button" class="btn bg-deep-orange ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-deep-orange">Button</button>
+<button type="button" class="btn bg-brown ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-brown">Button</button>
+<button type="button" class="btn bg-grey ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-grey">Button</button>
+<button type="button" class="btn bg-blue-grey ripple-effect text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".ripple-effect.bg-blue-grey">Button</button>
+                </div>
+                <p class="lead">Flat button</p>
+                <p>Add .btn-flat to .btn.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn bg-red btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-red">Button</button>
+<button type="button" class="btn bg-pink btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-pink">Button</button>
+<button type="button" class="btn bg-purple btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-purple">Button</button>
+<button type="button" class="btn bg-deep-purple btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-deep-purple">Button</button>
+<button type="button" class="btn bg-indigo btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-indigo">Button</button>
+<button type="button" class="btn bg-blue btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-blue">Button</button>
+<button type="button" class="btn bg-light-blue btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-light-blue">Button</button>
+<button type="button" class="btn bg-cyan btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-cyan">Button</button>
+<button type="button" class="btn bg-teal btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-teal">Button</button>
+<button type="button" class="btn bg-green btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-green">Button</button>
+<button type="button" class="btn bg-light-green btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-light-green">Button</button>
+<button type="button" class="btn bg-lime btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-lime">Button</button>
+<button type="button" class="btn bg-yellow btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-yellow">Button</button>
+<button type="button" class="btn bg-amber btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-amber">Button</button>
+<button type="button" class="btn bg-orange btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-orange">Button</button>
+<button type="button" class="btn bg-deep-orange btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-deep-orange">Button</button>
+<button type="button" class="btn bg-brown btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-brown">Button</button>
+<button type="button" class="btn bg-grey btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-grey">Button</button>
+<button type="button" class="btn bg-blue-grey btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-flat.bg-blue-grey">Button</button>
+                </div>
+                <p class="lead">Circle button</p>
+                <p>Add .btn-circle to .btn.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn bg-red btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-red"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-pink btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-pink"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-purple btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-purple"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-deep-purple btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-deep-purple"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-indigo btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-indigo"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-blue btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-blue"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-light-blue btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-light-blue"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-cyan btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-cyan"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-teal btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-teal"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-green btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-green"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-light-green btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-light-green"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-lime btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-lime"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-yellow btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-yellow"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-amber btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-amber"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-orange btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-orange"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-deep-orange btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-deep-orange"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-brown btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-brown"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-grey btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-grey"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-blue-grey btn-circle text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.bg-blue-grey"><i class="material-icons">&#xE87D;</i></button>
+                </div>
+                <p class="lead">Raised circle button</p>
+                <p>Add .btn-raised to .btn.btn-circle.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn bg-red btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-red"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-pink btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-pink"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-purple btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-purple"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-deep-purple btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-deep-purple"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-indigo btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-indigo"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-blue btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-blue"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-light-blue btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-light-blue"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-cyan btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-cyan"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-teal btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-teal"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-green btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-green"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-light-green btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-light-green"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-lime btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-lime"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-yellow btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-yellow"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-amber btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-amber"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-orange btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-orange"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-deep-orange btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-deep-orange"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-brown btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-brown"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-grey btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-grey"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-blue-grey btn-circle btn-raised text-white mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-raised.bg-blue-grey"><i class="material-icons">&#xE87D;</i></button>
+                </div>
+                <p class="lead">Flat circle button</p>
+                <p>Add .btn-flat to .btn.btn-circle.</p>
+                <div class="mb-4">
+                    <button type="button" class="btn bg-red btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-red"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-pink btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-pink"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-purple btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-purple"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-deep-purple btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-deep-purple"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-indigo btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-indigo"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-blue btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-blue"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-light-blue btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-light-blue"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-cyan btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-cyan"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-teal btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-teal"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-green btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-green"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-light-green btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-light-green"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-lime btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-lime"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-yellow btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-yellow"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-amber btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-amber"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-orange btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-orange"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-deep-orange btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-deep-orange"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-brown btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-brown"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-grey btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-grey"><i class="material-icons">&#xE87D;</i></button>
+<button type="button" class="btn bg-blue-grey btn-circle btn-flat mb-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title=".btn-circle.btn-flat.bg-blue-grey"><i class="material-icons">&#xE87D;</i></button>
+                </div>
+
+                <h2 id="buttons-sizes">Sizes</h2>
+                <p>Fancy larger or smaller buttons? Add <code>.btn-lg</code> or <code>.btn-sm</code> for additional sizes.</p>
+                <div class="bs-example bs-example-type">
+                    <p class="lead">Using &lt;button&gt;</p>
+                    <div class="table-responsive"><table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-lg btn-raised ripple-effect btn-primary">Raised</button>
+                                    <button type="button" class="btn btn-lg btn-flat ripple-effect btn-primary">Flat</button>
+                                    <button type="button" class="btn btn-lg btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </button>
+                                    <button type="button" class="btn btn-lg btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </button>
+                                </td>
+                                <td class="type-info">Large buttons</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-raised ripple-effect btn-primary">Raised</button>
+                                    <button type="button" class="btn btn-flat ripple-effect btn-primary">Flat</button>
+                                    <button type="button" class="btn btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </button>
+                                    <button type="button" class="btn btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </button>
+                                </td>
+                                <td class="type-info">Default buttons</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-raised ripple-effect btn-primary">Raised</button>
+                                    <button type="button" class="btn btn-sm btn-flat ripple-effect btn-primary">Flat</button>
+                                    <button type="button" class="btn btn-sm btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </button>
+                                    <button type="button" class="btn btn-sm btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </button>
+                                </td>
+                                <td class="type-info">Small buttons</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-raised ripple-effect btn-primary">Raised</button>
+                                    <button type="button" class="btn btn-sm btn-flat ripple-effect btn-primary">Flat</button>
+                                    <button type="button" class="btn btn-sm btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </button>
+                                    <button type="button" class="btn btn-sm btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </button>
+                                </td>
+                                <td class="type-info">Extra small buttons</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                    <p class="lead">Using &lt;a&gt;</p>
+                    <div class="table-responsive"><table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="" class="btn btn-lg btn-raised ripple-effect btn-primary">Raised</a>
+                                    <a href="" class="btn btn-lg btn-flat ripple-effect btn-primary">Flat</a>
+                                    <a href="" class="btn btn-lg btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </a>
+                                    <a href="" class="btn btn-lg btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </a>
+                                </td>
+                                <td class="type-info">Large buttons</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="" class="btn btn-raised ripple-effect btn-primary">Raised</a>
+                                    <a href="" class="btn btn-flat ripple-effect btn-primary">Flat</a>
+                                    <a href="" class="btn btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </a>
+                                    <a href="" class="btn btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </a>
+                                </td>
+                                <td class="type-info">Default buttons</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-raised ripple-effect btn-primary">Raised</a>
+                                    <a href="" class="btn btn-sm btn-flat ripple-effect btn-primary">Flat</a>
+                                    <a href="" class="btn btn-sm btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </a>
+                                    <a href="" class="btn btn-sm btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </a>
+                                </td>
+                                <td class="type-info">Small buttons</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-raised ripple-effect btn-primary">Raised</a>
+                                    <a href="" class="btn btn-sm btn-flat ripple-effect btn-primary">Flat</a>
+                                    <a href="" class="btn btn-sm btn-circle btn-raised ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </a>
+                                    <a href="" class="btn btn-sm btn-circle btn-flat ripple-effect btn-primary"><i class="material-icons">&#xE87D;</i>
+                                        </a>
+                                </td>
+                                <td class="type-info">Extra small buttons</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                </div>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-raised ripple-effect btn-primary btn-lg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Large button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-flat ripple-effect btn-primary btn-lg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Large button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-raised ripple-effect btn-primary btn-lg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Large button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-flat ripple-effect btn-primary btn-lg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Large button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-raised ripple-effect btn-primary&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Default button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-flat ripple-effect btn-primary&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Default button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-raised ripple-effect btn-primary&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Default button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-flat ripple-effect btn-primary&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Default button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-raised ripple-effect btn-primary btn-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Small button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-flat ripple-effect btn-primary btn-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Small button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-raised ripple-effect btn-primary btn-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Small button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-flat ripple-effect btn-primary btn-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Small button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-raised ripple-effect btn-primary btn-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Extra small button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-flat ripple-effect btn-primary btn-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Extra small button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-raised ripple-effect btn-primary btn-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Extra small button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-circle btn-flat ripple-effect btn-primary btn-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&gt;&lt;/span&gt;Extra small button&lt;span class=&quot;nt&quot;&gt;&lt;/button&gt;&lt;/span&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Redmaterials Tables
+================================================== -->
+<div id="tables" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Tables</h1>
+                    <p>Colored striped tables with reference from Material Design Color Palete.</p>
+                <div class="well">
+                    <p>Supported colors are:</p>
+                    <ul>
+                        <li>table-red</li>
+                        <li>table-pink</li>
+                        <li>table-purple</li>
+                        <li>table-deep-purple</li>
+                        <li>table-indigo</li>
+                        <li>table-blue</li>
+                        <li>table-light-blue</li>
+                        <li>table-cyan</li>
+                        <li>table-teal</li>
+                        <li>table-green</li>
+                        <li>table-light-green</li>
+                        <li>table-lime</li>
+                        <li>table-yellow</li>
+                        <li>table-amber</li>
+                        <li>table-orange</li>
+                        <li>table-deep-orange</li>
+                        <li>table-brown</li>
+                    </ul>
+                </div>
+
+                <div class="bs-component">
+                    <h2>table-red</h2>
+                    <div class="table-responsive"><table class="table table-striped table-hover table-red">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                </div>
+                <div class="bs-component">
+                    <h2>table-pink</h2>
+                    <div class="table-responsive"><table class="table table-striped table-hover table-pink">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                </div>
+                <div class="bs-component">
+                    <h2>table-orange</h2>
+                    <div class="table-responsive"><table class="table table-striped table-hover table-orange">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                </div>
+                <div class="bs-component">
+                    <h2>table-blue</h2>
+                    <div class="table-responsive"><table class="table table-striped table-hover table-blue">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                </div>
+                <div class="bs-component">
+                    <h2>table-light-blue</h2>
+                    <div class="table-responsive"><table class="table table-striped table-hover table-light-blue">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                </div>
+                <div class="bs-component">
+                    <h2>table-brown</h2>
+                    <div class="table-responsive"><table class="table table-striped table-hover table-brown">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Redmaterials Shadows
+================================================== -->
+<div id="shadows" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Shadows</h1>
+                    <p>5 Different depths of shadow. Can be applied to many components, such as buttons and panels.</p>
+
+                <div class="shadow-container">
+                    <div class="d-inline-block p-5 m-3 text-center text-primary bg-body shadow-depth-0">
+                        <h4>Shadow 0</h4>
+                        <small>shadow-depth-0</small>
+                    </div>
+                    <div class="d-inline-block p-5 m-3 text-center text-primary bg-body shadow-depth-1">
+                        <h4>shadow 1</h4>
+                        <small>shadow-depth-1</small>
+                    </div>
+                    <div class="d-inline-block p-5 m-3 text-center text-primary bg-body shadow-depth-2">
+                        <h4>shadow 2</h4>
+                        <small>shadow-depth-2</small>
+                    </div>
+                    <div class="d-inline-block p-5 m-3 text-center text-primary bg-body shadow-depth-3">
+                        <h4>shadow 3</h4>
+                        <small>shadow-depth-3</small>
+                    </div>
+                    <div class="d-inline-block p-5 m-3 text-center text-primary bg-body shadow-depth-4">
+                        <h4>shadow 4</h4>
+                        <small>shadow-depth-4</small>
+                    </div>
+                    <div class="d-inline-block p-5 m-3 text-center text-primary bg-body shadow-depth-5">
+                        <h4>shadow 5</h4>
+                        <small>shadow-depth-5</small>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Examples</h2>
+                <p>You can add shadow to a card by using the classes.</p>
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow-depth-1" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card with Shadow-1</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                        <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;card shadow-depth-1&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;h5 class=&quot;card-title&quot;&gt;...&lt;/h5&gt;
+        &lt;h6 class=&quot;card-subtitle&quot;&gt;...&lt;/h6&gt;
+        &lt;p class=&quot;card-text&quot;&gt;...&lt;/p&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-depth-3" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card with Shadow-3</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                        <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;card shadow-depth-3&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;h5 class=&quot;card-title&quot;&gt;...&lt;/h5&gt;
+        &lt;h6 class=&quot;card-subtitle&quot;&gt;...&lt;/h6&gt;
+        &lt;p class=&quot;card-text&quot;&gt;...&lt;/p&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-depth-5" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card with Shadow-5</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                        <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;card shadow-depth-5&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;h5 class=&quot;card-title&quot;&gt;...&lt;/h5&gt;
+        &lt;h6 class=&quot;card-subtitle&quot;&gt;...&lt;/h6&gt;
+        &lt;p class=&quot;card-text&quot;&gt;...&lt;/p&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Redmaterials Buttons
+================================================== -->
+<div id="ribbons" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Corner Ribbons</h1>
+                    <p>Supports all 4 corners, all text-color and <a href="#color-options">bg utilities color options</a>.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <div class="card mx-auto mb-4 text-center shadow-depth-1 corner-ribbon-wrapper" style="width: 18rem;">
+                    <div class="corner-ribbon top-left bg-red text-white shadow">Corner Ribbon<br>Example</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hot Sale</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">9 Sept 2099</h6>
+                        <p class="card-text my-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Find out more</a>
+                    </div>
+                    <div class="corner-ribbon bottom-right bg-pink text-white shadow">Short Text</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mx-auto mb-4 text-center shadow-depth-1 corner-ribbon-wrapper" style="width: 18rem;">
+                    <div class="corner-ribbon top-right bg-amber text-white shadow">HOT!</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hot Sale</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">9 Sept 2099</h6>
+                        <p class="card-text my-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Find out more</a>
+                    </div>
+                    <div class="corner-ribbon bottom-left bg-orange text-white shadow"><del>&#36;99</del> &#36;19</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mx-auto mb-4 text-center shadow-depth-1 corner-ribbon-wrapper" style="width: 18rem;">
+                    <div class="corner-ribbon top-left bg-grey text-white shadow">Out of stock</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Hot Sale</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">9 Sept 2099</h6>
+                        <p class="card-text my-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Find out more</a>
+                    </div>
+                    <div class="corner-ribbon bottom-right bg-yellow text-dark shadow">Restocking</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;card text-center shadow-depth-1 corner-ribbon-wrapper&quot; style=&quot;width: 18rem;&quot;&gt;
+    &lt;div class=&quot;corner-ribbon top-left bg-red text-white shadow&quot;&gt;Corner Ribbon&lt;br&gt;Example&lt;/div&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;h5 class=&quot;card-title&quot;&gt;Hot Sale&lt;/h5&gt;
+        &lt;h6 class=&quot;card-subtitle mb-2 text-body-secondary&quot;&gt;9 Sept 2099&lt;/h6&gt;
+        &lt;p class=&quot;card-text my-4&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+        &lt;a href=&quot;#&quot; class=&quot;card-link&quot;&gt;Find out more&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;corner-ribbon bottom-right bg-pink text-white shadow&quot;&gt;Short Text&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Add class <code>corner-ribbon-wrapper</code> to the container of the ribbon.</p>
+                <p>Then add an element with classes <code>corner-ribbon [position] [bg-color] [text-color] shadow</code></p>
+                <p><code>shadow</code> is optional.</p>
+                <p>Supported positions are:</p>
+                <div class="well">
+                    <ul>
+                        <li>top-left</li>
+                        <li>top-right</li>
+                        <li>bottom-left</li>
+                        <li>bottom-right</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="lead mt-4">Corner ribbons in Hero</p>
+                <p>Note: You can even use the contexture bg such as .bg-danger for the ribbon too.</p>
+                <div class="p-5 mb-4 bg-body-tertiary rounded-3 corner-ribbon-wrapper">
+                    <div class="corner-ribbon top-left bg-danger text-white shadow">Corner Ribbon<br>Example</div>
+                    <div class="corner-ribbon top-right bg-warning shadow">HOT!</div>
+                    <div style="height:300px;" class="text-center">
+                        <h1 class="display-4">Even works in Hero</h1>
+                        <p class="lead">This is a simple hero unit, a simple hero-style component for calling extra attention to featured content or information.</p>
+                        <hr class="my-4">
+                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                        </p>
+                    </div>
+                    <div class="corner-ribbon bottom-right bg-primary text-white shadow">Short Text</div>
+                    <div class="corner-ribbon bottom-left bg-info text-white shadow"><del>&#36;99</del> &#36;19</div>
+                </div>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;p-5 mb-4 bg-body-tertiary rounded-3 corner-ribbon-wrapper&quot;&gt;
+    &lt;div class=&quot;corner-ribbon top-left bg-danger text-white shadow&quot;&gt;Corner Ribbon&lt;br&gt;Example&lt;/div&gt;
+    &lt;div class=&quot;corner-ribbon top-right bg-warning shadow&quot;&gt;HOT!&lt;/div&gt;
+    &lt;div style=&quot;height:300px;&quot; class=&quot;text-center&quot;&gt;
+        &lt;h1 class=&quot;display-4&quot;&gt;Even works in Hero&lt;/h1&gt;
+        &lt;p class=&quot;lead&quot;&gt;This is a simple hero unit, a simple hero-style component for calling extra attention to featured content or information.&lt;/p&gt;
+        &lt;hr class=&quot;my-4&quot;&gt;
+        &lt;p&gt;It uses utility classes for typography and spacing to space content out within the larger container.&lt;/p&gt;
+        &lt;p class=&quot;lead&quot;&gt;
+            &lt;a class=&quot;btn btn-primary btn-lg&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;Learn more&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;corner-ribbon bottom-right bg-primary text-white shadow&quot;&gt;Short Text&lt;/div&gt;
+    &lt;div class=&quot;corner-ribbon bottom-left bg-info text-white shadow&quot;&gt;&lt;del&gt;$99&lt;/del&gt; $19&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Panels
+================================================== -->
+<div id="cards" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Cards</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Cards with Progress bar</h4>
+                <p>Supports progress bar just beneath the heading.</p>
+                <div class="card mb-3">
+                    <h3 class="card-header bg-pink text-white">Card with progress</h3>
+                    <div class="panel-progress">
+                        <div class="progress">
+                            <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                <span class="visually-hidden">Loading</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Some card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- Table -->
+                        <div class="table-responsive"><table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Andrews</td>
+                                    <td>Ang</td>
+                                    <td>@kongnir</td>
+                                </tr>
+                            </tbody>
+                        </table></div>
+                    </div>
+                </div>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;card mb-3&quot;&gt;
+    &lt;h3 class=&quot;card-header bg-pink text-white&quot;&gt;Card with progress&lt;/h3&gt;
+    &lt;div class=&quot;panel-progress&quot;&gt;
+        &lt;div class=&quot;progress&quot;&gt;
+            &lt;div class=&quot;progress-bar bg-info progress-bar-striped progress-bar-animated&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;80&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 80%&quot;&gt;
+                &lt;span class=&quot;visually-hidden&quot;&gt;Loading&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;h5 class=&quot;card-title&quot;&gt;Some card title&lt;/h5&gt;
+        &lt;p class=&quot;card-text&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;table-responsive&quot;&gt;
+        &lt;!-- Table --&gt;
+        &lt;table class=&quot;table mb-0&quot;&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;#&lt;/th&gt;
+                    &lt;th&gt;First Name&lt;/th&gt;
+                    &lt;th&gt;Last Name&lt;/th&gt;
+                    &lt;th&gt;Username&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                    &lt;td&gt;Mark&lt;/td&gt;
+                    &lt;td&gt;Otto&lt;/td&gt;
+                    &lt;td&gt;@mdo&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;2&lt;/td&gt;
+                    &lt;td&gt;Jacob&lt;/td&gt;
+                    &lt;td&gt;Thornton&lt;/td&gt;
+                    &lt;td&gt;@fat&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                    &lt;td&gt;Andrews&lt;/td&gt;
+                    &lt;td&gt;Ang&lt;/td&gt;
+                    &lt;td&gt;@kongnir&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <p class="lead">Card with action button</p>
+                <div class="card mb-4">
+                    <div class="card-header card-action bg-teal text-white">
+                        <h3>Card with progress</h3>
+                        <p class="mb-0">Description of the card</p>
+                        <button type="button" class="btn btn-circle btn-raised bg-pink text-white btn-action"><i class="material-icons">&#xE145;</i></button>
+                    </div>
+                    <img class="card-img rounded-0" alt="Image cap [100%x180]" style="height: 300px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16265b3fe10%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16265b3fe10%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.4296875%22%20y%3D%2296.6%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-raised bg-blue text-white">Get started</button>
+                        <button type="button" class="btn btn-flat bg-grey">Cancel</button>
+                    </div>
+                </div>
+                <p>Add .card-action to .card-header, and then put a button with .btn-action.</p>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card-header card-action bg-teal text-white&quot;&gt;
+        &lt;h3&gt;Card with progress&lt;/h3&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;Description of the card&lt;/p&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-circle btn-raised bg-pink text-white btn-action&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;img class=&quot;card-img rounded-0&quot; alt=&quot;Image cap [100%x180]&quot; style=&quot;height: 300px; width: 100%; display: block;&quot; src=&quot;...&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;p class=&quot;card-text&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card-footer&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-raised bg-blue text-white&quot;&gt;Get started&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-flat bg-grey&quot;&gt;Cancel&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dialogs
+================================================== -->
+<div id="modals" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col">
+                <h1>Modals</h1>
+                <h4>Modal with progress bar</h4>
+                <div class="bs-component mb-4">
+                    <div class="modal position-static d-block" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="progress">
+                                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                    <span class="visually-hidden">Loading</span>
+                                </div>
+                            </div>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Modal body text goes here.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Simply add usual progress markup before <i>modal-content</i>.</p>
+                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;modal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;progress&quot;&gt;
+            &lt;div class=&quot;progress-bar bg-info progress-bar-striped progress-bar-animated&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;0&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 80%&quot;&gt;
+                &lt;span class=&quot;visually-hidden&quot;&gt;Loading&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+                &lt;h5 class=&quot;modal-title&quot;&gt;Modal title&lt;/h5&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;
+                &lt;p&gt;Modal body text goes here.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-5">
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well">
+                    <p>Made by <a href="https://www.redooor.com" rel="nofollow">Redooor</a>. Contact us at <a href="mailto:support@redooor.com">support@redooor.com</a>.</p>
+                    <p>Code released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+                    <p>Based on <a href="https://getbootstrap.com" rel="nofollow">Bootstrap</a>. Web fonts from <a href="https://fonts.google.com">Google Fonts</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+        </main>
+    </div>
+</div>
+<script src="dist/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="dist/js/redmaterials.min.js"></script>
+<script src="assets/js/docs.min.js"></script>
+</body>
 </html>
+
