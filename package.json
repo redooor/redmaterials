@@ -19,7 +19,9 @@
     "build": "npm run dist && npm run docs",
     "watch": "npm run dist -- && nodemon --watch less --ext less --exec 'npm run dist'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:docs": "node --test scripts/*.test.mjs"
+    "test:docs": "node --test scripts/*.test.mjs",
+    "audit:colors": "node scripts/audit-colors.mjs --doc > scss/COLOR-ROLES.md",
+    "audit:contrast:selftest": "node scripts/browser/contrast-audit.mjs --selftest"
   },
   "keywords": [
     "css",

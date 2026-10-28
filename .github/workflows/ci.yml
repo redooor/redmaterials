@@ -43,6 +43,7 @@ jobs:
           node scripts/browser/redmaterials-js-check.mjs
           node scripts/browser/docs-check.mjs file
           node scripts/browser/docs-check.mjs http
+          node scripts/browser/contrast-audit.mjs --selftest
 
       - name: Committed docs and dist are up to date (tracked and untracked files)
         if: matrix.node == 20
@@ -50,6 +51,12 @@ jobs:
           git add -N docs dist
           git diff --exit-code -- docs dist
           test -z "$(git status --porcelain -- docs dist)"
+
+      - name: Colour roles are in sync with the compiled CSS
+        if: matrix.node == 20
+        run: |
+          node scripts/audit-colors.mjs --doc > /tmp/COLOR-ROLES.md
+          diff scss/COLOR-ROLES.md /tmp/COLOR-ROLES.md
 
       - name: Docs build is deterministic
         if: matrix.node == 20
