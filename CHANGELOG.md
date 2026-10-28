@@ -17,7 +17,10 @@ Bootstrap 5.3 support (tested with Bootstrap 5.3.8).
 5. Tooltip and popover styling now uses the Bootstrap 5.3 CSS variables.
 6. Removed the Bootstrap 3/4 shims (`compat-bootstrap3`, `compat-glyphicons`), the Glyphicons font, and the Jumbotron component. See [BREAKING.md](BREAKING.md).
 7. `redmaterials.js` no longer requires jQuery. The ripple effect and the nav-sidebar toggle are plain JavaScript with the same markup and class names. Fixes: the nav sidebar no longer toggles twice on a touch tap, the ripple is positioned correctly on elements with a border and starts from the centre on keyboard activation, and a missing or invalid `data-target` no longer throws. `data-bs-target` is accepted as an alias for `data-target`.
-8. The unreleased intermediate Bootstrap 4.6 / Sass migration work also ships in this release. Since 0.1.0 the build uses Dart Sass and npm scripts instead of Grunt/Bower (0.1.0 itself was LESS/Grunt).
+8. The navbar breadcrumb separator is now drawn with CSS instead of a Font Awesome glyph, so Redmaterials no longer depends on an icon font.
+9. Every variable in `scss/variables.scss` is now declared with `!default`, so the theme can be configured with `@use "variables" with (...)` before `@use "redmaterials"`. Default output is unchanged.
+10. The documentation site is a static site (it works from `file://` as well as on GitHub Pages), no longer needs AngularJS, jQuery, Prism or Font Awesome, and defines no styles of its own: it is built only from Bootstrap and Redmaterials classes.
+11. The unreleased intermediate Bootstrap 4.6 / Sass migration work also ships in this release. Since 0.1.0 the build uses Dart Sass and npm scripts instead of Grunt/Bower (0.1.0 itself was LESS/Grunt).
 
 ## Version 0.1.0
 

@@ -49,14 +49,18 @@
     display: inline-block;
     float: none;
 }
+// Separator: a CSS-drawn chevron, so Redmaterials has no icon-font dependency
 .navbar-nav.navbar-breadcrumb>li+li:before {
-    font: normal normal normal 14px/1 FontAwesome;
-    color: #ccc;
-    content: "\f054";
-    padding: 0px 2px;
-    line-height: 23px;
-    position: relative;
+    content: "";
     display: inline-block;
+    position: relative;
+    width: 6px;
+    height: 6px;
+    margin: 0 8px 1px 4px;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    transform: rotate(45deg);
+    vertical-align: middle;
 }
 
 @media(min-width: 768px) {

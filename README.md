@@ -15,7 +15,7 @@ View demo at [https://redooor.github.io/redmaterials](https://redooor.github.io/
 
 # Note to users
 
-Version 0.2.0 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.
+Components that Redmaterials inherits from Bootstrap are kept as close to Bootstrap as possible. The elements Redmaterials adds on top of Bootstrap (nav sidebar, corner ribbons, ripple effect, shadows, wells) are its own and may change in a future release. Contributions are welcome.
 
 ## Compatibility
 
@@ -69,6 +69,17 @@ Web Font Loader example:
 * Redmaterials CSS and JS must be
     * used together with Bootstrap's CSS and JS
     * declared after Bootstrap's CSS and JS
+
+## Customising
+
+The theme colours and sizes are Sass variables declared with `!default`. Load the variables module with your values first, then Redmaterials:
+
+```scss
+@use "variables" with ($brand-primary: #e91e63, $brand-secondary: #455a64);
+@use "redmaterials";
+```
+
+Compile with `sass --load-path=path/to/redmaterials/scss theme.scss theme.css`.
 
 ## CDN example
 
