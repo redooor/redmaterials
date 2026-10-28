@@ -9,6 +9,7 @@ Phase B2 turns the roles that need a dark treatment into CSS custom properties (
 | Role | Meaning | Dark mode |
 |---|---|---|
 | `fixed` | Brand and palette identity colours (`$brand-*`, `bg-{color}`, the palette loops), white text on a coloured background, `transparent`, brand-coloured focus rings and underlines | same in both modes |
+| `light-only` | Light-palette overrides of Bootstrap's `--bs-*-text-emphasis`, `-bg-subtle`, `-border-subtle` (guarded by `:root:not([data-bs-theme=dark])`) | none: in dark Bootstrap's own dark values apply |
 | `text`, `text-muted` | Neutral foreground colours | token |
 | `surface`, `surface-translucent` | Neutral backgrounds (kept translucent where they are today) | token |
 | `divider` | Neutral borders and inset underlines | token |
@@ -17,18 +18,19 @@ Phase B2 turns the roles that need a dark treatment into CSS custom properties (
 | `overlay` | Scrims (nav-sidebar overlay) | token |
 | `image` | Data-URL icons (select arrows) | dark variant of the image |
 
-## Summary (171 source declarations)
+## Summary (272 source declarations)
 
-* `fixed`: 106
-* `divider`: 23
-* `shadow`: 13
-* `interaction-surface`: 10
-* `text`: 8
-* `surface`: 4
+* `fixed`: 116
+* `interaction-surface`: 32
+* `text`: 31
+* `divider`: 28
+* `light-only`: 24
+* `shadow`: 16
+* `surface`: 13
+* `surface-translucent`: 6
+* `text-muted`: 2
 * `image`: 2
-* `surface-translucent`: 2
 * `overlay`: 2
-* `text-muted`: 1
 
 ## Proposed token groups (to be confirmed in B2.2 against this table)
 
@@ -57,13 +59,61 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 
 | Source | Property | Value | Example selectors | Role |
 |---|---|---|---|---|
-| `scss/badges.scss:28` | `color` | `#333` | `.badge.bg-light, .badge.bg-warning, .badge.bg-ye` | fixed |
+| `scss/_bootstrap5-theme.scss:37` | `--bs-primary` | `#2196F3` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:37` | `--bs-secondary` | `#757575` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:37` | `--bs-success` | `#4CAF50` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:37` | `--bs-info` | `#00BCD4` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:37` | `--bs-warning` | `#FFC107` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:37` | `--bs-danger` | `#F44336` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:37` | `--bs-light` | `#f8f9fa` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:37` | `--bs-dark` | `#343a40` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:42` | `--bs-primary-text-emphasis` | `rgb(13, 60, 97)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:42` | `--bs-secondary-text-emphasis` | `rgb(47, 47, 47)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:42` | `--bs-success-text-emphasis` | `rgb(30, 70, 32)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:42` | `--bs-info-text-emphasis` | `rgb(0, 75, 85)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:42` | `--bs-warning-text-emphasis` | `rgb(102, 77, 3)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:42` | `--bs-danger-text-emphasis` | `rgb(98, 27, 22)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:42` | `--bs-light-text-emphasis` | `rgb(99, 100, 100)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:42` | `--bs-dark-text-emphasis` | `rgb(21, 23, 26)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-primary-bg-subtle` | `rgb(211, 234, 253)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-secondary-bg-subtle` | `rgb(227, 227, 227)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-success-bg-subtle` | `rgb(219, 239, 220)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-info-bg-subtle` | `rgb(204, 242, 246)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-warning-bg-subtle` | `rgb(255, 243, 205)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-danger-bg-subtle` | `rgb(253, 217, 215)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-light-bg-subtle` | `rgb(254, 254, 254)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-dark-bg-subtle` | `rgb(214, 216, 217)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-primary-border-subtle` | `rgb(166, 213, 250)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-secondary-border-subtle` | `rgb(200, 200, 200)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-success-border-subtle` | `rgb(183, 223, 185)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-info-border-subtle` | `rgb(153, 228, 238)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-warning-border-subtle` | `rgb(255, 230, 156)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-danger-border-subtle` | `rgb(251, 180, 175)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-light-border-subtle` | `rgb(252, 253, 253)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-dark-border-subtle` | `rgb(174, 176, 179)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:65` | `--bs-link-color` | `#2196F3` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:67` | `--bs-link-hover-color` | `rgb(12, 124, 213)` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:76` | `--bs-focus-ring-color` | `rgba(33, 150, 243, .25)` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:104` | `--bs-btn-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:105` | `--bs-btn-border-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:106` | `--bs-btn-hover-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:107` | `--bs-btn-hover-bg` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:108` | `--bs-btn-hover-border-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:110` | `--bs-btn-active-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:111` | `--bs-btn-active-bg` | `rgb(30, 135, 219)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | interaction-surface |
+| `scss/_bootstrap5-theme.scss:112` | `--bs-btn-active-border-color` | `rgb(30, 135, 219)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | divider |
+| `scss/_bootstrap5-theme.scss:113` | `--bs-btn-disabled-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:114` | `--bs-btn-disabled-bg` | `transparent` | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:115` | `--bs-btn-disabled-border-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/badges.scss:28` | `color` | `#333` | `.badge.bg-light, .badge.bg-warning, .badge.bg-ye` | text |
 | `scss/buttons.scss:27` | `box-shadow` | `0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24)` | `.btn-raised` | shadow |
 | `scss/buttons.scss:30` | `box-shadow` | `0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)` | `.btn-raised:active, .btn-raised.active, .btn-rai` | shadow |
 | `scss/buttons.scss:34` | `box-shadow` | `0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)` | `.btn-raised:focus` | shadow |
 | `scss/buttons.scss:45` | `color` | `#424242` | `.btn-default, .btn-default:hover` | text |
 | `scss/buttons.scss:48` | `color` | `#2196F3` | `.btn-link` | fixed |
 | `scss/buttons.scss:50` | `color` | `rgba(0, 0, 0, 0.26)` | `.btn-link:disabled, .btn-link.disabled, .btn-lin` | text-muted |
+| `scss/dropdowns.scss:9` | `--bs-dropdown-box-shadow` | `0 6px 12px rgba(0, 0, 0, .175)` | `.dropdown-menu` | shadow |
+| `scss/dropdowns.scss:10` | `--bs-dropdown-link-active-bg` | `#2196F3` | `.dropdown-menu` | fixed |
 | `scss/dropdowns.scss:16` | `box-shadow` | `0 6px 12px rgba(0, 0, 0, 0.175)` | `.dropdown-menu` | shadow |
 | `scss/forms.scss:28` | `box-shadow` | `inset 0 -1px 0 #ddd` | `textarea, textarea.form-control, input.form-cont` | divider |
 | `scss/forms.scss:30` | `background-color` | `transparent` | `textarea, textarea.form-control, input.form-cont` | fixed |
@@ -123,46 +173,67 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/input-groups.scss:15` | `box-shadow` | `inset 0 -1px 0 #ddd` | `.input-group .input-group-text` | divider |
 | `scss/list-group.scss:23` | `background-color` | `#2196F3` | `.list-group-item.active, .list-group-item.active` | fixed |
 | `scss/list-group.scss:24` | `border-color` | `#2196F3` | `.list-group-item.active, .list-group-item.active` | fixed |
-| `scss/loops/background.scss:10` | `background-color` | `#f8f8f8` (+10) | `.bg-default`, `.bg-primary` | fixed |
-| `scss/loops/background.scss:19` | `background-color` | `#f8f8f8` (+19) | `.bg-default`, `.bg-red` | fixed |
-| `scss/loops/background.scss:22` | `background-color` | `rgb(222.5, 222.5, 222.5)` (+19) | `.bg-default.btn:hover`, `.bg-red.btn:hover` | fixed |
-| `scss/loops/background.scss:26` | `color` | `#f8f8f8` (+19) | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
+| `scss/loops/background.scss:10` | `background-color` | `#f8f8f8` (+10) | `.bg-default`, `.bg-primary` | surface |
+| `scss/loops/background.scss:19` | `background-color` | `#f8f8f8` (+19) | `.bg-default`, `.bg-red` | surface |
+| `scss/loops/background.scss:22` | `background-color` | `rgb(222.5, 222.5, 222.5)` (+19) | `.bg-default.btn:hover`, `.bg-red.btn:hover` | interaction-surface |
+| `scss/loops/background.scss:26` | `color` | `#f8f8f8` (+19) | `.bg-default.btn-flat`, `.bg-red.btn-flat` | text |
 | `scss/loops/background.scss:27` | `background-color` | `transparent` | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
-| `scss/loops/background.scss:29` | `color` | `rgb(222.5, 222.5, 222.5)` (+19) | `.bg-default.btn-flat:hover`, `.bg-red.btn-flat:hover` | fixed |
-| `scss/loops/background.scss:30` | `background-color` | `rgb(229.5, 229.5, 229.5)` | `.bg-default.btn-flat:hover`, `.bg-red.btn-flat:hover` | fixed |
-| `scss/loops/background.scss:34` | `color` | `#c5c5c5` (+19) | `.bg-default.btn-flat:active, .bg-default.btn-fla`, `.bg-red.btn-flat:active, .bg-red.btn-flat.active` | fixed |
-| `scss/loops/background.scss:35` | `background-color` | `#cccccc` | `.bg-default.btn-flat:active, .bg-default.btn-fla`, `.bg-red.btn-flat:active, .bg-red.btn-flat.active` | fixed |
-| `scss/loops/background.scss:38` | `color` | `rgb(171.5, 171.5, 171.5)` (+19) | `.bg-default.btn-flat:focus`, `.bg-red.btn-flat:focus` | fixed |
-| `scss/loops/background.scss:39` | `background-color` | `#cccccc` | `.bg-default.btn-flat:focus`, `.bg-red.btn-flat:focus` | fixed |
-| `scss/loops/background.scss:43` | `background-color` | `rgb(127.5, 127.5, 127.5)` | `.bg-default.btn-flat .ink`, `.bg-red.btn-flat .ink` | fixed |
-| `scss/loops/border.scss:8` | `border-color` | `#f8f8f8` (+10) | `.border-default`, `.border-primary` | fixed |
-| `scss/loops/buttons.scss:9` | `background-color` | `#f8f8f8` (+10) | `.btn-default`, `.btn-primary` | fixed |
-| `scss/loops/buttons.scss:11` | `background-color` | `rgb(222.5, 222.5, 222.5)` (+10) | `.btn-default:hover`, `.btn-primary:hover` | fixed |
-| `scss/loops/buttons.scss:15` | `background-color` | `rgb(222.5, 222.5, 222.5)` (+10) | `.btn-default:active, .btn-default.active`, `.btn-primary:active, .btn-primary.active` | fixed |
-| `scss/loops/buttons.scss:19` | `background-color` | `#c5c5c5` (+10) | `.btn-default:focus`, `.btn-primary:focus` | fixed |
-| `scss/loops/buttons.scss:23` | `background-color` | `rgb(171.5, 171.5, 171.5)` (+10) | `.btn-default .ink`, `.btn-primary .ink` | fixed |
-| `scss/loops/buttons.scss:27` | `color` | `#f8f8f8` (+10) | `.btn-default.btn-flat`, `.btn-primary.btn-flat` | fixed |
+| `scss/loops/background.scss:29` | `color` | `rgb(222.5, 222.5, 222.5)` (+19) | `.bg-default.btn-flat:hover`, `.bg-red.btn-flat:hover` | text |
+| `scss/loops/background.scss:30` | `background-color` | `rgb(229.5, 229.5, 229.5)` | `.bg-default.btn-flat:hover`, `.bg-red.btn-flat:hover` | interaction-surface |
+| `scss/loops/background.scss:34` | `color` | `#c5c5c5` (+19) | `.bg-default.btn-flat:active, .bg-default.btn-fla`, `.bg-red.btn-flat:active, .bg-red.btn-flat.active` | text |
+| `scss/loops/background.scss:35` | `background-color` | `#cccccc` | `.bg-default.btn-flat:active, .bg-default.btn-fla`, `.bg-red.btn-flat:active, .bg-red.btn-flat.active` | interaction-surface |
+| `scss/loops/background.scss:38` | `color` | `rgb(171.5, 171.5, 171.5)` (+19) | `.bg-default.btn-flat:focus`, `.bg-red.btn-flat:focus` | text |
+| `scss/loops/background.scss:39` | `background-color` | `#cccccc` | `.bg-default.btn-flat:focus`, `.bg-red.btn-flat:focus` | interaction-surface |
+| `scss/loops/background.scss:43` | `background-color` | `rgb(127.5, 127.5, 127.5)` | `.bg-default.btn-flat .ink`, `.bg-red.btn-flat .ink` | surface |
+| `scss/loops/border.scss:8` | `border-color` | `#f8f8f8` (+10) | `.border-default`, `.border-primary` | divider |
+| `scss/loops/buttons.scss:9` | `background-color` | `#f8f8f8` (+10) | `.btn-default`, `.btn-primary` | surface |
+| `scss/loops/buttons.scss:11` | `background-color` | `rgb(222.5, 222.5, 222.5)` (+10) | `.btn-default:hover`, `.btn-primary:hover` | interaction-surface |
+| `scss/loops/buttons.scss:15` | `background-color` | `rgb(222.5, 222.5, 222.5)` (+10) | `.btn-default:active, .btn-default.active`, `.btn-primary:active, .btn-primary.active` | interaction-surface |
+| `scss/loops/buttons.scss:19` | `background-color` | `#c5c5c5` (+10) | `.btn-default:focus`, `.btn-primary:focus` | interaction-surface |
+| `scss/loops/buttons.scss:23` | `background-color` | `rgb(171.5, 171.5, 171.5)` (+10) | `.btn-default .ink`, `.btn-primary .ink` | surface |
+| `scss/loops/buttons.scss:27` | `color` | `#f8f8f8` (+10) | `.btn-default.btn-flat`, `.btn-primary.btn-flat` | text |
 | `scss/loops/buttons.scss:28` | `background-color` | `transparent` | `.btn-default.btn-flat`, `.btn-primary.btn-flat` | fixed |
-| `scss/loops/buttons.scss:30` | `color` | `rgb(222.5, 222.5, 222.5)` (+10) | `.btn-default.btn-flat:hover`, `.btn-primary.btn-flat:hover` | fixed |
-| `scss/loops/buttons.scss:31` | `background-color` | `rgb(229.5, 229.5, 229.5)` | `.btn-default.btn-flat:hover`, `.btn-primary.btn-flat:hover` | fixed |
-| `scss/loops/buttons.scss:35` | `color` | `#c5c5c5` (+10) | `.btn-default.btn-flat:active, .btn-default.btn-f`, `.btn-primary.btn-flat:active, .btn-primary.btn-f` | fixed |
-| `scss/loops/buttons.scss:36` | `background-color` | `#cccccc` | `.btn-default.btn-flat:active, .btn-default.btn-f`, `.btn-primary.btn-flat:active, .btn-primary.btn-f` | fixed |
-| `scss/loops/buttons.scss:39` | `color` | `rgb(171.5, 171.5, 171.5)` (+10) | `.btn-default.btn-flat:focus`, `.btn-primary.btn-flat:focus` | fixed |
-| `scss/loops/buttons.scss:40` | `background-color` | `#cccccc` | `.btn-default.btn-flat:focus`, `.btn-primary.btn-flat:focus` | fixed |
-| `scss/loops/buttons.scss:44` | `background-color` | `rgb(127.5, 127.5, 127.5)` | `.btn-default.btn-flat .ink`, `.btn-primary.btn-flat .ink` | fixed |
-| `scss/loops/nav-sidebar.scss:9` | `background-color` | `#f8f8f8` (+19) | `.nav-sidebar-default .nav-sidebar-title`, `.nav-sidebar-red .nav-sidebar-title` | fixed |
-| `scss/loops/nav-sidebar.scss:11` | `color` | `#333` (+2) | `.nav-sidebar-default .nav-sidebar-title .nav-sid`, `.nav-sidebar-red .nav-sidebar-title .nav-sidebar` | fixed |
-| `scss/loops/nav-sidebar.scss:18` | `color` | `#333` (+2) | `.nav-sidebar-default .nav-sidebar-menu li.active`, `.nav-sidebar-red .nav-sidebar-menu li.active a, ` | fixed |
-| `scss/loops/nav-sidebar.scss:19` | `background-color` | `#f8f8f8` (+19) | `.nav-sidebar-default .nav-sidebar-menu li.active`, `.nav-sidebar-red .nav-sidebar-menu li.active a, ` | fixed |
-| `scss/loops/text.scss:9` | `color` | `#f8f8f8` (+10) | `.text-default`, `.text-primary` | fixed |
-| `scss/loops/text.scss:12` | `color` | `rgb(222.5, 222.5, 222.5)` (+10) | `a.text-default:hover`, `a.text-primary:hover` | fixed |
+| `scss/loops/buttons.scss:30` | `color` | `rgb(222.5, 222.5, 222.5)` (+10) | `.btn-default.btn-flat:hover`, `.btn-primary.btn-flat:hover` | text |
+| `scss/loops/buttons.scss:31` | `background-color` | `rgb(229.5, 229.5, 229.5)` | `.btn-default.btn-flat:hover`, `.btn-primary.btn-flat:hover` | interaction-surface |
+| `scss/loops/buttons.scss:35` | `color` | `#c5c5c5` (+10) | `.btn-default.btn-flat:active, .btn-default.btn-f`, `.btn-primary.btn-flat:active, .btn-primary.btn-f` | text |
+| `scss/loops/buttons.scss:36` | `background-color` | `#cccccc` | `.btn-default.btn-flat:active, .btn-default.btn-f`, `.btn-primary.btn-flat:active, .btn-primary.btn-f` | interaction-surface |
+| `scss/loops/buttons.scss:39` | `color` | `rgb(171.5, 171.5, 171.5)` (+10) | `.btn-default.btn-flat:focus`, `.btn-primary.btn-flat:focus` | text |
+| `scss/loops/buttons.scss:40` | `background-color` | `#cccccc` | `.btn-default.btn-flat:focus`, `.btn-primary.btn-flat:focus` | interaction-surface |
+| `scss/loops/buttons.scss:44` | `background-color` | `rgb(127.5, 127.5, 127.5)` | `.btn-default.btn-flat .ink`, `.btn-primary.btn-flat .ink` | surface |
+| `scss/loops/nav-sidebar.scss:9` | `background-color` | `#f8f8f8` (+19) | `.nav-sidebar-default .nav-sidebar-title`, `.nav-sidebar-red .nav-sidebar-title` | surface |
+| `scss/loops/nav-sidebar.scss:11` | `color` | `#333` (+2) | `.nav-sidebar-default .nav-sidebar-title .nav-sid`, `.nav-sidebar-red .nav-sidebar-title .nav-sidebar` | text |
+| `scss/loops/nav-sidebar.scss:18` | `color` | `#333` (+2) | `.nav-sidebar-default .nav-sidebar-menu li.active`, `.nav-sidebar-red .nav-sidebar-menu li.active a, ` | text |
+| `scss/loops/nav-sidebar.scss:19` | `background-color` | `#f8f8f8` (+19) | `.nav-sidebar-default .nav-sidebar-menu li.active`, `.nav-sidebar-red .nav-sidebar-menu li.active a, ` | interaction-surface |
+| `scss/loops/text.scss:9` | `color` | `#f8f8f8` (+10) | `.text-default`, `.text-primary` | text |
+| `scss/loops/text.scss:12` | `color` | `rgb(222.5, 222.5, 222.5)` (+10) | `a.text-default:hover`, `a.text-primary:hover` | text |
 | `scss/mixins/alerts.scss:6` | `background-color` | `#2196F3` (+4) | `.alert-primary`, `.alert-success` | fixed |
 | `scss/mixins/alerts.scss:7` | `border-color` | `#2196F3` (+4) | `.alert-primary`, `.alert-success` | fixed |
-| `scss/mixins/alerts.scss:8` | `color` | `#FFFFFF` (+1) | `.alert-primary`, `.alert-success` | fixed |
+| `scss/mixins/alerts.scss:8` | `color` | `#FFFFFF` (+1) | `.alert-primary`, `.alert-success` | text |
 | `scss/mixins/alerts.scss:10` | `border-top-color` | `rgb(12.8461538462, 138.0961538462, 237.6538461538)` (+4) | `.alert-primary hr`, `.alert-success hr` | fixed |
 | `scss/mixins/alerts.scss:13` | `color` | `#E3F2FD` (+4) | `.alert-primary .alert-link`, `.alert-success .alert-link` | fixed |
-| `scss/mixins/badges.scss:6` | `background-color` | `#9E9E9E` | `.badge-default` | fixed |
-| `scss/mixins/badges.scss:11` | `background-color` | `rgb(132.5, 132.5, 132.5)` | `.badge-default[href]:hover, .badge-default[href]` | fixed |
+| `scss/mixins/badges.scss:6` | `background-color` | `#9E9E9E` | `.badge-default` | surface |
+| `scss/mixins/badges.scss:11` | `background-color` | `rgb(132.5, 132.5, 132.5)` | `.badge-default[href]:hover, .badge-default[href]` | interaction-surface |
+| `scss/mixins/tables.scss:11` | `--bs-table-bg` | `#E3F2FD` (+7) | `.table-primary`, `.table-secondary` | fixed |
+| `scss/mixins/tables.scss:12` | `--bs-table-color` | `#333` (+1) | `.table-primary`, `.table-secondary` | text |
+| `scss/mixins/tables.scss:13` | `--bs-table-striped-color` | `#333` (+1) | `.table-primary`, `.table-secondary` | text |
+| `scss/mixins/tables.scss:14` | `--bs-table-active-color` | `#333` (+1) | `.table-primary`, `.table-secondary` | text |
+| `scss/mixins/tables.scss:15` | `--bs-table-hover-color` | `#333` (+1) | `.table-primary`, `.table-secondary` | text |
+| `scss/mixins/tables.scss:17` | `--bs-table-border-color` | `rgb(92.6, 97.4, 102.2)` | `.table-dark` | fixed |
+| `scss/mixins/tables.scss:18` | `--bs-table-striped-bg` | `rgb(68.24, 73.76, 79.28)` | `.table-dark` | fixed |
+| `scss/mixins/tables.scss:19` | `--bs-table-active-bg` | `rgb(84.48, 89.52, 94.56)` | `.table-dark` | fixed |
+| `scss/mixins/tables.scss:20` | `--bs-table-hover-bg` | `rgb(76.36, 81.64, 86.92)` | `.table-dark` | fixed |
+| `scss/mixins/tables.scss:22` | `--bs-table-border-color` | `rgb(181.6, 193.6, 202.4)` (+6) | `.table-primary`, `.table-secondary` | divider |
+| `scss/mixins/tables.scss:23` | `--bs-table-striped-bg` | `rgb(217.92, 232.32, 242.88)` (+6) | `.table-primary`, `.table-secondary` | interaction-surface |
+| `scss/mixins/tables.scss:24` | `--bs-table-active-bg` | `rgb(208.84, 222.64, 232.76)` (+6) | `.table-primary`, `.table-secondary` | interaction-surface |
+| `scss/mixins/tables.scss:25` | `--bs-table-hover-bg` | `rgb(213.38, 227.48, 237.82)` (+6) | `.table-primary`, `.table-secondary` | interaction-surface |
+| `scss/mixins/tables.scss:35` | `--bs-table-striped-bg` | `#FFEBEE` (+16) | `.table-red`, `.table-pink` | fixed |
+| `scss/mixins/tables.scss:36` | `--bs-table-hover-bg` | `#FFCDD2` (+16) | `.table-red`, `.table-pink` | fixed |
+| `scss/mixins/tables.scss:37` | `--bs-table-active-bg` | `#FFCDD2` (+16) | `.table-red`, `.table-pink` | fixed |
+| `scss/mixins/tables.scss:38` | `--bs-table-striped-color` | `#333` | `.table-red`, `.table-pink` | text |
+| `scss/mixins/tables.scss:39` | `--bs-table-hover-color` | `#333` | `.table-red`, `.table-pink` | text |
+| `scss/mixins/tables.scss:40` | `--bs-table-active-color` | `#333` | `.table-red`, `.table-pink` | text |
+| `scss/modals.scss:7` | `--bs-modal-bg` | `rgba(250, 250, 250, 0.87)` | `.modal` | surface-translucent |
+| `scss/modals.scss:10` | `--bs-modal-box-shadow` | `0 13px 25px -2px rgba(0, 0, 0, 0.16), 0 13px 28px -2px rgba(0, 0, 0, 0` | `.modal` | shadow |
 | `scss/modals.scss:21` | `background-color` | `rgba(250, 250, 250, 0.87)` | `.modal-content` | surface-translucent |
 | `scss/modals.scss:26` | `box-shadow` | `0 13px 25px -2px rgba(0, 0, 0, 0.16), 0 13px 28px -2px rgba(0, 0, 0, 0` | `.modal-content` | shadow |
 | `scss/nav-sidebar.scss:20` | `background-color` | `#fff` | `.nav-sidebar` | surface |
@@ -189,6 +260,9 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/navbar.scss:45` | `background-color` | `transparent` | `.navbar-nav.navbar-breadcrumb > .nav-item > .nav` | fixed |
 | `scss/navbar.scss:60` | `border-top` | `2px solid #ccc` | `.navbar-nav.navbar-breadcrumb > li + li:before` | divider |
 | `scss/navbar.scss:61` | `border-right` | `2px solid #ccc` | `.navbar-nav.navbar-breadcrumb > li + li:before` | divider |
+| `scss/navs.scss:14` | `--bs-nav-tabs-link-active-color` | `#2196F3` | `.nav-tabs` | fixed |
+| `scss/navs.scss:15` | `--bs-nav-tabs-link-active-bg` | `transparent` | `.nav-tabs` | fixed |
+| `scss/navs.scss:16` | `--bs-nav-tabs-link-active-border-color` | `transparent` | `.nav-tabs` | fixed |
 | `scss/navs.scss:21` | `box-shadow` | `inset 0 -1px 0 #ddd` | `.nav-tabs .nav-link` | divider |
 | `scss/navs.scss:26` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `.nav-tabs .nav-link:hover, .nav-tabs .nav-link:f` | fixed |
 | `scss/navs.scss:29` | `color` | `#2196F3` | `.nav-tabs .nav-link.active` | fixed |
@@ -198,8 +272,25 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/navs.scss:42` | `box-shadow` | `inset 0 -1px 0 #ddd` | `.nav-tabs .nav-link.disabled:hover, .nav-tabs .n` | divider |
 | `scss/navs.scss:48` | `color` | `#2196F3` | `.nav-tabs .nav-item.show .nav-link` | fixed |
 | `scss/navs.scss:50` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `.nav-tabs .nav-item.show .nav-link` | fixed |
+| `scss/navs.scss:56` | `--bs-nav-pills-link-active-color` | `#fff` | `.nav-pills` | fixed |
+| `scss/navs.scss:57` | `--bs-nav-pills-link-active-bg` | `#2196F3` | `.nav-pills` | fixed |
 | `scss/navs.scss:66` | `color` | `#fff` | `.nav-pills .nav-link.active, .nav-pills .show > ` | fixed |
 | `scss/navs.scss:67` | `background-color` | `#2196F3` | `.nav-pills .nav-link.active, .nav-pills .show > ` | fixed |
+| `scss/pagination.scss:7` | `--bs-pagination-color` | `#2196F3` | `.pagination` | fixed |
+| `scss/pagination.scss:8` | `--bs-pagination-bg` | `rgba(250, 250, 250, 0.87)` | `.pagination` | surface-translucent |
+| `scss/pagination.scss:10` | `--bs-pagination-border-color` | `transparent` | `.pagination` | fixed |
+| `scss/pagination.scss:12` | `--bs-pagination-hover-color` | `#2196F3` | `.pagination` | fixed |
+| `scss/pagination.scss:13` | `--bs-pagination-hover-bg` | `rgb(229.5, 229.5, 229.5)` | `.pagination` | interaction-surface |
+| `scss/pagination.scss:14` | `--bs-pagination-hover-border-color` | `transparent` | `.pagination` | fixed |
+| `scss/pagination.scss:15` | `--bs-pagination-focus-color` | `#fff` | `.pagination` | fixed |
+| `scss/pagination.scss:16` | `--bs-pagination-focus-bg` | `#cccccc` | `.pagination` | interaction-surface |
+| `scss/pagination.scss:17` | `--bs-pagination-focus-box-shadow` | `0 0 0 .2rem rgba(var(--bs-primary-rgb), .35)` | `.pagination` | fixed |
+| `scss/pagination.scss:18` | `--bs-pagination-active-color` | `#fff` | `.pagination` | fixed |
+| `scss/pagination.scss:19` | `--bs-pagination-active-bg` | `#2196F3` | `.pagination` | fixed |
+| `scss/pagination.scss:20` | `--bs-pagination-active-border-color` | `#2196F3` | `.pagination` | fixed |
+| `scss/pagination.scss:21` | `--bs-pagination-disabled-color` | `rgba(0, 0, 0, 0.26)` | `.pagination` | text-muted |
+| `scss/pagination.scss:22` | `--bs-pagination-disabled-bg` | `#eee` | `.pagination` | interaction-surface |
+| `scss/pagination.scss:23` | `--bs-pagination-disabled-border-color` | `transparent` | `.pagination` | fixed |
 | `scss/pagination.scss:35` | `background-color` | `rgb(229.5, 229.5, 229.5)` | `.page-item .page-link:active` | interaction-surface |
 | `scss/pagination.scss:40` | `box-shadow` | `0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.35)` | `.page-item .page-link:focus-visible` | fixed |
 | `scss/pagination.scss:48` | `color` | `#fff` | `.page-item.active .page-link` | fixed |
@@ -207,6 +298,10 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/pagination.scss:51` | `box-shadow` | `0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.35)` | `.page-item.active .page-link:focus-visible` | fixed |
 | `scss/pagination.scss:54` | `color` | `#fff` | `.page-item.active .page-link:hover` | fixed |
 | `scss/pagination.scss:55` | `background-color` | `rgb(11.5384615385, 124.0384615385, 213.4615384615)` | `.page-item.active .page-link:hover` | interaction-surface |
+| `scss/popover.scss:9` | `--bs-popover-bg` | `rgba(250, 250, 250, 0.87)` | `.popover` | surface-translucent |
+| `scss/popover.scss:10` | `--bs-popover-header-bg` | `rgba(250, 250, 250, 0.87)` | `.popover` | surface-translucent |
+| `scss/popover.scss:11` | `--bs-popover-border-color` | `#F5F5F5` | `.popover` | divider |
+| `scss/popover.scss:14` | `--bs-popover-box-shadow` | `0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)` | `.popover` | shadow |
 | `scss/popover.scss:16` | `border-color` | `#F5F5F5` | `.popover` | divider |
 | `scss/popover.scss:17` | `box-shadow` | `0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)` | `.popover` | shadow |
 | `scss/progress-bars.scss:13` | `background-color` | `#2196F3` | `.progress-bar` | fixed |
@@ -219,11 +314,19 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/shadows.scss:20` | `box-shadow` | `0 6px 12px rgba(0, 0, 0, 0.16), 0 8px 12px rgba(0, 0, 0, 0.19)` | `.shadow-depth-3` | shadow |
 | `scss/shadows.scss:24` | `box-shadow` | `0 9px 15px -1px rgba(0, 0, 0, 0.16), 0 11px 24px -1px rgba(0, 0, 0, 0.` | `.shadow-depth-4` | shadow |
 | `scss/shadows.scss:28` | `box-shadow` | `0 13px 25px -2px rgba(0, 0, 0, 0.16), 0 13px 28px -2px rgba(0, 0, 0, 0` | `.shadow-depth-5` | shadow |
+| `scss/tables.scss:12` | `--bs-table-bg` | `transparent` | `.table` | fixed |
+| `scss/tables.scss:13` | `--bs-table-accent-bg` | `transparent` | `.table` | fixed |
+| `scss/tables.scss:14` | `--bs-table-striped-bg` | `#EEEEEE` | `.table` | interaction-surface |
+| `scss/tables.scss:15` | `--bs-table-hover-bg` | `rgba(0, 0, 0, 0.12)` | `.table` | interaction-surface |
+| `scss/tables.scss:16` | `--bs-table-active-bg` | `rgba(0, 0, 0, 0.12)` | `.table` | interaction-surface |
+| `scss/tables.scss:17` | `--bs-table-border-color` | `#E0E0E0` | `.table` | divider |
 | `scss/tables.scss:69` | `background-color` | `transparent` | `.table-responsive-vertical > .table` | fixed |
-| `scss/tables.scss:98` | `color` | `#757575` | `.table-responsive-vertical > .table > tbody > tr` | fixed |
+| `scss/tables.scss:98` | `color` | `#757575` | `.table-responsive-vertical > .table > tbody > tr` | text |
 | `scss/tables.scss:124` | `background-color` | `transparent` | `.table-responsive-vertical > .table-striped > tb` | fixed |
 | `scss/tables.scss:134` | `background-color` | `transparent` | `.table-responsive-vertical > .table > tbody > tr` | fixed |
 | `scss/tables.scss:146` | `background-color` | `transparent` | `.table-responsive-vertical > .table-hover > tbod` | fixed |
+| `scss/tooltip.scss:9` | `--bs-tooltip-bg` | `#424242` | `.tooltip` | surface |
+| `scss/tooltip.scss:10` | `--bs-tooltip-color` | `#fff` | `.tooltip` | text |
 | `scss/type.scss:7` | `color` | `#2196F3` | `a` | fixed |
 | `scss/wells.scss:9` | `background-color` | `rgba(250, 250, 250, 0.87)` | `.well` | surface-translucent |
 | `scss/wells.scss:14` | `border-color` | `#ddd` | `.well blockquote` | divider |

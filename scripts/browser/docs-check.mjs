@@ -9,10 +9,10 @@
 //
 // CHROME selects the browser binary. Exits non-zero when any check fails.
 import fs from 'node:fs';
-import http from 'node:http';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
+import { resolveBase } from './lib/common.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const docsDir = process.env.DOCS_DIR ? path.resolve(process.env.DOCS_DIR) : path.join(root, 'docs');
@@ -22,20 +22,7 @@ const sections = JSON.parse(fs.readFileSync(path.join(root, 'docs-src', 'section
 const PAGES = [['index.html', sections.bootstrap], ['redmaterials.html', sections.redmaterials]];
 const chrome = process.env.CHROME || (process.platform === 'darwin' ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' : 'google-chrome');
 
-let server, base;
-if (mode === 'http') {
-  const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.map': 'application/json' };
-  server = http.createServer((q, r) => {
-    const f = path.join(docsDir, decodeURIComponent(q.url.split('?')[0]).replace(/\/$/, '/index.html'));
-    fs.readFile(f, (e, d) => { if (e) { r.writeHead(404); r.end(); } else { r.writeHead(200, { 'content-type': mime[path.extname(f)] || 'application/octet-stream' }); r.end(d); } });
-  });
-  await new Promise(r => server.listen(0, r));
-  base = `http://localhost:${server.address().port}/`;
-} else if (mode === 'file') {
-  base = pathToFileURL(docsDir).href + '/';
-} else {
-  base = mode.endsWith('/') ? mode : mode + '/';
-}
+const { base, close: closeServer } = await resolveBase(mode, docsDir);
 
 const browser = await puppeteer.launch({ executablePath: chrome, headless: 'new', args: ['--no-sandbox'] });
 const results = [];
@@ -266,7 +253,7 @@ try {
   }
 } finally {
   await browser.close();
-  if (server) server.close();
+  closeServer();
 }
 
 const failed = results.filter(r => !r).length;

@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>contrast audit fixture</title>
 <!-- Each case has data-expect = ok | low | unverified. Inline styles are fine here: this page is a test fixture, not docs. -->
-<style>body{margin:0;background:#fff;color:#000;font:16px sans-serif} .c{padding:8px}#placeholder-low::placeholder{color:#bbb}</style></head><body>
+<style>body{margin:0;background:#fff;color:#000;font:16px sans-serif} .c{padding:8px}#placeholder-low::placeholder{color:#bbb}
+#ph-opacity::placeholder{color:#000;opacity:.3} .pseudo::before{content:"label ";color:#bbb}
+#overlay-host{position:relative;height:40px} #overlay-host .cover{position:absolute;inset:0;background:#000}</style></head><body>
 <div class="c" id="plain-ok" data-expect="ok" style="background:#000;color:#fff">white on black</div>
 <div class="c" id="plain-low" data-expect="low" style="background:#777;color:#888">grey on grey</div>
 <div class="c" id="large-ok" data-expect="ok" style="background:#fff;color:#777;font-size:24px">large text passes at 3:1 (#777 on white is 4.48)</div>
@@ -14,6 +16,32 @@
 <div style="opacity:.9;background:#fff"><div class="c" id="opacity-bg-ok" data-expect="ok" style="background:#000;color:#fff">white on black inside a 90% opacity group still passes</div></div>
 <div class="c" id="gradient-unverified" data-expect="unverified" style="background:linear-gradient(90deg,#000,#fff);color:#888">gradient background</div>
 <div style="background:#000"><div class="c" id="nested-transparent" style="color:#fff"><span id="nested-span" data-expect="ok" style="background:transparent">transparent layers resolve to the nearest opaque ancestor</span></div></div>
-<input id="placeholder-low" data-expect="low" placeholder="grey placeholder" style="background:#fff;border:1px solid #999;color:#000">
+<input id="placeholder-low" data-expect="low" data-kind="placeholder" placeholder="grey placeholder" style="background:#fff;border:1px solid #999;color:#000">
 <div class="c" id="disabled-exempt" data-expect="none" aria-disabled="true" style="background:#fff;color:#ccc">disabled content is exempt</div>
+
+<!-- ---- cases added after the review of the first version (see scripts/browser/contrast-audit.mjs --selftest) -->
+<div style="background:#000;opacity:.9"><div class="c" id="nested-opacity-ok" data-expect="ok" style="background:#fff;color:#000;opacity:.5">nested opacity groups composite stage by stage: 5.2:1</div></div>
+<div class="c" id="text-fill-low" data-expect="low" style="background:#fff;color:#000;-webkit-text-fill-color:#fff">the glyphs are painted with -webkit-text-fill-color, not color</div>
+<div class="c" id="color-mix-low" data-expect="low" style="background:#fff;color:color-mix(in srgb, white 100%, black)">color-mix resolves to color(srgb 1 1 1): white on white</div>
+<div class="c" id="oklch-unverified" data-expect="unverified" style="background:#fff;color:oklch(0.5 0.1 200)">oklch is not modelled: reported, not dropped</div>
+<input id="input-value-low" data-expect="low" data-kind="value" value="Unreadable" style="background:#fff;color:#fff;border:1px solid #999">
+<input id="submit-value-ok" data-expect="ok" data-kind="value" type="submit" value="Send" style="background:#000;color:#fff">
+<textarea id="textarea-value-low" data-expect="low" data-kind="value" style="background:#fff;color:#eee">typed text</textarea>
+<input id="ph-opacity" data-expect="low" data-kind="placeholder" placeholder="black at 30% opacity" style="background:#fff;border:1px solid #999">
+<input id="ph-hidden" data-expect="none" data-kind="placeholder" placeholder="not shown: the field has a value" value="x" style="background:#fff;color:#000;border:1px solid #999">
+<div class="c pseudo" id="pseudo-low" data-expect="low" data-kind="pseudo" style="background:#fff;color:#000"></div>
+<div id="overlay-host"><div class="c" id="covered-unverified" data-expect="unverified" style="color:#fff;background:#000">text under another painted element</div><div class="cover"></div></div>
+<div style="opacity:0"><div class="c" id="invisible-none" data-expect="none" style="background:#fff;color:#fff">invisible: ancestor opacity 0</div></div>
+<main>
+  <p id="p-well" class="well" data-chrome="no">a well is a component, not prose</p>
+  <p id="p-plain" data-chrome="yes">authored prose</p>
+  <a id="a-link" href="#" data-chrome="yes">authored link</a>
+  <h5 id="h5-title" data-chrome="yes">h5 heading</h5>
+  <div class="card"><p id="p-card" data-chrome="no">prose inside a card is component content</p></div>
+</main>
+<div id="dark-zone" style="background:#000;padding:10px">
+  <div id="allowed" class="bg-white" data-surface="allowed" style="background:#fff;width:300px;height:60px">
+    <div id="child-white" data-surface="flagged" style="background:#fff;width:200px;height:30px"></div>
+  </div>
+</div>
 </body></html>

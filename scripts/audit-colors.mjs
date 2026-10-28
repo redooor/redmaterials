@@ -24,26 +24,54 @@ const norm = hex => { hex = hex.toLowerCase(); return hex.length === 4 ? '#' + [
 const palette = new Set();
 for (const f of ['scss/colors.scss', 'scss/variables.scss']) {
   for (const m of fs.readFileSync(path.join(root, f), 'utf8').matchAll(/^\s*\$([\w-]+)\s*:\s*(#[0-9a-fA-F]{3,8})\b/gm)) {
-    if (!/^(grey|gray|blue-grey|white|black|default|brand-(white|light|dark|default|muted))/.test(m[1])) palette.add(norm(m[2]));
+    const name = m[1];
+    const brandColour = /^brand-(primary|secondary|warning|danger|success|info)$/.test(name);
+    const hue = f.endsWith('colors.scss') && !/^(grey|gray|blue-grey|white|black)/.test(name);
+    if (brandColour || hue) palette.add(norm(m[2]));   // neutrals (greys, white, black, text and table colours) are never identity colours
   }
 }
 const NEUTRALS = new Set(['#fff', '#ffffff', '#000', '#000000']);
-const NAMED = /\b(white|black|transparent|currentcolor|red|blue|green|gray|grey|silver|yellow|orange|navy)\b/i;
-const LITERAL = /#[0-9a-fA-F]{3,8}\b|rgba?\(|hsla?\(|url\(\s*["']?data:|\b(?:white|black|transparent|currentcolor)\b/i;
-const COLOR_PROPS = /^(color|background|background-color|border(-[a-z]+)*|outline(-color)?|box-shadow|text-shadow|fill|stroke|caret-color|text-decoration(-color)?|-webkit-text-fill-color|filter|background-image)$/;
+const NAMED_COLOURS = 'white|black|transparent|currentcolor|red|green|blue|gray|grey|silver|yellow|orange|navy|lime|aqua|teal|olive|maroon|purple|fuchsia|pink|brown|gold|ivory|beige|whitesmoke|gainsboro|lightgray|lightgrey|darkgray|darkgrey|dimgray|dimgrey|canvas|canvastext|buttonface|buttontext|highlight|highlighttext|linktext|graytext';
+const LITERAL = new RegExp(`#[0-9a-fA-F]{3,8}\\b|rgba?\\(|hsla?\\(|color-mix\\(|(?:oklch|oklab|lab|lch)\\(|url\\(\\s*["']?data:|\\b(?:${NAMED_COLOURS})\\b`, 'i');
+// custom properties (the --bs-* values Redmaterials defines) are colour-bearing too
+const COLOR_PROPS = /^(--[\w-]+|color|background|background-color|border(-[a-z]+)*|outline(-color)?|box-shadow|text-shadow|fill|stroke|caret-color|text-decoration(-color)?|-webkit-text-fill-color|filter|background-image|accent-color|scrollbar-color)$/;
 
 // Roles that need a dark-mode treatment: surface, surface-translucent, text, text-muted, divider, shadow, overlay,
 // interaction-surface, image. Roles that stay the same in both modes: fixed (brand/palette identity colours, white text on
 // coloured backgrounds, transparent). `review` = the heuristic could not decide.
+const isGrey = v => { const cs = [...v.matchAll(/#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b|rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/g)]; if (!cs.length) return false; return cs.every(m => { const c = m[1] ? (m[1].length === 3 ? [...m[1]].map(x => parseInt(x + x, 16)) : [0, 2, 4].map(i => parseInt(m[1].slice(i, i + 2), 16))) : [m[2], m[3], m[4]].map(Number); return Math.max(...c) - Math.min(...c) <= 3; }); };
+
+// Names of custom properties tell the role (--bs-table-striped-bg, --bs-btn-hover-color, ...)
+function suggestCustomProperty(prop, value) {
+  const n = prop.toLowerCase();
+  if (/shadow/.test(n)) return 'shadow';
+  if (/border/.test(n)) return 'divider';
+  if (/(^|-)bg(-|$)|background/.test(n)) return /hover|active|focus|striped|accent|disabled/.test(n) ? 'interaction-surface' : (/rgba\(/.test(value) ? 'surface-translucent' : 'surface');
+  if (/color|text|link/.test(n)) return /muted|secondary|disabled/.test(n) ? 'text-muted' : 'text';
+  return 'review';
+}
+
 function suggest(src, selector, prop, value) {
   if (/url\(\s*["']?data:/.test(value)) return 'image';
   if (/^\s*transparent\s*$/i.test(value)) return 'fixed';
   // palette loops and variant mixins generate brand colours (the `default` variant is the one neutral; see COLOR-ROLES.md)
-  if (/scss\/(loops\/|mixins\/(alerts|badges)\.scss|badges\.scss)/.test(src)) return /shadow/.test(prop) ? 'shadow' : 'fixed';
+  if (/scss\/(loops\/|mixins\/(alerts|badges)\.scss|badges\.scss)/.test(src)) {
+    if (/shadow/.test(prop)) return 'shadow';
+    if (isGrey(value)) return /^background/.test(prop) ? (/:hover|:active|:focus|\.active/.test(selector) ? 'interaction-surface' : 'surface') : /^color$/.test(prop) ? 'text' : 'divider';   // shared neutral greys of the loops (flat-button states, ink)
+    return 'fixed';
+  }
   const hexes = [...value.matchAll(/#[0-9a-fA-F]{3,8}\b/g)].map(m => norm(m[0]));
   const alphas = [...value.matchAll(/rgba\([^)]*,\s*([\d.]+)\s*\)/g)].map(m => parseFloat(m[1]));
   const brandOnly = hexes.length && hexes.every(h => palette.has(h) && !NEUTRALS.has(h) && !/^#(333333|424242|f8f8f8|f8f9fa|343a40|eeeeee|dddddd|cccccc)$/.test(h)) && !/rgba\(\s*0,\s*0,\s*0|rgba\(\s*255,\s*255,\s*255/.test(value);
   const usesPrimaryVar = /var\(--bs-(primary|success|danger|warning|info)-rgb\)/.test(value);
+  if (prop.startsWith('--')) {
+    // light-only overrides are guarded from dark mode: there Bootstrap's own dark values apply
+    if (/:not\(\[data-bs-theme=dark\]\)|\[data-bs-theme=light\]/.test(selector)) return 'light-only';
+    if (/\.table-dark\b/.test(selector)) return 'fixed';                       // a dark table variant, dark in both modes
+    if (/^\s*#fff(fff)?\s*$/i.test(value) && /hover|active|focus/.test(prop)) return 'fixed';   // white text on a brand fill
+    if (brandOnly || usesPrimaryVar || /^--bs-(primary|secondary|success|danger|warning|info|light|dark)(-rgb)?$|^--bs-(link|focus)-/.test(prop)) return 'fixed';
+    return suggestCustomProperty(prop, value);
+  }
   if (/shadow/.test(prop)) {
     if (/^\s*inset/.test(value)) return brandOnly || usesPrimaryVar ? 'fixed' : 'divider';   // form/nav underlines
     if (usesPrimaryVar || brandOnly) return 'fixed';                                            // focus rings in the brand colour
@@ -80,6 +108,7 @@ postcss.parse(css, { from: cssFile }).walkDecls(decl => {
   r.values.add(decl.value.replace(/\s+/g, ' '));
   if (r.selectors.length < 3) r.selectors.push(selector.length > 70 ? selector.slice(0, 67) + '...' : selector);
   else if (r.selectors.length === 3) r.selectors.push('…');
+  r.allGrey = (r.allGrey === undefined ? true : r.allGrey) && isGrey(decl.value);
   r.role = r.role || overrides[key] || suggest(src, selector, decl.prop, decl.value);
   r.reviewed = key in overrides;
 });
@@ -101,6 +130,7 @@ Phase B2 turns the roles that need a dark treatment into CSS custom properties (
 | Role | Meaning | Dark mode |
 |---|---|---|
 | \`fixed\` | Brand and palette identity colours (\`$brand-*\`, \`bg-{color}\`, the palette loops), white text on a coloured background, \`transparent\`, brand-coloured focus rings and underlines | same in both modes |
+| \`light-only\` | Light-palette overrides of Bootstrap's \`--bs-*-text-emphasis\`, \`-bg-subtle\`, \`-border-subtle\` (guarded by \`:root:not([data-bs-theme=dark])\`) | none: in dark Bootstrap's own dark values apply |
 | \`text\`, \`text-muted\` | Neutral foreground colours | token |
 | \`surface\`, \`surface-translucent\` | Neutral backgrounds (kept translucent where they are today) | token |
 | \`divider\` | Neutral borders and inset underlines | token |
