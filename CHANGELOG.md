@@ -20,7 +20,8 @@ Bootstrap 5.3 support (tested with Bootstrap 5.3.8).
 8. The navbar breadcrumb separator is now drawn with CSS instead of a Font Awesome glyph, so Redmaterials no longer depends on an icon font.
 9. Every variable in `scss/variables.scss` is now declared with `!default`, so the theme can be configured with `@use "variables" with (...)` before `@use "redmaterials"`. Default output is unchanged.
 10. The documentation site is a static site (it works from `file://` as well as on GitHub Pages), no longer needs AngularJS, jQuery, Prism or Font Awesome, and defines no styles of its own: it is built only from Bootstrap and Redmaterials classes.
-11. The unreleased intermediate Bootstrap 4.6 / Sass migration work also ships in this release. Since 0.1.0 the build uses Dart Sass and npm scripts instead of Grunt/Bower (0.1.0 itself was LESS/Grunt).
+11. **Dark mode.** Redmaterials honours Bootstrap's colour modes: set `data-bs-theme="dark"` on `<html>` (or on any element) and text, surfaces, dividers, form chrome, shadows, tables, navigation and the other neutral colours switch. Brand and palette fills keep their colours; palette text colours (flat and outline buttons) are lifted only where they would fall below 4.5:1. The neutral colours are CSS custom properties (`--rdm-*`, see `scss/_tokens.scss`) that you can override. Light output is unchanged. `.navbar-light` keeps dark text on a light navbar in a dark page, and an element with `data-bs-theme="light"` inside a dark page resets its text colour.
+12. The unreleased intermediate Bootstrap 4.6 / Sass migration work also ships in this release. Since 0.1.0 the build uses Dart Sass and npm scripts instead of Grunt/Bower (0.1.0 itself was LESS/Grunt).
 
 ## Version 0.1.0
 

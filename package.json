@@ -21,6 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:docs": "node --test scripts/*.test.mjs",
     "audit:colors": "node scripts/audit-colors.mjs --doc > scss/COLOR-ROLES.md",
+    "audit:colors:check": "node scripts/audit-colors.mjs --check",
     "audit:contrast:selftest": "node scripts/browser/contrast-audit.mjs --selftest"
   },
   "keywords": [

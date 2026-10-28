@@ -29,6 +29,7 @@ $select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.or
     --rdm-text-subtle: #ccc;
     --rdm-text-muted: #666666;
     --rdm-text-secondary: #6c757d;
+    --rdm-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
     --rdm-table-text: #{$default-text};
     --rdm-table-header-color: #{$table-header-font-color};
 
@@ -97,6 +98,7 @@ $select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.or
     --rdm-text-subtle: var(--bs-secondary-color);
     --rdm-text-muted: var(--bs-secondary-color);
     --rdm-text-secondary: #adb5bd;
+    --rdm-card-cap-bg: rgba(0, 0, 0, 0.1);
     --rdm-table-text: var(--bs-body-color);
     --rdm-table-header-color: var(--bs-secondary-color);
 

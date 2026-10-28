@@ -38,10 +38,10 @@ $dark-surface: #212529;
     @return math.div(math.max($la, $lb) + 0.05, math.min($la, $lb) + 0.05);
 }
 
-@function lift($c) {
+@function lift($c, $surface: $dark-surface, $min: 4.5) {
     @for $i from 0 through 20 {
         $m: color.mix(#fff, $c, $i * 5%);
-        @if contrast($m, $dark-surface) >= 4.5 {
+        @if contrast($m, $surface) >= $min {
             @return $m;
         }
     }
@@ -58,9 +58,9 @@ $dark-surface: #212529;
 @mixin palette-dark($prefix, $name, $color) {
     $base: lift($color);
     --rdm-#{$prefix}-#{$name}: #{$base};
-    --rdm-#{$prefix}-#{$name}-hover: #{color.adjust($base, $lightness: 6%)};
-    --rdm-#{$prefix}-#{$name}-active: #{color.adjust($base, $lightness: 10%)};
-    --rdm-#{$prefix}-#{$name}-focus: #{color.adjust($base, $lightness: 14%)};
+    --rdm-#{$prefix}-#{$name}-hover: #{color.adjust($base, $lightness: 10%)};
+    --rdm-#{$prefix}-#{$name}-active: #{color.adjust($base, $lightness: 18%)};
+    --rdm-#{$prefix}-#{$name}-focus: #{color.adjust($base, $lightness: 26%)};
 }
 
 :root,

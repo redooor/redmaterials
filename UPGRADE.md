@@ -112,6 +112,10 @@ document.querySelectorAll('[data-bs-toggle="popover"]').forEach((el) => {
 });
 ```
 
+### Dark mode
+
+New in 0.2.0: set `data-bs-theme="dark"` to get a dark theme (see the README). Light rendering is unchanged, so nothing is required of you. If you used `.navbar-light` or `bg-light` surfaces on a page that you now switch to dark, add `data-bs-theme="light"` to those elements so their contents keep dark text.
+
 ### Theming
 
 Bootstrap 5.3 exposes its palette as CSS custom properties. Redmaterials maps the Material colours onto those variables in `:root`, so you can override them without recompiling the Sass:

@@ -1,0 +1,114 @@
+{
+  "scss/_bootstrap5-theme.scss:92|--bs-warning-border-subtle": {
+    "role": "fixed",
+    "reason": "Dark-only override derived from the brand colour (the light value is Bootstrap's own)."
+  },
+  "scss/forms.scss:172|background-color": {
+    "role": "fixed",
+    "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes."
+  },
+  "scss/forms.scss:178|background-color": {
+    "role": "fixed",
+    "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes."
+  },
+  "scss/loops/background.scss:10|background-color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap."
+  },
+  "scss/loops/background.scss:19|background-color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap."
+  },
+  "scss/loops/background.scss:22|background-color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap."
+  },
+  "scss/loops/border.scss:8|border-color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap."
+  },
+  "scss/loops/nav-sidebar.scss:16|color": {
+    "role": "fixed",
+    "reason": "White text on a palette or brand fill; paired with the fill, identical in both modes."
+  },
+  "scss/loops/nav-sidebar.scss:23|color": {
+    "role": "fixed",
+    "reason": "White text on a palette or brand fill; paired with the fill, identical in both modes."
+  },
+  "scss/loops/text.scss:9|color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap."
+  },
+  "scss/loops/text.scss:12|color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap."
+  },
+  "scss/mixins/alerts.scss:8|color": {
+    "role": "fixed",
+    "reason": "White text on a palette or brand fill; paired with the fill, identical in both modes."
+  },
+  "scss/nav-sidebar.scss:54|background": {
+    "role": "fixed",
+    "reason": "Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes)."
+  },
+  "scss/nav-sidebar.scss:108|background-color": {
+    "role": "fixed",
+    "reason": "Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes)."
+  },
+  "scss/navbar.scss:27|--bs-navbar-color": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:28|--bs-navbar-hover-color": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:29|--bs-navbar-disabled-color": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:30|--bs-navbar-active-color": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:31|--bs-navbar-brand-color": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:32|--bs-navbar-brand-hover-color": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:33|--bs-navbar-toggler-border-color": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:34|--bs-navbar-toggler-icon-bg": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:37|--bs-navbar-toggler-icon-bg": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:45|box-shadow": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:47|color": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/navbar.scss:53|box-shadow": {
+    "role": "fixed",
+    "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme."
+  },
+  "scss/pagination.scss:55|background-color": {
+    "role": "fixed",
+    "reason": "Brand-derived (the active page darkened); identical in both modes."
+  },
+  "scss/wells.scss:14|border-color": {
+    "role": "fixed",
+    "reason": "Fallback declaration immediately followed by the tokenised one."
+  }
+}

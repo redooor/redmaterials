@@ -1,14 +1,64 @@
 {
   "lightSurfaces": [
-    { "selector": ".bg-white", "reason": "Bootstrap's white utility: a deliberately light surface demo" },
-    { "selector": ".bg-light", "reason": "Bootstrap's light utility: a deliberately light surface demo" },
-    { "selector": ".text-bg-light", "reason": "Bootstrap's light contextual background: a deliberately light demo" },
-    { "selector": ".btn-light", "reason": "The light button variant is light by design" },
-    { "selector": ".btn-white", "reason": "Redmaterials' white button variant is white by design" },
-    { "selector": ".btn-default", "reason": "Redmaterials' default button is a light grey by design (see COLOR-ROLES.md, default variants)" },
-    { "selector": ".bg-default", "reason": "Redmaterials' default colour utility is a light grey by design" },
-    { "selector": ".alert-light", "reason": "The light alert variant is light by design" },
-    { "selector": ".badge.bg-light, .badge.text-bg-light", "reason": "The light badge variant is light by design" },
-    { "selector": ".table-light", "reason": "The light table variant is light by design" }
+    {
+      "selector": ".bg-white",
+      "reason": "Bootstrap's white utility: a deliberately light surface demo"
+    },
+    {
+      "selector": ".bg-light",
+      "reason": "Bootstrap's light utility: a deliberately light surface demo"
+    },
+    {
+      "selector": ".text-bg-light",
+      "reason": "Bootstrap's light contextual background: a deliberately light demo"
+    },
+    {
+      "selector": ".btn-light",
+      "reason": "The light button variant is light by design"
+    },
+    {
+      "selector": ".btn-white",
+      "reason": "Redmaterials' white button variant is white by design"
+    },
+    {
+      "selector": ".btn-default",
+      "reason": "Redmaterials' default button is a light grey by design (see COLOR-ROLES.md, default variants)"
+    },
+    {
+      "selector": ".bg-default",
+      "reason": "Redmaterials' default colour utility is a light grey by design"
+    },
+    {
+      "selector": ".alert-light",
+      "reason": "The light alert variant is light by design"
+    },
+    {
+      "selector": ".badge.bg-light, .badge.text-bg-light",
+      "reason": "The light badge variant is light by design"
+    },
+    {
+      "selector": ".table-light",
+      "reason": "The light table variant is light by design"
+    },
+    {
+      "selector": "[data-bs-theme=\"light\"]",
+      "reason": "A scope explicitly declared light (a docs example of a light-only surface such as bg-light or the fixed-colour text utilities) is light by intent"
+    },
+    {
+      "selector": ".btn-outline-light",
+      "reason": "The light outline button fills with the light colour on hover by design"
+    },
+    {
+      "selector": ".bg-yellow",
+      "reason": "Yellow is a palette identity colour; fills do not change between modes"
+    },
+    {
+      "selector": ".nav-sidebar-yellow .nav-sidebar-title",
+      "reason": "Yellow is a palette identity colour; fills do not change between modes"
+    },
+    {
+      "selector": "[data-bs-theme=\"light\"] .dropdown-menu",
+      "reason": "A menu inside a scope declared light is light by intent"
+    }
   ]
 }

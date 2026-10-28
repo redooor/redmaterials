@@ -6,9 +6,9 @@
 // For contexture text
 @each $context, $color in $brand-color-map {
     .text-#{$context} {
-        color: var(--rdm-ctx-#{$context}) !important;
+        color: $color !important;
     }
     a.text-#{$context}:hover {
-        color: var(--rdm-ctx-#{$context}-hover) !important;
+        color: color.adjust($color, $lightness: -10%) !important;
     }
 }

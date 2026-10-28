@@ -52,11 +52,12 @@ jobs:
           git diff --exit-code -- docs dist
           test -z "$(git status --porcelain -- docs dist)"
 
-      - name: Colour roles are in sync with the compiled CSS
+      - name: Colour roles are in sync with the compiled CSS, and no neutral colour bypasses the dark-mode tokens
         if: matrix.node == 20
         run: |
           node scripts/audit-colors.mjs --doc > /tmp/COLOR-ROLES.md
           diff scss/COLOR-ROLES.md /tmp/COLOR-ROLES.md
+          node scripts/audit-colors.mjs --check
 
       - name: Docs build is deterministic
         if: matrix.node == 20

@@ -4,7 +4,7 @@
 // Typography
 // --------------------------------------------------
 a {
-    color: $brand-primary;
+    color: var(--bs-link-color);
 }
 
 // Bootstrap hard-codes the footer grey; keep it readable in dark.

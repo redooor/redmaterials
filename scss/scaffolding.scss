@@ -1,5 +1,12 @@
 @use "colors" as *;
 
+// A scoped theme (a light card inside a dark page, or the reverse) must also
+// reset the text colour, which Bootstrap only does through variables.  Zero
+// specificity, so components that set their own colour (.card) keep it.
+:where([data-bs-theme]) {
+    color: var(--rdm-text);
+}
+
 // Body style
 // --------------------------------------------------
 body {

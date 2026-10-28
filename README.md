@@ -81,6 +81,22 @@ The theme colours and sizes are Sass variables declared with `!default`. Load th
 
 Compile with `sass --load-path=path/to/redmaterials/scss theme.scss theme.css`.
 
+## Dark mode
+
+Redmaterials follows Bootstrap 5.3's colour modes. Set the mode on the root element, or on any element to scope it:
+
+```html
+<html data-bs-theme="dark">
+```
+
+Text, surfaces, dividers, form underlines, shadows, tables, the navigation sidebar and the other neutral colours switch with it. Brand and palette fills (`btn-primary`, `bg-red`, ...) keep their colours in both modes. The neutral colours are CSS custom properties defined in `scss/_tokens.scss` (`--rdm-text`, `--rdm-surface-translucent`, `--rdm-underline`, ...), so you can override them for either mode:
+
+```css
+[data-bs-theme="dark"] { --rdm-underline: #6c757d; }
+```
+
+`.text-*` utilities are fixed colours, as in Bootstrap; use Bootstrap's `.text-body-secondary` and friends for text that follows the mode.
+
 ## CDN example
 
 ```html

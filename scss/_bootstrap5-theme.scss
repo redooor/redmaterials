@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "sass:math";
 @use "variables" as *;
+@use "tokens-palette" as palette;
 
 //
 // Bootstrap 5.3 theme bridge
@@ -74,6 +75,21 @@ $bs-link-hover: color.adjust($brand-primary, $lightness: -10%);
     --bs-border-radius-lg: 2px;
 
     --bs-focus-ring-color: rgba(#{rgb-triplet($brand-primary)}, .25);
+}
+
+// Links must stay readable on the raised dark surfaces (wells, modals, popovers).
+// The brand colour is lifted towards white only as far as needed.
+$bs-link-dark: palette.lift($brand-primary, #2b3035, 4.6);
+$bs-link-dark-hover: color.adjust($bs-link-dark, $lightness: 8%);
+
+[data-bs-theme="dark"] {
+    --bs-link-color: #{$bs-link-dark};
+    --bs-link-color-rgb: #{rgb-triplet(round-color($bs-link-dark))};
+    --bs-link-hover-color: #{round-color($bs-link-dark-hover)};
+    --bs-link-hover-color-rgb: #{rgb-triplet(round-color($bs-link-dark-hover))};
+
+    // Bootstrap's own dark hover fill for warning list items is 4.3:1 under white text.
+    --bs-warning-border-subtle: #{round-color(shade-color($brand-warning, 50%))};
 }
 
 // The emphasis/subtle values are derived from the light Material palette.
