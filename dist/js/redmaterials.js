@@ -1,7 +1,7 @@
 (function() {
   "use strict";
   document.addEventListener("click", function(e) {
-    var rippler = e.target.closest(".ripple-effect"), ink, d, rect, cx, cy;
+    var rippler = e.target.closest(".ripple-effect"), ink, d, rect, cx, cy, centred;
     if (!rippler) {
       return;
     }
@@ -18,8 +18,9 @@
       ink.style.width = d + "px";
     }
     rect = rippler.getBoundingClientRect();
-    cx = e.detail === 0 ? rect.left + rect.width / 2 : e.clientX;
-    cy = e.detail === 0 ? rect.top + rect.height / 2 : e.clientY;
+    centred = e.detail === 0 && !e.clientX && !e.clientY;
+    cx = centred ? rect.left + rect.width / 2 : e.clientX;
+    cy = centred ? rect.top + rect.height / 2 : e.clientY;
     ink.style.top = cy - rect.top - rippler.clientTop - ink.offsetHeight / 2 + "px";
     ink.style.left = cx - rect.left - rippler.clientLeft - ink.offsetWidth / 2 + "px";
     void ink.offsetWidth;
