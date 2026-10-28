@@ -53,6 +53,16 @@
         if (THEMES.indexOf(d.theme) >= 0) { state.theme = d.theme; }
         render();
     });
+    // Tell the parent this frame is ready, so a frame that finished loading before the parent attached listeners
+    // still receives the current state.
+    if (window.parent !== window) { try { window.parent.postMessage({ type: 'docs-ready' }, '*'); } catch (e) { /* ignore */ } }
+
+    // The parent answers a frame's ready message with the current state.
+    window.addEventListener('message', function (e) {
+        if (!e.data || e.data.type !== 'docs-ready') { return; }
+        var frames = document.querySelectorAll('iframe.docs-demo');
+        for (var i = 0; i < frames.length; i++) { if (frames[i].contentWindow === e.source) { broadcast(); return; } }
+    });
     if (window.matchMedia) {
         matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { if (state.mode === 'auto') { render(); } });
     }
@@ -125,11 +135,11 @@
                 </ul>
             </div>
         </div>
-        <main class="col-lg-9 col-xl-10" data-bs-spy="scroll" data-bs-target="#nav_spy" tabindex="0">
+        <main class="col-lg-9 col-xl-10" data-bs-spy="scroll" data-bs-target="#nav_spy" data-bs-smooth-scroll="true" data-bs-root-margin="0px 0px -90%" data-bs-threshold="0,0.01" tabindex="0">
 
 <!-- Banner
 ================================================== -->
-<div id="top" class="container pt-3">
+<div id="top" class="container pt-5">
     <div class="pt-5">
         <div class="row">
             <div class="col-md-10">
@@ -166,7 +176,7 @@
 </div>
 <!-- Navbar
 ================================================== -->
-<div id="navbar" class="container pt-3">
+<div id="navbar" class="container pt-5">
     <div class="pt-5 clearfix">
         <div class="row">
             <div class="col">
@@ -1073,7 +1083,7 @@
 
 <!-- Navigation Sidebar
 ================================================== -->
-<div id="nav-sidebar" class="container pt-3">
+<div id="nav-sidebar" class="container pt-5">
     <div class="pt-5">
         <div class="row">
             <div class="col-lg-12">
@@ -1260,7 +1270,7 @@
 
 <!-- Redmaterials Buttons
 ================================================== -->
-<div id="buttons" class="container pt-3">
+<div id="buttons" class="container pt-5">
     <div class="pt-5">
         <div class="row">
             <div class="col">
@@ -1714,7 +1724,7 @@
 
 <!-- Redmaterials Tables
 ================================================== -->
-<div id="tables" class="container pt-3">
+<div id="tables" class="container pt-5">
     <div class="pt-5">
         <div class="row">
             <div class="col-lg-12">
@@ -1983,7 +1993,7 @@
 </div>
 <!-- Redmaterials Shadows
 ================================================== -->
-<div id="shadows" class="container pt-3">
+<div id="shadows" class="container pt-5">
     <div class="pt-5">
         <div class="row">
             <div class="col-lg-12">
@@ -2088,7 +2098,7 @@
 </div>
 <!-- Redmaterials Buttons
 ================================================== -->
-<div id="ribbons" class="container pt-3">
+<div id="ribbons" class="container pt-5">
     <div class="pt-5">
         <div class="row">
             <div class="col-lg-12">
@@ -2206,7 +2216,7 @@
 
 <!-- Panels
 ================================================== -->
-<div id="cards" class="container pt-3">
+<div id="cards" class="container pt-5">
     <div class="pt-5">
         <div class="row">
             <div class="col-lg-12">
@@ -2351,7 +2361,7 @@
 
 <!-- Dialogs
 ================================================== -->
-<div id="modals" class="container pt-3">
+<div id="modals" class="container pt-5 min-vh-100">
     <div class="pt-5">
         <div class="row">
             <div class="col">
