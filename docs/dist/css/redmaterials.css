@@ -15,6 +15,8 @@
   --rdm-default-focus-bg: #c5c5c5;
   --rdm-default-ink: rgb(171.5, 171.5, 171.5);
   --rdm-default-text: #333;
+  --rdm-sidebar-default-bg: #f8f8f8;
+  --rdm-sidebar-default-text: #333;
   --rdm-flat-hover-bg: rgb(229.5, 229.5, 229.5);
   --rdm-flat-active-bg: #cccccc;
   --rdm-flat-focus-bg: #cccccc;
@@ -67,6 +69,8 @@
   --rdm-default-focus-bg: #4d4d4d;
   --rdm-default-ink: rgba(255, 255, 255, 0.3);
   --rdm-default-text: var(--bs-body-color);
+  --rdm-sidebar-default-bg: #333;
+  --rdm-sidebar-default-text: var(--bs-body-color);
   --rdm-flat-hover-bg: rgba(255, 255, 255, 0.08);
   --rdm-flat-active-bg: rgba(255, 255, 255, 0.16);
   --rdm-flat-focus-bg: rgba(255, 255, 255, 0.16);
@@ -375,15 +379,19 @@
   --bs-light-rgb: 248, 249, 250;
   --bs-dark: #343a40;
   --bs-dark-rgb: 52, 58, 64;
-  --bs-link-color: #2196F3;
-  --bs-link-color-rgb: 33, 150, 243;
-  --bs-link-hover-color: rgb(12, 124, 213);
-  --bs-link-hover-color-rgb: 12, 124, 213;
   --bs-body-font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --bs-border-radius: 2px;
   --bs-border-radius-sm: 2px;
   --bs-border-radius-lg: 2px;
   --bs-focus-ring-color: rgba(33, 150, 243, .25);
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-link-color: #2196F3;
+  --bs-link-color-rgb: 33, 150, 243;
+  --bs-link-hover-color: rgb(12, 124, 213);
+  --bs-link-hover-color-rgb: 12, 124, 213;
 }
 
 [data-bs-theme=dark] {
@@ -2711,16 +2719,16 @@ select[size]:not([size="1"]):focus,
 }
 
 .nav-sidebar-default .nav-sidebar-title {
-  background-color: var(--rdm-default-bg);
+  background-color: var(--rdm-sidebar-default-bg);
 }
 .nav-sidebar-default .nav-sidebar-title .nav-sidebar-brand {
-  color: var(--rdm-default-text);
+  color: var(--rdm-sidebar-default-text);
 }
 .nav-sidebar-default .nav-sidebar-menu li.active a,
 .nav-sidebar-default .nav-sidebar-menu li.active a:hover,
 .nav-sidebar-default .nav-sidebar-menu li.active a:focus {
-  color: var(--rdm-default-text);
-  background-color: var(--rdm-default-bg);
+  color: var(--rdm-sidebar-default-text);
+  background-color: var(--rdm-sidebar-default-bg);
 }
 
 .nav-sidebar-red .nav-sidebar-title {

@@ -63,11 +63,6 @@ $bs-link-hover: color.adjust($brand-primary, $lightness: -10%);
         @include theme-color($name, $color);
     }
 
-    --bs-link-color: #{$brand-primary};
-    --bs-link-color-rgb: #{rgb-triplet($brand-primary)};
-    --bs-link-hover-color: #{round-color($bs-link-hover)};
-    --bs-link-hover-color-rgb: #{rgb-triplet(round-color($bs-link-hover))};
-
     --bs-body-font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     --bs-border-radius: 2px;
@@ -75,6 +70,17 @@ $bs-link-hover: color.adjust($brand-primary, $lightness: -10%);
     --bs-border-radius-lg: 2px;
 
     --bs-focus-ring-color: rgba(#{rgb-triplet($brand-primary)}, .25);
+}
+
+// Bootstrap redeclares its link variables under [data-bs-theme="light"], so a
+// scoped light theme inside a dark page would otherwise fall back to
+// Bootstrap's default blue.  Declare the Material values for both selectors.
+:root,
+[data-bs-theme="light"] {
+    --bs-link-color: #{$brand-primary};
+    --bs-link-color-rgb: #{rgb-triplet($brand-primary)};
+    --bs-link-hover-color: #{round-color($bs-link-hover)};
+    --bs-link-hover-color-rgb: #{rgb-triplet(round-color($bs-link-hover))};
 }
 
 // Links must stay readable on the raised dark surfaces (wells, modals, popovers).

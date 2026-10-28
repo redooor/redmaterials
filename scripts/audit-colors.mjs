@@ -3,7 +3,7 @@
 // Sass source file:line (through the source map), de-duplicated by source location, with a SUGGESTED role.
 // The roles drive the dark-mode tokens (scss/COLOR-ROLES.md); the suggestion is a starting point, a human decides.
 //
-//   node scripts/audit-colors.mjs [--markdown] [--json]
+//   node scripts/audit-colors.mjs [--check] [--doc] [--markdown] [--json] [--self-test]
 //
 // Roles: surface, surface-translucent, text, text-muted, divider, shadow, overlay, interaction-surface,
 //        identity (brand and palette colours, same in both modes), image (data-URL icons)
@@ -15,6 +15,53 @@ import { SourceMapConsumer } from 'source-map-js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const cssFile = path.join(root, 'dist/css/redmaterials.css');
+const overridesFile = path.join(root, 'scripts/color-roles.overrides.json');
+
+// Every override must belong to a declaration and be pinned to its content:
+// an override key that no longer exists is orphaned, and a `match` substring
+// that no longer appears in the declaration's value means the colour changed.
+function findOverrideProblems(list, overrides) {
+  const byKey = new Map(list.map(r => [`${r.src}|${r.prop}`, r]));
+  const problems = [];
+  for (const [key, ov] of Object.entries(overrides)) {
+    const row = byKey.get(key);
+    if (!row) {
+      problems.push(`orphaned override ${key}: no declaration has this source location and property`);
+      continue;
+    }
+    const match = typeof ov === 'object' && ov ? ov.match : undefined;
+    if (typeof match !== 'string' || match.length === 0) {
+      problems.push(`override ${key} is missing the required "match" field`);
+    } else if (!row.value.includes(match)) {
+      problems.push(`override ${key} no longer matches "${match}" in "${row.value}"`);
+    }
+  }
+  return problems;
+}
+
+function runSelfTest() {
+  const list = [{ src: 'scss/example.scss:1', prop: 'color', value: '#f8f8f8' }];
+  const binding = match => ({ role: 'fixed', reason: 'test', match });
+  const cases = [
+    ['a valid binding', { 'scss/example.scss:1|color': binding('#f8f8f8') }, null],
+    ['an orphaned override', { 'scss/gone.scss:1|color': binding('#fff') }, /orphaned override/],
+    ['a stale match', { 'scss/example.scss:1|color': binding('#123456') }, /no longer matches/],
+    ['a missing match', { 'scss/example.scss:1|color': { role: 'fixed', reason: 'test' } }, /missing the required "match"/],
+  ];
+  const failures = [];
+  for (const [name, overrides, expected] of cases) {
+    const problems = findOverrideProblems(list, overrides);
+    if (expected ? problems.length !== 1 || !expected.test(problems[0]) : problems.length !== 0) {
+      failures.push(`${name}: ${problems.length ? problems.join('; ') : 'no problem reported'}`);
+    }
+  }
+  for (const f of failures) console.error(`FAIL ${f}`);
+  console.log(`audit-colors self-test: ${cases.length - failures.length}/${cases.length} cases passed`);
+  return failures.length ? 1 : 0;
+}
+
+if (process.argv.includes('--self-test')) process.exit(runSelfTest());
+
 const css = fs.readFileSync(cssFile, 'utf8');
 const consumer = new SourceMapConsumer(JSON.parse(fs.readFileSync(cssFile + '.map', 'utf8')));
 
@@ -102,8 +149,9 @@ function suggest(src, selector, prop, value) {
   return 'review';
 }
 
-// Human review: source-line|property -> role, applied after the heuristic (see scss/COLOR-ROLES.md)
-const overridesFile = path.join(root, 'scripts/color-roles.overrides.json');
+// Human review: source-line|property -> role and reason, plus a `match`
+// substring pinning the override to the declaration value it was reviewed for
+// (see scss/COLOR-ROLES.md).
 const overrides = fs.existsSync(overridesFile) ? JSON.parse(fs.readFileSync(overridesFile, 'utf8')) : {};
 const rows = new Map();
 postcss.parse(css, { from: cssFile }).walkDecls(decl => {
@@ -130,13 +178,16 @@ postcss.parse(css, { from: cssFile }).walkDecls(decl => {
 const list = [...rows.values()].map(r => ({ ...r, values: [...r.values] })).sort((a, b) => a.src.localeCompare(b.src, undefined, { numeric: true }));
 
 // --check: every neutral colour literal outside the token definitions must have been reviewed (an override with a reason that
-// says why it stays the same in both modes). Anything else is a colour that dark mode would leave behind.
+// says why it stays the same in both modes). Anything else is a colour that dark mode would leave behind. The overrides
+// themselves must still exist and still match the declaration they were reviewed against.
 if (process.argv.includes('--check')) {
   const NEEDS = new Set(['text', 'text-muted', 'surface', 'surface-translucent', 'divider', 'interaction-surface', 'shadow', 'overlay', 'image', 'review']);
   const bad = list.filter(r => (NEEDS.has(r.role) && !r.reviewed) || (r.reviewed && r.role === 'fixed' && !r.reason) || r.src === '(unmapped)');
+  const overrideProblems = findOverrideProblems(list, overrides);
   for (const r of bad) console.error(`${r.src}  ${r.prop}: ${r.value.slice(0, 60)}  [${r.role}${r.reviewed ? ', override without a reason' : ''}]`);
-  console.log(`${list.length} colour declarations, ${bad.length} not covered by a token or a reviewed exception`);
-  process.exit(bad.length ? 1 : 0);
+  for (const p of overrideProblems) console.error(p);
+  console.log(`${list.length} colour declarations, ${bad.length} not covered by a token or a reviewed exception, ${overrideProblems.length} override problem(s)`);
+  process.exit(bad.length || overrideProblems.length ? 1 : 0);
 }
 if (process.argv.includes('--json')) { console.log(JSON.stringify(list, null, 1)); process.exit(0); }
 if (process.argv.includes('--doc')) {
@@ -146,7 +197,7 @@ if (process.argv.includes('--doc')) {
   const table = list.map(r => `| \`${r.src}\` | \`${r.prop}\` | \`${r.value.replace(/\|/g, '\\|').replace(/url\(.*\)/, 'url(data:…)').slice(0, 70)}\`${r.values.length > 1 ? ` (+${r.values.length - 1})` : ''} | ${r.selectors.slice(0, 2).map(x => '`' + x.replace(/\|/g, '\\|').slice(0, 48) + '`').join(', ')} | ${r.role} |`).join('\n');
   console.log(`# Colour roles
 
-Generated by \`node scripts/audit-colors.mjs --doc > scss/COLOR-ROLES.md\` from \`dist/css/redmaterials.css\` and its source map. One row per Sass source line and property (the palette loops expand one line into many values, shown as \`(+N)\`). The role is a heuristic suggestion (\`scripts/audit-colors.mjs\`), reviewed by hand; manual corrections go in \`scripts/color-roles.overrides.json\` (\`"<src>|<property>": "<role>"\`). Regenerate after changing the SCSS.
+Generated by \`node scripts/audit-colors.mjs --doc > scss/COLOR-ROLES.md\` from \`dist/css/redmaterials.css\` and its source map. One row per Sass source line and property (the palette loops expand one line into many values, shown as \`(+N)\`). The role is a heuristic suggestion (\`scripts/audit-colors.mjs\`), reviewed by hand; manual corrections go in \`scripts/color-roles.overrides.json\` as \`{"<src>|<property>": {"role": "<role>", "reason": "...", "match": "<substring of the declaration value>"}}\`. \`--check\` fails if an override points at no declaration or its \`match\` no longer occurs in the value. Regenerate after changing the SCSS.
 
 Dark mode is built from this inventory: every neutral colour is a CSS custom property defined in \`scss/_tokens.scss\` (light and dark values), \`scss/_tokens-palette.scss\` (palette text colours) and \`scss/mixins/tables.scss\` (contextual table colours). \`node scripts/audit-colors.mjs --check\` (run in CI) fails when a neutral colour literal appears outside those files without a reviewed exception, so a new hard-coded colour cannot slip past dark mode.
 
@@ -180,6 +231,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | Dividers and control chrome | \`--rdm-underline\`, \`-divider\`, \`-chevron\`, \`-popover-border\`, \`-blockquote-border\`, \`-control-border\`, \`-control-subtle\`, \`-focus-gap\`, \`-table-border\` |
 | Interaction surfaces | \`--rdm-hover-bg\`, \`-flat-hover-bg\`, \`-flat-active-bg\`, \`-flat-focus-bg\`, \`-flat-ink\`, \`-ink\`, \`-table-striped-bg\`, \`-table-hover-bg\`, \`-table-active-bg\` |
 | Neutral default variant | \`--rdm-default-bg\`, \`-hover-bg\`, \`-active-bg\`, \`-focus-bg\`, \`-ink\`, \`-text\` |
+| Navigation sidebar default variant | \`--rdm-sidebar-default-bg\`, \`--rdm-sidebar-default-text\` |
 | Shadows | \`--rdm-shadow-depth-1\` to \`-5\`, \`-shadow-navbar\`, \`-shadow-dropdown\`, \`-shadow-ribbon\` |
 | Images | \`--rdm-select-arrow\`, \`-select-arrow-focus\` |
 | Palette text | \`--rdm-ctx-{context}\` and \`--rdm-pal-{colour}\` with \`-hover\`, \`-active\`, \`-focus\` (flat and outline buttons) |
@@ -190,7 +242,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 * **Brand and palette fills are identity colours** and are the same in both modes (\`bg-*\`, \`btn-*\`, \`text-bg-*\`, \`alert-*\`, \`badge\`, the palette loops).
 * **Palette *text* colours** (flat buttons, outline buttons) are lifted towards white in dark mode only where they would fall below 4.5:1 on the dark surface; colours that already pass are untouched.
 * **\`.text-*\` utilities are fixed colours**, as in Bootstrap; use \`.text-body-secondary\` and friends for theme-aware text.
-* **The neutral \`default\` variant** follows the mode for buttons and the navigation sidebar; the \`.bg-default\`, \`.border-default\` and \`.text-default\` utilities stay fixed.
+* **The neutral \`default\` variant** follows the mode for buttons and the navigation sidebar. The sidebar keeps its own \`--rdm-sidebar-default-*\` tokens (from \`$default\`), so configuring \`$brand-default\` does not change it; the \`.bg-default\`, \`.border-default\` and \`.text-default\` utilities stay fixed.
 * **\`.navbar-light\` and \`.navbar-dark\`** are always light and dark; Bootstrap's \`data-bs-theme\` on a navbar works as well.
 * **Scoped themes** (\`data-bs-theme="light"\` on an element inside a dark page) also reset the text colour (zero-specificity rule in \`scaffolding.scss\`).
 * **Bootstrap-provided colours** that Redmaterials only remaps through \`--bs-*\` variables switch with \`data-bs-theme\` already.

@@ -38,11 +38,29 @@ $dark-surface: #212529;
     @return math.div(math.max($la, $lb) + 0.05, math.min($la, $lb) + 0.05);
 }
 
+// The colour a translucent foreground actually shows on top of $background.
+// Opaque foregrounds are returned unchanged (bit-for-bit).
+@function composite($foreground, $background) {
+    $alpha: color.channel($foreground, "alpha");
+    @if $alpha >= 1 {
+        @return $foreground;
+    }
+    @if $alpha <= 0 {
+        @return $background;
+    }
+    @return rgb(
+        color.channel($foreground, "red", $space: rgb) * $alpha + color.channel($background, "red", $space: rgb) * (1 - $alpha),
+        color.channel($foreground, "green", $space: rgb) * $alpha + color.channel($background, "green", $space: rgb) * (1 - $alpha),
+        color.channel($foreground, "blue", $space: rgb) * $alpha + color.channel($background, "blue", $space: rgb) * (1 - $alpha)
+    );
+}
+
 @function lift($c, $surface: $dark-surface, $min: 4.5) {
     @for $i from 0 through 20 {
         $m: color.mix(#fff, $c, $i * 5%);
-        @if contrast($m, $surface) >= $min {
-            @return $m;
+        $visible: composite($m, $surface);
+        @if contrast($visible, $surface) >= $min {
+            @return $visible;
         }
     }
     @return #fff;
