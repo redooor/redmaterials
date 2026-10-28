@@ -24,14 +24,14 @@ fieldset[disabled] .btn {
 // --------------------------------------------------
 .btn-raised {
     // shadow depth 1
-    box-shadow: $shadow-depth-1;
+    box-shadow: var(--rdm-shadow-depth-1);
     &:active, &.active, &:active:focus, &.active:focus {
         // shadow depth 2
-        box-shadow: $shadow-depth-2;
+        box-shadow: var(--rdm-shadow-depth-2);
     }
     &:focus {
         // shadow depth 2
-        box-shadow: $shadow-depth-2;
+        box-shadow: var(--rdm-shadow-depth-2);
     }
 }
 .btn-flat {
@@ -42,12 +42,12 @@ fieldset[disabled] .btn {
 // --------------------------------------------------
 .btn-default,
 .btn-default:hover {
-    color: $grey-800;
+    color: var(--rdm-text);
 }
 .btn-link {
     color: $brand-primary;
     &:disabled, &.disabled, &[disabled] {
-        color: rgba(0, 0, 0, 0.26);
+        color: var(--rdm-text-disabled);
         opacity: 1;
     }
 }

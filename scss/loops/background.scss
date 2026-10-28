@@ -27,20 +27,20 @@
             background-color: transparent;
             &:hover {
                 color: color.adjust($color, $lightness: -10%);
-                background-color: color.adjust(#999, $lightness: 30%);
+                background-color: var(--rdm-flat-hover-bg);
             }
             &:active,
             &.active {
                 color: color.adjust($color, $lightness: -20%);
-                background-color: color.adjust(#999, $lightness: 20%);
+                background-color: var(--rdm-flat-active-bg);
             }
             &:focus {
                 color: color.adjust($color, $lightness: -30%);
-                background-color: color.adjust(#999, $lightness: 20%);
+                background-color: var(--rdm-flat-focus-bg);
             }
             //## color for riple-effect
             .ink {
-                background-color: color.adjust(#ccc, $lightness: -30%);
+                background-color: var(--rdm-flat-ink);
             }
         }
     }

@@ -1,26 +1,35 @@
 @use "sass:color";
 @use "../variables" as *;
 
+// The neutral "default" variant follows the colour mode (see _tokens.scss);
+// every other colour is an identity colour and is the same in both modes.
+@function neutral($context, $value, $token) {
+    @if $context == "default" {
+        @return var(--rdm-default-#{$token});
+    }
+    @return $value;
+}
+
 // Buttons variations
 
 // For contexture backgrounds
 @each $context, $color in $brand-color-map {
     .btn-#{$context} {
-        background-color: $color;
+        background-color: neutral($context, $color, bg);
         &:hover {
-            background-color: color.adjust($color, $lightness: -10%);
+            background-color: neutral($context, color.adjust($color, $lightness: -10%), hover-bg);
         }
         &:active,
         &.active {
-            background-color: color.adjust($color, $lightness: -10%);
+            background-color: neutral($context, color.adjust($color, $lightness: -10%), active-bg);
 
         }
         &:focus {
-            background-color: color.adjust($color, $lightness: -20%);
+            background-color: neutral($context, color.adjust($color, $lightness: -20%), focus-bg);
         }
         //## color for riple-effect
         .ink {
-            background-color: color.adjust($color, $lightness: -30%);
+            background-color: neutral($context, color.adjust($color, $lightness: -30%), ink);
         }
 
         &.btn-flat {
@@ -28,20 +37,20 @@
             background-color: transparent;
             &:hover {
                 color: color.adjust($color, $lightness: -10%);
-                background-color: color.adjust(#999, $lightness: 30%);
+                background-color: var(--rdm-flat-hover-bg);
             }
             &:active,
             &.active {
                 color: color.adjust($color, $lightness: -20%);
-                background-color: color.adjust(#999, $lightness: 20%);
+                background-color: var(--rdm-flat-active-bg);
             }
             &:focus {
                 color: color.adjust($color, $lightness: -30%);
-                background-color: color.adjust(#999, $lightness: 20%);
+                background-color: var(--rdm-flat-focus-bg);
             }
             //## color for riple-effect
             .ink {
-                background-color: color.adjust(#ccc, $lightness: -30%);
+                background-color: var(--rdm-flat-ink);
             }
         }
     }

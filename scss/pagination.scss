@@ -5,21 +5,21 @@
 // --------------------------------------------------
 .pagination {
     --bs-pagination-color: #{$brand-primary};
-    --bs-pagination-bg: #{$btn-default-bg-color};
+    --bs-pagination-bg: var(--rdm-pagination-bg);
     --bs-pagination-border-width: 0;
     --bs-pagination-border-color: transparent;
     --bs-pagination-border-radius: 2px;
     --bs-pagination-hover-color: #{$brand-primary};
-    --bs-pagination-hover-bg: #{color.adjust(#999, $lightness: 30%)};
+    --bs-pagination-hover-bg: var(--rdm-flat-hover-bg);
     --bs-pagination-hover-border-color: transparent;
     --bs-pagination-focus-color: #fff;
-    --bs-pagination-focus-bg: #{color.adjust(#999, $lightness: 20%)};
+    --bs-pagination-focus-bg: var(--rdm-flat-focus-bg);
     --bs-pagination-focus-box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .35);
     --bs-pagination-active-color: #fff;
     --bs-pagination-active-bg: #{$brand-primary};
     --bs-pagination-active-border-color: #{$brand-primary};
-    --bs-pagination-disabled-color: rgba(0, 0, 0, 0.26);
-    --bs-pagination-disabled-bg: #eee;
+    --bs-pagination-disabled-color: var(--rdm-text-disabled);
+    --bs-pagination-disabled-bg: var(--rdm-disabled-bg);
     --bs-pagination-disabled-border-color: transparent;
 }
 
@@ -32,7 +32,7 @@
         border: 0;
         transition: all .15s ease-in-out;
         &:active {
-            background-color: color.adjust(#999, $lightness: 30%);
+            background-color: var(--rdm-flat-hover-bg);
         }
         // Keep the keyboard focus ring, including on the active page.
         &:focus-visible {

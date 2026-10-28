@@ -17,7 +17,7 @@
     display: block;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #fff;
+    background-color: var(--rdm-surface);
     padding-bottom: 2em;
     transform: translateZ(0);
     transform-style: preserve-3d;
@@ -30,10 +30,10 @@
 .nav-sidebar-title {
     position: relative;
     padding: 15px;
-    background-color: #ffffff;
+    background-color: var(--rdm-surface);
     .nav-sidebar-brand {
         font-size: 24px;
-        color: #333;
+        color: var(--rdm-text-strong);
         &:hover, &:focus {
             text-decoration: none;
         }
@@ -52,7 +52,7 @@
     left: 0;
     z-index: 1051; /* above modal */
     background: #333;
-    background: rgba(0,0,0,0.4);
+    background: var(--rdm-overlay);
     transition: .3s ease all;
 }
 
@@ -83,22 +83,22 @@
     li a {
         display: block;
         padding: 10px 20px;
-        color: #333;
+        color: var(--rdm-text-strong);
     }
     li a:hover,
     li a:focus {
-        color: #333;
+        color: var(--rdm-text-strong);
         text-decoration: none;
-        background-color: #eee;
+        background-color: var(--rdm-hover-bg);
     }
     li.nav-sub-header {
         span {
             font-weight: 300;
-            color: #ccc;
+            color: var(--rdm-text-subtle);
         }
     }
     li.divider {
-        border-top: 1px solid #eee;
+        border-top: 1px solid var(--rdm-divider);
         margin: 10px 0px;
     }
     li.active a,

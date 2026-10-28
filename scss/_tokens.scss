@@ -1,0 +1,106 @@
+@use "sass:color";
+@use "colors" as *;
+@use "variables" as *;
+
+//
+// Colour tokens
+// --------------------------------------------------
+// Neutral colours (text, surfaces, dividers, interaction states, shadows) are
+// CSS custom properties so they can follow Bootstrap's `data-bs-theme`.  The
+// light values are exactly the values these properties had before dark mode
+// existed; the dark values only apply under `data-bs-theme="dark"`.
+//
+// Brand and palette identity colours ($brand-*, the colour loops) are not
+// tokens: they stay the same in both modes.  See COLOR-ROLES.md for the audit
+// of every colour declaration and the role it was given.
+
+:root,
+[data-bs-theme="light"] {
+    // Text
+    --rdm-text: #{$grey-800};
+    --rdm-text-strong: #333;
+    --rdm-text-disabled: rgba(0, 0, 0, 0.26);
+    --rdm-text-subtle: #ccc;
+
+    // Neutral "default" button variant ($brand-default)
+    --rdm-default-bg: #{$brand-default};
+    --rdm-default-hover-bg: #{color.adjust($brand-default, $lightness: -10%)};
+    --rdm-default-active-bg: #{color.adjust($brand-default, $lightness: -10%)};
+    --rdm-default-focus-bg: #{color.adjust($brand-default, $lightness: -20%)};
+    --rdm-default-ink: #{color.adjust($brand-default, $lightness: -30%)};
+    --rdm-default-text: #{$default-text};
+
+    // Flat buttons: the hover/active/focus wash and the ripple of every colour
+    --rdm-flat-hover-bg: #{color.adjust(#999, $lightness: 30%)};
+    --rdm-flat-active-bg: #{color.adjust(#999, $lightness: 20%)};
+    --rdm-flat-focus-bg: #{color.adjust(#999, $lightness: 20%)};
+    --rdm-flat-ink: #{color.adjust(#ccc, $lightness: -30%)};
+
+    // Ripple ink on a plain surface
+    --rdm-ink: #fff;
+
+    // Surfaces
+    --rdm-surface: #fff;
+    --rdm-pagination-bg: #{$btn-default-bg-color};
+    --rdm-disabled-bg: #eee;
+    --rdm-overlay: rgba(0, 0, 0, 0.4);
+
+    // Dividers
+    --rdm-underline: #ddd;
+    --rdm-divider: #eee;
+    --rdm-chevron: #ccc;
+
+    // Interaction surfaces
+    --rdm-hover-bg: #eee;
+
+    // Shadows
+    --rdm-shadow-depth-1: #{$shadow-depth-1};
+    --rdm-shadow-depth-2: #{$shadow-depth-2};
+    --rdm-shadow-depth-3: #{$shadow-depth-3};
+    --rdm-shadow-depth-4: #{$shadow-depth-4};
+    --rdm-shadow-depth-5: #{$shadow-depth-5};
+    --rdm-shadow-navbar: 0 1px 2px rgba(0, 0, 0, .3);
+    --rdm-shadow-dropdown: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+[data-bs-theme="dark"] {
+    --rdm-text: var(--bs-body-color);
+    --rdm-text-strong: var(--bs-body-color);
+    --rdm-text-disabled: rgba(255, 255, 255, 0.3);
+    --rdm-text-subtle: var(--bs-secondary-color);
+
+    --rdm-default-bg: #333;
+    --rdm-default-hover-bg: #404040;
+    --rdm-default-active-bg: #404040;
+    --rdm-default-focus-bg: #4d4d4d;
+    --rdm-default-ink: rgba(255, 255, 255, 0.3);
+    --rdm-default-text: var(--bs-body-color);
+
+    --rdm-flat-hover-bg: rgba(255, 255, 255, 0.08);
+    --rdm-flat-active-bg: rgba(255, 255, 255, 0.16);
+    --rdm-flat-focus-bg: rgba(255, 255, 255, 0.16);
+    --rdm-flat-ink: rgba(255, 255, 255, 0.3);
+
+    --rdm-ink: rgba(255, 255, 255, 0.3);
+
+    --rdm-surface: var(--bs-tertiary-bg);
+    --rdm-pagination-bg: rgba(33, 37, 41, 0.87);
+    --rdm-disabled-bg: rgba(255, 255, 255, 0.08);
+    --rdm-overlay: rgba(0, 0, 0, 0.6);
+
+    --rdm-underline: #495057;
+    --rdm-divider: rgba(255, 255, 255, 0.12);
+    --rdm-chevron: #6c757d;
+
+    --rdm-hover-bg: rgba(255, 255, 255, 0.08);
+
+    // Shadows are barely visible on a dark surface: deepen them and add a
+    // faint top highlight, as Material's dark theme does for raised surfaces.
+    --rdm-shadow-depth-1: 0 1px 3px 0 rgba(0, 0, 0, .4), 0 1px 2px 0 rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .05);
+    --rdm-shadow-depth-2: 0 3px 6px rgba(0, 0, 0, .45), 0 3px 6px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .06);
+    --rdm-shadow-depth-3: 0 6px 12px rgba(0, 0, 0, .45), 0 8px 12px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .07);
+    --rdm-shadow-depth-4: 0 9px 15px -1px rgba(0, 0, 0, .45), 0 11px 24px -1px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .08);
+    --rdm-shadow-depth-5: 0 13px 25px -2px rgba(0, 0, 0, .45), 0 13px 28px -2px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .09);
+    --rdm-shadow-navbar: 0 1px 2px rgba(0, 0, 0, .6);
+    --rdm-shadow-dropdown: 0 6px 12px rgba(0, 0, 0, .5);
+}

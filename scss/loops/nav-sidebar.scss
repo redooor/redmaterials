@@ -4,6 +4,11 @@
 @each $name, $pair in $color-name-text-map {
     $color: list.nth($pair, 1);
     $textcolor: list.nth($pair, 2);
+    // The neutral "default" variant follows the colour mode (see _tokens.scss).
+    @if $name == "default" {
+        $color: var(--rdm-default-bg);
+        $textcolor: var(--rdm-default-text);
+    }
     .nav-sidebar-#{$name} {
         .nav-sidebar-title {
             background-color: $color;
