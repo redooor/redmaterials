@@ -6,13 +6,13 @@
 // Bootstrap 5.3 paints popovers and their arrows from CSS variables, so no
 // direction-specific arrow selectors are needed.
 .popover {
-    --bs-popover-bg: #{$btn-default-bg-color};
-    --bs-popover-header-bg: #{$btn-default-bg-color};
-    --bs-popover-border-color: #{$popover-border-color};
+    --bs-popover-bg: var(--rdm-surface-translucent);
+    --bs-popover-header-bg: var(--rdm-surface-translucent);
+    --bs-popover-border-color: var(--rdm-popover-border);
     --bs-popover-border-radius: 2px;
     --bs-popover-inner-border-radius: 2px;
-    --bs-popover-box-shadow: #{$shadow-depth-2};
+    --bs-popover-box-shadow: var(--rdm-shadow-depth-2);
     border-radius: 2px;
-    border-color: $popover-border-color;
-    box-shadow: $shadow-depth-2;
+    border-color: var(--rdm-popover-border);
+    box-shadow: var(--rdm-shadow-depth-2);
 }

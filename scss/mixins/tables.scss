@@ -4,39 +4,82 @@
 //
 // Tables
 // --------------------------------------------------
+// Contextual table colours are pale tints in the light theme.  Their dark
+// counterparts keep the hue but drop the lightness; both live in custom
+// properties so they follow the nearest `data-bs-theme` (see _tokens.scss for
+// the neutral tokens).
+@function table-dark-tint($color, $amount: 85%) {
+    @return color.scale($color, $lightness: -$amount);
+}
+
 // For styling different state colour.  Bootstrap 5.3 paints cells from the
 // --bs-table-* variables, so only the variables need to change.
 @mixin table-state($stateName, $stateColor, $stateText: $default-text, $dark: false) {
-    .#{$stateName} {
-        --bs-table-bg: #{$stateColor};
-        --bs-table-color: #{$stateText};
-        --bs-table-striped-color: #{$stateText};
-        --bs-table-active-color: #{$stateText};
-        --bs-table-hover-color: #{$stateText};
-        @if $dark {
+    @if $dark {
+        // A dark table is dark in both themes.
+        .#{$stateName} {
+            --bs-table-bg: #{$stateColor};
+            --bs-table-color: #{$stateText};
+            --bs-table-striped-color: #{$stateText};
+            --bs-table-active-color: #{$stateText};
+            --bs-table-hover-color: #{$stateText};
             --bs-table-border-color: #{color.mix(#fff, $stateColor, 20%)};
             --bs-table-striped-bg: #{color.mix(#fff, $stateColor, 8%)};
             --bs-table-active-bg: #{color.mix(#fff, $stateColor, 16%)};
             --bs-table-hover-bg: #{color.mix(#fff, $stateColor, 12%)};
-        } @else {
-            --bs-table-border-color: #{color.mix(#000, $stateColor, 20%)};
-            --bs-table-striped-bg: #{color.mix(#000, $stateColor, 4%)};
-            --bs-table-active-bg: #{color.mix(#000, $stateColor, 8%)};
-            --bs-table-hover-bg: #{color.mix(#000, $stateColor, 6%)};
+            color: var(--bs-table-color);
+            border-color: var(--bs-table-border-color);
         }
-        color: var(--bs-table-color);
-        border-color: var(--bs-table-border-color);
+    } @else {
+        $dark-color: table-dark-tint($stateColor);
+        :root,
+        [data-bs-theme="light"] {
+            --rdm-#{$stateName}-bg: #{$stateColor};
+            --rdm-#{$stateName}-border: #{color.mix(#000, $stateColor, 20%)};
+            --rdm-#{$stateName}-striped-bg: #{color.mix(#000, $stateColor, 4%)};
+            --rdm-#{$stateName}-active-bg: #{color.mix(#000, $stateColor, 8%)};
+            --rdm-#{$stateName}-hover-bg: #{color.mix(#000, $stateColor, 6%)};
+        }
+        [data-bs-theme="dark"] {
+            --rdm-#{$stateName}-bg: #{$dark-color};
+            --rdm-#{$stateName}-border: #{color.mix(#fff, $dark-color, 20%)};
+            --rdm-#{$stateName}-striped-bg: #{color.mix(#fff, $dark-color, 8%)};
+            --rdm-#{$stateName}-active-bg: #{color.mix(#fff, $dark-color, 16%)};
+            --rdm-#{$stateName}-hover-bg: #{color.mix(#fff, $dark-color, 12%)};
+        }
+        .#{$stateName} {
+            --bs-table-bg: var(--rdm-#{$stateName}-bg);
+            --bs-table-color: var(--rdm-table-text);
+            --bs-table-striped-color: var(--rdm-table-text);
+            --bs-table-active-color: var(--rdm-table-text);
+            --bs-table-hover-color: var(--rdm-table-text);
+            --bs-table-border-color: var(--rdm-#{$stateName}-border);
+            --bs-table-striped-bg: var(--rdm-#{$stateName}-striped-bg);
+            --bs-table-active-bg: var(--rdm-#{$stateName}-active-bg);
+            --bs-table-hover-bg: var(--rdm-#{$stateName}-hover-bg);
+            color: var(--bs-table-color);
+            border-color: var(--bs-table-border-color);
+        }
     }
 }
 
 // For coloured tables
 @mixin table-colorize($colorName, $table-striped-color, $table-hover-color) {
+    :root,
+    [data-bs-theme="light"] {
+        --rdm-table-#{$colorName}-striped-bg: #{$table-striped-color};
+        --rdm-table-#{$colorName}-hover-bg: #{$table-hover-color};
+    }
+    [data-bs-theme="dark"] {
+        --rdm-table-#{$colorName}-striped-bg: #{table-dark-tint($table-striped-color, 88%)};
+        --rdm-table-#{$colorName}-hover-bg: #{table-dark-tint($table-hover-color, 82%)};
+    }
     .table-#{$colorName} {
-        --bs-table-striped-bg: #{$table-striped-color};
-        --bs-table-hover-bg: #{$table-hover-color};
-        --bs-table-active-bg: #{$table-hover-color};
-        --bs-table-striped-color: #{$default-text};
-        --bs-table-hover-color: #{$default-text};
-        --bs-table-active-color: #{$default-text};
+        --bs-table-striped-bg: var(--rdm-table-#{$colorName}-striped-bg);
+        --bs-table-hover-bg: var(--rdm-table-#{$colorName}-hover-bg);
+        --bs-table-active-bg: var(--rdm-table-#{$colorName}-hover-bg);
+        --bs-table-striped-color: var(--rdm-table-text);
+        --bs-table-hover-color: var(--rdm-table-text);
+        --bs-table-active-color: var(--rdm-table-text);
     }
 }

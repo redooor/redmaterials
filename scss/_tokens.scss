@@ -2,6 +2,12 @@
 @use "colors" as *;
 @use "variables" as *;
 
+// Select arrows are PNG data URLs in light; the dark variants are SVG chevrons.
+$select-arrow: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+$select-arrow-focus: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+$select-arrow-dark: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+$select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+
 //
 // Colour tokens
 // --------------------------------------------------
@@ -21,6 +27,9 @@
     --rdm-text-strong: #333;
     --rdm-text-disabled: rgba(0, 0, 0, 0.26);
     --rdm-text-subtle: #ccc;
+    --rdm-text-muted: #666666;
+    --rdm-table-text: #{$default-text};
+    --rdm-table-header-color: #{$table-header-font-color};
 
     // Neutral "default" button variant ($brand-default)
     --rdm-default-bg: #{$brand-default};
@@ -41,7 +50,7 @@
 
     // Surfaces
     --rdm-surface: #fff;
-    --rdm-pagination-bg: #{$btn-default-bg-color};
+    --rdm-surface-translucent: #{$btn-default-bg-color};
     --rdm-disabled-bg: #eee;
     --rdm-overlay: rgba(0, 0, 0, 0.4);
 
@@ -49,9 +58,25 @@
     --rdm-underline: #ddd;
     --rdm-divider: #eee;
     --rdm-chevron: #ccc;
+    --rdm-popover-border: #{$popover-border-color};
+    --rdm-blockquote-border: rgba(0, 0, 0, 0.15);
+
+    --rdm-control-border: #{$form-primary};
+    --rdm-control-subtle: #{$form-secondary};
+    --rdm-focus-gap: #fff;
+    --rdm-select-arrow: #{$select-arrow};
+    --rdm-select-arrow-focus: #{$select-arrow-focus};
 
     // Interaction surfaces
     --rdm-hover-bg: #eee;
+    --rdm-table-striped-bg: #{$table-bg-accent};
+    --rdm-table-hover-bg: #{$table-bg-hover};
+    --rdm-table-active-bg: #{$table-bg-active};
+    --rdm-table-border: #{$table-border-color};
+
+    // Tooltip
+    --rdm-tooltip-bg: #{$tooltip-bg-color};
+    --rdm-tooltip-color: #{$brand-white};
 
     // Shadows
     --rdm-shadow-depth-1: #{$shadow-depth-1};
@@ -61,6 +86,7 @@
     --rdm-shadow-depth-5: #{$shadow-depth-5};
     --rdm-shadow-navbar: 0 1px 2px rgba(0, 0, 0, .3);
     --rdm-shadow-dropdown: 0 6px 12px rgba(0, 0, 0, .175);
+    --rdm-shadow-ribbon: 0 0 3px rgba(0, 0, 0, .3);
 }
 
 [data-bs-theme="dark"] {
@@ -68,6 +94,9 @@
     --rdm-text-strong: var(--bs-body-color);
     --rdm-text-disabled: rgba(255, 255, 255, 0.3);
     --rdm-text-subtle: var(--bs-secondary-color);
+    --rdm-text-muted: var(--bs-secondary-color);
+    --rdm-table-text: var(--bs-body-color);
+    --rdm-table-header-color: var(--bs-secondary-color);
 
     --rdm-default-bg: #333;
     --rdm-default-hover-bg: #404040;
@@ -84,15 +113,30 @@
     --rdm-ink: rgba(255, 255, 255, 0.3);
 
     --rdm-surface: var(--bs-tertiary-bg);
-    --rdm-pagination-bg: rgba(33, 37, 41, 0.87);
+    --rdm-surface-translucent: rgba(43, 48, 53, 0.87);
     --rdm-disabled-bg: rgba(255, 255, 255, 0.08);
     --rdm-overlay: rgba(0, 0, 0, 0.6);
 
     --rdm-underline: #495057;
     --rdm-divider: rgba(255, 255, 255, 0.12);
     --rdm-chevron: #6c757d;
+    --rdm-control-border: #adb5bd;
+    --rdm-control-subtle: #495057;
+    --rdm-focus-gap: var(--bs-body-bg);
+    --rdm-select-arrow: #{$select-arrow-dark};
+    --rdm-select-arrow-focus: #{$select-arrow-dark-focus};
+    --rdm-popover-border: #343a40;
+    --rdm-blockquote-border: rgba(255, 255, 255, 0.15);
 
     --rdm-hover-bg: rgba(255, 255, 255, 0.08);
+    --rdm-table-striped-bg: rgba(255, 255, 255, 0.05);
+    --rdm-table-hover-bg: rgba(255, 255, 255, 0.1);
+    --rdm-table-active-bg: rgba(255, 255, 255, 0.1);
+    --rdm-table-border: #495057;
+
+    // Material dark tooltips stay light, as Bootstrap's do
+    --rdm-tooltip-bg: #e0e0e0;
+    --rdm-tooltip-color: #212121;
 
     // Shadows are barely visible on a dark surface: deepen them and add a
     // faint top highlight, as Material's dark theme does for raised surfaces.
@@ -103,4 +147,5 @@
     --rdm-shadow-depth-5: 0 13px 25px -2px rgba(0, 0, 0, .45), 0 13px 28px -2px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .09);
     --rdm-shadow-navbar: 0 1px 2px rgba(0, 0, 0, .6);
     --rdm-shadow-dropdown: 0 6px 12px rgba(0, 0, 0, .5);
+    --rdm-shadow-ribbon: 0 0 3px rgba(0, 0, 0, .6);
 }

@@ -11,10 +11,10 @@
 .table {
     --bs-table-bg: transparent;
     --bs-table-accent-bg: transparent;
-    --bs-table-striped-bg: #{$table-bg-accent};
-    --bs-table-hover-bg: #{$table-bg-hover};
-    --bs-table-active-bg: #{$table-bg-active};
-    --bs-table-border-color: #{$table-border-color};
+    --bs-table-striped-bg: var(--rdm-table-striped-bg);
+    --bs-table-hover-bg: var(--rdm-table-hover-bg);
+    --bs-table-active-bg: var(--rdm-table-active-bg);
+    --bs-table-border-color: var(--rdm-table-border);
 
     > :not(caption) > * {
         transition: all .3s ease;
@@ -95,7 +95,7 @@
                         float: left;
                         font-size: inherit;
                         font-weight: $table-header-font-weight;
-                        color: $table-header-font-color;
+                        color: var(--rdm-table-header-color);
                     }
                 }
             }
