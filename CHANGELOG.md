@@ -16,7 +16,8 @@ Bootstrap 5.3 support (tested with Bootstrap 5.3.8).
 4. Table colouring now uses the `--bs-table-*` variables.
 5. Tooltip and popover styling now uses the Bootstrap 5.3 CSS variables.
 6. Removed the Bootstrap 3/4 shims (`compat-bootstrap3`, `compat-glyphicons`), the Glyphicons font, and the Jumbotron component. See [BREAKING.md](BREAKING.md).
-7. The unreleased intermediate Bootstrap 4.6 / Sass migration work also ships in this release. Since 0.1.0 the build uses Dart Sass and npm scripts instead of Grunt/Bower (0.1.0 itself was LESS/Grunt).
+7. `redmaterials.js` no longer requires jQuery. The ripple effect and the nav-sidebar toggle are plain JavaScript with the same markup and class names. Fixes: the nav sidebar no longer toggles twice on a touch tap, the ripple is positioned correctly on elements with a border and starts from the centre on keyboard activation, and a missing or invalid `data-target` no longer throws. `data-bs-target` is accepted as an alias for `data-target`.
+8. The unreleased intermediate Bootstrap 4.6 / Sass migration work also ships in this release. Since 0.1.0 the build uses Dart Sass and npm scripts instead of Grunt/Bower (0.1.0 itself was LESS/Grunt).
 
 ## Version 0.1.0
 

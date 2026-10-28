@@ -29,15 +29,14 @@ Version 0.2.0 is an incomplete release. We're constantly adding new features to 
 
 Redmaterials 0.2.x requires **Bootstrap 5.3.x** CSS and JS. Use the Bootstrap **bundle** build, which includes Popper.
 
-jQuery 3.x is required only by Redmaterials' own JavaScript (the ripple effect and the nav-sidebar toggle). Bootstrap 5 itself does not need jQuery.
+Redmaterials' own JavaScript (the ripple effect and the nav-sidebar toggle) has no dependencies and does not need jQuery. Bootstrap 5 does not need jQuery either.
 
 Load the assets in this order:
 
 1. Bootstrap 5.3 CSS
 2. `redmaterials.css`
 3. Bootstrap 5.3 bundle JS
-4. jQuery 3.x
-5. `redmaterials.js`
+4. `redmaterials.js`
 
 ## Important Note
 
@@ -82,9 +81,6 @@ Web Font Loader example:
 
 <!-- Bootstrap 5.3 bundle JS (includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- jQuery 3.x for Redmaterials' own JS only -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 
 <!-- Redmaterials JS (after Bootstrap) -->
 <script src="dist/js/redmaterials.min.js"></script>

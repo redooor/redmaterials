@@ -10,17 +10,16 @@ Redmaterials 0.2.x targets **Bootstrap 5.3.x** (the examples use Bootstrap 5.3.8
 | --- | --- |
 | Redmaterials | 0.2.x |
 | Bootstrap CSS + JS | 5.3.x (use the bundle build; it includes Popper) |
-| jQuery | 3.x, only for Redmaterials' own JavaScript |
+| jQuery | Not required (Redmaterials' own JavaScript no longer uses it) |
 
 Load the assets in this order:
 
 1. Bootstrap 5.3 CSS
 2. `redmaterials.css`
 3. Bootstrap 5.3 bundle JS
-4. jQuery 3.x
-5. `redmaterials.js`
+4. `redmaterials.js`
 
-Bootstrap 5 does not need jQuery. Redmaterials uses jQuery only for its ripple effect and nav-sidebar toggle.
+Neither Bootstrap 5 nor Redmaterials needs jQuery. Redmaterials' ripple effect and nav-sidebar toggle are plain JavaScript. If you used Redmaterials with jQuery before, you can remove jQuery from your page unless your own code needs it.
 
 ```html
 <!-- 1. Bootstrap 5.3 CSS -->
@@ -32,17 +31,14 @@ Bootstrap 5 does not need jQuery. Redmaterials uses jQuery only for its ripple e
 <!-- 3. Bootstrap 5.3 bundle JS (includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- 4. jQuery 3.x for Redmaterials' own JS only -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-
-<!-- 5. Redmaterials JS (after Bootstrap) -->
+<!-- 4. Redmaterials JS (after Bootstrap) -->
 <script src="dist/js/redmaterials.min.js"></script>
 ```
 
 ### Step-by-step checklist
 
-1. **Swap the CDN links.** Move from Bootstrap 4 (or 3) to Bootstrap 5.3.8 CSS and the Bootstrap 5.3.8 bundle JS. Keep Bootstrap CSS before `redmaterials.css` and Bootstrap JS before `redmaterials.js`, and load jQuery 3.x before `redmaterials.js`.
-2. **Rename Bootstrap data attributes.** Change `data-toggle` to `data-bs-toggle`, `data-target` to `data-bs-target`, and `data-dismiss` to `data-bs-dismiss` (also `data-placement` to `data-bs-placement`, `data-content` to `data-bs-content`, and `data-spy` to `data-bs-spy`). **Do not rename Redmaterials' own sidebar attributes:** the nav sidebar still uses `data-toggle="nav-sidebar-toggle"` and `data-target="#your_wrapper_id"`. Those are handled by `redmaterials.js`, not Bootstrap.
+1. **Swap the CDN links.** Move from Bootstrap 4 (or 3) to Bootstrap 5.3.8 CSS and the Bootstrap 5.3.8 bundle JS. Keep Bootstrap CSS before `redmaterials.css` and Bootstrap JS before `redmaterials.js`.
+2. **Rename Bootstrap data attributes.** Change `data-toggle` to `data-bs-toggle`, `data-target` to `data-bs-target`, and `data-dismiss` to `data-bs-dismiss` (also `data-placement` to `data-bs-placement`, `data-content` to `data-bs-content`, and `data-spy` to `data-bs-spy`). **Do not rename Redmaterials' own sidebar attributes:** the nav sidebar still uses `data-toggle="nav-sidebar-toggle"` and `data-target="#your_wrapper_id"`. Those are handled by `redmaterials.js`, not Bootstrap, and work unchanged (`data-bs-target` is also accepted).
 3. **Run the class mapping below.** Replace the Bootstrap 3/4 classes with their Bootstrap 5 equivalents, particularly `.form-group`, `.custom-*`, `.ml-*`/`.mr-*`, `.text-left`/`.text-right`, `.thead-dark`/`.thead-light`, and `.card-deck`/`.card-columns`.
 4. **Replace Glyphicons.** The Glyphicons font is no longer bundled. Replace `.glyphicon-*` elements with [Font Awesome Free](https://fontawesome.com/), Bootstrap Icons, Material Icons, or inline SVG.
 5. **Test.** Check forms, tables, dropdowns, modals, navs/navbars, tooltips, popovers, and the nav sidebar. Tooltips and popovers still need explicit initialisation (see [JavaScript](#javascript)).
@@ -102,7 +98,7 @@ Bootstrap 5 does not need jQuery. Redmaterials uses jQuery only for its ripple e
 
 Bootstrap 5 dispatches native DOM events (for example `show.bs.modal` and `shown.bs.tab`) instead of relying on jQuery. Use `addEventListener` for new code; jQuery `.on()` handlers continue to work when jQuery is on the page.
 
-jQuery plugin calls such as `$('#myModal').modal('show')` and `$('.dropdown-toggle').dropdown()` still work when jQuery is loaded before `redmaterials.js`, but jQuery is no longer required by Bootstrap itself.
+jQuery plugin calls such as `$('#myModal').modal('show')` and `$('.dropdown-toggle').dropdown()` still work if **your page** loads jQuery before Bootstrap's bundle, but neither Bootstrap nor Redmaterials requires jQuery.
 
 Tooltips and popovers still have to be initialised explicitly, as in Bootstrap 4:
 
