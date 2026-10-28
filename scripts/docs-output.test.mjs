@@ -25,6 +25,28 @@ for (const [name, html] of pages) {
     for (const m of html.matchAll(/\s(?:for|aria-controls|aria-labelledby)="([^"]+)"/g)) refs.push(...m[1].split(/\s+/));
     for (const id of refs) assert.ok(ids.has(id), `dangling reference to #${id} in ${name}`);
   });
+  test(`${name}: a collapse toggler's aria-controls matches its data-bs-target`, () => {
+    for (const m of html.matchAll(/<button[^>]*data-bs-toggle="collapse"[^>]*>/g)) {
+      const target = (m[0].match(/data-bs-target="#([^"]+)"/) || [])[1];
+      const controls = (m[0].match(/aria-controls="([^"]*)"/) || [])[1];
+      assert.equal(controls, target, `aria-controls "${controls}" != data-bs-target "#${target}" in ${name}`);
+    }
+  });
+  test(`${name}: copyable snippets are self-consistent (decoded, each snippet on its own)`, () => {
+    const decode = t => t.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+    for (const m of html.matchAll(/<pre class="docs-snippet[^"]*"><code>([\s\S]*?)<\/code><\/pre>/g)) {
+      const code = decode(m[1]);
+      const ids = new Set([...code.matchAll(/\sid="([^"]+)"/g)].map(x => x[1]));
+      for (const x of code.matchAll(/<[^>]*data-bs-toggle="collapse"[^>]*>/g)) {
+        const target = (x[0].match(/data-bs-target="#([^"]+)"/) || [])[1];
+        const controls = (x[0].match(/aria-controls="([^"]*)"/) || [])[1];
+        if (target) assert.equal(controls, target, `snippet: aria-controls "${controls}" != "#${target}": ${code.slice(0, 80)}`);
+      }
+      for (const x of code.matchAll(/aria-labelledby="([^"]+)"/g)) {
+        assert.ok(ids.has(x[1]), `snippet: aria-labelledby="${x[1]}" has no matching id in the same snippet: ${code.slice(0, 80)}`);
+      }
+    }
+  });
   test(`${name}: no http:// resource links`, () => assert.ok(!/(?:src|href)="http:\/\//.test(html)));
   test(`${name}: no <style> blocks and no docs stylesheet directory`, () => {
     assert.ok(!/<style[\s>]/i.test(html), 'inline <style>');
