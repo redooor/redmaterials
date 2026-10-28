@@ -9,7 +9,7 @@
 // properties so they follow the nearest `data-bs-theme` (see _tokens.scss for
 // the neutral tokens).
 @function table-dark-tint($color, $amount: 85%) {
-    @return color.scale($color, $lightness: -$amount);
+    @return color.scale($color, $lightness: -$amount, $saturation: -45%);
 }
 
 // For styling different state colour.  Bootstrap 5.3 paints cells from the
