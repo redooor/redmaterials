@@ -41,7 +41,6 @@ const browser = await puppeteer.launch({ executablePath: chrome, headless: 'new'
 const results = [];
 let currentPage = '';
 const check = (name, ok, info = '') => { results.push(ok); console.log(`${ok ? 'PASS' : 'FAIL'} [${currentPage}] ${name}${info ? ' ' + info : ''}`); };
-const initSource = fs.readFileSync(path.join(root, 'docs-src', 'assets', 'js', 'init.js'), 'utf8');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 // smooth scrolling (Bootstrap reboot) can take seconds over a long page: wait until scrollY is stable
 async function settle(page, max = 4000) {
@@ -263,32 +262,6 @@ try {
         check(`10e at 360px the section heading clears the sticky header (${theme} theme)`, off.top >= off.bar, JSON.stringify(off));
         await t.page.close();
       }
-    }
-
-    // 12. demo-frame state sync: a frame whose own storage is unavailable still takes the parent's colour mode and theme
-    {
-      const { page } = await open(file);
-      await page.evaluate(() => docsState.set({ mode: 'dark', theme: 'bootstrap' }));
-      const frame = await page.evaluate(async src => {
-        const f = document.createElement('iframe');
-        f.className = 'docs-demo';
-        f.srcdoc = '<!doctype html><html><head><link id="redmaterials-css" rel="stylesheet" href="data:text/css,"><script>Object.defineProperty(window,"localStorage",{get(){throw new Error("denied")}});<\/script><script>' + src + '<\/script></head><body></body></html>';
-        document.body.appendChild(f);
-        await new Promise(r => f.addEventListener('load', r));
-        await new Promise(r => setTimeout(r, 400));
-        const d = f.contentDocument;
-        return { mode: d.documentElement.getAttribute('data-bs-theme'), theme: d.documentElement.getAttribute('data-docs-theme'), disabled: d.getElementById('redmaterials-css').disabled };
-      }, initSource);
-      check('12a a demo frame takes the parent\'s state through the postMessage handshake', frame.mode === 'dark' && frame.theme === 'bootstrap' && frame.disabled, JSON.stringify(frame));
-      const later = await page.evaluate(async () => {
-        const f = document.querySelector('iframe.docs-demo');
-        docsState.set({ mode: 'light', theme: 'redmaterials' });
-        await new Promise(r => setTimeout(r, 300));
-        const d = f.contentDocument;
-        return { mode: d.documentElement.getAttribute('data-bs-theme'), disabled: d.getElementById('redmaterials-css').disabled };
-      });
-      check('12b later changes in the parent reach the frame', later.mode === 'light' && !later.disabled, JSON.stringify(later));
-      await page.close();
     }
   }
 } finally {

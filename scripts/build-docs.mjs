@@ -71,7 +71,7 @@ export function renderSidebar(sections, page) {
     + `<ul class="nav flex-column">\n${head(other)}\n${links(other, otherPage)}\n</ul>`;
 }
 
-// Pages live in docs/, demo pages in docs/demos/; {{root}} is '' or '../' so asset paths stay relative (file:// safe).
+// {{root}} is '' (pages live next to dist/ and assets/), so every asset URL is relative and works from file://.
 export function build({ srcDir, outDir, pkg }) {
   const read = f => { try { return fs.readFileSync(path.join(srcDir, f), 'utf8').replace(/\r\n/g, '\n'); } catch { return undefined; } };
   const sections = JSON.parse(read('sections.json'));
@@ -87,13 +87,6 @@ export function build({ srcDir, outDir, pkg }) {
   };
   for (const page of ['index', 'redmaterials']) {
     fs.writeFileSync(path.join(outDir, `${page}.html`), render(`pages/${page}.html`, '', page === 'index' ? 'bootstrap' : 'redmaterials'));
-  }
-  const demos = path.join(srcDir, 'demos');
-  if (fs.existsSync(demos)) {
-    fs.mkdirSync(path.join(outDir, 'demos'), { recursive: true });
-    for (const f of fs.readdirSync(demos).filter(n => n.endsWith('.html'))) {
-      fs.writeFileSync(path.join(outDir, 'demos', f), render(`demos/${f}`, '../', null));
-    }
   }
 }
 

@@ -98,10 +98,8 @@ test('build: a missing page file, and a malformed marker in a page, fail the bui
   const bad = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<!--@example--><b>x</b>', 'pages/redmaterials.html': 'ok' });
   assert.throws(() => build({ srcDir: bad.src, outDir: bad.out, pkg: { version: '1' } }), /unconsumed directive/);
 });
-test('build: demos are generated under docs/demos with {{root}} = ../ and pages with an empty root', () => {
-  const site = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<link href="{{root}}dist/a.css">', 'pages/redmaterials.html': 'r',
-    'demos/side.html': '<link href="{{root}}dist/a.css"><!--@inline init.js-->', 'init.js': 'var x=1;' });
+test('build: {{root}} is empty in pages and an inline file is wrapped in <script>', () => {
+  const site = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<link href="{{root}}dist/a.css"><!--@inline init.js-->', 'pages/redmaterials.html': 'r', 'init.js': 'var x=1;' });
   build({ srcDir: site.src, outDir: site.out, pkg: { version: '1' } });
-  assert.equal(fs.readFileSync(path.join(site.out, 'index.html'), 'utf8'), '<link href="dist/a.css">');
-  assert.equal(fs.readFileSync(path.join(site.out, 'demos/side.html'), 'utf8'), '<link href="../dist/a.css"><script>var x=1;</script>');
+  assert.equal(fs.readFileSync(path.join(site.out, 'index.html'), 'utf8'), '<link href="dist/a.css"><script>var x=1;</script>');
 });
