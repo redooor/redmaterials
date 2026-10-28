@@ -101,8 +101,8 @@ $bs-link-hover: color.adjust($brand-primary, $lightness: -10%);
 @each $name, $color in $bs-theme-colors {
     $text-color: outline-text-color($name);
     .btn-outline-#{$name} {
-        --bs-btn-color: #{$color};
-        --bs-btn-border-color: #{$color};
+        --bs-btn-color: var(--rdm-ctx-#{$name});
+        --bs-btn-border-color: var(--rdm-ctx-#{$name});
         --bs-btn-hover-color: #{$text-color};
         --bs-btn-hover-bg: #{$color};
         --bs-btn-hover-border-color: #{$color};
@@ -110,9 +110,9 @@ $bs-link-hover: color.adjust($brand-primary, $lightness: -10%);
         --bs-btn-active-color: #{$text-color};
         --bs-btn-active-bg: #{round-color(shade-color($color, 10%))};
         --bs-btn-active-border-color: #{round-color(shade-color($color, 10%))};
-        --bs-btn-disabled-color: #{$color};
+        --bs-btn-disabled-color: var(--rdm-ctx-#{$name});
         --bs-btn-disabled-bg: transparent;
-        --bs-btn-disabled-border-color: #{$color};
+        --bs-btn-disabled-border-color: var(--rdm-ctx-#{$name});
     }
 
     .btn-#{$name} {

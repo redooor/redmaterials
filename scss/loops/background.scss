@@ -23,19 +23,19 @@
         }
         // Support flat btn
         &.btn-flat {
-            color: $color;
+            color: var(--rdm-pal-#{$name});
             background-color: transparent;
             &:hover {
-                color: color.adjust($color, $lightness: -10%);
+                color: var(--rdm-pal-#{$name}-hover);
                 background-color: var(--rdm-flat-hover-bg);
             }
             &:active,
             &.active {
-                color: color.adjust($color, $lightness: -20%);
+                color: var(--rdm-pal-#{$name}-active);
                 background-color: var(--rdm-flat-active-bg);
             }
             &:focus {
-                color: color.adjust($color, $lightness: -30%);
+                color: var(--rdm-pal-#{$name}-focus);
                 background-color: var(--rdm-flat-focus-bg);
             }
             //## color for riple-effect

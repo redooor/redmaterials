@@ -6,3 +6,8 @@
 a {
     color: $brand-primary;
 }
+
+// Bootstrap hard-codes the footer grey; keep it readable in dark.
+.blockquote-footer {
+    color: var(--rdm-text-secondary);
+}

@@ -1,0 +1,83 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:math";
+@use "variables" as *;
+
+//
+// Palette text tokens
+// --------------------------------------------------
+// Brand and palette colours are identity colours and do not change between
+// modes when they are used as a fill.  When they are used as *text* (flat
+// buttons, outline buttons, .text-*) on a dark surface, a colour that falls
+// below 4.5:1 against Bootstrap's dark body background is lifted towards
+// white in 5% steps until it passes; colours that already pass are untouched.
+//
+// For each colour: base, hover, active and focus.  The light values are the
+// values the loops always used (darker for hover/active/focus); the dark
+// values step lighter instead.
+
+$dark-surface: #212529;
+
+@function channel-luminance($value) {
+    $s: math.div($value, 255);
+    @if $s <= 0.03928 {
+        @return math.div($s, 12.92);
+    }
+    @return math.pow(math.div($s + 0.055, 1.055), 2.4);
+}
+
+@function luminance($c) {
+    @return 0.2126 * channel-luminance(color.channel($c, "red", $space: rgb))
+        + 0.7152 * channel-luminance(color.channel($c, "green", $space: rgb))
+        + 0.0722 * channel-luminance(color.channel($c, "blue", $space: rgb));
+}
+
+@function contrast($a, $b) {
+    $la: luminance($a);
+    $lb: luminance($b);
+    @return math.div(math.max($la, $lb) + 0.05, math.min($la, $lb) + 0.05);
+}
+
+@function lift($c) {
+    @for $i from 0 through 20 {
+        $m: color.mix(#fff, $c, $i * 5%);
+        @if contrast($m, $dark-surface) >= 4.5 {
+            @return $m;
+        }
+    }
+    @return #fff;
+}
+
+@mixin palette-light($prefix, $name, $color) {
+    --rdm-#{$prefix}-#{$name}: #{$color};
+    --rdm-#{$prefix}-#{$name}-hover: #{color.adjust($color, $lightness: -10%)};
+    --rdm-#{$prefix}-#{$name}-active: #{color.adjust($color, $lightness: -20%)};
+    --rdm-#{$prefix}-#{$name}-focus: #{color.adjust($color, $lightness: -30%)};
+}
+
+@mixin palette-dark($prefix, $name, $color) {
+    $base: lift($color);
+    --rdm-#{$prefix}-#{$name}: #{$base};
+    --rdm-#{$prefix}-#{$name}-hover: #{color.adjust($base, $lightness: 6%)};
+    --rdm-#{$prefix}-#{$name}-active: #{color.adjust($base, $lightness: 10%)};
+    --rdm-#{$prefix}-#{$name}-focus: #{color.adjust($base, $lightness: 14%)};
+}
+
+:root,
+[data-bs-theme="light"] {
+    @each $name, $color in $brand-color-map {
+        @include palette-light("ctx", $name, $color);
+    }
+    @each $name, $pair in $color-name-text-map {
+        @include palette-light("pal", $name, list.nth($pair, 1));
+    }
+}
+
+[data-bs-theme="dark"] {
+    @each $name, $color in $brand-color-map {
+        @include palette-dark("ctx", $name, $color);
+    }
+    @each $name, $pair in $color-name-text-map {
+        @include palette-dark("pal", $name, list.nth($pair, 1));
+    }
+}

@@ -33,19 +33,19 @@
         }
 
         &.btn-flat {
-            color: $color;
+            color: var(--rdm-ctx-#{$context});
             background-color: transparent;
             &:hover {
-                color: color.adjust($color, $lightness: -10%);
+                color: var(--rdm-ctx-#{$context}-hover);
                 background-color: var(--rdm-flat-hover-bg);
             }
             &:active,
             &.active {
-                color: color.adjust($color, $lightness: -20%);
+                color: var(--rdm-ctx-#{$context}-active);
                 background-color: var(--rdm-flat-active-bg);
             }
             &:focus {
-                color: color.adjust($color, $lightness: -30%);
+                color: var(--rdm-ctx-#{$context}-focus);
                 background-color: var(--rdm-flat-focus-bg);
             }
             //## color for riple-effect
