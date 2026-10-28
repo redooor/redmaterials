@@ -5,7 +5,7 @@
     // Ripple-effect animation
     // Source: http://codepen.io/zavoloklom/pen/Gubja/
     document.addEventListener("click", function (e) {
-        var rippler = e.target.closest(".ripple-effect"), ink, d, rect, cx, cy;
+        var rippler = e.target.closest(".ripple-effect"), ink, d, rect, cx, cy, centred;
         if (!rippler) { return; }
         ink = rippler.querySelector(".ink");
         if (!ink) {
@@ -21,9 +21,11 @@
             ink.style.width = d + "px";
         }
         rect = rippler.getBoundingClientRect();
-        // keyboard activation reports detail 0 and no coordinates: ripple from the centre
-        cx = e.detail === 0 ? rect.left + rect.width / 2 : e.clientX;
-        cy = e.detail === 0 ? rect.top + rect.height / 2 : e.clientY;
+        // keyboard activation and element.click() report detail 0 and no coordinates: ripple from the centre.
+        // A synthetic click that carries coordinates keeps them.
+        centred = e.detail === 0 && !e.clientX && !e.clientY;
+        cx = centred ? rect.left + rect.width / 2 : e.clientX;
+        cy = centred ? rect.top + rect.height / 2 : e.clientY;
         ink.style.top = (cy - rect.top - rippler.clientTop - ink.offsetHeight / 2) + "px";
         ink.style.left = (cx - rect.left - rippler.clientLeft - ink.offsetWidth / 2) + "px";
         void ink.offsetWidth; // force reflow so the animation restarts

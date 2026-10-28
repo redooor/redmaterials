@@ -77,9 +77,11 @@ try {
     await page.mouse.click(c.x, c.y);
     const first = await page.$eval('#plain', el => { const k = el.querySelector('.ink'); return { inks: el.querySelectorAll('.ink').length, animate: !!k && k.classList.contains('animate'), w: k ? k.offsetWidth : 0, h: k ? k.offsetHeight : 0, max: Math.max(el.offsetWidth, el.offsetHeight) }; });
     check('2a click appends one .ink sized to max(width,height) with .animate', first.inks === 1 && first.animate && first.w === first.max && first.h === first.max, JSON.stringify(first));
+    await page.evaluate(() => { const k = document.querySelector('#plain > .ink'); window.__firstAnim = k && k.getAnimations()[0]; });
+    await new Promise(r => setTimeout(r, 150));
     await page.mouse.click(c.x + 3, c.y);
-    const second = await page.$eval('#plain', el => { const k = el.querySelector('.ink'); return { inks: el.querySelectorAll('.ink').length, animate: !!k && k.classList.contains('animate') }; });
-    check('2b second click keeps one .ink and re-adds .animate', second.inks === 1 && second.animate);
+    const second = await page.$eval('#plain', el => { const k = el.querySelector('.ink'); const a = k && k.getAnimations()[0]; return { inks: el.querySelectorAll('.ink').length, animate: !!k && k.classList.contains('animate'), hadAnim: !!window.__firstAnim, restarted: !!a && a !== window.__firstAnim && a.currentTime < 120 }; });
+    check('2b second click keeps one .ink and RESTARTS the animation (a new animation, timeline reset)', second.inks === 1 && second.animate && second.hadAnim && second.restarted, JSON.stringify(second));
     await page.focus('#plain'); await page.keyboard.press('Enter');
     const kb = await page.$eval('#plain', el => el.querySelectorAll('.ink').length);
     const kbc = await inkCenter(page, '#plain'); const pc = await center(page, '#plain');
@@ -96,11 +98,22 @@ try {
       const off = dist(ic, { x: cc.x - 7, y: cc.y + 3 });
       check(`3 ripple centre on the click point: ${name}`, off < 2, `offset ${off.toFixed(1)}px`);
     }
-    // nested: only the nearest .ripple-effect ripples (informational for the baseline comparison)
+    // a synthetic click that carries coordinates keeps them; element.click() (no coordinates) centres
+    await page.$eval('#plain', el => el.scrollIntoView({ block: 'center' }));
+    const pr = await page.$eval('#plain', el => { const r = el.getBoundingClientRect(); return { x: r.left + 8, y: r.top + 6, cx: r.left + r.width / 2, cy: r.top + r.height / 2 }; });
+    await page.evaluate(p => document.getElementById('plain').dispatchEvent(new MouseEvent('click', { bubbles: true, clientX: p.x, clientY: p.y })), pr);
+    const sc = await inkCenter(page, '#plain');
+    check('2d synthetic click with coordinates ripples at those coordinates', dist(sc, { x: pr.x, y: pr.y }) < 2, `offset ${dist(sc, { x: pr.x, y: pr.y }).toFixed(1)}px`);
+    await page.$eval('#plain', el => el.click());
+    const sc2 = await inkCenter(page, '#plain');
+    check('2e element.click() (no coordinates) ripples from the centre', dist(sc2, { x: pr.cx, y: pr.cy }) < 2);
+    // nested: the nearest .ripple-effect owns the ripple, and its ink lands on the click point (the old jQuery build
+    // also repositioned the inner ink from the outer handler, ~45px off)
     await page.$eval('#inner', el => el.scrollIntoView({ block: 'center' }));
-    const ic2 = await center(page, '#inner'); await page.mouse.click(ic2.x, ic2.y);
+    const ic2 = await center(page, '#inner'); await page.mouse.click(ic2.x - 5, ic2.y + 4);
     const nested = await page.evaluate(() => ({ inner: document.querySelectorAll('#inner > .ink').length, outer: document.querySelectorAll('#outer > .ink').length }));
-    info('9a nested ripple-effect elements', JSON.stringify(nested));
+    const nc = await inkCenter(page, '#inner');
+    check('9a nested ripple-effect: only the nearest owns the ripple, centred on the click', nested.inner === 1 && nested.outer === 0 && dist(nc, { x: ic2.x - 5, y: ic2.y + 4 }) < 2, JSON.stringify(nested) + ` offset ${dist(nc, { x: ic2.x - 5, y: ic2.y + 4 }).toFixed(1)}px`);
     // a Bootstrap-style handler on the same element still receives the click (ripple must not stop propagation)
     const reached = await page.evaluate(() => new Promise(res => { document.getElementById('plain').addEventListener('click', () => res(true), { once: true }); document.getElementById('plain').click(); setTimeout(() => res(false), 300); }));
     check('9b ripple does not swallow the click for other handlers', reached);
