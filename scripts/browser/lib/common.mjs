@@ -29,27 +29,31 @@ export async function resolveBase(mode, docsDir) {
 export const SAMPLES = ['.btn:not(:disabled):not(.disabled)', '.nav-link', '.dropdown-item', '.page-link', '.list-group-item-action', '.form-control', '.form-select',
   '.form-check-input', '.form-range', 'tbody tr', 'a:not(.btn):not(.nav-link):not(.dropdown-item):not(.page-link)', '.badge', '.navbar-toggler', '.accordion-button'];
 export const STATES = ['hover', 'focus', 'active', 'focus-visible'];
-export const MAX_PER_SAMPLE = 25;
+export const MAX_PER_SAMPLE = 400;   // every distinct variant (there are ~220 button variants alone); the cap only guards against runaway pages
+// The component an element lives in is part of its variant: a plain .nav-link in the docs sidebar is not the same as one in tabs or pills.
+export const CONTEXTS = '#docs-sidebar, nav.sticky-top, .nav-tabs, .nav-pills, .navbar, .nav-sidebar, .table-striped, .table-hover, .table-responsive-vertical, .dropdown-menu, .pagination, .list-group, .card, .btn-group, .btn-toolbar, .modal, .accordion, .input-group, .toast, .popover, .tooltip, .alert, .well, .corner-ribbon, .progress, form';
 
 // Marks one element per distinct variant of each sample selector with data-audit-pick.
 export async function markSamples(page) {
-  return page.evaluate((samples, max) => {
+  return page.evaluate((samples, max, contexts) => {
     let n = 0;
     document.querySelectorAll('[data-audit-pick]').forEach(e => e.removeAttribute('data-audit-pick'));
     for (const sel of samples) {
       const seen = new Set();
       for (const el of document.querySelectorAll('main ' + sel + ', #docs-sidebar ' + sel)) {
-        const sig = el.tagName + '|' + String(el.className).replace(/\b(mb|mt|me|ms|mx|my|px|py|p|pt|pb)-\d\b/g, '').replace(/\s+/g, ' ').trim() + '|' + (el.getAttribute('type') || '');
+        const ctx = el.parentElement && el.parentElement.closest(contexts);
+        const sig = el.tagName + '|' + String(el.className).replace(/\b(mb|mt|me|ms|mx|my|px|py|p|pt|pb)-\d\b/g, '').replace(/\s+/g, ' ').trim() + '|' + (el.getAttribute('type') || '') + '|' + (ctx ? ctx.tagName + '.' + String(ctx.className).replace(/\b(mb|mt|me|ms|mx|my|px|py|p|pt|pb)-\d\b/g, '').replace(/\s+/g, ' ').trim() : '');
         if (seen.has(sig) || seen.size >= max) continue;
         seen.add(sig); el.setAttribute('data-audit-pick', String(n++));
       }
     }
     return n;
-  }, SAMPLES, MAX_PER_SAMPLE);
+  }, SAMPLES, MAX_PER_SAMPLE, CONTEXTS);
 }
 export async function clearSamples(page) { await page.evaluate(() => document.querySelectorAll('[data-audit-pick]').forEach(e => e.removeAttribute('data-audit-pick'))); }
 
-// Calls fn(label, objectId) for every marked sample under every forced state.
+// Calls fn(state, objectId, pick) for every marked sample under every forced state; `pick` is the sample's stable index
+// (the order of markSamples on the same DOM), so light and dark passes identify the same target.
 export async function forEachForcedState(cdp, page, fn) {
   await markSamples(page);
   const { root: doc } = await cdp.send('DOM.getDocument', { depth: -1 });
@@ -58,7 +62,8 @@ export async function forEachForcedState(cdp, page, fn) {
     for (const st of STATES) {
       await cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: [st] });
       const { object } = await cdp.send('DOM.resolveNode', { nodeId });
-      await fn(st, object.objectId);
+      const pick = (await cdp.send('Runtime.callFunctionOn', { objectId: object.objectId, functionDeclaration: 'function(){ return this.getAttribute("data-audit-pick"); }', returnByValue: true })).result.value;
+      await fn(st, object.objectId, pick);
     }
     await cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: [] });
   }

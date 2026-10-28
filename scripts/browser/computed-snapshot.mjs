@@ -11,11 +11,15 @@
 // at each viewport width. Background images are compared by a hash of their full value (so a changed SVG arrow is detected).
 // "Parity" means identical computed rendering, not identical CSS bytes.
 //
+// Parts of native controls that computed styles cannot report (the range slider's thumb and track, the file input's button,
+// progress and meter) are covered by PROBES: a hash of an element screenshot, in the default state and focused.
+//
 // NOT seen by this snapshot (compare screenshots for these): layout and geometry, fonts, animations/keyframes (frozen here),
 // :checked/:disabled/:invalid element states other than those present in the docs markup, and anything outside the two pages.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import crypto from 'node:crypto';
 import puppeteer from 'puppeteer-core';
 import { chromePath, resolveBase, sleep, forEachForcedState, withOverlaysOpen, setDocsState } from './lib/common.mjs';
 
@@ -25,13 +29,13 @@ const flag = n => { const i = argv.indexOf('--' + n); return i < 0 ? undefined :
 
 if (argv.includes('--diff')) {
   const [a, b] = argv.slice(argv.indexOf('--diff') + 1, argv.indexOf('--diff') + 3).map(f => JSON.parse(fs.readFileSync(f, 'utf8')));
-  const names = i => { const per = a.props.length; return i < per ? a.props[i] : a.pseudos[Math.floor(i / per) - 1] + ' ' + a.props[i % per]; };
+  const names = (i, key) => { if (key.includes('|probe:')) return 'screenshot'; const per = a.props.length; return i < per ? a.props[i] : a.pseudos[Math.floor(i / per) - 1] + ' ' + a.props[i % per]; };
   const diffs = [];
   for (const key of new Set([...Object.keys(a.records), ...Object.keys(b.records)])) {
     const x = a.records[key], y = b.records[key];
     if (!x || !y) { diffs.push(`${key}: ${x ? 'missing after' : 'missing before'}`); continue; }
     const dx = i => a.dict[i], dy = i => b.dict[i];
-    if (x.v.length !== y.v.length || x.v.some((v, i) => dx(v) !== dy(y.v[i]))) diffs.push(`${key} <${x.tag}.${x.cls}>: ${x.v.map((v, i) => dx(v) !== dy(y.v[i]) ? `${names(i)} ${String(dx(v)).slice(0, 40)} -> ${String(dy(y.v[i])).slice(0, 40)}` : '').filter(Boolean).join('; ')}`);
+    if (x.v.length !== y.v.length || x.v.some((v, i) => dx(v) !== dy(y.v[i]))) diffs.push(`${key} <${x.tag}.${x.cls}>: ${x.v.map((v, i) => dx(v) !== dy(y.v[i]) ? `${names(i, key)} ${String(dx(v)).slice(0, 40)} -> ${String(dy(y.v[i])).slice(0, 40)}` : '').filter(Boolean).join('; ')}`);
   }
   console.log(`${Object.keys(a.records).length} records before, ${Object.keys(b.records).length} after, ${diffs.length} differ`);
   for (const d of diffs.slice(0, +(flag('show') || 20))) console.log('  -', d.slice(0, 300));
@@ -80,15 +84,30 @@ for (const width of WIDTHS) {
     await setDocsState(page, theme, colorMode);
     await sleep(400);
     put(tag, 'default', await page.evaluate(() => window.__snap.tree(document.body)));
+    // screenshot probes for native control parts that getComputedStyle cannot see
+    for (const sel of ['input[type=range]', 'input[type=file]', 'progress', 'meter']) {
+      const handles = (await page.$$(`main ${sel}`)).slice(0, 12);
+      for (let i = 0; i < handles.length; i++) {
+        for (const st of ['default', 'focus']) {
+          try {
+            if (st === 'focus') await handles[i].focus();
+            const png = await handles[i].screenshot({ type: 'png' });
+            const h = crypto.createHash('sha1').update(png).digest('hex').slice(0, 16);
+            records[`${tag}|probe:${sel}#${i}|${st}`] = { tag: 'probe', cls: sel, v: [idx(h)], sig: String(idx(h)) };
+          } catch (e) { /* element not renderable at this width */ }
+        }
+      }
+      await page.evaluate(() => document.activeElement && document.activeElement.blur());
+    }
     await page.evaluate(() => document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.add('show')));
     put(tag, 'open', await page.evaluate(() => [...document.querySelectorAll('.dropdown-menu.show')].flatMap(m => window.__snap.tree(m))));
     await page.evaluate(() => document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show')));
     await withOverlaysOpen(page, async () => put(tag, 'overlay', await page.evaluate(() => [...document.querySelectorAll('.tooltip.show, .popover.show')].flatMap(m => window.__snap.tree(m)))));
     const cdp = await page.createCDPSession();
     await cdp.send('DOM.enable'); await cdp.send('CSS.enable');
-    await forEachForcedState(cdp, page, async (state, objectId) => {
+    await forEachForcedState(cdp, page, async (state, objectId, pick) => {
       const r = await cdp.send('Runtime.callFunctionOn', { objectId, functionDeclaration: 'function(){ return window.__snap.tree(this); }', returnByValue: true });
-      put(tag, state, r.result.value || []);
+      put(tag, `${state}@${pick}`, r.result.value || []);   // the forced target is part of the key: a row's hover and its link's hover must not overwrite each other
     });
     await page.close();
   }

@@ -18,15 +18,15 @@ Phase B2 turns the roles that need a dark treatment into CSS custom properties (
 | `overlay` | Scrims (nav-sidebar overlay) | token |
 | `image` | Data-URL icons (select arrows) | dark variant of the image |
 
-## Summary (272 source declarations)
+## Summary (284 source declarations)
 
-* `fixed`: 116
-* `interaction-surface`: 32
-* `text`: 31
-* `divider`: 28
+* `fixed`: 137
+* `interaction-surface`: 30
+* `divider`: 27
+* `text`: 26
 * `light-only`: 24
 * `shadow`: 16
-* `surface`: 13
+* `surface`: 12
 * `surface-translucent`: 6
 * `text-muted`: 2
 * `image`: 2
@@ -67,6 +67,14 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/_bootstrap5-theme.scss:37` | `--bs-danger` | `#F44336` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:37` | `--bs-light` | `#f8f9fa` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:37` | `--bs-dark` | `#343a40` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-primary-rgb` | `33, 150, 243` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-secondary-rgb` | `117, 117, 117` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-success-rgb` | `76, 175, 80` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-info-rgb` | `0, 188, 212` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-warning-rgb` | `255, 193, 7` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-danger-rgb` | `244, 67, 54` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-light-rgb` | `248, 249, 250` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-dark-rgb` | `52, 58, 64` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:42` | `--bs-primary-text-emphasis` | `rgb(13, 60, 97)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:42` | `--bs-secondary-text-emphasis` | `rgb(47, 47, 47)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:42` | `--bs-success-text-emphasis` | `rgb(30, 70, 32)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
@@ -92,20 +100,24 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/_bootstrap5-theme.scss:44` | `--bs-light-border-subtle` | `rgb(252, 253, 253)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:44` | `--bs-dark-border-subtle` | `rgb(174, 176, 179)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:65` | `--bs-link-color` | `#2196F3` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:66` | `--bs-link-color-rgb` | `33, 150, 243` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:67` | `--bs-link-hover-color` | `rgb(12, 124, 213)` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:68` | `--bs-link-hover-color-rgb` | `12, 124, 213` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:76` | `--bs-focus-ring-color` | `rgba(33, 150, 243, .25)` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:104` | `--bs-btn-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
 | `scss/_bootstrap5-theme.scss:105` | `--bs-btn-border-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
 | `scss/_bootstrap5-theme.scss:106` | `--bs-btn-hover-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
 | `scss/_bootstrap5-theme.scss:107` | `--bs-btn-hover-bg` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
 | `scss/_bootstrap5-theme.scss:108` | `--bs-btn-hover-border-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:109` | `--bs-btn-focus-shadow-rgb` | `33, 150, 243` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
 | `scss/_bootstrap5-theme.scss:110` | `--bs-btn-active-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:111` | `--bs-btn-active-bg` | `rgb(30, 135, 219)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | interaction-surface |
-| `scss/_bootstrap5-theme.scss:112` | `--bs-btn-active-border-color` | `rgb(30, 135, 219)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | divider |
+| `scss/_bootstrap5-theme.scss:111` | `--bs-btn-active-bg` | `rgb(30, 135, 219)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:112` | `--bs-btn-active-border-color` | `rgb(30, 135, 219)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
 | `scss/_bootstrap5-theme.scss:113` | `--bs-btn-disabled-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
 | `scss/_bootstrap5-theme.scss:114` | `--bs-btn-disabled-bg` | `transparent` | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
 | `scss/_bootstrap5-theme.scss:115` | `--bs-btn-disabled-border-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/badges.scss:28` | `color` | `#333` | `.badge.bg-light, .badge.bg-warning, .badge.bg-ye` | text |
+| `scss/_bootstrap5-theme.scss:119` | `--bs-btn-focus-shadow-rgb` | `33, 150, 243` (+7) | `.btn-primary`, `.btn-secondary` | fixed |
+| `scss/badges.scss:28` | `color` | `#333` | `.badge.bg-light, .badge.bg-warning, .badge.bg-ye` | fixed |
 | `scss/buttons.scss:27` | `box-shadow` | `0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24)` | `.btn-raised` | shadow |
 | `scss/buttons.scss:30` | `box-shadow` | `0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)` | `.btn-raised:active, .btn-raised.active, .btn-rai` | shadow |
 | `scss/buttons.scss:34` | `box-shadow` | `0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)` | `.btn-raised:focus` | shadow |
@@ -176,13 +188,13 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/loops/background.scss:10` | `background-color` | `#f8f8f8` (+10) | `.bg-default`, `.bg-primary` | surface |
 | `scss/loops/background.scss:19` | `background-color` | `#f8f8f8` (+19) | `.bg-default`, `.bg-red` | surface |
 | `scss/loops/background.scss:22` | `background-color` | `rgb(222.5, 222.5, 222.5)` (+19) | `.bg-default.btn:hover`, `.bg-red.btn:hover` | interaction-surface |
-| `scss/loops/background.scss:26` | `color` | `#f8f8f8` (+19) | `.bg-default.btn-flat`, `.bg-red.btn-flat` | text |
+| `scss/loops/background.scss:26` | `color` | `#f8f8f8` (+19) | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
 | `scss/loops/background.scss:27` | `background-color` | `transparent` | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
-| `scss/loops/background.scss:29` | `color` | `rgb(222.5, 222.5, 222.5)` (+19) | `.bg-default.btn-flat:hover`, `.bg-red.btn-flat:hover` | text |
+| `scss/loops/background.scss:29` | `color` | `rgb(222.5, 222.5, 222.5)` (+19) | `.bg-default.btn-flat:hover`, `.bg-red.btn-flat:hover` | fixed |
 | `scss/loops/background.scss:30` | `background-color` | `rgb(229.5, 229.5, 229.5)` | `.bg-default.btn-flat:hover`, `.bg-red.btn-flat:hover` | interaction-surface |
-| `scss/loops/background.scss:34` | `color` | `#c5c5c5` (+19) | `.bg-default.btn-flat:active, .bg-default.btn-fla`, `.bg-red.btn-flat:active, .bg-red.btn-flat.active` | text |
+| `scss/loops/background.scss:34` | `color` | `#c5c5c5` (+19) | `.bg-default.btn-flat:active, .bg-default.btn-fla`, `.bg-red.btn-flat:active, .bg-red.btn-flat.active` | fixed |
 | `scss/loops/background.scss:35` | `background-color` | `#cccccc` | `.bg-default.btn-flat:active, .bg-default.btn-fla`, `.bg-red.btn-flat:active, .bg-red.btn-flat.active` | interaction-surface |
-| `scss/loops/background.scss:38` | `color` | `rgb(171.5, 171.5, 171.5)` (+19) | `.bg-default.btn-flat:focus`, `.bg-red.btn-flat:focus` | text |
+| `scss/loops/background.scss:38` | `color` | `rgb(171.5, 171.5, 171.5)` (+19) | `.bg-default.btn-flat:focus`, `.bg-red.btn-flat:focus` | fixed |
 | `scss/loops/background.scss:39` | `background-color` | `#cccccc` | `.bg-default.btn-flat:focus`, `.bg-red.btn-flat:focus` | interaction-surface |
 | `scss/loops/background.scss:43` | `background-color` | `rgb(127.5, 127.5, 127.5)` | `.bg-default.btn-flat .ink`, `.bg-red.btn-flat .ink` | surface |
 | `scss/loops/border.scss:8` | `border-color` | `#f8f8f8` (+10) | `.border-default`, `.border-primary` | divider |
@@ -211,8 +223,8 @@ Where today's values differ they get separate tokens; nothing is forced into a s
 | `scss/mixins/alerts.scss:8` | `color` | `#FFFFFF` (+1) | `.alert-primary`, `.alert-success` | text |
 | `scss/mixins/alerts.scss:10` | `border-top-color` | `rgb(12.8461538462, 138.0961538462, 237.6538461538)` (+4) | `.alert-primary hr`, `.alert-success hr` | fixed |
 | `scss/mixins/alerts.scss:13` | `color` | `#E3F2FD` (+4) | `.alert-primary .alert-link`, `.alert-success .alert-link` | fixed |
-| `scss/mixins/badges.scss:6` | `background-color` | `#9E9E9E` | `.badge-default` | surface |
-| `scss/mixins/badges.scss:11` | `background-color` | `rgb(132.5, 132.5, 132.5)` | `.badge-default[href]:hover, .badge-default[href]` | interaction-surface |
+| `scss/mixins/badges.scss:6` | `background-color` | `#9E9E9E` | `.badge-default` | fixed |
+| `scss/mixins/badges.scss:11` | `background-color` | `rgb(132.5, 132.5, 132.5)` | `.badge-default[href]:hover, .badge-default[href]` | fixed |
 | `scss/mixins/tables.scss:11` | `--bs-table-bg` | `#E3F2FD` (+7) | `.table-primary`, `.table-secondary` | fixed |
 | `scss/mixins/tables.scss:12` | `--bs-table-color` | `#333` (+1) | `.table-primary`, `.table-secondary` | text |
 | `scss/mixins/tables.scss:13` | `--bs-table-striped-color` | `#333` (+1) | `.table-primary`, `.table-secondary` | text |

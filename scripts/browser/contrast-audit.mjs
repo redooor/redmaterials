@@ -84,12 +84,12 @@ async function collect(page, cdp, mode) {
     if (mode === 'dark') addStray(await page.evaluate(a => [...document.querySelectorAll('.tooltip.show, .popover.show')].flatMap(m => window.__contrast.lightSurfaces(m, a)), allowSelectors), 'overlay');
   });
 
-  await forEachForcedState(cdp, page, async (state, objectId) => {
+  await forEachForcedState(cdp, page, async (state, objectId, pick) => {
     const r = await cdp.send('Runtime.callFunctionOn', { objectId, functionDeclaration: 'function(o){ return window.__contrast.auditTree(this, o); }', arguments: [{ value: OPTS }], returnByValue: true });
-    add(r.result.value || [], state + '#' + objectId.slice(-6));
+    add(r.result.value || [], `${state}@${pick}`);
     if (mode === 'dark') {
       const sr = await cdp.send('Runtime.callFunctionOn', { objectId, functionDeclaration: 'function(a){ return window.__contrast.lightSurfaces(this, a); }', arguments: [{ value: allowSelectors }], returnByValue: true });
-      addStray(sr.result.value || [], state + '#' + objectId.slice(-6));
+      addStray(sr.result.value || [], `${state}@${pick}`);
     }
   });
   return { results, stray };
@@ -114,9 +114,9 @@ for (const width of WIDTHS) {
     await cdp.send('DOM.enable'); await cdp.send('CSS.enable');
     const light = await collect(page, cdp, 'light');
     const cur = colorMode === 'light' ? light : await collect(page, cdp, colorMode);
-    // light baseline keys carry the forced-state object id, which differs between passes: match on the stable part only
-    const stable = k => k.replace(/#[0-9a-f-]{3,8}$/i, '');
-    const lightByKey = new Map(light.results.map(r => [stable(r.key), r]));
+    // forced-state keys carry the sample's stable pick index, so the light and the current pass identify the same target
+    const stable = k => k;
+    const lightByKey = new Map(light.results.map(r => [r.key, r]));
     for (const r of cur.results) {
       summary.checked++;
       const where = `${where0}#${r.section} ${stable(r.key)}`;

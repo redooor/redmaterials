@@ -33,10 +33,16 @@
   }
   function ratio(a, b) { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
 
-  // The user agent canvas under the page's own backgrounds
+  // The user agent canvas under the page's own backgrounds: resolve the system colour `Canvas` for the page's ACTIVE colour scheme
+  let canvasCache = null;
   function canvasColor() {
-    const dark = /dark/.test(getComputedStyle(document.documentElement).colorScheme);
-    return dark ? [18, 18, 18, 1] : [255, 255, 255, 1];
+    if (canvasCache) return canvasCache;
+    const d = document.createElement('div');
+    d.style.cssText = 'position:absolute;width:0;height:0;background-color:Canvas';
+    document.documentElement.appendChild(d);
+    const c = parse(getComputedStyle(d).backgroundColor);
+    d.remove();
+    return (canvasCache = c ? [c[0], c[1], c[2], 1] : [255, 255, 255, 1]);
   }
 
   // Paint features that make the compositing model unreliable
@@ -75,30 +81,40 @@
   }
 
   // The colours of the background pixel and the text pixel of `el`, over the canvas.
-  function pixels(el, fg) {
+  // extraBg: a background painted above the element's own chain (a pseudo-element's background)
+  function pixels(el, fg, extraBg) {
     const nodes = nodesDown(el), canvas = canvasColor();
     const bg = renderChain(nodes, null), tx = renderChain(nodes, fg);
-    return { bg: overRGBA(bg.color, canvas), text: overRGBA(tx.color, canvas), unverified: bg.unverified || tx.unverified };
+    let bgPix = overRGBA(bg.color, canvas), txBase = overRGBA(tx.color, canvas);
+    if (extraBg && extraBg[3] > 0) { bgPix = overRGBA(extraBg, bgPix); txBase = overRGBA(fg, bgPix); }
+    return { bg: bgPix, text: txBase, unverified: bg.unverified || tx.unverified };
   }
 
   function visible(el) {
     if (!el.getClientRects().length) return false;
-    for (let n = el; n && n.nodeType === 1; n = n.parentElement) {
-      const cs = getComputedStyle(n);
-      if (parseFloat(cs.opacity) === 0 || cs.visibility === 'hidden' || cs.display === 'none') return false;
-    }
+    const own = getComputedStyle(el);
+    if (own.visibility !== 'visible' || own.display === 'none') return false;   // a descendant may restore visibility an ancestor hid
+    for (let n = el; n && n.nodeType === 1; n = n.parentElement) if (parseFloat(getComputedStyle(n).opacity) === 0) return false;
     return true;
   }
-  // Text covered by another painted element (overlays, sticky bars) cannot be judged from the ancestor chain alone.
+  // Text covered by another painted element (overlays, sticky bars): every element above `el` at a point of its glyph box is checked,
+  // including transparent children of a translucent overlay. Returns a reason string, or ''.
   function coveredBy(el) {
-    const r = el.getClientRects()[0];
+    let r;
+    try { const rg = document.createRange(); rg.selectNodeContents(el); r = [...rg.getClientRects()].find(x => x.width > 1 && x.height > 1); } catch (e) { /* ignore */ }
+    r = r || el.getClientRects()[0];
     if (!r) return '';
-    const x = r.left + Math.min(r.width / 2, 40), y = r.top + Math.min(r.height / 2, 10);
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
     if (x < 0 || y < 0 || x > innerWidth || y > innerHeight) return '';
-    const top = document.elementsFromPoint(x, y)[0];
-    if (!top || top === el || el.contains(top) || top.contains(el)) return '';
-    const bg = parse(getComputedStyle(top).backgroundColor);
-    return bg && bg[3] > 0 ? 'covered by ' + top.tagName.toLowerCase() + (top.className ? '.' + String(top.className).split(' ')[0] : '') : '';
+    const list = document.elementsFromPoint(x, y);
+    const mine = list.findIndex(e => e === el || el.contains(e));
+    const above = mine < 0 ? list : list.slice(0, mine);
+    for (const c of above) {
+      if (c.contains(el) || el.contains(c)) continue;
+      const cs = getComputedStyle(c), bg = parse(cs.backgroundColor);
+      if ((bg && bg[3] > 0) || (cs.backgroundImage && cs.backgroundImage !== 'none')) return 'covered by ' + c.tagName.toLowerCase() + (c.className ? '.' + String(c.className).split(' ')[0] : '');
+    }
+    return '';
   }
 
   function judge(el, fgCss, opts) {
@@ -107,10 +123,10 @@
     const fgRaw = parse(fgCss);
     if (!fgRaw) return { ratio: 0, large: false, need: 4.5, status: 'unverified', reason: 'unsupported colour syntax (' + String(fgCss).slice(0, 24) + ')', fg: '', bg: '' };
     const fg = [fgRaw[0], fgRaw[1], fgRaw[2], fgRaw[3] * (o.extraOpacity == null || isNaN(o.extraOpacity) ? 1 : o.extraOpacity)];
-    const px = pixels(el, fg);
-    const reason = px.unverified || coveredBy(el);
+    const px = pixels(el, fg, o.extraBg);
+    const reason = px.unverified || o.unverified || coveredBy(el);
     const r = ratio(px.text, px.bg);
-    const size = parseFloat(cs.fontSize), bold = parseInt(cs.fontWeight, 10) >= 700;
+    const size = parseFloat(o.typo ? o.typo.size : cs.fontSize), bold = parseInt(o.typo ? o.typo.weight : cs.fontWeight, 10) >= 700;   // generated text and placeholders carry their own typography
     const large = size >= 24 || (size >= 18.66 && bold);
     const need = large ? 3 : 4.5;
     return { ratio: Math.round(r * 100) / 100, large, need, status: reason ? 'unverified' : (r >= need ? 'ok' : 'low'), reason,
@@ -130,6 +146,7 @@
   const TEXT_INPUT = /^(text|search|email|url|tel|password|number|date|datetime-local|month|week|time|submit|button|reset)$/i;
 
   function auditElement(el) {
+    canvasCache = null;
     const out = [];
     if (!visible(el) || exempt(el)) return out;
     const cs0 = getComputedStyle(el);
@@ -140,15 +157,22 @@
     if ((el.tagName === 'INPUT' && TEXT_INPUT.test(el.type) && el.value) || (el.tagName === 'TEXTAREA' && el.value) || (el.tagName === 'SELECT' && el.selectedOptions.length)) {
       rec('value', path(el) + '::value', judge(el, fill), el.tagName === 'SELECT' ? el.selectedOptions[0].textContent : el.value);
     }
+    // native controls whose label is drawn by the browser (file input button, submit/reset/button without a value) cannot be judged
+    if (el.tagName === 'INPUT' && (el.type === 'file' || (/^(submit|reset|button)$/i.test(el.type) && !el.value))) {
+      rec('native', path(el) + '::native', { ratio: 0, large: false, need: 4.5, status: 'unverified', reason: 'native control label (' + el.type + ')', fg: '', bg: '' }, el.type);
+    }
     // placeholders are visible only while the field is empty; they carry their own colour and opacity
     if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') && el.getAttribute('placeholder') && !el.value) {
       const ph = getComputedStyle(el, '::placeholder');
-      rec('placeholder', path(el) + '::placeholder', judge(el, ph.webkitTextFillColor && ph.webkitTextFillColor !== 'rgba(0, 0, 0, 0)' ? ph.webkitTextFillColor : ph.color, { extraOpacity: parseFloat(ph.opacity), sizeEl: el }), el.getAttribute('placeholder'));
+      rec('placeholder', path(el) + '::placeholder', judge(el, ph.webkitTextFillColor && ph.webkitTextFillColor !== 'rgba(0, 0, 0, 0)' ? ph.webkitTextFillColor : ph.color, { extraOpacity: parseFloat(ph.opacity), sizeEl: el, typo: { size: ph.fontSize, weight: ph.fontWeight } }), el.getAttribute('placeholder'));
     }
     // generated text (::before / ::after with a string content, for example the mobile table labels)
     for (const pe of ['::before', '::after']) {
       const p = getComputedStyle(el, pe), c = p.content;
-      if (c && c !== 'none' && c !== 'normal' && /^["'].+["']$/.test(c) && p.display !== 'none') rec('pseudo', path(el) + pe, judge(el, p.webkitTextFillColor || p.color, { extraOpacity: parseFloat(p.opacity) }), c.slice(1, -1));
+      if (c && c !== 'none' && c !== 'normal' && /^["'].+["']$/.test(c) && p.display !== 'none') {
+        const pbg = parse(p.backgroundColor), paint = unsupportedPaint(p);
+        rec('pseudo', path(el) + pe, judge(el, p.webkitTextFillColor || p.color, { extraOpacity: parseFloat(p.opacity), extraBg: pbg, typo: { size: p.fontSize, weight: p.fontWeight }, unverified: paint ? 'pseudo-element: ' + paint : '' }), c.slice(1, -1));
+      }
     }
     return out;
   }
@@ -170,6 +194,7 @@
   }
 
   function auditTree(root, opts) {
+    canvasCache = null;
     const out = [];
     for (const el of [root, ...root.querySelectorAll('*')]) {
       if (el.closest('script, style')) continue;
@@ -180,6 +205,7 @@
   // Elements that paint their own near-white background (rule 2 of the dark audit). An allowlist entry exempts only the element
   // that matches it (the paint owner), never its descendants: those must pass, or be listed themselves.
   function lightSurfaces(root, allowSelectors) {
+    canvasCache = null;
     const out = [];
     for (const el of [root, ...root.querySelectorAll('*')]) {
       if (el.closest('script, style') || !visible(el)) continue;

@@ -44,4 +44,14 @@
     <div id="child-white" data-surface="flagged" style="background:#fff;width:200px;height:30px"></div>
   </div>
 </div>
+
+<!-- ---- second review -->
+<div style="background:#000"><div class="c pseudo-white" id="pseudo-bg-low" data-expect="low" data-kind="pseudo" style="background:#000;color:#fff"></div></div>
+<style>.pseudo-white::before{content:"x ";color:#fff;background:#fff}</style>
+<style>#ph-small::placeholder{color:#777;font-size:12px} </style>
+<input id="ph-small" data-expect="low" data-kind="placeholder" placeholder="small grey placeholder" style="background:#fff;font-size:32px;border:1px solid #999">
+<div id="overlay2-host" style="position:relative;height:40px"><div class="c" id="covered-transparent-child" data-expect="unverified" style="color:#fff;background:#000">covered through a transparent child of a translucent overlay</div><div style="position:absolute;inset:0;background:rgba(255,255,255,.85)"><div style="width:100%;height:100%"></div></div></div>
+<input id="file-native" data-expect="unverified" data-kind="native" type="file">
+<input id="submit-novalue" data-expect="unverified" data-kind="native" type="submit">
+<div style="visibility:hidden"><span id="visibility-restored" data-expect="low" style="visibility:visible;color:#fff;background:#fff">restored visibility is still audited</span></div>
 </body></html>

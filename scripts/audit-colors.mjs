@@ -54,9 +54,18 @@ function suggestCustomProperty(prop, value) {
 function suggest(src, selector, prop, value) {
   if (/url\(\s*["']?data:/.test(value)) return 'image';
   if (/^\s*transparent\s*$/i.test(value)) return 'fixed';
+  if (/^\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*$/.test(value)) {   // an RGB triplet custom property
+    const hex = '#' + value.split(',').map(x => parseInt(x, 10).toString(16).padStart(2, '0')).join('');
+    return palette.has(hex) || /primary|secondary|success|danger|warning|info|light|dark|link|focus/.test(prop) ? "fixed" : suggestCustomProperty(prop, value);
+  }
+  // text paired with a palette fill (for example #333 on the yellow/lime badges) stays with that fill
+  if (prop === 'color' && /\.(badge\.)?bg-[a-z]/.test(selector)) return 'fixed';
+  // outline buttons derive their states from the brand colour
+  if (prop.startsWith('--') && /\.btn-outline-/.test(selector)) return 'fixed';
   // palette loops and variant mixins generate brand colours (the `default` variant is the one neutral; see COLOR-ROLES.md)
   if (/scss\/(loops\/|mixins\/(alerts|badges)\.scss|badges\.scss)/.test(src)) {
     if (/shadow/.test(prop)) return 'shadow';
+    if (/mixins\/badges\.scss/.test(src)) return 'fixed';   // badge fills are paired with their (white) text
     if (isGrey(value)) return /^background/.test(prop) ? (/:hover|:active|:focus|\.active/.test(selector) ? 'interaction-surface' : 'surface') : /^color$/.test(prop) ? 'text' : 'divider';   // shared neutral greys of the loops (flat-button states, ink)
     return 'fixed';
   }
@@ -96,7 +105,8 @@ const overridesFile = path.join(root, 'scripts/color-roles.overrides.json');
 const overrides = fs.existsSync(overridesFile) ? JSON.parse(fs.readFileSync(overridesFile, 'utf8')) : {};
 const rows = new Map();
 postcss.parse(css, { from: cssFile }).walkDecls(decl => {
-  if (!COLOR_PROPS.test(decl.prop) || !LITERAL.test(decl.value) || /^var\(/.test(decl.value.trim()) && !LITERAL.test(decl.value.replace(/var\([^)]*\)/g, ''))) return;
+  const rgbTriplet = decl.prop.startsWith('--') && /^\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*$/.test(decl.value);   // --bs-primary-rgb: 33, 150, 243
+  if (!COLOR_PROPS.test(decl.prop) || !(LITERAL.test(decl.value) || rgbTriplet) || /^var\(/.test(decl.value.trim()) && !LITERAL.test(decl.value.replace(/var\([^)]*\)/g, ''))) return;
   const pos = consumer.originalPositionFor({ line: decl.source.start.line, column: decl.source.start.column - 1 });
   const src = pos.source ? path.relative(root, path.resolve(path.dirname(cssFile), pos.source)) + ':' + pos.line : '(unmapped)';
   const rule = decl.parent;
