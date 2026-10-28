@@ -12,6 +12,7 @@
             r.addEventListener('change', function () { docsState.set({ mode: r.value }); });
         });
         document.querySelectorAll('iframe.docs-demo').forEach(function (f) { f.addEventListener('load', docsState.broadcast); });
+        docsState.broadcast(); // frames that already finished loading
         // anchor navigation does not close an offcanvas by itself: close it after a section is chosen
         side.addEventListener('click', function (e) {
             var oc = e.target.closest('a.nav-link') && bootstrap.Offcanvas.getInstance(side);

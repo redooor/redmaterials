@@ -42,6 +42,16 @@
         if (THEMES.indexOf(d.theme) >= 0) { state.theme = d.theme; }
         render();
     });
+    // Tell the parent this frame is ready, so a frame that finished loading before the parent attached listeners
+    // still receives the current state.
+    if (window.parent !== window) { try { window.parent.postMessage({ type: 'docs-ready' }, '*'); } catch (e) { /* ignore */ } }
+
+    // The parent answers a frame's ready message with the current state.
+    window.addEventListener('message', function (e) {
+        if (!e.data || e.data.type !== 'docs-ready') { return; }
+        var frames = document.querySelectorAll('iframe.docs-demo');
+        for (var i = 0; i < frames.length; i++) { if (frames[i].contentWindow === e.source) { broadcast(); return; } }
+    });
     if (window.matchMedia) {
         matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { if (state.mode === 'auto') { render(); } });
     }

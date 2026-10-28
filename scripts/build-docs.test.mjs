@@ -77,6 +77,8 @@ test('assertNoDirectives rejects a missing @end, an unsupported attribute and a 
   assert.throws(() => assertNoDirectives(expandExamples('<!--@example--><p>x</p>'), 'a.html'), /unconsumed directive/);
   assert.throws(() => assertNoDirectives(expandExamples('<!--@example id="x"--><p>x</p><!--@end-->'), 'a.html'), /unconsumed directive/);
   assert.throws(() => assertNoDirectives('<!--@exmaple--><!--@end-->', 'a.html'), /unconsumed directive/);
+  assert.throws(() => assertNoDirectives('<!--@include partials/missing.html\n<p>rest of the page</p>', 'a.html'), /unconsumed directive/);
+  assert.throws(() => assertNoDirectives(expandExamples('<!--@example class="a>b"--><p>x</p><!--@end-->'), 'a.html'), /unconsumed directive/);
   assert.doesNotThrow(() => assertNoDirectives(expandExamples('<!--@example--><p>x</p><!--@end-->'), 'a.html'));
 });
 test('expandInline wraps a file in <script> and rejects a missing file', () => {

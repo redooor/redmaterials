@@ -28,11 +28,12 @@ export function expandInline(html, readFile) {
   });
 }
 
-// Any directive still present after every expansion is a malformed or unsupported marker (missing <!--@end-->,
-// unsupported attribute, typo): fail the build instead of publishing it.
+// Any directive prefix still present after every expansion is a malformed or unsupported marker (missing <!--@end-->,
+// unterminated marker, unsupported attribute, typo): fail the build instead of publishing it. Snippet bodies are
+// escaped by then, so a raw <!--@ can only be a leftover.
 export function assertNoDirectives(html, where) {
-  const m = html.match(/<!--@[\w-]+[^>]*?-->/);
-  if (m) throw new Error(`unconsumed directive in ${where}: ${m[0].slice(0, 60)}`);
+  const m = html.match(/<!--@[\w-]+/);
+  if (m) throw new Error(`unconsumed directive in ${where}: ${html.slice(m.index, m.index + 60)}`);
 }
 
 export function expandVersion(html, version) {
@@ -50,7 +51,7 @@ const snippet = inner => `<pre class="docs-snippet border rounded p-3 mb-3 bg-bo
 
 export function expandExamples(html) {
   return html
-    .replace(/<!--@example((?:\s+class="[^"]*")?)\s*-->([\s\S]*?)<!--@end-->/g, (_, attrs, inner) => {
+    .replace(/<!--@example((?:\s+class="[^">]*")?)\s*-->([\s\S]*?)<!--@end-->/g, (_, attrs, inner) => {
       const cls = (attrs.match(/class="([^"]*)"/) || [, ''])[1];
       return `<div class="bs-component border rounded p-3 mb-3${cls ? ' ' + cls : ''}">${inner}</div>\n${snippet(inner)}`;
     })

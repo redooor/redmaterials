@@ -41,6 +41,7 @@ const browser = await puppeteer.launch({ executablePath: chrome, headless: 'new'
 const results = [];
 let currentPage = '';
 const check = (name, ok, info = '') => { results.push(ok); console.log(`${ok ? 'PASS' : 'FAIL'} [${currentPage}] ${name}${info ? ' ' + info : ''}`); };
+const initSource = fs.readFileSync(path.join(root, 'docs-src', 'assets', 'js', 'init.js'), 'utf8');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 // smooth scrolling (Bootstrap reboot) can take seconds over a long page: wait until scrollY is stable
 async function settle(page, max = 4000) {
@@ -63,6 +64,14 @@ async function open(file, { width = 1280, height = 800, scheme = 'light', init, 
   page.on('response', r => r.status() >= 400 && issues.push(`http ${r.status()}: ${r.url().slice(0, 120)}`));
   await page.setViewport({ width, height });
   await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: scheme }]);
+  // every tab starts with clean storage (the browser profile is shared): cleared from outside the page through the
+  // DevTools protocol, so reloads inside a test keep their state
+  try {
+    const origin = base.startsWith('file:') ? 'file://' : new URL(base).origin;
+    const cdp = await page.createCDPSession();
+    await cdp.send('Storage.clearDataForOrigin', { origin, storageTypes: 'local_storage,session_storage' });
+    await cdp.detach();
+  } catch (e) { /* best effort */ }
   if (init) await page.evaluateOnNewDocument(init);
   await page.goto(base + file + (prefs.hash || ''), { waitUntil: prefs.waitUntil || 'networkidle0' });
   await sleep(300);
@@ -100,32 +109,53 @@ try {
       await page.close();
     }
 
-    // 5, 11: sidebar links scroll to their section and scrollspy activates only #nav_spy links
+    // 5, 11: sidebar links scroll to their section; the matching sidebar link (and only a #nav_spy link) becomes active
     {
       const { page } = await open(file);
+      const probe = id => page.evaluate(id => {
+        const sec = document.getElementById(id).getBoundingClientRect();
+        const active = [...document.querySelectorAll('#docs-sidebar .nav-link.active')];
+        return { top: Math.round(sec.top), active: active.map(a => a.getAttribute('href')), outside: active.filter(a => !a.closest('#nav_spy')).length,
+          atBottom: window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60 };
+      }, id);
+      const tail = list.slice(-3).map(x => '#' + x.id);
+      const verdict = (id, r) => {
+        if (r.outside) return `${id}: active link outside #nav_spy`;
+        if (r.active.includes('#' + id)) return r.top >= -5 && r.top < 600 ? '' : `${id}: top ${r.top}`;
+        // the last sections can be too short to reach the top of the page: then one of the last sections is active
+        if (r.atBottom && r.active.some(h => tail.includes(h))) return '';
+        return `${id}: active ${JSON.stringify(r.active)}`;
+      };
       const bad = [];
       for (const s of list) {
         await page.evaluate(id => document.querySelector(`#nav_spy a[href="#${id}"]`).click(), s.id);
-        await settle(page);
-        const r = await page.evaluate(id => {
-          const sec = document.getElementById(id).getBoundingClientRect();
-          const active = [...document.querySelectorAll('a.nav-link.active')].map(a => a.getAttribute('href'));
-          const outside = [...document.querySelectorAll('#docs-sidebar .nav-link.active')].filter(a => !a.closest('#nav_spy')).length;
-          return { top: Math.round(sec.top), active, outside };
-        }, s.id);
-        const onScreen = r.top >= -5 && r.top < 600;  // short sections at the bottom cannot reach the top of the page
-        if (!onScreen) bad.push(`${s.id}: top ${r.top}`);
-        else if (r.outside) bad.push(`${s.id}: active link outside #nav_spy`);
+        await settle(page); await sleep(350);
+        const v = verdict(s.id, await probe(s.id));
+        if (v) bad.push(v);
       }
-      check('5 every sidebar link scrolls to its section; only #nav_spy links activate', !bad.length, bad.slice(0, 4).join(' | '));
+      check('5 every sidebar link scrolls to its section and activates the matching link (only #nav_spy links)', !bad.length, bad.slice(0, 4).join(' | '));
       await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
       await settle(page);
       const last = list[list.length - 1];
       await page.evaluate(id => document.querySelector(`#nav_spy a[href="#${id}"]`).click(), last.id);
       await settle(page); await sleep(400);
-      const deep = await page.evaluate(id => { const a = document.querySelector(`#nav_spy a[href="#${id}"]`).getBoundingClientRect(), s = document.getElementById('docs-sidebar').getBoundingClientRect(); return { inView: a.top >= s.top - 1 && a.bottom <= s.bottom + 1, activeLast: document.querySelector(`#nav_spy a[href="#${id}"]`).classList.contains('active') }; }, last.id);
+      const deep = await page.evaluate(id => { const a = document.querySelector(`#nav_spy a[href="#${id}"]`).getBoundingClientRect(), sb = document.getElementById('docs-sidebar').getBoundingClientRect(); return { inView: a.top >= sb.top - 1 && a.bottom <= sb.bottom + 1, activeLast: document.querySelector(`#nav_spy a[href="#${id}"]`).classList.contains('active') }; }, last.id);
       check('11 the active link deep in the sidebar is scrolled into view', deep.inView && deep.activeLast, JSON.stringify(deep));
       await page.close();
+      // direct navigation to a hash (first, middle, last section)
+      const badHash = [];
+      for (const s of [list[0], list[Math.floor(list.length / 2)], last]) {
+        const d = await open(file, { prefs: { hash: '#' + s.id } });
+        await settle(d.page); await sleep(500);
+        const v = verdict(s.id, await d.page.evaluate(id => {
+          const sec = document.getElementById(id).getBoundingClientRect();
+          const active = [...document.querySelectorAll('#docs-sidebar .nav-link.active')];
+          return { top: Math.round(sec.top), active: active.map(a => a.getAttribute('href')), outside: active.filter(a => !a.closest('#nav_spy')).length, atBottom: window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60 };
+        }, s.id));
+        if (v) badHash.push('#' + s.id + ' ' + v);
+        await d.page.close();
+      }
+      check('5b opening the page at #section activates that section in the sidebar', !badHash.length, badHash.join(' | '));
     }
 
     // 6. no horizontal overflow at 360px
@@ -225,6 +255,40 @@ try {
       const pos = await wide.page.evaluate(() => { const s = document.getElementById('docs-sidebar'); return { position: getComputedStyle(s).position, visible: s.getBoundingClientRect().width > 100 }; });
       check('10d at 1280px the sidebar is inline and sticky', pos.position === 'sticky' && pos.visible, JSON.stringify(pos));
       await wide.page.close();
+      // the same heading offset with Bootstrap's (shorter) header, and with Redmaterials' (taller) one
+      for (const theme of ['redmaterials', 'bootstrap']) {
+        const t = await open(file, { width: 360, height: 740, init: new Function(`try { localStorage.setItem('docs-theme', '${theme}'); } catch (e) { /* ignore */ }`), prefs: { hash: '#' + list[1].id } });
+        await settle(t.page); await sleep(400);
+        const off = await t.page.evaluate(id => ({ top: Math.round(document.getElementById(id).querySelector('h1,h2').getBoundingClientRect().top), bar: Math.round(document.querySelector('nav.sticky-top').getBoundingClientRect().bottom) }), list[1].id);
+        check(`10e at 360px the section heading clears the sticky header (${theme} theme)`, off.top >= off.bar, JSON.stringify(off));
+        await t.page.close();
+      }
+    }
+
+    // 12. demo-frame state sync: a frame whose own storage is unavailable still takes the parent's colour mode and theme
+    {
+      const { page } = await open(file);
+      await page.evaluate(() => docsState.set({ mode: 'dark', theme: 'bootstrap' }));
+      const frame = await page.evaluate(async src => {
+        const f = document.createElement('iframe');
+        f.className = 'docs-demo';
+        f.srcdoc = '<!doctype html><html><head><link id="redmaterials-css" rel="stylesheet" href="data:text/css,"><script>Object.defineProperty(window,"localStorage",{get(){throw new Error("denied")}});<\/script><script>' + src + '<\/script></head><body></body></html>';
+        document.body.appendChild(f);
+        await new Promise(r => f.addEventListener('load', r));
+        await new Promise(r => setTimeout(r, 400));
+        const d = f.contentDocument;
+        return { mode: d.documentElement.getAttribute('data-bs-theme'), theme: d.documentElement.getAttribute('data-docs-theme'), disabled: d.getElementById('redmaterials-css').disabled };
+      }, initSource);
+      check('12a a demo frame takes the parent\'s state through the postMessage handshake', frame.mode === 'dark' && frame.theme === 'bootstrap' && frame.disabled, JSON.stringify(frame));
+      const later = await page.evaluate(async () => {
+        const f = document.querySelector('iframe.docs-demo');
+        docsState.set({ mode: 'light', theme: 'redmaterials' });
+        await new Promise(r => setTimeout(r, 300));
+        const d = f.contentDocument;
+        return { mode: d.documentElement.getAttribute('data-bs-theme'), disabled: d.getElementById('redmaterials-css').disabled };
+      });
+      check('12b later changes in the parent reach the frame', later.mode === 'light' && !later.disabled, JSON.stringify(later));
+      await page.close();
     }
   }
 } finally {
