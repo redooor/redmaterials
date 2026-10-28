@@ -43,6 +43,11 @@ test('expandColors repeats once per colour and works with an id per colour', () 
   assert.equal((out.match(/<i id="x-/g) || []).length, COLORS.length);
   assert.ok(out.includes('id="x-deep-orange"'));
 });
+test('expandColors: each-color+default also repeats the default colour first', () => {
+  const out = expandColors('<!--@each-color+default <i class="bg-{color}"></i>-->');
+  assert.equal((out.match(/<i class="bg-/g) || []).length, COLORS.length + 1);
+  assert.ok(out.indexOf('bg-default') < out.indexOf('bg-red'));
+});
 test('renderSidebar: current page links are in the spy list, other-page links are outside it, order kept', () => {
   const sections = { bootstrap: [{ id: 'buttons', title: 'Buttons' }, { id: 'forms', title: 'Forms' }],
                      redmaterials: [{ id: 'ribbons', title: 'Corner Ribbons' }, { id: 'buttons', title: 'Buttons' }] };

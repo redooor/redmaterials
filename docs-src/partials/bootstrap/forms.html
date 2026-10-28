@@ -1,0 +1,345 @@
+<!-- Forms
+================================================== -->
+<div id="forms" class="container pt-3">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Forms</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="well bs-component">
+                    <form>
+                        <fieldset>
+                            <legend>Legend</legend>
+                            <div class="row">
+                                <label for="inputEmail" class="col-lg-2 col-form-label">Email</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="inputPassword" class="col-lg-2 col-form-label">Password</label>
+                                <div class="col-lg-10">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" aria-describedby="passwordHelpBlock">
+                                    <small id="passwordHelpBlock" class="form-text text-body-secondary">
+                                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="visually-hidden col-lg-2 col-form-label">Checkbox</label>
+                                <div class="col-lg-10 offset-lg-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkboxLegend">
+                                        <label class="form-check-label" for="checkboxLegend">Checkbox</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="textArea" class="col-lg-2 col-form-label">Textarea</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" rows="3" id="textArea"></textarea>
+                                    <small class="form-text text-body-secondary">A longer block of help text that breaks onto a new line and may extend beyond one line.</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-lg-2 col-form-label">Radios</label>
+                                <div class="col-lg-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                        <label class="form-check-label" for="optionsRadios1">Option one is this</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                        <label class="form-check-label" for="optionsRadios2">Option two can be something else</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="select" class="col-lg-2 col-form-label">Selects</label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" id="select">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                    <br>
+                                    <select multiple="" class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10 offset-lg-2 text-end">
+                                    <button class="btn btn-secondary">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <form>
+                        <div class="mb-3">
+                            <label for="focusedInput">Focused input</label>
+                            <input class="form-control" id="focusedInput" type="text" value="This is focused...">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="disabledInput">Disabled input</label>
+                            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputWarning">Input invalid (warning)</label>
+                            <input type="text" class="form-control is-invalid" id="inputWarning">
+                            <div class="invalid-feedback">Please provide a valid value.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputError">Input invalid (error)</label>
+                            <input type="text" class="form-control is-invalid" id="inputError">
+                            <div class="invalid-feedback">This field has an error.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputSuccess">Input valid</label>
+                            <input type="text" class="form-control is-valid" id="inputSuccess">
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputLarge">Large input (.form-control-lg)</label>
+                            <input class="form-control form-control-lg" type="text" id="inputLarge" placeholder="Large">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputDefault">Default input</label>
+                            <input type="text" class="form-control" id="inputDefault" placeholder="Default">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputSmall">Small input (.form-control-sm)</label>
+                            <input class="form-control form-control-sm" type="text" id="inputSmall" placeholder="Small">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Input addons</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control">
+                                <button class="btn btn-secondary" type="button">Button</button>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Input addons with flat btn</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control">
+                                <button class="btn btn-primary btn-flat" type="button">Button</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--@code--><!-- Disabled -->
+<input class="form-control" type="text" disabled>
+
+<!-- Invalid state -->
+<input type="text" class="form-control is-invalid">
+<div class="invalid-feedback">This field has an error.</div>
+
+<!-- Valid state -->
+<input type="text" class="form-control is-valid">
+<div class="valid-feedback">Looks good!</div>
+
+<!-- Sizing -->
+<input class="form-control form-control-lg" type="text">
+<input class="form-control" type="text">
+<input class="form-control form-control-sm" type="text">
+
+<!-- Input addons -->
+<div class="input-group">
+    <span class="input-group-text">$</span>
+    <input type="text" class="form-control">
+    <button class="btn btn-secondary" type="button">Button</button>
+</div><!--@end-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Controls -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Custom Controls</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component mb-4">
+                    <form>
+                        <div class="mb-3">
+                            <label>Custom Switch</label>
+                            <div class="form-check form-switch">
+                                <input type="checkbox" class="form-check-input" id="customSwitch1">
+                                <label class="form-check-label" for="customSwitch1">Toggle this switch</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input type="checkbox" class="form-check-input" id="customSwitch2" checked>
+                                <label class="form-check-label" for="customSwitch2">Checked switch</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customRange1">Custom Range</label>
+                            <input type="range" class="form-range" id="customRange1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="customFile1">Custom File Input</label>
+                            <input type="file" class="form-control" id="customFile1">
+                        </div>
+                    </form>
+                    <!--@code--><div class="form-check form-switch">
+    <input type="checkbox" class="form-check-input" id="customSwitch1">
+    <label class="form-check-label" for="customSwitch1">Toggle this switch</label>
+</div>
+
+<input type="range" class="form-range" id="customRange1">
+
+<input type="file" class="form-control" id="customFile1"><!--@end-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Validation -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Form Validation</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component mb-4">
+                    <form class="was-validated">
+                        <div class="mb-3">
+                            <label for="validationFirstName">First name</label>
+                            <input type="text" class="form-control" id="validationFirstName" value="John" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="validationLastName">Last name</label>
+                            <input type="text" class="form-control" id="validationLastName" value="" required>
+                            <div class="invalid-feedback">Please provide a last name.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="validationEmail">Email</label>
+                            <input type="email" class="form-control" id="validationEmail" value="not-an-email" required>
+                            <div class="invalid-feedback">Please provide a valid email address.</div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
+                    <!--@code--><form class="was-validated">
+    <div class="mb-3">
+        <label for="validationFirstName">First name</label>
+        <input type="text" class="form-control" id="validationFirstName" value="John" required>
+        <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+        <label for="validationLastName">Last name</label>
+        <input type="text" class="form-control" id="validationLastName" value="" required>
+        <div class="invalid-feedback">Please provide a last name.</div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form><!--@end-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Groups -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Input Groups (Bootstrap 5)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component mb-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username">
+                        <span class="input-group-text">@example.com</span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" placeholder="Amount">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-secondary" type="button">Search</button>
+                        <input type="text" class="form-control" placeholder="Search query">
+                    </div>
+                    <!--@code--><div class="input-group mb-3">
+    <span class="input-group-text">@</span>
+    <input type="text" class="form-control" placeholder="Username">
+</div>
+
+<div class="input-group mb-3">
+    <span class="input-group-text">$</span>
+    <input type="text" class="form-control" placeholder="Amount">
+    <span class="input-group-text">.00</span>
+</div>
+
+<div class="input-group mb-3">
+    <button class="btn btn-secondary" type="button">Search</button>
+    <input type="text" class="form-control" placeholder="Search query">
+</div><!--@end-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Plaintext input -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Plaintext Input</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component mb-4">
+                    <form>
+                        <div class="row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="inputPassword2" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                            </div>
+                        </div>
+                    </form>
+                    <!--@code--><div class="row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+    </div>
+</div><!--@end-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

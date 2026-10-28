@@ -14,8 +14,10 @@ export function expandIncludes(html, readPartial, stack = []) {
   });
 }
 
+// <!--@each-color …--> repeats over the 19 palette colours; <!--@each-color+default …--> also includes `default` first.
 export function expandColors(html) {
-  return html.replace(/<!--@each-color\s+([\s\S]*?)-->/g, (_, tpl) => COLORS.map(c => tpl.replace(/\{color\}/g, c)).join('\n'));
+  return html.replace(/<!--@each-color(\+default)?\s+([\s\S]*?)-->/g, (_, withDefault, tpl) =>
+    (withDefault ? ['default', ...COLORS] : COLORS).map(c => tpl.replace(/\{color\}/g, c)).join('\n'));
 }
 
 export function expandInline(html, readFile) {
