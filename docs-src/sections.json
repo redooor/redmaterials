@@ -1,0 +1,14 @@
+{
+  "bootstrap": [
+    { "id": "navbar", "title": "Navbar" }, { "id": "buttons", "title": "Buttons" }, { "id": "type", "title": "Typography" },
+    { "id": "tables", "title": "Tables" }, { "id": "forms", "title": "Forms" }, { "id": "nav", "title": "Nav" },
+    { "id": "indicators", "title": "Indicators" }, { "id": "progress", "title": "Progress Bars" },
+    { "id": "container", "title": "Containers" }, { "id": "cards", "title": "Cards" }, { "id": "dialogs", "title": "Modals" },
+    { "id": "popover", "title": "Popover" }, { "id": "tooltips", "title": "Tooltips" }
+  ],
+  "redmaterials": [
+    { "id": "navbar", "title": "Navbar" }, { "id": "nav-sidebar", "title": "Nav Sidebar" }, { "id": "buttons", "title": "Buttons" },
+    { "id": "tables", "title": "Tables" }, { "id": "shadows", "title": "Shadows" }, { "id": "ribbons", "title": "Corner Ribbons" },
+    { "id": "cards", "title": "Cards" }, { "id": "modals", "title": "Modals" }
+  ]
+}
