@@ -79,7 +79,7 @@ for (const width of WIDTHS) {
     await c0.detach();
     await page.goto(base + file, { waitUntil: 'networkidle0' });
     // freeze animations and transitions so computed values are final and repeatable (test harness only)
-    await page.addStyleTag({ content: '*, *::before, *::after { animation: none !important; transition: none !important; }' });
+    await page.addStyleTag({ content: '*, *::before, *::after, *::file-selector-button, *::-webkit-slider-thumb { animation: none !important; transition: none !important; }' });
     await page.evaluate(recorder(PROPS, PSEUDOS));
     await setDocsState(page, theme, colorMode);
     await sleep(400);
