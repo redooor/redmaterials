@@ -57,6 +57,10 @@
       "reason": "Yellow is a palette identity colour; fills do not change between modes"
     },
     {
+      "selector": ".nav-sidebar-yellow .nav-sidebar-menu li.active a",
+      "reason": "Yellow is a palette identity colour; the active item fill matches the sidebar title and does not change between modes"
+    },
+    {
       "selector": "[data-bs-theme=\"light\"] .dropdown-menu",
       "reason": "A menu inside a scope declared light is light by intent"
     }

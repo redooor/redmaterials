@@ -17,9 +17,20 @@
     $textcolor: list.nth($pair, 2); // stylelint-disable-line no-unused-variable
     .bg-#{$name} {
         background-color: $color;
-        // Support btn hover
+        // Support btn hover and pressed/focused states: .btn:active and
+        // .btn:focus-visible would otherwise repaint the fill with Bootstrap's
+        // (unset, so transparent) --bs-btn-*-bg
         &.btn:hover {
             background-color: color.adjust($color, $lightness: -10%);
+        }
+        &.btn:active,
+        &.btn.active,
+        &.btn:first-child:active,
+        :not(.btn-check) + &.btn:active {
+            background-color: color.adjust($color, $lightness: -10%);
+        }
+        &.btn:focus-visible {
+            background-color: color.adjust($color, $lightness: -20%);
         }
         // Support flat btn
         &.btn-flat {

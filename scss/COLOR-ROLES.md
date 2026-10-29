@@ -19,10 +19,10 @@ Dark mode is built from this inventory: every neutral colour is a CSS custom pro
 | `overlay` | Scrims (nav-sidebar overlay) | token |
 | `image` | Data-URL icons (select arrows) | dark variant of the image |
 
-## Summary (668 source declarations)
+## Summary (670 source declarations)
 
 * `token`: 487
-* `fixed`: 155
+* `fixed`: 157
 * `light-only`: 26
 
 ## Tokens
@@ -61,7 +61,9 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/forms.scss:178` | `background-color` | Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes. |
 | `scss/loops/background.scss:10` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/background.scss:19` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
-| `scss/loops/background.scss:22` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
+| `scss/loops/background.scss:24` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
+| `scss/loops/background.scss:30` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
+| `scss/loops/background.scss:33` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/border.scss:8` | `border-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/nav-sidebar.scss:16` | `color` | White text on a palette or brand fill; paired with the fill, identical in both modes. |
 | `scss/loops/nav-sidebar.scss:23` | `color` | White text on a palette or brand fill; paired with the fill, identical in both modes. |
@@ -535,15 +537,17 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/list-group.scss:24` | `border-color` | `#2196F3` | `.list-group-item.active, .list-group-item.active` | fixed |
 | `scss/loops/background.scss:10` | `background-color` | `#f8f8f8` (+10) | `.bg-default`, `.bg-primary` | fixed |
 | `scss/loops/background.scss:19` | `background-color` | `#f8f8f8` (+19) | `.bg-default`, `.bg-red` | fixed |
-| `scss/loops/background.scss:22` | `background-color` | `#dfdfdf` (+19) | `.bg-default.btn:hover`, `.bg-red.btn:hover` | fixed |
-| `scss/loops/background.scss:27` | `background-color` | `transparent` | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
+| `scss/loops/background.scss:24` | `background-color` | `#dfdfdf` (+19) | `.bg-default.btn:hover`, `.bg-red.btn:hover` | fixed |
+| `scss/loops/background.scss:30` | `background-color` | `#dfdfdf` (+19) | `.bg-default.btn:active, .bg-default.btn.active, `, `.bg-red.btn:active, .bg-red.btn.active, .bg-red.` | fixed |
+| `scss/loops/background.scss:33` | `background-color` | `#c5c5c5` (+19) | `.bg-default.btn:focus-visible`, `.bg-red.btn:focus-visible` | fixed |
+| `scss/loops/background.scss:38` | `background-color` | `transparent` | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
 | `scss/loops/border.scss:8` | `border-color` | `#f8f8f8` (+10) | `.border-default`, `.border-primary` | fixed |
 | `scss/loops/buttons.scss:18` | `background-color` | `#1976D2` (+9) | `.btn-primary`, `.btn-secondary` | fixed |
 | `scss/loops/buttons.scss:20` | `background-color` | `#145ca4` (+9) | `.btn-primary:hover`, `.btn-secondary:hover` | fixed |
-| `scss/loops/buttons.scss:24` | `background-color` | `#145ca4` (+9) | `.btn-primary:active, .btn-primary.active`, `.btn-secondary:active, .btn-secondary.active` | fixed |
-| `scss/loops/buttons.scss:28` | `background-color` | `#0e4377` (+9) | `.btn-primary:focus`, `.btn-secondary:focus` | fixed |
-| `scss/loops/buttons.scss:32` | `background-color` | `#092949` (+9) | `.btn-primary .ink`, `.btn-secondary .ink` | fixed |
-| `scss/loops/buttons.scss:37` | `background-color` | `transparent` | `.btn-default.btn-flat`, `.btn-primary.btn-flat` | fixed |
+| `scss/loops/buttons.scss:28` | `background-color` | `#145ca4` (+9) | `.btn-primary:active, .btn-primary.active, .btn-p`, `.btn-secondary:active, .btn-secondary.active, .b` | fixed |
+| `scss/loops/buttons.scss:33` | `background-color` | `#0e4377` (+9) | `.btn-primary:focus, .btn-primary:focus-visible`, `.btn-secondary:focus, .btn-secondary:focus-visib` | fixed |
+| `scss/loops/buttons.scss:37` | `background-color` | `#092949` (+9) | `.btn-primary .ink`, `.btn-secondary .ink` | fixed |
+| `scss/loops/buttons.scss:42` | `background-color` | `transparent` | `.btn-default.btn-flat`, `.btn-primary.btn-flat` | fixed |
 | `scss/loops/nav-sidebar.scss:14` | `background-color` | `#F44336` (+18) | `.nav-sidebar-red .nav-sidebar-title`, `.nav-sidebar-pink .nav-sidebar-title` | fixed |
 | `scss/loops/nav-sidebar.scss:16` | `color` | `#FFFFFF` (+1) | `.nav-sidebar-red .nav-sidebar-title .nav-sidebar`, `.nav-sidebar-pink .nav-sidebar-title .nav-sideba` | fixed |
 | `scss/loops/nav-sidebar.scss:23` | `color` | `#FFFFFF` (+1) | `.nav-sidebar-red .nav-sidebar-menu li.active a, `, `.nav-sidebar-pink .nav-sidebar-menu li.active a,` | fixed |

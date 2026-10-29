@@ -24,11 +24,6 @@
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#f8f8f8"
   },
-  "scss/loops/background.scss:22|background-color": {
-    "role": "fixed",
-    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
-    "match": "#dfdfdf"
-  },
   "scss/loops/border.scss:8|border-color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
@@ -138,5 +133,20 @@
     "role": "fixed",
     "reason": "Fallback declaration immediately followed by the tokenised one.",
     "match": "#ddd"
+  },
+  "scss/loops/background.scss:24|background-color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
+    "match": "#dfdfdf"
+  },
+  "scss/loops/background.scss:30|background-color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
+    "match": "#dfdfdf"
+  },
+  "scss/loops/background.scss:33|background-color": {
+    "role": "fixed",
+    "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
+    "match": "#c5c5c5"
   }
 }

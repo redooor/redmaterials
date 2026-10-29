@@ -19,12 +19,17 @@
         &:hover {
             background-color: neutral($context, color.adjust($color, $lightness: -10%), hover-bg);
         }
+        // Bootstrap paints :first-child:active and :not(.btn-check) + .btn:active
+        // with --bs-btn-active-bg (three-class specificity), so match them too
         &:active,
-        &.active {
+        &.active,
+        &:first-child:active,
+        :not(.btn-check) + &:active {
             background-color: neutral($context, color.adjust($color, $lightness: -10%), active-bg);
 
         }
-        &:focus {
+        &:focus,
+        &:focus-visible {
             background-color: neutral($context, color.adjust($color, $lightness: -20%), focus-bg);
         }
         //## color for riple-effect
