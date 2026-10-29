@@ -1,0 +1,14 @@
+[
+  {
+    "class": "ink",
+    "reason": "js/redmaterials.js creates the ripple span with className \"ink\" on click and appends it to .ripple-effect; it never appears in static markup."
+  },
+  {
+    "class": "animate",
+    "reason": "js/redmaterials.js removes and re-adds \"animate\" on the ripple .ink span to restart the keyframe animation; it is a runtime-only state class."
+  },
+  {
+    "class": "rdm-ui-disable-scroll",
+    "reason": "js/redmaterials.js toggles \"rdm-ui-disable-scroll\" on document.body while the nav sidebar is open; it is runtime-only and cannot appear in static markup."
+  }
+]
