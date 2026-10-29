@@ -72,6 +72,8 @@
         if (m) { const c = parse(m[1] || m[4]); if (c && c[3] > 0 && parseInt(m[2] || m[3], 10) >= 500) content = overRGBA(c, content); }
       }
       unverified = unverified || unsupportedPaint(cs);
+      // an overlay (carousel caption, card-img-overlay) is positioned over a sibling picture the compositing model cannot see
+      if (!unverified && cs.position === 'absolute' && n.parentElement && [...n.parentElement.children].some(c => c !== n && c.matches('img, picture, svg, video'))) unverified = 'over an image';
       if (i < nodes.length - 1) content = overRGBA(render(i + 1), content);
       else if (textColor) content = overRGBA(textColor, content);
       const o = parseFloat(cs.opacity);
