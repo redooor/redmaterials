@@ -1,0 +1,72 @@
+<!-- Redmaterials Popovers and Tooltips
+================================================== -->
+<div id="rdm-overlays" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Popovers &amp; tooltips</h1>
+                <p>Redmaterials keeps Bootstrap's popover and tooltip markup and restyles the generated elements in <code>scss/popover.scss</code> and <code>scss/tooltip.scss</code>: popovers get the translucent Material surface, 2px corners and the depth-2 shadow, while tooltips get the high-contrast tooltip token, 2px corners and full opacity. Bootstrap's bundle JavaScript creates both from <code>data-bs-toggle="popover"</code> and <code>data-bs-toggle="tooltip"</code>; <code>docs-src/assets/js/docs.js</code> initialises every trigger on the page, so the examples need no extra script.</p>
+                <p>Bootstrap's popovers open on click by default and tooltips on hover or focus, so the tooltip triggers below add <code>data-bs-trigger="click"</code> to make the interaction easy to repeat. <strong>Bootstrap vs Redmaterials.</strong> In Bootstrap mode the popover returns to its opaque light surface, <code>0.5rem</code> corners and Bootstrap border, and the tooltip returns to its stock <code>0.875rem</code> corners and <code>0.9</code> opacity; all <code>data-bs-*</code> attributes and placement names are Bootstrap 5.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Popover: top</h4>
+                <p><code>data-bs-placement="top"</code> opens the popover above its trigger.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="rdm-overlays-popover-top" data-bs-toggle="popover" data-bs-trigger="click" data-bs-placement="top" data-bs-title="Popover on top" data-bs-content="Popover content shown above the trigger.">Popover on top</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Popover: right</h4>
+                <p><code>data-bs-placement="right"</code> opens the popover to the right of its trigger.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="rdm-overlays-popover-right" data-bs-toggle="popover" data-bs-trigger="click" data-bs-placement="right" data-bs-title="Popover on the right" data-bs-content="Popover content shown to the right of the trigger.">Popover on the right</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Popover: bottom</h4>
+                <p><code>data-bs-placement="bottom"</code> opens the popover below its trigger.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="rdm-overlays-popover-bottom" data-bs-toggle="popover" data-bs-trigger="click" data-bs-placement="bottom" data-bs-title="Popover on the bottom" data-bs-content="Popover content shown below the trigger.">Popover on the bottom</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Popover: left</h4>
+                <p><code>data-bs-placement="left"</code> opens the popover to the left of its trigger.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="rdm-overlays-popover-left" data-bs-toggle="popover" data-bs-trigger="click" data-bs-placement="left" data-bs-title="Popover on the left" data-bs-content="Popover content shown to the left of the trigger.">Popover on the left</button>
+                <!--@end-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="mt-5">Tooltips</h2>
+                <p>Tooltips use the same four Bootstrap placement values; each trigger opts into a click trigger so the tooltip stays open long enough to inspect.</p>
+
+                <h4 class="mt-4">Tooltip: top</h4>
+                <p><code>data-bs-placement="top"</code> shows the tooltip above its trigger.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-secondary" id="rdm-overlays-tooltip-top" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-placement="top" data-bs-title="Tooltip on top">Tooltip on top</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Tooltip: right</h4>
+                <p><code>data-bs-placement="right"</code> shows the tooltip to the right of its trigger.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-secondary" id="rdm-overlays-tooltip-right" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-placement="right" data-bs-title="Tooltip on the right">Tooltip on the right</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Tooltip: bottom</h4>
+                <p><code>data-bs-placement="bottom"</code> shows the tooltip below its trigger.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-secondary" id="rdm-overlays-tooltip-bottom" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-placement="bottom" data-bs-title="Tooltip on the bottom">Tooltip on the bottom</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Tooltip: left</h4>
+                <p><code>data-bs-placement="left"</code> shows the tooltip to the left of its trigger.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-secondary" id="rdm-overlays-tooltip-left" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-placement="left" data-bs-title="Tooltip on the left">Tooltip on the left</button>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

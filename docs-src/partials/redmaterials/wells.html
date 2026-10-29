@@ -1,0 +1,61 @@
+<!-- Redmaterials Wells
+================================================== -->
+<div id="wells" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Wells</h1>
+                <p><code>scss/wells.scss</code> adds a simple content container: <code>.well</code> has <code>1.2em 1.5em</code> padding, the translucent surface token, and no border, corner radius or shadow, so it reads as an inset panel rather than a card. <code>.well-sm</code> reduces the padding to <code>0.8em</code> and <code>.well-lg</code> raises it to <code>2em</code>. No data attribute or JavaScript is needed.</p>
+                <p>The surface and the blockquote border colour come from theme tokens, so a well follows the page into dark mode without a per-element theme attribute.</p>
+                <p><strong>Bootstrap vs Redmaterials.</strong> Bootstrap 5 has no well component (the class is a Bootstrap 3-era name), so in Bootstrap mode <code>.well</code>, <code>.well-sm</code> and <code>.well-lg</code> do nothing and the blocks lose their inset surface and padding. The markup is plain HTML and stays valid either way.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Default well</h4>
+                <p>A <code>.well</code> groups a short heading and paragraph on the translucent surface.</p>
+                <!--@example-->
+                <div class="well" id="wells-default">
+                    <h5 class="mb-2">A default well</h5>
+                    <p class="mb-0">Wells are useful for inset help text, metadata or a short summary that should not look like a raised card.</p>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizes</h4>
+                <p>The three padding sizes, from <code>.well-sm</code> through the default <code>.well</code> to <code>.well-lg</code>.</p>
+                <!--@example-->
+                <div id="wells-sizes">
+                    <div class="well well-sm mb-3">
+                        <p class="mb-0"><code>.well-sm</code> — <code>0.8em 1.5em</code> padding.</p>
+                    </div>
+                    <div class="well mb-3">
+                        <p class="mb-0"><code>.well</code> — <code>1.2em 1.5em</code> padding.</p>
+                    </div>
+                    <div class="well well-lg mb-3">
+                        <p class="mb-0"><code>.well-lg</code> — <code>2em 1.5em</code> padding.</p>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Contents</h4>
+                <p>A well accepts ordinary content; this one holds a blockquote and a list, and its blockquote border colour follows the theme token.</p>
+                <!--@example-->
+                <div class="well" id="wells-contents">
+                    <h5>Well contents</h5>
+                    <p>Body copy, a quote and a list all keep their normal spacing inside the well.</p>
+                    <blockquote class="blockquote">
+                        <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+                        <footer class="blockquote-footer">Attributed to Steve Jobs</footer>
+                    </blockquote>
+                    <ul class="mb-0">
+                        <li>Lists keep their markers and indentation.</li>
+                        <li>Padding is controlled by the well size class.</li>
+                        <li>The surface follows light and dark mode.</li>
+                    </ul>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

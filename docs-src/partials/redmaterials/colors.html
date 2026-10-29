@@ -1,0 +1,159 @@
+<!-- Redmaterials Colours
+================================================== -->
+<div id="rdm-colors" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Colours</h1>
+                <p>Redmaterials adds the 19 Google Material Design palette colours as background utilities, alongside Bootstrap's contextual colours and a small set of light/dark design tokens. No data attribute or JavaScript is required: the utility class alone enables a swatch.</p>
+                <p><strong>Bootstrap vs Redmaterials.</strong> In Bootstrap mode the <code>.bg-red</code> … <code>.bg-blue-grey</code> palette utilities do not exist, so the swatches below lose their fill; the contextual <code>.bg-primary</code> family falls back to Bootstrap's own colours, while Redmaterials maps it to the Material brand.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Palette swatches</h4>
+                <p>Every Material palette colour is available as <code>.bg-{colour}</code>; the utility name is printed below each swatch.</p>
+                <!--@example-->
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-5 g-3">
+                    <!--@each-color
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="bg-{color}" style="height: 3rem;"></div>
+                            <div class="card-body p-2"><code class="small">.bg-{color}</code></div>
+                        </div>
+                    </div>-->
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Shade scale</h4>
+                <p>The palette ships the Material shade scale—50 through 900, plus the A100, A200, A400 and A700 accents where Material defines them—as Sass variables. The hex values below are read from <code>scss/colors.scss</code>; brown, grey and blue-grey have no accent shades.</p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered align-middle">
+                        <caption class="small">Material palette hex values from <code>scss/colors.scss</code>.</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Colour</th>
+                                <th scope="col">50</th>
+                                <th scope="col">100</th>
+                                <th scope="col">200</th>
+                                <th scope="col">300</th>
+                                <th scope="col">400</th>
+                                <th scope="col">500</th>
+                                <th scope="col">600</th>
+                                <th scope="col">700</th>
+                                <th scope="col">800</th>
+                                <th scope="col">900</th>
+                                <th scope="col">A100</th>
+                                <th scope="col">A200</th>
+                                <th scope="col">A400</th>
+                                <th scope="col">A700</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row"><code>red</code></th><td><code>#FFEBEE</code></td><td><code>#FFCDD2</code></td><td><code>#EF9A9A</code></td><td><code>#E57373</code></td><td><code>#EF5350</code></td><td><code>#F44336</code></td><td><code>#E53935</code></td><td><code>#D32F2F</code></td><td><code>#C62828</code></td><td><code>#B71C1C</code></td><td><code>#FF8A80</code></td><td><code>#FF5252</code></td><td><code>#FF1744</code></td><td><code>#D50000</code></td></tr>
+                            <tr><th scope="row"><code>pink</code></th><td><code>#FCE4EC</code></td><td><code>#F8BBD0</code></td><td><code>#F48FB1</code></td><td><code>#F06292</code></td><td><code>#EC407A</code></td><td><code>#E91E63</code></td><td><code>#D81B60</code></td><td><code>#C2185B</code></td><td><code>#AD1457</code></td><td><code>#880E4F</code></td><td><code>#FF80AB</code></td><td><code>#FF4081</code></td><td><code>#F50057</code></td><td><code>#C51162</code></td></tr>
+                            <tr><th scope="row"><code>purple</code></th><td><code>#F3E5F5</code></td><td><code>#E1BEE7</code></td><td><code>#CE93D8</code></td><td><code>#BA68C8</code></td><td><code>#AB47BC</code></td><td><code>#9C27B0</code></td><td><code>#8E24AA</code></td><td><code>#7B1FA2</code></td><td><code>#6A1B9A</code></td><td><code>#4A148C</code></td><td><code>#EA80FC</code></td><td><code>#E040FB</code></td><td><code>#D500F9</code></td><td><code>#AA00FF</code></td></tr>
+                            <tr><th scope="row"><code>deep-purple</code></th><td><code>#EDE7F6</code></td><td><code>#D1C4E9</code></td><td><code>#B39DDB</code></td><td><code>#9575CD</code></td><td><code>#7E57C2</code></td><td><code>#673AB7</code></td><td><code>#5E35B1</code></td><td><code>#512DA8</code></td><td><code>#4527A0</code></td><td><code>#311B92</code></td><td><code>#B388FF</code></td><td><code>#7C4DFF</code></td><td><code>#651FFF</code></td><td><code>#6200EA</code></td></tr>
+                            <tr><th scope="row"><code>indigo</code></th><td><code>#E8EAF6</code></td><td><code>#C5CAE9</code></td><td><code>#9FA8DA</code></td><td><code>#7986CB</code></td><td><code>#5C6BC0</code></td><td><code>#3F51B5</code></td><td><code>#3949AB</code></td><td><code>#303F9F</code></td><td><code>#283593</code></td><td><code>#1A237E</code></td><td><code>#8C9EFF</code></td><td><code>#536DFE</code></td><td><code>#3D5AFE</code></td><td><code>#304FFE</code></td></tr>
+                            <tr><th scope="row"><code>blue</code></th><td><code>#E3F2FD</code></td><td><code>#BBDEFB</code></td><td><code>#90CAF9</code></td><td><code>#64B5F6</code></td><td><code>#42A5F5</code></td><td><code>#2196F3</code></td><td><code>#1E88E5</code></td><td><code>#1976D2</code></td><td><code>#1565C0</code></td><td><code>#0D47A1</code></td><td><code>#82B1FF</code></td><td><code>#448AFF</code></td><td><code>#2979FF</code></td><td><code>#2962FF</code></td></tr>
+                            <tr><th scope="row"><code>light-blue</code></th><td><code>#E1F5FE</code></td><td><code>#B3E5FC</code></td><td><code>#81D4FA</code></td><td><code>#4FC3F7</code></td><td><code>#29B6F6</code></td><td><code>#03A9F4</code></td><td><code>#039BE5</code></td><td><code>#0288D1</code></td><td><code>#0277BD</code></td><td><code>#01579B</code></td><td><code>#80D8FF</code></td><td><code>#40C4FF</code></td><td><code>#00B0FF</code></td><td><code>#0091EA</code></td></tr>
+                            <tr><th scope="row"><code>cyan</code></th><td><code>#E0F7FA</code></td><td><code>#B2EBF2</code></td><td><code>#80DEEA</code></td><td><code>#4DD0E1</code></td><td><code>#26C6DA</code></td><td><code>#00BCD4</code></td><td><code>#00ACC1</code></td><td><code>#0097A7</code></td><td><code>#00838F</code></td><td><code>#006064</code></td><td><code>#84FFFF</code></td><td><code>#18FFFF</code></td><td><code>#00E5FF</code></td><td><code>#00B8D4</code></td></tr>
+                            <tr><th scope="row"><code>teal</code></th><td><code>#E0F2F1</code></td><td><code>#B2DFDB</code></td><td><code>#80CBC4</code></td><td><code>#4DB6AC</code></td><td><code>#26A69A</code></td><td><code>#009688</code></td><td><code>#00897B</code></td><td><code>#00796B</code></td><td><code>#00695C</code></td><td><code>#004D40</code></td><td><code>#A7FFEB</code></td><td><code>#64FFDA</code></td><td><code>#1DE9B6</code></td><td><code>#00BFA5</code></td></tr>
+                            <tr><th scope="row"><code>green</code></th><td><code>#E8F5E9</code></td><td><code>#C8E6C9</code></td><td><code>#A5D6A7</code></td><td><code>#81C784</code></td><td><code>#66BB6A</code></td><td><code>#4CAF50</code></td><td><code>#43A047</code></td><td><code>#388E3C</code></td><td><code>#2E7D32</code></td><td><code>#1B5E20</code></td><td><code>#B9F6CA</code></td><td><code>#69F0AE</code></td><td><code>#00E676</code></td><td><code>#00C853</code></td></tr>
+                            <tr><th scope="row"><code>light-green</code></th><td><code>#F1F8E9</code></td><td><code>#DCEDC8</code></td><td><code>#C5E1A5</code></td><td><code>#AED581</code></td><td><code>#9CCC65</code></td><td><code>#8BC34A</code></td><td><code>#7CB342</code></td><td><code>#689F38</code></td><td><code>#558B2F</code></td><td><code>#33691E</code></td><td><code>#CCFF90</code></td><td><code>#B2FF59</code></td><td><code>#76FF03</code></td><td><code>#64DD17</code></td></tr>
+                            <tr><th scope="row"><code>lime</code></th><td><code>#F9FBE7</code></td><td><code>#F0F4C3</code></td><td><code>#E6EE9C</code></td><td><code>#DCE775</code></td><td><code>#D4E157</code></td><td><code>#CDDC39</code></td><td><code>#C0CA33</code></td><td><code>#AFB42B</code></td><td><code>#9E9D24</code></td><td><code>#827717</code></td><td><code>#F4FF81</code></td><td><code>#EEFF41</code></td><td><code>#C6FF00</code></td><td><code>#AEEA00</code></td></tr>
+                            <tr><th scope="row"><code>yellow</code></th><td><code>#FFFDE7</code></td><td><code>#FFF9C4</code></td><td><code>#FFF59D</code></td><td><code>#FFF176</code></td><td><code>#FFEE58</code></td><td><code>#FFEB3B</code></td><td><code>#FDD835</code></td><td><code>#FBC02D</code></td><td><code>#F9A825</code></td><td><code>#F57F17</code></td><td><code>#FFFF8D</code></td><td><code>#FFFF00</code></td><td><code>#FFEA00</code></td><td><code>#FFD600</code></td></tr>
+                            <tr><th scope="row"><code>amber</code></th><td><code>#FFF8E1</code></td><td><code>#FFECB3</code></td><td><code>#FFE082</code></td><td><code>#FFD54F</code></td><td><code>#FFCA28</code></td><td><code>#FFC107</code></td><td><code>#FFB300</code></td><td><code>#FFA000</code></td><td><code>#FF8F00</code></td><td><code>#FF6F00</code></td><td><code>#FFE57F</code></td><td><code>#FFD740</code></td><td><code>#FFC400</code></td><td><code>#FFAB00</code></td></tr>
+                            <tr><th scope="row"><code>orange</code></th><td><code>#FFF3E0</code></td><td><code>#FFE0B2</code></td><td><code>#FFCC80</code></td><td><code>#FFB74D</code></td><td><code>#FFA726</code></td><td><code>#FF9800</code></td><td><code>#FB8C00</code></td><td><code>#F57C00</code></td><td><code>#EF6C00</code></td><td><code>#E65100</code></td><td><code>#FFD180</code></td><td><code>#FFAB40</code></td><td><code>#FF9100</code></td><td><code>#FF6D00</code></td></tr>
+                            <tr><th scope="row"><code>deep-orange</code></th><td><code>#FBE9E7</code></td><td><code>#FFCCBC</code></td><td><code>#FFAB91</code></td><td><code>#FF8A65</code></td><td><code>#FF7043</code></td><td><code>#FF5722</code></td><td><code>#F4511E</code></td><td><code>#E64A19</code></td><td><code>#D84315</code></td><td><code>#BF360C</code></td><td><code>#FF9E80</code></td><td><code>#FF6E40</code></td><td><code>#FF3D00</code></td><td><code>#DD2C00</code></td></tr>
+                            <tr><th scope="row"><code>brown</code></th><td><code>#EFEBE9</code></td><td><code>#D7CCC8</code></td><td><code>#BCAAA4</code></td><td><code>#A1887F</code></td><td><code>#8D6E63</code></td><td><code>#795548</code></td><td><code>#6D4C41</code></td><td><code>#5D4037</code></td><td><code>#4E342E</code></td><td><code>#3E2723</code></td><td><code>—</code></td><td><code>—</code></td><td><code>—</code></td><td><code>—</code></td></tr>
+                            <tr><th scope="row"><code>grey</code></th><td><code>#FAFAFA</code></td><td><code>#F5F5F5</code></td><td><code>#EEEEEE</code></td><td><code>#E0E0E0</code></td><td><code>#BDBDBD</code></td><td><code>#9E9E9E</code></td><td><code>#757575</code></td><td><code>#616161</code></td><td><code>#424242</code></td><td><code>#212121</code></td><td><code>—</code></td><td><code>—</code></td><td><code>—</code></td><td><code>—</code></td></tr>
+                            <tr><th scope="row"><code>blue-grey</code></th><td><code>#ECEFF1</code></td><td><code>#CFD8DC</code></td><td><code>#B0BEC5</code></td><td><code>#90A4AE</code></td><td><code>#78909C</code></td><td><code>#607D8B</code></td><td><code>#546E7A</code></td><td><code>#455A64</code></td><td><code>#37474F</code></td><td><code>#263238</code></td><td><code>—</code></td><td><code>—</code></td><td><code>—</code></td><td><code>—</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-5">Brand variables</h4>
+                <p>The brand colours are Sass variables declared with <code>!default</code> in <code>scss/variables.scss</code>; they feed both the contextual utilities and Bootstrap's <code>--bs-*</code> theme variables. <code>$brand-primary</code> defaults to the 700 shade of blue so that links and buttons reach 4.6:1 on white.</p>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <caption class="small">Brand defaults from <code>scss/variables.scss</code>.</caption>
+                        <thead>
+                            <tr><th scope="col">Variable</th><th scope="col">Default</th><th scope="col">Value</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>$brand-default</code></td><td><code>$default</code></td><td><code>#f8f8f8</code></td></tr>
+                            <tr><td><code>$brand-primary</code></td><td><code>$blue-700</code></td><td><code>#1976D2</code></td></tr>
+                            <tr><td><code>$brand-secondary</code></td><td><code>$grey-600</code></td><td><code>#757575</code></td></tr>
+                            <tr><td><code>$brand-warning</code></td><td><code>$amber</code></td><td><code>#FFC107</code></td></tr>
+                            <tr><td><code>$brand-danger</code></td><td><code>$red</code></td><td><code>#F44336</code></td></tr>
+                            <tr><td><code>$brand-success</code></td><td><code>$green</code></td><td><code>#4CAF50</code></td></tr>
+                            <tr><td><code>$brand-info</code></td><td><code>$cyan</code></td><td><code>#00BCD4</code></td></tr>
+                            <tr><td><code>$brand-light</code></td><td><code>#f8f9fa</code></td><td><code>#f8f9fa</code></td></tr>
+                            <tr><td><code>$brand-dark</code></td><td><code>#343a40</code></td><td><code>#343a40</code></td></tr>
+                            <tr><td><code>$brand-white</code></td><td><code>#fff</code></td><td><code>#fff</code></td></tr>
+                            <tr><td><code>$brand-muted</code></td><td><code>$grey-500</code></td><td><code>#9E9E9E</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-5">Customising the brand</h4>
+                <p>The supported customisation is Sass: load <code>variables</code> with your own values first, then load <code>redmaterials</code>, and compile with the Sass CLI.</p>
+                <!--@code-->@use "variables" with (
+    $brand-primary: #e91e63,
+    $brand-secondary: #455a64
+);
+@use "redmaterials";<!--@end-->
+                <p>Compile the file with Redmaterials' <code>scss</code> directory on the load path; changing a brand variable updates Bootstrap's <code>--bs-*</code> vars, the contextual utilities and the components that derive from them in one pass.</p>
+                <!--@code-->sass --load-path=path/to/redmaterials/scss theme.scss theme.css<!--@end-->
+
+                <h4 class="mt-5">Bootstrap CSS variables</h4>
+                <p>Redmaterials maps the Material brand onto Bootstrap's own CSS custom properties so utilities such as <code>.text-bg-*</code>, <code>.link-*</code> and the focus rings follow the theme.</p>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <caption class="small">Bootstrap variables set by <code>scss/_bootstrap5-theme.scss</code>.</caption>
+                        <thead>
+                            <tr><th scope="col">Variable</th><th scope="col">What it controls</th><th scope="col">Scope</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>--bs-primary</code>, <code>--bs-primary-rgb</code></td><td>Theme colour palette; the same pair exists for <code>secondary</code>, <code>success</code>, <code>info</code>, <code>warning</code>, <code>danger</code>, <code>light</code> and <code>dark</code></td><td><code>:root</code></td></tr>
+                            <tr><td><code>--bs-{colour}-text-emphasis</code>, <code>-bg-subtle</code>, <code>-border-subtle</code></td><td>Tints derived from the eight theme colours for subtle utilities and components</td><td>Light scope only; dark keeps Bootstrap's values</td></tr>
+                            <tr><td><code>--bs-body-font-family</code></td><td>Roboto stack for Bootstrap components</td><td><code>:root</code></td></tr>
+                            <tr><td><code>--bs-border-radius</code>, <code>--bs-border-radius-sm</code>, <code>--bs-border-radius-lg</code></td><td>Material's 2px corner radius</td><td><code>:root</code></td></tr>
+                            <tr><td><code>--bs-focus-ring-color</code></td><td>Theme primary at 25% for focus rings</td><td><code>:root</code></td></tr>
+                            <tr><td><code>--bs-link-color</code>, <code>--bs-link-color-rgb</code>, <code>--bs-link-hover-color</code>, <code>--bs-link-hover-color-rgb</code></td><td>Brand link colours</td><td>Light and dark; dark uses a lifted link colour</td></tr>
+                            <tr><td><code>--bs-warning-border-subtle</code></td><td>Darkened amber so white text meets AA in dark mode</td><td>Dark only</td></tr>
+                            <tr><td><code>--bs-btn-*</code> on <code>.btn-outline-{colour}</code>, <code>--bs-btn-focus-shadow-rgb</code> on <code>.btn-{colour}</code></td><td>Per-button colours that Bootstrap otherwise hard-codes</td><td>Scoped to the button class</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-5">Light and dark tokens</h4>
+                <p>Neutral colours are <code>--rdm-*</code> custom properties with a light value and a <code>[data-bs-theme="dark"]</code> override; brand and palette fills are not tokens, so they keep the same value in both modes.</p>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <caption class="small">Token groups from <code>scss/_tokens.scss</code> and <code>scss/_tokens-palette.scss</code>.</caption>
+                        <thead>
+                            <tr><th scope="col">Tokens</th><th scope="col">Used for</th><th scope="col">Changes with the mode</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>--rdm-text</code>, <code>--rdm-text-strong</code>, <code>--rdm-text-muted</code>, <code>--rdm-text-secondary</code>, <code>--rdm-text-subtle</code>, <code>--rdm-text-disabled</code></td><td>Neutral text</td><td>Yes</td></tr>
+                            <tr><td><code>--rdm-text-{colour}-rgb</code>, <code>-hover-rgb</code>, <code>-anchor-rgb</code></td><td>Contextual <code>.text-*</code> and <code>.link-*</code> utilities</td><td>Yes, lifted for contrast</td></tr>
+                            <tr><td><code>--rdm-surface</code>, <code>--rdm-surface-translucent</code>, <code>--rdm-disabled-bg</code>, <code>--rdm-overlay</code>, <code>--rdm-card-cap-bg</code></td><td>Surfaces, disabled fills, overlays and card headers</td><td>Yes</td></tr>
+                            <tr><td><code>--rdm-default-*</code>, <code>--rdm-sidebar-default-*</code>, <code>--rdm-flat-*</code>, <code>--rdm-ink</code></td><td>Neutral buttons, sidebar default, flat-button washes and ripple ink</td><td>Yes</td></tr>
+                            <tr><td><code>--rdm-underline</code>, <code>--rdm-divider</code>, <code>--rdm-chevron</code>, <code>--rdm-popover-border</code>, <code>--rdm-blockquote-border</code>, <code>--rdm-control-border</code>, <code>--rdm-control-subtle</code>, <code>--rdm-focus-gap</code>, <code>--rdm-select-arrow</code>, <code>--rdm-select-arrow-focus</code></td><td>Dividers, borders, control chrome and select arrows</td><td>Yes</td></tr>
+                            <tr><td><code>--rdm-hover-bg</code>, <code>--rdm-table-striped-bg</code>, <code>--rdm-table-hover-bg</code>, <code>--rdm-table-active-bg</code>, <code>--rdm-table-border</code>, <code>--rdm-table-text</code>, <code>--rdm-table-header-color</code></td><td>Interaction surfaces and table colours</td><td>Yes</td></tr>
+                            <tr><td><code>--rdm-tooltip-bg</code>, <code>--rdm-tooltip-color</code></td><td>Tooltips</td><td>Yes; dark tooltips stay light</td></tr>
+                            <tr><td><code>--rdm-shadow-depth-1</code> … <code>-5</code>, <code>--rdm-shadow-navbar</code>, <code>--rdm-shadow-dropdown</code>, <code>--rdm-shadow-ribbon</code></td><td>Material shadow depths</td><td>Yes, deepened for dark surfaces</td></tr>
+                            <tr><td><code>--rdm-ctx-{name}</code> and <code>--rdm-pal-{colour}</code> with <code>-hover</code>, <code>-active</code>, <code>-focus</code></td><td>Flat and outline button text, <code>.text-*</code> and palette interaction states</td><td>Yes; palette fills themselves do not</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-5">Dark mode</h4>
+                <p>Neutral tokens follow the <code>data-bs-theme</code> attribute: surfaces, text, dividers, control chrome, interaction washes and shadows switch to their dark values. Brand and palette fills such as <code>.bg-red</code> or <code>.bg-primary</code> are identity colours and stay the same in both modes. When a brand colour is used as text—<code>.text-primary</code>, <code>.link-primary</code> or a flat button—the <code>--rdm-text-*</code> and <code>--rdm-pal-*</code> tokens lift it towards white until it reaches 4.5:1 on the dark surface, with hover states that stay lighter than the base. The derived <code>--bs-*-bg-subtle</code> and <code>--bs-*-border-subtle</code> values are light-only, so Bootstrap's own dark values remain in force.</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,128 +1,113 @@
-<!-- Navigation Sidebar
+<!-- Redmaterials Navigation Sidebar
 ================================================== -->
 <div id="nav-sidebar" class="container pt-5">
     <div class="pt-5">
         <div class="row">
             <div class="col-lg-12">
                 <h1>Nav Sidebar</h1>
+                <p>Redmaterials adds an off-canvas navigation sidebar that slides in from the left, or from the right with <code>.nav-sidebar-right</code>. It is hidden beyond the viewport until a trigger carrying <code>data-toggle="nav-sidebar-toggle"</code> and <code>data-target="#wrapper-id"</code> is clicked; the Redmaterials script then adds <code>.active</code> to the wrapper, shows the overlay and locks body scrolling with <code>rdm-ui-disable-scroll</code>. The live demo below opens the real fixed component over this page.</p>
+                <p><strong>Bootstrap vs Redmaterials.</strong> The nav sidebar is a Redmaterials addition, not a Bootstrap component: in Bootstrap mode these classes have no styling or behaviour, so the previews below render as unstyled lists. Use Bootstrap's own offcanvas for a stock Bootstrap drawer.</p>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-12">
-                <div class="bs-component">
-                    <div id="nav_sidebar_demo1" class="nav-sidebar-wrapper">
-                        <div class="nav-sidebar nav-sidebar-default shadow-depth-1">
-                            <div class="nav-sidebar-title">
-                                <a href="#top" class="nav-sidebar-brand">Nav Sidebar</a>
-                            </div>
-                            <ul class="nav flex-column nav-sidebar-menu">
-                                <li class="nav-sub-header"><span>Header 1</span></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 2</a></li>
-                                <li class="active"><a href="#">Active 3</a></li>
-                                <li><a href="#">Test 4</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="nav-sub-header"><span>Header 2</span></li>
-                                <li><a href="#">Test 5</a></li>
-                                <li><a href="#">Test 6</a></li>
-                                <li><a href="#">Test 7</a></li>
-                                <li><a href="#">Test 8</a></li>
-                            </ul>
-                        </div>
-                        <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"></div>
+                <h4>Default sidebar</h4>
+                <p>A <code>.nav-sidebar</code> is normally <code>position: fixed</code>, so this preview places it inline with <code>.position-relative</code>, <code>.start-0</code> and <code>.h-auto</code>; the title bar and active row use the neutral <code>.nav-sidebar-default</code> variant.</p>
+                <!--@example-->
+                <div class="nav-sidebar nav-sidebar-default position-relative start-0 h-auto shadow-depth-1">
+                    <div class="nav-sidebar-title">
+                        <a href="#nav-sidebar" class="nav-sidebar-brand">Nav Sidebar</a>
                     </div>
-                    <div id="nav_sidebar_demo2" class="nav-sidebar-wrapper">
-                        <div class="nav-sidebar nav-sidebar-pink nav-sidebar-right shadow-depth-1">
-                            <div class="nav-sidebar-title">
-                                <a href="#top" class="nav-sidebar-brand">Right Sidebar</a>
-                            </div>
-                            <ul class="nav flex-column nav-sidebar-menu">
-                                <li class="nav-sub-header"><span>Header 1</span></li>
-                                <li><a href="#">Test 1</a></li>
-                                <li><a href="#">Test 2</a></li>
-                                <li class="active"><a href="#">Active 3</a></li>
-                                <li><a href="#">Test 4</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="nav-sub-header"><span>Header 2</span></li>
-                                <li><a href="#">Test 5</a></li>
-                                <li><a href="#">Test 6</a></li>
-                                <li><a href="#">Test 7</a></li>
-                                <li><a href="#">Test 8</a></li>
-                            </ul>
-                        </div>
-                        <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo2"></div>
+                    <ul class="nav flex-column nav-sidebar-menu">
+                        <li class="nav-sub-header"><span>Header</span></li>
+                        <li><a href="#nav-sidebar">Link</a></li>
+                        <li class="active"><a href="#nav-sidebar">Active</a></li>
+                        <li><a href="#nav-sidebar">Another link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="nav-sub-header"><span>Second header</span></li>
+                        <li><a href="#nav-sidebar">Last link</a></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Right sidebar</h4>
+                <p>Add <code>.nav-sidebar-right</code> to dock the fixed sidebar to the right edge; the preview stays inline so the layout is visible without opening a drawer.</p>
+                <!--@example-->
+                <div class="nav-sidebar nav-sidebar-pink nav-sidebar-right position-relative start-0 h-auto shadow-depth-1">
+                    <div class="nav-sidebar-title">
+                        <a href="#nav-sidebar" class="nav-sidebar-brand">Right Sidebar</a>
                     </div>
-                    <p>
-                        <button type="button" class="btn btn-primary" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1">Show Sidebar</button>
-                        <button type="button" class="btn bg-pink text-white" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo2">Show Sidebar (right)</button>
-                    </p>
-                    <p>Wrap the sidebar with a div class <i>nav-sidebar-wrapper</i> and give it a unque ID.</p>
-                    <!--@code--><div id="nav_sidebar_demo1" class="nav-sidebar-wrapper"><!--@end-->
-                    <p>Within the wrapper, you need 2 divs, <i>nav-sidebar</i> and <i>nav-sidebar-overlay</i> :</p>
-                    <p><i>nav-sidebar</i> contains the menu list <i>nav nav-sidebar-menu</i>. By default it's hidden from view.</p>
-                    <!--@code--><div class="nav-sidebar nav-sidebar-default shadow-depth-1">
-    <div class="nav-sidebar-title">
-        <a href="#top" class="nav-sidebar-brand">Nav Sidebar</a>
-    </div>
-    <ul class="nav flex-column nav-sidebar-menu">
-        <li class="nav-sub-header"><span>Header 1</span></li>
-        <li><a href="#">Test 1</a></li>
-        <li><a href="#">Test 2</a></li>
-        <li class="active"><a href="#">Active 3</a></li>
-        <li><a href="#">Test 4</a></li>
-        <li role="separator" class="divider"></li>
-        <li class="nav-sub-header"><span>Header 2</span></li>
-        <li><a href="#">Test 5</a></li>
-        <li><a href="#">Test 6</a></li>
-        <li><a href="#">Test 7</a></li>
-        <li><a href="#">Test 8</a></li>
-    </ul>
-</div><!--@end-->
-                    <p><i>nav-sidebar-overlay</i> is the overlay when the sidebar is shown to prevent main body from scrolling.</p>
-                    <!--@code--><div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"></div><!--@end-->
-                    <p>To toggle the sidebar on/off, simply add the</p>
-                    <!--@code-->data-toggle="nav-sidebar-toggle"<!--@end-->
-                    <p>and</p>
-                    <!--@code-->data-target="#your_wrapper_id"<!--@end-->
-                    <p>to any element, such as button and overlay. <i>data-target</i> should contain your wrapper's ID.</p>
-                    <p>I had given the <i>nav-sidebar-overlay</i> those properties so that user can click the overlay to dismiss the sidebar.</p>
-                    <p>Full example code:</p>
-                    <!--@code--><div id="nav_sidebar_demo1" class="nav-sidebar-wrapper">
+                    <ul class="nav flex-column nav-sidebar-menu">
+                        <li class="nav-sub-header"><span>Header</span></li>
+                        <li><a href="#nav-sidebar">Link</a></li>
+                        <li class="active"><a href="#nav-sidebar">Active</a></li>
+                        <li><a href="#nav-sidebar">Another link</a></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Colour options</h4>
+                <p>Replace <code>.nav-sidebar-default</code> with any <code>.nav-sidebar-{colour}</code> class to colour the title bar and the active row with one of the 19 Material palette colours.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-3">
+                    <!--@each-color
+                    <div class="nav-sidebar nav-sidebar-{color} position-relative start-0 h-auto shadow-depth-1">
+                        <div class="nav-sidebar-title">
+                            <a href="#nav-sidebar" class="nav-sidebar-brand">.nav-sidebar-{color}</a>
+                        </div>
+                        <ul class="nav flex-column nav-sidebar-menu">
+                            <li class="nav-sub-header"><span>Header</span></li>
+                            <li class="active"><a href="#nav-sidebar">Active</a></li>
+                            <li><a href="#nav-sidebar">Link</a></li>
+                        </ul>
+                    </div>-->
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Live sidebar</h4>
+                <p>The button launches the real fixed sidebar, which slides in from the left; clicking the overlay or the button again closes it and releases the scroll lock. The wrapper is inside this example, so the snippet shows the complete markup, including the overlay that is omitted from the static previews above.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="nav-sidebar-live-toggle" data-toggle="nav-sidebar-toggle" data-target="#nav-sidebar-live">Open navigation sidebar</button>
+                <div id="nav-sidebar-live" class="nav-sidebar-wrapper">
+                    <div class="nav-sidebar nav-sidebar-default shadow-depth-1">
+                        <div class="nav-sidebar-title">
+                            <a href="#nav-sidebar" class="nav-sidebar-brand">Nav Sidebar</a>
+                        </div>
+                        <ul class="nav flex-column nav-sidebar-menu">
+                            <li class="nav-sub-header"><span>Header</span></li>
+                            <li><a href="#nav-sidebar">Link</a></li>
+                            <li class="active"><a href="#nav-sidebar">Active</a></li>
+                            <li><a href="#nav-sidebar">Another link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="nav-sub-header"><span>Second header</span></li>
+                            <li><a href="#nav-sidebar">Last link</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav-sidebar-live" aria-hidden="true"></div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Markup and behaviour</h4>
+                <p>Wrap the sidebar and its overlay in a <code>.nav-sidebar-wrapper</code> with a unique id, then point any trigger at that id. The Redmaterials script toggles <code>.active</code> on the wrapper; the CSS slides <code>.nav-sidebar</code> into view, displays <code>.nav-sidebar-overlay</code> and adds <code>rdm-ui-disable-scroll</code> to <code>&lt;body&gt;</code> while it is open.</p>
+                <!--@code--><div id="nav_sidebar_example" class="nav-sidebar-wrapper">
     <div class="nav-sidebar nav-sidebar-default shadow-depth-1">
         <div class="nav-sidebar-title">
             <a href="#top" class="nav-sidebar-brand">Nav Sidebar</a>
         </div>
         <ul class="nav flex-column nav-sidebar-menu">
-            <li class="nav-sub-header"><span>Header 1</span></li>
-            <li><a href="#">Test 1</a></li>
-            <li><a href="#">Test 2</a></li>
-            <li class="active"><a href="#">Active 3</a></li>
-            <li><a href="#">Test 4</a></li>
+            <li class="nav-sub-header"><span>Header</span></li>
+            <li><a href="#">Link</a></li>
+            <li class="active"><a href="#">Active</a></li>
             <li role="separator" class="divider"></li>
-            <li class="nav-sub-header"><span>Header 2</span></li>
-            <li><a href="#">Test 5</a></li>
-            <li><a href="#">Test 6</a></li>
-            <li><a href="#">Test 7</a></li>
-            <li><a href="#">Test 8</a></li>
+            <li><a href="#">Another link</a></li>
         </ul>
     </div>
-    <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_demo1"></div>
+    <div class="nav-sidebar-overlay" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_example"></div>
 </div><!--@end-->
-                    <h4>Right Sidebar</h4>
-                    <p>By default the sidebar sticks to the left of the screen.</p>
-                    <p>If you want the sidebar to stick to the right instead, add class:</p>
-                    <!--@code-->nav-sidebar-right<!--@end-->
-                    <p>Like this:</p>
-                    <!--@code--><div class="nav-sidebar nav-sidebar-default nav-sidebar-right shadow-depth-1"><!--@end-->
-                    <h4>Color options</h4>
-                    <p>Nav Sidebar supports all material color palette.</p>
-                    <p>Replace <i>nav-sidebar-default</i> with the following to get different colors (active menu will be colored as well):</p>
-                    <ul class="list-unstyled">
-                        <!--@each-color+default <li class="demo-nav-sidebar nav-sidebar-{color}">
-                            <span class="nav-sidebar-title"><span class="nav-sidebar-brand">.nav-sidebar-{color}</span></span>
-                        </li>-->
-                    </ul>
-                </div>
+                <p>The trigger carries both attributes; it can be a button, a link or the overlay itself. Give the trigger an accessible name because it opens a navigation region.</p>
+                <!--@code--><button type="button" class="btn btn-primary" data-toggle="nav-sidebar-toggle" data-target="#nav_sidebar_example">Open navigation sidebar</button><!--@end-->
+                <p>The overlay is the dimmed backdrop. It uses the same toggle attributes, so a click outside the sidebar dismisses it; the JavaScript also handles <code>data-bs-target</code> as a fallback for markup written with Bootstrap's attribute name. Bootstrap's bundle JavaScript is not used by this component, but the page still needs Bootstrap's JavaScript for its other components.</p>
             </div>
         </div>
     </div>

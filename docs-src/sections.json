@@ -334,8 +334,139 @@
       { "variant": "icon-links", "selector": ".bs-component .icon-link" } ] }
   ],
   "redmaterials": [
-    { "id": "navbar", "title": "Navbar" }, { "id": "nav-sidebar", "title": "Nav Sidebar" }, { "id": "buttons", "title": "Buttons" },
-    { "id": "tables", "title": "Tables" }, { "id": "shadows", "title": "Shadows" }, { "id": "ribbons", "title": "Corner Ribbons" },
-    { "id": "cards", "title": "Cards" }, { "id": "modals", "title": "Modals" }
+    { "id": "rdm-colors", "title": "Colours", "examples": [
+      { "variant": "palette", "selector": ".bs-component .bg-blue" } ] },
+    { "id": "rdm-utilities", "title": "Utilities", "examples": [
+      { "variant": "backgrounds", "selector": ".bs-component .bg-muted" },
+      { "variant": "text-contextual", "selector": ".bs-component .text-primary" },
+      { "variant": "text-fixed", "selector": ".bs-component .text-default" },
+      { "variant": "text-opacity", "selector": ".bs-component .text-opacity-50" },
+      { "variant": "borders", "selector": ".bs-component .border-default" } ] },
+    { "id": "rdm-type", "title": "Typography", "examples": [
+      { "variant": "body", "selector": ".bs-component .lead" },
+      { "variant": "headings", "selector": ".bs-component h1" },
+      { "variant": "links", "selector": ".bs-component .link-body-emphasis" },
+      { "variant": "code", "selector": ".bs-component pre" },
+      { "variant": "blockquote", "selector": ".bs-component .blockquote" } ] },
+    { "id": "buttons", "title": "Buttons", "examples": [
+      { "variant": "raised", "selector": ".bs-component .btn-raised" },
+      { "variant": "flat", "selector": ".bs-component .btn-flat" },
+      { "variant": "circle", "selector": ".bs-component .btn-circle" },
+      { "variant": "action", "selector": ".bs-component .card-action .btn-action" },
+      { "variant": "default-white-muted", "selector": ".bs-component .btn-white" },
+      { "variant": "contextual", "selector": ".bs-component .btn-primary" },
+      { "variant": "outline", "selector": ".bs-component .btn-outline-primary" },
+      { "variant": "sizes", "selector": ".bs-component .btn-lg" },
+      { "variant": "disabled", "selector": ".bs-component .btn.disabled" },
+      { "variant": "ripple", "selector": ".bs-component .btn.ripple-effect",
+        "interaction": { "click": ".btn.ripple-effect", "expect": "#buttons .ripple-effect.btn .ink" } },
+      { "variant": "palette", "selector": ".bs-component .btn-raised.bg-red" } ] },
+    { "id": "rdm-ripples", "title": "Ripples", "examples": [
+      { "variant": "buttons", "selector": ".bs-component .btn.ripple-effect",
+        "interaction": { "click": ".btn.ripple-effect", "expect": "#rdm-ripples .ripple-effect .ink" } },
+      { "variant": "links", "selector": ".bs-component a.ripple-effect" },
+      { "variant": "cards", "selector": ".bs-component .card.ripple-effect" } ] },
+    { "id": "rdm-forms", "title": "Forms", "examples": [
+      { "variant": "text-inputs", "selector": ".bs-component #rdm-forms-name" },
+      { "variant": "selects", "selector": ".bs-component #rdm-forms-select" },
+      { "variant": "checks-radios", "selector": ".bs-component #rdm-forms-check",
+        "interaction": { "click": "label[for=\"rdm-forms-check\"]", "expect": "#rdm-forms-check:checked" } },
+      { "variant": "switches", "selector": ".bs-component #rdm-forms-switch",
+        "interaction": { "click": "label[for=\"rdm-forms-switch\"]", "expect": "#rdm-forms-switch:checked" } },
+      { "variant": "range", "selector": ".bs-component #rdm-forms-range" },
+      { "variant": "file", "selector": ".bs-component #rdm-forms-file" },
+      { "variant": "input-groups", "selector": ".bs-component .input-group" },
+      { "variant": "validation", "selector": ".bs-component .is-invalid" },
+      { "variant": "floating-labels", "selector": ".bs-component .form-floating" } ] },
+    { "id": "rdm-alerts", "title": "Alerts & badges", "examples": [
+      { "variant": "contextual", "selector": ".bs-component .alert-primary" },
+      { "variant": "alert-links", "selector": ".bs-component .alert-link" },
+      { "variant": "dismissible", "selector": ".bs-component #rdm-alerts-dismissible",
+        "interaction": { "click": "#rdm-alerts-dismissible .btn-close", "expectGone": "#rdm-alerts-dismissible" } },
+      { "variant": "badges", "selector": ".bs-component .badge-default" },
+      { "variant": "pills", "selector": ".bs-component .badge.rounded-pill" },
+      { "variant": "badges-in-buttons", "selector": ".bs-component .btn .badge" } ] },
+    { "id": "rdm-dropdowns", "title": "Dropdowns", "examples": [
+      { "variant": "basic", "selector": ".bs-component #rdm-dropdowns-basic .dropdown-toggle",
+        "interaction": { "click": "#rdm-dropdowns-basic .dropdown-toggle", "expect": "#rdm-dropdowns-basic-menu.show" } },
+      { "variant": "dark", "selector": ".bs-component #rdm-dropdowns-dark .dropdown-menu[data-bs-theme=\"dark\"]" },
+      { "variant": "items", "selector": ".bs-component #rdm-dropdowns-items .dropdown-header" },
+      { "variant": "split", "selector": ".bs-component #rdm-dropdowns-split .dropdown-toggle-split" } ] },
+    { "id": "rdm-list-group", "title": "List group", "examples": [
+      { "variant": "items", "selector": ".bs-component .list-group" },
+      { "variant": "active", "selector": ".bs-component .list-group-item.active" },
+      { "variant": "actions", "selector": ".bs-component .list-group-item-action" },
+      { "variant": "heading", "selector": ".bs-component .list-group-item-heading" } ] },
+    { "id": "rdm-navs", "title": "Tabs & pills", "examples": [
+      { "variant": "tabs", "selector": ".bs-component #rdm-navs-tabs .nav-link.active",
+        "interaction": { "click": "#rdm-navs-tabs-profile-tab", "expect": "#rdm-navs-tabs-profile.active" } },
+      { "variant": "pills", "selector": ".bs-component #rdm-navs-pills .nav-link.active",
+        "interaction": { "click": "#rdm-navs-pills-profile-tab", "expect": "#rdm-navs-pills-profile.active" } },
+      { "variant": "disabled", "selector": ".bs-component .nav-link.disabled" } ] },
+    { "id": "navbar", "title": "Navbar", "examples": [
+      { "variant": "default", "selector": ".bs-component .navbar-brand",
+        "interaction": { "click": "#navbar-rdm-basic .dropdown-toggle", "expect": "#navbar-rdm-basic-menu.show" } },
+      { "variant": "breadcrumb", "selector": ".bs-component .navbar-breadcrumb" },
+      { "variant": "colours-dark", "selector": ".bs-component .navbar[data-bs-theme=\"dark\"].bg-red" },
+      { "variant": "colours-light", "selector": ".bs-component .navbar[data-bs-theme=\"light\"].bg-yellow" },
+      { "variant": "toggle-helper", "selector": ".bs-component .navbar-toggle",
+        "interaction": { "click": ".navbar-toggle", "expect": "#navbar-rdm-toggle-menu.show" } } ] },
+    { "id": "nav-sidebar", "title": "Nav Sidebar", "examples": [
+      { "variant": "default", "selector": ".bs-component .nav-sidebar-default.position-relative" },
+      { "variant": "right", "selector": ".bs-component .nav-sidebar-right.position-relative" },
+      { "variant": "colours", "selector": ".bs-component .nav-sidebar-red" },
+      { "variant": "live", "selector": ".bs-component #nav-sidebar-live-toggle",
+        "interaction": { "click": "#nav-sidebar-live-toggle", "expect": ".nav-sidebar-wrapper.active .nav-sidebar" } } ] },
+    { "id": "rdm-pagination", "title": "Pagination", "examples": [
+      { "variant": "overview", "selector": ".bs-component .pagination" },
+      { "variant": "icons", "selector": ".bs-component .pagination svg" },
+      { "variant": "sizes", "selector": ".bs-component .pagination-lg" },
+      { "variant": "states", "selector": ".bs-component .page-item.disabled" },
+      { "variant": "active", "selector": ".bs-component .page-item.active" } ] },
+    { "id": "modals", "title": "Modals", "examples": [
+      { "variant": "preview", "selector": ".bs-component .modal.position-static" },
+      { "variant": "live", "selector": ".bs-component #modals-live-button",
+        "interaction": { "click": "#modals-live-button", "expect": "#modals-live.show" } } ] },
+    { "id": "rdm-overlays", "title": "Popover & tooltip", "examples": [
+      { "variant": "popover-top", "selector": ".bs-component #rdm-overlays-popover-top",
+        "interaction": { "click": "#rdm-overlays-popover-top", "expect": ".popover.show" } },
+      { "variant": "popover-right", "selector": ".bs-component #rdm-overlays-popover-right" },
+      { "variant": "popover-bottom", "selector": ".bs-component #rdm-overlays-popover-bottom" },
+      { "variant": "popover-left", "selector": ".bs-component #rdm-overlays-popover-left" },
+      { "variant": "tooltip-top", "selector": ".bs-component #rdm-overlays-tooltip-top",
+        "interaction": { "click": "#rdm-overlays-tooltip-top", "expect": ".tooltip.show" } },
+      { "variant": "tooltip-right", "selector": ".bs-component #rdm-overlays-tooltip-right" },
+      { "variant": "tooltip-bottom", "selector": ".bs-component #rdm-overlays-tooltip-bottom" },
+      { "variant": "tooltip-left", "selector": ".bs-component #rdm-overlays-tooltip-left" } ] },
+    { "id": "rdm-progress", "title": "Progress", "examples": [
+      { "variant": "basic", "selector": ".bs-component #rdm-progress-basic" },
+      { "variant": "labels", "selector": ".bs-component #rdm-progress-label" },
+      { "variant": "colours", "selector": ".bs-component #rdm-progress-colours" },
+      { "variant": "striped", "selector": ".bs-component #rdm-progress-striped" },
+      { "variant": "animated", "selector": ".bs-component #rdm-progress-animated" },
+      { "variant": "multiple", "selector": ".bs-component #rdm-progress-multiple" },
+      { "variant": "card", "selector": ".bs-component #rdm-progress-card" } ] },
+    { "id": "tables", "title": "Tables", "examples": [
+      { "variant": "palette", "selector": ".bs-component .table-amber" },
+      { "variant": "striped-hover", "selector": ".bs-component #tables-hover" },
+      { "variant": "condensed", "selector": ".bs-component .table-condensed" },
+      { "variant": "no-border", "selector": ".bs-component .table-no-border" },
+      { "variant": "responsive-vertical", "selector": ".bs-component .table-responsive-vertical" } ] },
+    { "id": "cards", "title": "Cards", "examples": [
+      { "variant": "headers-footers", "selector": ".bs-component #cards-header-footer .card-header" },
+      { "variant": "action", "selector": ".bs-component #cards-action .btn-action" },
+      { "variant": "depth", "selector": ".bs-component #cards-depth .shadow-depth-5" },
+      { "variant": "images", "selector": ".bs-component #cards-image .card-img-top" } ] },
+    { "id": "shadows", "title": "Shadows", "examples": [
+      { "variant": "depths", "selector": ".bs-component .shadow-depth-0" },
+      { "variant": "cards", "selector": ".bs-component #shadows-card.shadow-depth-3" } ] },
+    { "id": "ribbons", "title": "Corner Ribbons", "examples": [
+      { "variant": "positions", "selector": ".bs-component .corner-ribbon.top-left" },
+      { "variant": "colours", "selector": ".bs-component .corner-ribbon.bg-red" } ] },
+    { "id": "wells", "title": "Wells", "examples": [
+      { "variant": "default", "selector": ".bs-component #wells-default" },
+      { "variant": "sizes", "selector": ".bs-component #wells-sizes .well-lg" },
+      { "variant": "contents", "selector": ".bs-component #wells-contents" } ] },
+    { "id": "rdm-scroll", "title": "Scroll lock" }
   ]
 }

@@ -1,0 +1,84 @@
+<!-- Redmaterials Tabs and pills
+================================================== -->
+<div id="rdm-navs" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Tabs &amp; pills</h1>
+                <p>Redmaterials restyles Bootstrap's tabs and pills: tabs lose the bordered strip and use a 2px Material underline on hover and on the active link, while pills shrink to 2px corners and fill with the Material primary. Both use Bootstrap's bundle JavaScript for <code>data-bs-toggle="tab"</code> or <code>data-bs-toggle="pill"</code>; no Redmaterials script is needed.</p>
+                <p><strong>Bootstrap vs Redmaterials.</strong> In Bootstrap mode tabs return to the bordered tab strip with rounded active tabs, and pills use Bootstrap's larger corner radius and default blue. The nav markup, panes and data attributes are Bootstrap 5 throughout.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Tabs with panes</h4>
+                <p>Add <code>.nav-tabs</code> to the nav and give each trigger <code>data-bs-toggle="tab"</code> plus a <code>data-bs-target</code> pointing at its <code>.tab-pane</code>; the first link starts <code>.active</code> and its pane starts <code>.show.active</code>.</p>
+                <!--@example-->
+                <ul class="nav nav-tabs" id="rdm-navs-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="rdm-navs-tabs-home-tab" data-bs-toggle="tab" data-bs-target="#rdm-navs-tabs-home" type="button" role="tab" aria-controls="rdm-navs-tabs-home" aria-selected="true">Home</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="rdm-navs-tabs-profile-tab" data-bs-toggle="tab" data-bs-target="#rdm-navs-tabs-profile" type="button" role="tab" aria-controls="rdm-navs-tabs-profile" aria-selected="false">Profile</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="rdm-navs-tabs-contact-tab" data-bs-toggle="tab" data-bs-target="#rdm-navs-tabs-contact" type="button" role="tab" aria-controls="rdm-navs-tabs-contact" aria-selected="false">Contact</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link disabled" type="button" role="tab" aria-disabled="true" tabindex="-1">Disabled</button>
+                    </li>
+                </ul>
+                <div class="tab-content border rounded-bottom p-3" id="rdm-navs-tabs-content">
+                    <div class="tab-pane fade show active" id="rdm-navs-tabs-home" role="tabpanel" aria-labelledby="rdm-navs-tabs-home-tab" tabindex="0">
+                        <p class="mb-0">Home pane: the Material underline marks the selected tab, and the disabled tab cannot be reached.</p>
+                    </div>
+                    <div class="tab-pane fade" id="rdm-navs-tabs-profile" role="tabpanel" aria-labelledby="rdm-navs-tabs-profile-tab" tabindex="0">
+                        <p class="mb-0">Profile pane: shown after the Profile tab is selected.</p>
+                    </div>
+                    <div class="tab-pane fade" id="rdm-navs-tabs-contact" role="tabpanel" aria-labelledby="rdm-navs-tabs-contact-tab" tabindex="0">
+                        <p class="mb-0">Contact pane: shown after the Contact tab is selected.</p>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Pills with panes</h4>
+                <p>Swap <code>.nav-tabs</code> for <code>.nav-pills</code> and use <code>data-bs-toggle="pill"</code>; the active pill takes the Material primary fill and white label.</p>
+                <!--@example-->
+                <ul class="nav nav-pills" id="rdm-navs-pills" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="rdm-navs-pills-home-tab" data-bs-toggle="pill" data-bs-target="#rdm-navs-pills-home" type="button" role="tab" aria-controls="rdm-navs-pills-home" aria-selected="true">Home</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="rdm-navs-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#rdm-navs-pills-profile" type="button" role="tab" aria-controls="rdm-navs-pills-profile" aria-selected="false">Profile</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="rdm-navs-pills-contact-tab" data-bs-toggle="pill" data-bs-target="#rdm-navs-pills-contact" type="button" role="tab" aria-controls="rdm-navs-pills-contact" aria-selected="false">Contact</button>
+                    </li>
+                </ul>
+                <div class="tab-content mt-3" id="rdm-navs-pills-content">
+                    <div class="tab-pane fade show active" id="rdm-navs-pills-home" role="tabpanel" aria-labelledby="rdm-navs-pills-home-tab" tabindex="0">
+                        <p class="mb-0">Home pane for the pill navigation.</p>
+                    </div>
+                    <div class="tab-pane fade" id="rdm-navs-pills-profile" role="tabpanel" aria-labelledby="rdm-navs-pills-profile-tab" tabindex="0">
+                        <p class="mb-0">Profile pane: shown after the Profile pill is selected.</p>
+                    </div>
+                    <div class="tab-pane fade" id="rdm-navs-pills-contact" role="tabpanel" aria-labelledby="rdm-navs-pills-contact-tab" tabindex="0">
+                        <p class="mb-0">Contact pane: shown after the Contact pill is selected.</p>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Disabled link</h4>
+                <p>Add <code>.disabled</code> and <code>aria-disabled="true"</code> to a <code>.nav-link</code> to remove it from the interaction; Redmaterials also sets a not-allowed cursor.</p>
+                <!--@example-->
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active" href="#rdm-navs" aria-current="page">Active</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rdm-navs">Link</a></li>
+                    <li class="nav-item"><a class="nav-link disabled" href="#rdm-navs" aria-disabled="true" tabindex="-1">Disabled</a></li>
+                </ul>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

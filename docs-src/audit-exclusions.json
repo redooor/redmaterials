@@ -10,5 +10,17 @@
   {
     "class": "rdm-ui-disable-scroll",
     "reason": "js/redmaterials.js toggles \"rdm-ui-disable-scroll\" on document.body while the nav sidebar is open; it is runtime-only and cannot appear in static markup."
+  },
+  {
+    "class": "focus",
+    "reason": "scss/pagination.scss matches .page-item.disabled .page-link.focus only as the legacy programmatic focus-state alias alongside :focus; .focus is a state, not a class to add to pagination markup."
+  },
+  {
+    "class": "popover",
+    "reason": "Bootstrap's Popover JavaScript creates the .popover element at runtime when a [data-bs-toggle=\"popover\"] trigger is activated; it never appears in static markup. The rdm-overlays example exercises the restyled element."
+  },
+  {
+    "class": "tooltip",
+    "reason": "Bootstrap's Tooltip JavaScript creates the .tooltip element at runtime when a [data-bs-toggle=\"tooltip\"] trigger is activated; it never appears in static markup. The rdm-overlays example exercises the restyled element."
   }
 ]

@@ -1,0 +1,21 @@
+<!-- Redmaterials Scroll Lock
+================================================== -->
+<div id="rdm-scroll" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Scroll lock</h1>
+                <p><code>rdm-ui-disable-scroll</code> is a runtime state class, not markup to author: <code>js/redmaterials.js</code> adds it to <code>&lt;body&gt;</code> while the nav sidebar is open and removes it when the sidebar closes, and <code>scss/scroll.scss</code> gives that class <code>overflow: hidden</code>. The page therefore cannot scroll behind the open drawer, and normal scrolling returns on dismissal.</p>
+                <p>It is documented as code only because it never appears in static markup: adding it by hand would lock the page with no sidebar to close, and the class is excluded from the live-example audit for that reason.</p>
+                <p><strong>Bootstrap vs Redmaterials.</strong> Bootstrap's offcanvas implements its own body scroll lock; <code>rdm-ui-disable-scroll</code> is a Redmaterials addition for the nav sidebar and has no effect in Bootstrap mode.</p>
+                <p>To see it, open the live demo in the <a href="#nav-sidebar">Nav Sidebar</a> section and inspect the body element while the drawer is open.</p>
+
+                <h4 class="mt-5">The class in context</h4>
+                <p>The script toggles the class on the body; this is the state it produces while the sidebar is open.</p>
+                <!--@code--><body class="rdm-ui-disable-scroll">
+    <!-- page content; overflow is locked while the nav sidebar is open -->
+</body><!--@end-->
+            </div>
+        </div>
+    </div>
+</div>
