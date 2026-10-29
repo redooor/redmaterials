@@ -1,6 +1,7 @@
 {
   "bootstrap": [
-    { "id": "navbar", "title": "Navbar" }, { "id": "buttons", "title": "Buttons" }, { "id": "type", "title": "Typography" },
+    { "id": "navbar", "title": "Navbar" }, { "id": "buttons", "title": "Buttons", "examples": [
+      { "variant": "default", "selector": ".bs-component .btn-primary" } ] }, { "id": "type", "title": "Typography" },
     { "id": "tables", "title": "Tables" }, { "id": "forms", "title": "Forms" }, { "id": "nav", "title": "Nav" },
     { "id": "indicators", "title": "Indicators" }, { "id": "progress", "title": "Progress Bars" },
     { "id": "container", "title": "Containers" }, { "id": "cards", "title": "Cards" }, { "id": "dialogs", "title": "Modals" },

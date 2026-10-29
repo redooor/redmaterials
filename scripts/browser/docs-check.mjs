@@ -13,12 +13,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
 import { resolveBase } from './lib/common.mjs';
+import { validateManifest } from './lib/manifest.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const docsDir = process.env.DOCS_DIR ? path.resolve(process.env.DOCS_DIR) : path.join(root, 'docs');
 const mode = process.argv[2];
 if (!mode) { console.error('usage: docs-check.mjs <file|http|URL>'); process.exit(2); }
 const sections = JSON.parse(fs.readFileSync(path.join(root, 'docs-src', 'sections.json'), 'utf8'));
+const manifestErrors = validateManifest(sections);
 const PAGES = [['index.html', sections.bootstrap], ['redmaterials.html', sections.redmaterials]];
 const chrome = process.env.CHROME || (process.platform === 'darwin' ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' : 'google-chrome');
 
@@ -249,6 +251,59 @@ try {
         check(`10e at 360px the section heading clears the sticky header (${theme} theme)`, off.top >= off.bar, JSON.stringify(off));
         await t.page.close();
       }
+    }
+
+    // 12, 12a, 12b: the optional manifest drives selector coverage and click-driven state checks
+    {
+      check('12a manifest is well formed', !manifestErrors.length, manifestErrors.slice(0, 4).join(' | '));
+      const coverage = await open(file);
+      const missing = [];
+      for (const section of list) {
+        if (!section || !Array.isArray(section.examples)) continue;
+        for (const example of section.examples) {
+          if (!example || typeof example.selector !== 'string' || !example.selector.trim()) continue;
+          const selector = `#${section.id} ${example.selector}`;
+          let found = false;
+          try { found = await coverage.page.evaluate(selector => !!document.querySelector(selector), selector); } catch (e) { /* an invalid selector is a missing target */ }
+          if (!found) missing.push(`${file} #${section.id} ${example.variant}`);
+        }
+      }
+      check('12 manifest examples match their sections', !missing.length, missing.join(', '));
+      await coverage.page.close();
+      const failed = [];
+      for (const section of list) {
+        if (!section || !Array.isArray(section.examples)) continue;
+        for (const example of section.examples) {
+          const interaction = example && example.interaction;
+          if (!interaction || typeof interaction.click !== 'string' || !interaction.click.trim()) continue;
+          const target = typeof interaction.expect === 'string' && interaction.expect.trim() ? 'expect'
+            : typeof interaction.expectGone === 'string' && interaction.expectGone.trim() ? 'expectGone' : '';
+          if (!target) continue;
+          const { page } = await open(file);
+          try {
+            const clickSelector = `#${section.id} ${interaction.click}`;
+            const el = await page.waitForSelector(clickSelector, { timeout: 2000 });
+            await el.evaluate(e => e.scrollIntoView({ block: 'center' }));
+            await settle(page);
+            const selector = interaction[target];
+            const reached = () => page.evaluate((selector, target) => {
+              const visible = e => { if (!e) return false; const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
+              if (target === 'expect') return visible(document.querySelector(selector));
+              return ![...document.querySelectorAll(selector)].some(visible);
+            }, selector, target);
+            // an expectation that already holds before the click proves nothing
+            if (await reached()) { failed.push(`${file} #${section.id} ${example.variant} (already true before the click)`); continue; }
+            await el.click();
+            const outcome = await poll(reached, ok => ok === true, 2000);
+            if (!outcome) failed.push(`${file} #${section.id} ${example.variant}`);
+          } catch (e) {
+            failed.push(`${file} #${section.id} ${example.variant}`);
+          } finally {
+            await page.close();
+          }
+        }
+      }
+      check('12b interactions reach their expected state within 2000ms', !failed.length, failed.join(', '));
     }
   }
 } finally {
