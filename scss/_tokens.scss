@@ -39,7 +39,6 @@ $select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.or
     --rdm-default-active-bg: #{color.adjust($brand-default, $lightness: -10%)};
     --rdm-default-focus-bg: #{color.adjust($brand-default, $lightness: -20%)};
     --rdm-default-ink: #{color.adjust($brand-default, $lightness: -30%)};
-    --rdm-default-text: #{$default-text};
 
     // Navigation sidebar neutral "default" variant: this has always followed
     // $default / $default-text, independently of $brand-default.
@@ -112,7 +111,6 @@ $select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.or
     --rdm-default-active-bg: #404040;
     --rdm-default-focus-bg: #4d4d4d;
     --rdm-default-ink: rgba(255, 255, 255, 0.3);
-    --rdm-default-text: var(--bs-body-color);
 
     --rdm-sidebar-default-bg: #333;
     --rdm-sidebar-default-text: var(--bs-body-color);

@@ -73,12 +73,26 @@ $dark-surface: #212529;
     --rdm-#{$prefix}-#{$name}-focus: #{color.adjust($color, $lightness: -30%)};
 }
 
+// Dark tokens that are identical to their light twin are omitted: every light
+// scope redeclares all of them, so the inherited light value is correct.
 @mixin palette-dark($prefix, $name, $color) {
     $base: lift($color);
-    --rdm-#{$prefix}-#{$name}: #{$base};
-    --rdm-#{$prefix}-#{$name}-hover: #{color.adjust($base, $lightness: 10%)};
-    --rdm-#{$prefix}-#{$name}-active: #{color.adjust($base, $lightness: 18%)};
-    --rdm-#{$prefix}-#{$name}-focus: #{color.adjust($base, $lightness: 26%)};
+    $hover: color.adjust($base, $lightness: 10%);
+    $active: color.adjust($base, $lightness: 18%);
+    $focus: color.adjust($base, $lightness: 26%);
+
+    @if not ($base == $color) {
+        --rdm-#{$prefix}-#{$name}: #{$base};
+    }
+    @if not ($hover == color.adjust($color, $lightness: -10%)) {
+        --rdm-#{$prefix}-#{$name}-hover: #{$hover};
+    }
+    @if not ($active == color.adjust($color, $lightness: -20%)) {
+        --rdm-#{$prefix}-#{$name}-active: #{$active};
+    }
+    @if not ($focus == color.adjust($color, $lightness: -30%)) {
+        --rdm-#{$prefix}-#{$name}-focus: #{$focus};
+    }
 }
 
 :root,

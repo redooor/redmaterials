@@ -7,12 +7,12 @@
   "scss/forms.scss:172|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes.",
-    "match": "rgb(178.1538461538, 218.6538461538, 250.8461538462)"
+    "match": "#b2dbfb"
   },
   "scss/forms.scss:178|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes.",
-    "match": "rgb(178.1538461538, 218.6538461538, 250.8461538462)"
+    "match": "#b2dbfb"
   },
   "scss/loops/background.scss:10|background-color": {
     "role": "fixed",
@@ -27,7 +27,7 @@
   "scss/loops/background.scss:22|background-color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
-    "match": "rgb(222.5, 222.5, 222.5)"
+    "match": "#dfdfdf"
   },
   "scss/loops/border.scss:8|border-color": {
     "role": "fixed",
@@ -52,7 +52,7 @@
   "scss/loops/text.scss:12|color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
-    "match": "rgb(222.5, 222.5, 222.5)"
+    "match": "#dfdfdf"
   },
   "scss/mixins/alerts.scss:8|color": {
     "role": "fixed",
@@ -132,7 +132,7 @@
   "scss/pagination.scss:55|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the active page darkened); identical in both modes.",
-    "match": "rgb(11.5384615385, 124.0384615385, 213.4615384615)"
+    "match": "#0c7cd5"
   },
   "scss/wells.scss:14|border-color": {
     "role": "fixed",

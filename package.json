@@ -4,7 +4,7 @@
   "description": "Bootstrap 5 theme inspired by Google Material Design and various projects",
   "main": "dist/css/redmaterials.css",
   "scripts": {
-    "build:css": "sass scss/redmaterials.scss dist/css/redmaterials.css --style=expanded --source-map --fatal-deprecation=import --fatal-deprecation=color-functions --fatal-deprecation=global-builtin && postcss dist/css/redmaterials.css --use autoprefixer -o dist/css/redmaterials.css --map",
+    "build:css": "sass scss/redmaterials.scss dist/css/redmaterials.css --style=expanded --source-map --fatal-deprecation=import --fatal-deprecation=color-functions --fatal-deprecation=global-builtin && node scripts/round-colors.mjs dist/css/redmaterials.css && postcss dist/css/redmaterials.css --use autoprefixer -o dist/css/redmaterials.css --map",
     "build:css:min": "cleancss -o dist/css/redmaterials.min.css dist/css/redmaterials.css",
     "build:js": "esbuild js/redmaterials.js --bundle=false --outfile=dist/js/redmaterials.js && esbuild js/redmaterials.js --bundle=false --minify --outfile=dist/js/redmaterials.min.js",
     "build:docs:js": "esbuild docs-src/assets/js/docs.js --bundle=false --minify --outfile=docs/assets/js/docs.min.js",
