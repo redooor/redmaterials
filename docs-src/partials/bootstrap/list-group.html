@@ -1,0 +1,195 @@
+<!-- List group
+================================================== -->
+<div id="list-group" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>List group</h1>
+                <p>List groups present related content as a flexible list that works with plain text, links, buttons, badges, and form controls.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Basic</h4>
+                <p>Use a <code>ul</code> with <code>.list-group</code> and give every row <code>.list-group-item</code>.</p>
+                <!--@example-->
+                <ul class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+                <!--@end-->
+
+                <h4 class="mt-5">Active items</h4>
+                <p>Add <code>.active</code> and <code>aria-current="true"</code> to mark the current item in the list.</p>
+                <!--@example-->
+                <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">An active item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+                <!--@end-->
+
+                <h4 class="mt-5">Disabled items</h4>
+                <p>Add <code>.disabled</code> and <code>aria-disabled="true"</code> to an item to make it look inactive.</p>
+                <!--@example-->
+                <ul class="list-group">
+                    <li class="list-group-item disabled" aria-disabled="true">A disabled item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+                <!--@end-->
+
+                <h4 class="mt-5">Links and buttons</h4>
+                <p>Use <code>a</code> or <code>button</code> elements with <code>.list-group-item-action</code> to create a list of clickable rows with hover and focus states.</p>
+                <!--@example-->
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">The current link item</a>
+                    <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+                    <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+                    <button type="button" class="list-group-item list-group-item-action">A button item</button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Flush</h4>
+                <p>Add <code>.list-group-flush</code> to remove outer borders and rounded corners so the items sit edge-to-edge in a parent container.</p>
+                <!--@example-->
+                <div class="border rounded">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Numbered</h4>
+                <p>Use <code>.list-group-numbered</code> on an ordered list to add item numbers that adjust to the content.</p>
+                <!--@example-->
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item">Plan the release</li>
+                    <li class="list-group-item">Review the changes</li>
+                    <li class="list-group-item">Publish the documentation</li>
+                </ol>
+                <!--@end-->
+
+                <h4 class="mt-5">Horizontal</h4>
+                <p>Add <code>.list-group-horizontal</code> for a row at every breakpoint, or a breakpoint class such as <code>.list-group-horizontal-md</code> to switch from stacked to horizontal at that size.</p>
+                <!--@example-->
+                <ul class="list-group list-group-horizontal mb-3">
+                    <li class="list-group-item">First</li>
+                    <li class="list-group-item">Second</li>
+                    <li class="list-group-item">Third</li>
+                </ul>
+                <ul class="list-group list-group-horizontal-md">
+                    <li class="list-group-item">Stacked on small screens</li>
+                    <li class="list-group-item">Horizontal on medium and up</li>
+                </ul>
+                <!--@end-->
+
+                <h4 class="mt-5">Contextual classes</h4>
+                <p>Use <code>.list-group-item-*</code> classes to style an item with the meaning of each theme colour; the subtle backgrounds adapt to light and dark mode.</p>
+                <!--@example-->
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary">A primary list item</li>
+                    <li class="list-group-item list-group-item-secondary">A secondary list item</li>
+                    <li class="list-group-item list-group-item-success">A success list item</li>
+                    <li class="list-group-item list-group-item-danger">A danger list item</li>
+                    <li class="list-group-item list-group-item-warning">A warning list item</li>
+                    <li class="list-group-item list-group-item-info">An info list item</li>
+                    <li class="list-group-item list-group-item-light">A light list item</li>
+                    <li class="list-group-item list-group-item-dark">A dark list item</li>
+                </ul>
+                <!--@end-->
+
+                <h4 class="mt-5">With badges</h4>
+                <p>Add a badge inside a flex item to show a count or status next to the list content.</p>
+                <!--@example-->
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Inbox
+                        <span class="badge text-bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Drafts
+                        <span class="badge text-bg-secondary rounded-pill">2</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Archived
+                        <span class="badge text-bg-success rounded-pill">6</span>
+                    </li>
+                </ul>
+                <!--@end-->
+
+                <h4 class="mt-5">Custom content</h4>
+                <p>Combine Bootstrap's flex and spacing utilities to build richer rows with an avatar, a heading, supporting text, and a timestamp.</p>
+                <!--@example-->
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">List group item heading</h5>
+                            <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Some placeholder content in a paragraph that describes the item in a little more detail.</p>
+                        <small>And some small print for context.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">A second heading</h5>
+                            <small class="text-body-secondary">1 week ago</small>
+                        </div>
+                        <p class="mb-1">A second paragraph of placeholder content for this custom list group row.</p>
+                        <small class="text-body-secondary">And some small print for context.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">A third heading</h5>
+                            <small class="text-body-secondary">2 weeks ago</small>
+                        </div>
+                        <p class="mb-1">A third paragraph of placeholder content for this custom list group row.</p>
+                        <small class="text-body-secondary">And some small print for context.</small>
+                    </a>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Checkboxes and radios</h4>
+                <p>Place <code>.form-check-input</code> inside a list item, pair it with a <code>.form-check-label</code>, and add <code>.stretched-link</code> so the whole row toggles the control.</p>
+                <!--@example-->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="" id="list-group-check-1">
+                        <label class="form-check-label stretched-link" for="list-group-check-1">Enable notifications</label>
+                    </li>
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="" id="list-group-check-2">
+                        <label class="form-check-label stretched-link" for="list-group-check-2">Receive the weekly digest</label>
+                    </li>
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="" id="list-group-check-3" disabled>
+                        <label class="form-check-label" for="list-group-check-3">Monthly report (unavailable)</label>
+                    </li>
+                </ul>
+                <fieldset class="mt-3">
+                    <legend class="fs-6">Choose a plan</legend>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="list-group-plan" value="" id="list-group-radio-1" checked>
+                            <label class="form-check-label stretched-link" for="list-group-radio-1">Starter plan</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="list-group-plan" value="" id="list-group-radio-2">
+                            <label class="form-check-label stretched-link" for="list-group-radio-2">Team plan</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="list-group-plan" value="" id="list-group-radio-3">
+                            <label class="form-check-label stretched-link" for="list-group-radio-3">Business plan</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

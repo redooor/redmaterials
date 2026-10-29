@@ -1,0 +1,369 @@
+<!-- Helpers & utilities
+================================================== -->
+<div id="utilities" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Helpers &amp; utilities</h1>
+                <p>Bootstrap's utility classes apply spacing, layout, typography, colour, and visibility rules directly in markup, so common adjustments need no custom CSS.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Spacing</h4>
+                <p>Margin, padding, and gap utilities use a 0 to 5 scale, with responsive prefixes such as <code>.p-md-4</code> and automatic margins such as <code>.mx-auto</code>.</p>
+                <!--@example-->
+                <div class="vstack gap-3">
+                    <div class="bg-primary-subtle border border-primary-subtle rounded">
+                        <div class="p-3 text-body">Padding on every side with <code>.p-3</code>.</div>
+                    </div>
+                    <div class="bg-body-tertiary border rounded">
+                        <div class="px-4 py-2 text-body">Horizontal <code>.px-4</code> and vertical <code>.py-2</code>.</div>
+                    </div>
+                    <div class="p-2 p-md-4 bg-body-tertiary border rounded text-body">Responsive padding: <code>.p-2</code> on small screens, <code>.p-md-4</code> from medium up.</div>
+                    <div class="d-flex flex-wrap gap-3">
+                        <span class="p-2 bg-secondary-subtle border rounded">gap-3</span>
+                        <span class="p-2 bg-secondary-subtle border rounded">gap-3</span>
+                        <span class="p-2 bg-secondary-subtle border rounded">gap-3</span>
+                    </div>
+                    <div class="bg-body-tertiary border rounded p-2">
+                        <div class="w-50 mx-auto bg-primary-subtle rounded p-2 text-center text-body">A <code>.w-50</code> block centred with <code>.mx-auto</code>.</div>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <div class="p-3 bg-success-subtle border border-success-subtle rounded">First item</div>
+                        <div class="p-3 ms-4 bg-success-subtle border border-success-subtle rounded">Second item with <code>.ms-4</code></div>
+                    </div>
+                </div>
+                <!--@end-->
+                <p class="mt-3 mb-0">Negative margins are opt-in in Bootstrap. With <code>$enable-negative-margins</code> enabled, classes such as <code>.mt-n3</code> pull an element upward:</p>
+                <!--@code-->
+                <div class="mt-n3">Pulled up by a negative top margin.</div>
+                <!--@end-->
+
+                <h4 class="mt-5">Display</h4>
+                <p>Display utilities switch an element between block, inline, flex, grid, and none, and can be scoped to a breakpoint or to print.</p>
+                <!--@example-->
+                <div class="vstack gap-2">
+                    <div class="d-flex gap-2 align-items-center">
+                        <span class="badge text-bg-primary">d-block</span>
+                        <span class="d-block flex-grow-1 bg-body-tertiary border rounded p-2">A block-level element takes the full line.</span>
+                    </div>
+                    <div class="d-flex gap-2 align-items-center">
+                        <span class="badge text-bg-primary">d-inline</span>
+                        <span class="d-inline bg-body-tertiary border rounded p-2">Inline elements</span>
+                        <span class="d-inline bg-body-tertiary border rounded p-2">sit on one line.</span>
+                    </div>
+                    <div class="d-none d-md-block bg-body-tertiary border rounded p-2">Visible from the medium breakpoint up with <code>.d-none .d-md-block</code>.</div>
+                    <div class="d-block d-md-none bg-body-tertiary border rounded p-2">Visible only below the medium breakpoint with <code>.d-block .d-md-none</code>.</div>
+                    <div class="d-print-none bg-warning-subtle border border-warning-subtle rounded p-2">Shown on screen and hidden in print with <code>.d-print-none</code>.</div>
+                    <div class="d-none d-print-block bg-success-subtle border border-success-subtle rounded p-2">Shown only in print with <code>.d-none .d-print-block</code>.</div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Flex</h4>
+                <p>Flex utilities control direction, wrapping, alignment, order, and how items grow, shrink, fill, or space themselves.</p>
+                <!--@example-->
+                <div class="vstack gap-3">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center bg-body-tertiary border rounded p-2">
+                        <span>Start</span>
+                        <span class="fw-semibold">Pushed apart with <code>.justify-content-between</code></span>
+                        <span>End</span>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row gap-2">
+                        <div class="p-2 bg-primary-subtle border rounded flex-fill">Column on small screens</div>
+                        <div class="p-2 bg-primary-subtle border rounded flex-fill">Row from medium up</div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="p-2 bg-body-tertiary border rounded">Wrapped item</span>
+                        <span class="p-2 bg-body-tertiary border rounded">Wrapped item</span>
+                        <span class="p-2 bg-body-tertiary border rounded">Wrapped item</span>
+                        <span class="p-2 bg-body-tertiary border rounded">Wrapped item</span>
+                        <span class="p-2 bg-body-tertiary border rounded">Wrapped item</span>
+                        <span class="p-2 bg-body-tertiary border rounded">Wrapped item</span>
+                    </div>
+                    <div class="d-flex align-items-end gap-2 bg-body-tertiary border rounded p-2" style="height: 4rem;">
+                        <div class="p-1 bg-success-subtle border rounded">Short</div>
+                        <div class="p-3 bg-success-subtle border rounded">Tall</div>
+                        <div class="p-2 bg-success-subtle border rounded">Medium</div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <div class="p-2 bg-secondary-subtle border rounded order-3 order-md-1">Order one</div>
+                        <div class="p-2 bg-secondary-subtle border rounded order-2">Order two</div>
+                        <div class="p-2 bg-secondary-subtle border rounded order-1 order-md-3">Order three</div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <div class="p-2 bg-primary-subtle border rounded flex-grow-1">Grows with <code>.flex-grow-1</code></div>
+                        <div class="p-2 bg-primary-subtle border rounded flex-shrink-0">Does not shrink</div>
+                    </div>
+                    <div class="d-flex flex-wrap align-items-center bg-body-tertiary border rounded p-2">
+                        <span class="p-1">Auto margins</span>
+                        <span class="ms-auto p-1 bg-primary-subtle rounded">Pushed right with <code>.ms-auto</code></span>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Position</h4>
+                <p>Position utilities set an element's placement, while <code>top</code>, <code>bottom</code>, <code>start</code>, and <code>end</code> utilities offset absolutely positioned children.</p>
+                <!--@example-->
+                <div class="position-relative bg-body-tertiary border rounded p-5" style="min-height: 11rem;">
+                    <p class="mb-0 text-body">This box is <code>.position-relative</code>; the badges use <code>.position-absolute</code> with edge utilities and <code>.translate-middle</code>.</p>
+                    <span class="position-absolute top-0 start-0 badge text-bg-primary">top-0 start-0</span>
+                    <span class="position-absolute top-0 end-0 badge text-bg-success">top-0 end-0</span>
+                    <span class="position-absolute bottom-0 start-0 badge text-bg-warning">bottom-0 start-0</span>
+                    <span class="position-absolute bottom-0 end-0 badge text-bg-danger">bottom-0 end-0</span>
+                    <span class="position-absolute top-50 start-50 translate-middle badge text-bg-secondary">top-50 start-50 translate-middle</span>
+                </div>
+                <!--@end-->
+                <p class="mt-3 mb-0">Fixed and sticky positioning pin an element to the viewport or scroll container. <code>.fixed-top</code> is shown as markup only because a live fixed header would cover this page:</p>
+                <!--@code-->
+                <nav class="navbar fixed-top bg-body-tertiary">
+                    <div class="container-fluid">Fixed navigation</div>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Width and height utilities set a percentage of the parent, while <code>.mw-100</code> caps an element at the parent's width and viewport units fill the screen.</p>
+                <!--@example-->
+                <div class="vstack gap-2">
+                    <div class="w-25 bg-primary-subtle border rounded p-2">.w-25</div>
+                    <div class="w-50 bg-primary-subtle border rounded p-2">.w-50</div>
+                    <div class="w-75 bg-primary-subtle border rounded p-2">.w-75</div>
+                    <div class="w-100 bg-primary-subtle border rounded p-2">.w-100</div>
+                    <div class="bg-body-tertiary border rounded p-2" style="height: 8rem;">
+                        <div class="h-25 bg-success-subtle border rounded p-1">.h-25</div>
+                        <div class="h-50 bg-success-subtle border rounded p-1">.h-50</div>
+                    </div>
+                    <div class="bg-body-tertiary border rounded p-2">
+                        <div class="mw-100 bg-secondary-subtle border rounded p-2" style="width: 150%;">A <code>.mw-100</code> box is capped at the width of its parent, even when its declared width is larger.</div>
+                    </div>
+                </div>
+                <!--@end-->
+                <p class="mt-3 mb-0">Viewport units such as <code>.vw-100</code> and <code>.vh-100</code> are shown as markup only because they would take over this page:</p>
+                <!--@code-->
+                <div class="vw-100 vh-100">A full-viewport panel</div>
+                <!--@end-->
+
+                <h4 class="mt-5">Text</h4>
+                <p>Text utilities align, wrap, truncate, and break content, and set size, weight, style, line height, family, and decoration.</p>
+                <!--@example-->
+                <div class="vstack gap-3">
+                    <div class="bg-body-tertiary border rounded p-2">
+                        <p class="text-start mb-1">Left aligned with <code>.text-start</code>.</p>
+                        <p class="text-center mb-1">Centred with <code>.text-center</code>.</p>
+                        <p class="text-end mb-0">Right aligned with <code>.text-end</code>.</p>
+                    </div>
+                    <div class="bg-body-tertiary border rounded p-2">
+                        <p class="fs-4 fw-semibold mb-1">Larger and semibold</p>
+                        <p class="fst-italic fw-light mb-1">Italic and light</p>
+                        <p class="lh-lg mb-1">A paragraph with generous line height so consecutive lines have more breathing room.</p>
+                        <p class="font-monospace mb-0">Monospace: <span class="text-decoration-underline">underlined</span> and <span class="text-decoration-line-through">struck through</span>.</p>
+                    </div>
+                    <div class="bg-body-tertiary border rounded p-2">
+                        <p class="text-truncate mb-1" style="max-width: 16rem;">This long single-line sentence is truncated with an ellipsis instead of wrapping.</p>
+                        <p class="text-break mb-1">A long unbroken string breaks onto the next line: <span class="font-monospace">abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz</span></p>
+                        <p class="text-nowrap mb-0">A short line kept on one line with <code>.text-nowrap</code>.</p>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Borders</h4>
+                <p>Border utilities add a border on any side, choose its colour and width, and round the corners.</p>
+                <!--@example-->
+                <div class="row g-3">
+                    <div class="col-sm-6"><div class="border rounded p-3">.border .rounded</div></div>
+                    <div class="col-sm-6"><div class="border border-primary border-3 rounded-4 p-3">.border-primary .border-3 .rounded-4</div></div>
+                    <div class="col-sm-6"><div class="border-top border-success border-3 p-3">Top border only</div></div>
+                    <div class="col-sm-6"><div class="border rounded-pill p-3 text-center">.rounded-pill</div></div>
+                    <div class="col-sm-6"><div class="border rounded-0 p-3 text-center">.rounded-0</div></div>
+                    <div class="col-sm-6">
+                        <div class="border rounded-circle d-flex align-items-center justify-content-center" style="width: 6rem; height: 6rem;">.rounded-circle</div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Shadows</h4>
+                <p>Bootstrap's shadow utilities add a small, default, large, or removed elevation shadow, which also reads correctly in dark mode.</p>
+                <!--@example-->
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3"><div class="shadow-sm p-4 bg-body rounded">.shadow-sm</div></div>
+                    <div class="col-sm-6 col-lg-3"><div class="shadow p-4 bg-body rounded">.shadow</div></div>
+                    <div class="col-sm-6 col-lg-3"><div class="shadow-lg p-4 bg-body rounded">.shadow-lg</div></div>
+                    <div class="col-sm-6 col-lg-3"><div class="shadow-none border p-4 bg-body rounded">.shadow-none</div></div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Visibility</h4>
+                <p>Visibility utilities hide an element while keeping its space, and <code>.visually-hidden</code> removes content from sight without hiding it from assistive technology.</p>
+                <!--@example-->
+                <div class="vstack gap-2">
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                        <div class="visible bg-primary-subtle border rounded p-3">Visible box</div>
+                        <div class="invisible bg-primary-subtle border rounded p-3">Invisible box</div>
+                        <div class="bg-body-tertiary border rounded p-3">The invisible box still reserves its space.</div>
+                    </div>
+                    <p class="mb-0">The next sentence is read by screen readers but not shown:
+                        <span class="visually-hidden">This text is available to assistive technology only.</span>
+                        <span class="text-body-secondary">(inspect the page to find the hidden text)</span>
+                    </p>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Overflow</h4>
+                <p>Overflow utilities choose whether content is clipped, scrollable, or allowed to spill out of a sized container.</p>
+                <!--@example-->
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="overflow-auto border rounded p-2" style="height: 8rem;" tabindex="0" aria-label="Scrollable overflow example">
+                            <p class="mb-2">This box scrolls with <code>.overflow-auto</code>.</p>
+                            <p class="mb-2">It keeps its size and reveals the rest of the content on demand.</p>
+                            <p class="mb-2">Scroll or focus the box and use the arrow keys.</p>
+                            <p class="mb-0">The last line is only visible after scrolling.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="overflow-hidden border rounded p-2" style="height: 6rem;">
+                            <p class="mb-2">This box clips its content with <code>.overflow-hidden</code>.</p>
+                            <p class="mb-2">Anything past the bottom edge is hidden.</p>
+                            <p class="mb-2">The container never grows to fit it.</p>
+                            <p class="mb-0">This line is clipped.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="overflow-visible border rounded p-2" style="height: 4rem;">
+                            <p class="mb-2">This box allows content to spill out with <code>.overflow-visible</code>.</p>
+                            <p class="mb-0">The text can extend past the container's bottom edge.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Opacity</h4>
+                <p>Opacity utilities fade an element from fully opaque to fully transparent without changing its layout space.</p>
+                <!--@example-->
+                <div class="row g-3">
+                    <div class="col"><div class="opacity-100 p-3 bg-primary text-white rounded text-center">100%</div></div>
+                    <div class="col"><div class="opacity-75 p-3 bg-primary text-white rounded text-center">75%</div></div>
+                    <div class="col"><div class="opacity-50 p-3 bg-primary text-white rounded text-center">50%</div></div>
+                    <div class="col"><div class="opacity-25 p-3 bg-primary text-white rounded text-center">25%</div></div>
+                    <div class="col"><div class="opacity-0 p-3 bg-primary text-white rounded text-center">0%</div></div>
+                </div>
+                <p class="small text-body-secondary mt-2 mb-0">The 0% box is fully transparent but still occupies its column.</p>
+                <!--@end-->
+
+                <h4 class="mt-5">Z-index</h4>
+                <p>Z-index utilities layer positioned elements without writing custom stacking rules.</p>
+                <!--@example-->
+                <div class="position-relative bg-body-tertiary border rounded" style="height: 8rem;">
+                    <div class="position-absolute top-0 start-0 z-3 p-3 bg-primary text-white rounded">z-3</div>
+                    <div class="position-absolute top-0 start-0 mt-4 ms-4 z-2 p-3 bg-success text-white rounded">z-2</div>
+                    <div class="position-absolute top-0 start-0 mt-5 ms-5 z-1 p-3 bg-warning text-dark rounded">z-1</div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Vertical alignment</h4>
+                <p>Vertical alignment utilities position inline, inline-block, and table-cell content relative to its line or cell.</p>
+                <!--@example-->
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle mb-0">
+                        <tbody>
+                            <tr style="height: 5rem;">
+                                <td class="align-baseline">.align-baseline</td>
+                                <td class="align-top">.align-top</td>
+                                <td class="align-middle">.align-middle</td>
+                                <td class="align-bottom">.align-bottom</td>
+                                <td class="align-text-top"><span class="fs-5">.align-text-top</span></td>
+                                <td class="align-text-bottom"><span class="fs-5">.align-text-bottom</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Stacks</h4>
+                <p>The <code>.hstack</code> and <code>.vstack</code> helpers build horizontal or vertical flex layouts with consistent alignment and gap.</p>
+                <!--@example-->
+                <div class="vstack gap-4">
+                    <div class="hstack gap-3 bg-body-tertiary border rounded p-2">
+                        <div class="p-2 bg-primary-subtle border rounded">One</div>
+                        <div class="p-2 bg-primary-subtle border rounded">Two</div>
+                        <div class="ms-auto p-2 bg-primary-subtle border rounded">Pushed to the end</div>
+                    </div>
+                    <div class="vstack gap-2 bg-body-tertiary border rounded p-2">
+                        <div class="p-2 bg-success-subtle border rounded">First</div>
+                        <div class="p-2 bg-success-subtle border rounded">Second</div>
+                        <div class="p-2 bg-success-subtle border rounded">Third</div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Vertical rule</h4>
+                <p>Use <code>.vr</code> inside a flex container to draw a vertical separator that matches the current text colour.</p>
+                <!--@example-->
+                <div class="hstack gap-3 bg-body-tertiary border rounded p-3">
+                    <span>Home</span>
+                    <div class="vr"></div>
+                    <span>Library</span>
+                    <div class="vr"></div>
+                    <span>Settings</span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Stretched link</h4>
+                <p>Add <code>.stretched-link</code> to a link inside a positioned card so the whole card becomes clickable without wrapping it in an anchor.</p>
+                <!--@example-->
+                <div class="card position-relative" style="max-width: 22rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card with a stretched link</h5>
+                        <p class="card-text">The link below covers the card's padding box, so clicking anywhere on the card follows it.</p>
+                        <a href="#utilities" class="stretched-link">Read the utilities overview</a>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Ratio</h4>
+                <p>The ratio helper that locks content to a responsive aspect ratio is covered with <a href="#images">Images &amp; figures</a>.</p>
+
+                <h4 class="mt-5">Clearfix</h4>
+                <p>Add <code>.clearfix</code> to a parent so it contains floated children instead of collapsing around them.</p>
+                <!--@example-->
+                <div class="clearfix bg-body-tertiary border rounded p-2">
+                    <span class="float-start p-2 bg-primary-subtle border rounded">Floated start</span>
+                    <span class="float-end p-2 bg-success-subtle border rounded">Floated end</span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Colored links</h4>
+                <p>Link utilities set a contextual colour, opacity, offset, and underline, so links stay legible and consistent in both light and dark mode.</p>
+                <!--@example-->
+                <div class="vstack gap-2">
+                    <p class="mb-0">
+                        <a href="#utilities" class="link-primary">Primary link</a>,
+                        <a href="#utilities" class="link-success">success link</a>,
+                        <a href="#utilities" class="link-danger">danger link</a>, and
+                        <a href="#utilities" class="link-secondary">secondary link</a>.
+                    </p>
+                    <p class="mb-0"><a href="#utilities" class="link-success link-offset-2 link-underline-success link-underline-opacity-50">Offset and coloured underline</a></p>
+                    <p class="mb-0"><a href="#utilities" class="link-body-emphasis link-opacity-50 link-opacity-100-hover">Body-emphasis link with opacity</a></p>
+                    <p class="mb-0"><a href="#utilities" class="link-danger link-offset-3 link-underline-opacity-0 link-underline-opacity-100-hover">Underline appears on hover</a></p>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Icon links</h4>
+                <p>The <code>.icon-link</code> helper aligns an inline SVG icon with link text, and <code>.icon-link-hover</code> nudges the icon on hover.</p>
+                <!--@example-->
+                <div class="vstack gap-2">
+                    <a href="#utilities" class="icon-link icon-link-hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+                        Continue reading
+                    </a>
+                    <a href="#utilities" class="icon-link icon-link-hover link-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/></svg>
+                        Confirm changes
+                    </a>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

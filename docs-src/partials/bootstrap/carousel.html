@@ -1,0 +1,213 @@
+<!-- Carousel
+================================================== -->
+<div id="carousel" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Carousel</h1>
+                <p>A carousel cycles through slides with optional controls, indicators, captions, and theme variants, all driven by Bootstrap's data attributes.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Slides only</h4>
+                <p>Add <code>.carousel</code> and <code>.slide</code> to a wrapper and mark one <code>.carousel-item</code> as <code>.active</code>; without a ride attribute the example stays on its first slide.</p>
+                <!--@example-->
+                <div id="carousel-slides" class="carousel slide" data-bs-theme="light">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%230d6efd'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EFirst slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Blue placeholder reading First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%236c757d'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3ESecond slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Grey placeholder reading Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23198754'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EThird slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Green placeholder reading Third slide">
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">With controls</h4>
+                <p>Add previous and next buttons with <code>data-bs-target</code> and <code>data-bs-slide</code>; each icon-only control needs a <code>.visually-hidden</code> label.</p>
+                <!--@example-->
+                <div id="carousel-controls" class="carousel slide" data-bs-theme="light">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%230d6efd'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EFirst slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Blue placeholder reading First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%236c757d'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3ESecond slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Grey placeholder reading Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23198754'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EThird slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Green placeholder reading Third slide">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-controls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous slide</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-controls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next slide</span>
+                    </button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">With indicators</h4>
+                <p>Add a list of indicator buttons after the slides, with <code>data-bs-target</code>, <code>data-bs-slide-to</code>, and an <code>aria-label</code> for each one.</p>
+                <!--@example-->
+                <div id="carousel-indicators" class="carousel slide" data-bs-theme="light">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carousel-indicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carousel-indicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carousel-indicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%230d6efd'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EFirst slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Blue placeholder reading First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%236c757d'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3ESecond slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Grey placeholder reading Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23198754'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EThird slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Green placeholder reading Third slide">
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">With captions</h4>
+                <p>Place a <code>.carousel-caption</code> inside a slide to add a heading and supporting text; the caption is hidden on small screens so it never crowds the image.</p>
+                <!--@example-->
+                <div id="carousel-captions" class="carousel slide" data-bs-theme="light">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%230d6efd'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EFirst slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Blue placeholder reading First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%236c757d'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3ESecond slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Grey placeholder reading Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23198754'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EThird slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Green placeholder reading Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Crossfade</h4>
+                <p>Add <code>.carousel-fade</code> to crossfade between slides instead of sliding them horizontally.</p>
+                <!--@example-->
+                <div id="carousel-crossfade" class="carousel slide carousel-fade" data-bs-theme="light">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%236f42c1'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EFirst slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Purple placeholder reading First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23d63384'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3ESecond slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Pink placeholder reading Second slide">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-crossfade" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous slide</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-crossfade" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next slide</span>
+                    </button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Individual interval</h4>
+                <p>Set <code>data-bs-interval</code> on a carousel to change its delay when automatic cycling is enabled; this documentation example omits <code>data-bs-ride</code>, so it stays put until you use the controls.</p>
+                <!--@example-->
+                <div id="carousel-interval" class="carousel slide" data-bs-interval="2000" data-bs-theme="light">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%230dcaf0'/%3E%3Ctext x='400' y='220' fill='%23000' font-size='56' text-anchor='middle'%3EFirst slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Cyan placeholder reading First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23ffc107'/%3E%3Ctext x='400' y='220' fill='%23000' font-size='56' text-anchor='middle'%3ESecond slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Yellow placeholder reading Second slide">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-interval" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous slide</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-interval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next slide</span>
+                    </button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Disable touch swiping</h4>
+                <p>Add <code>data-bs-touch="false"</code> to stop touch devices from swiping between slides, leaving the visible controls as the only way to move.</p>
+                <!--@example-->
+                <div id="carousel-touch" class="carousel slide" data-bs-touch="false" data-bs-theme="light">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%230d6efd'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3EFirst slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Blue placeholder reading First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%236c757d'/%3E%3Ctext x='400' y='220' fill='white' font-size='56' text-anchor='middle'%3ESecond slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Grey placeholder reading Second slide">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-touch" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous slide</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-touch" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next slide</span>
+                    </button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Dark variant</h4>
+                <p>Add <code>data-bs-theme="dark"</code> to the carousel for dark captions and controls, then use lighter slides so the text keeps its contrast.</p>
+                <!--@example-->
+                <div id="carousel-dark" class="carousel slide" data-bs-theme="dark">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23e9ecef'/%3E%3Ctext x='400' y='220' fill='%23212529' font-size='56' text-anchor='middle'%3EFirst slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Light grey placeholder reading First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Dark captions and controls over a light slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23dee2e6'/%3E%3Ctext x='400' y='220' fill='%23212529' font-size='56' text-anchor='middle'%3ESecond slide%3C/text%3E%3C/svg%3E" class="d-block w-100" alt="Light grey placeholder reading Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Dark captions and controls over a light slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-dark" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous slide</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-dark" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next slide</span>
+                    </button>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

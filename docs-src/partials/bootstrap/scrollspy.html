@@ -1,0 +1,83 @@
+<!-- Scrollspy
+================================================== -->
+<div id="scrollspy" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Scrollspy</h1>
+                <p>Scrollspy highlights the link that matches the section currently in view, both for this page's sidebar navigation and for any scrollable container you mark up yourself.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>How this page uses it</h4>
+                <p>The sidebar on this page is a live scrollspy: as you read, the current section's link is highlighted and kept in view, so you can always see where you are.</p>
+
+                <h4 class="mt-5">Nav in a scrollable container</h4>
+                <p>Add <code>data-bs-spy="scroll"</code> and a <code>data-bs-target</code> pointing at a nav; links whose hashes match the section ids inside the container are activated as it scrolls.</p>
+                <!--@example-->
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <nav id="scrollspy-nav" class="nav nav-pills flex-column" aria-label="Scrollspy example sections">
+                            <a class="nav-link" href="#scrollspy-nav-intro">Introduction</a>
+                            <a class="nav-link" href="#scrollspy-nav-usage">Usage</a>
+                            <a class="nav-link" href="#scrollspy-nav-options">Options</a>
+                            <a class="nav-link" href="#scrollspy-nav-events">Events</a>
+                        </nav>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="position-relative overflow-auto border rounded p-3" style="height: 150px;" data-bs-spy="scroll" data-bs-target="#scrollspy-nav" data-bs-offset="0" tabindex="0" role="region" aria-label="Scrollable scrollspy example">
+                            <h5>Scrollable panel</h5>
+                            <p>This panel has its own scrollbar. The links on the left follow the section in view as you scroll, and clicking a link moves the panel to that section.</p>
+                            <p>The linked sections start below this introduction, so no link is highlighted until the first one scrolls into view.</p>
+                            <h5 id="scrollspy-nav-intro">Introduction</h5>
+                            <p>Scrollspy watches a scroll container and compares the position of each section with the container's viewport. The matching navigation link receives the <code>.active</code> class.</p>
+                            <p>It works on the page body by default, or on any element that has its own scrollbar when you add the spy attributes to that element.</p>
+                            <h5 id="scrollspy-nav-usage">Usage</h5>
+                            <p>Give every target section a unique id, then link to those ids from a nav or list group inside the same example. Keep the navigation close to the scrolling content so readers can move between the two.</p>
+                            <p>Set <code>data-bs-offset</code> when a fixed header covers the top of the sections, and keep each section tall enough that only one is in view when a link is followed.</p>
+                            <h5 id="scrollspy-nav-options">Options</h5>
+                            <p>The offset shifts the activation line, while the root margin and threshold tune how much of a section must be visible before it is chosen. The defaults suit most pages.</p>
+                            <p>Use <code>data-bs-target</code> to scope the spy to one navigation list; without it, Scrollspy will look for links throughout the document.</p>
+                            <h5 id="scrollspy-nav-events">Events</h5>
+                            <p>The component emits an activate event whenever the highlighted link changes. That event is useful for keeping a custom indicator or an offcanvas menu in step with the page.</p>
+                            <p>Refresh the instance after adding or removing sections dynamically so the list of observed targets stays accurate.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">List group in a scrollable container</h4>
+                <p>Scrollspy also accepts a list group as its target, adding the active state to the matching list item as the reader moves through the content.</p>
+                <!--@example-->
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div id="scrollspy-list" class="list-group" aria-label="Scrollspy list group example">
+                            <a class="list-group-item list-group-item-action" href="#scrollspy-list-overview">Overview</a>
+                            <a class="list-group-item list-group-item-action" href="#scrollspy-list-setup">Setup</a>
+                            <a class="list-group-item list-group-item-action" href="#scrollspy-list-caveats">Caveats</a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="position-relative overflow-auto border rounded p-3" style="height: 150px;" data-bs-spy="scroll" data-bs-target="#scrollspy-list" data-bs-offset="0" tabindex="0" role="region" aria-label="Scrollable list group scrollspy example">
+                            <h5>Scrollable panel</h5>
+                            <p>This panel starts with an introduction that is not one of the list group's targets, so the list begins with no active item.</p>
+                            <p>Scroll the panel or choose an item to bring its section into view; the matching list item then receives the active state.</p>
+                            <h5 id="scrollspy-list-overview">Overview</h5>
+                            <p>A list group behaves like a nav for Scrollspy: each action item points at a section, and the active item follows the scroll position.</p>
+                            <p>Keep the list and the content in the same container so the links stay within reach on small screens.</p>
+                            <h5 id="scrollspy-list-setup">Setup</h5>
+                            <p>Add the spy attributes to the scrolling element and point <code>data-bs-target</code> at the list group. Section ids must match the link hashes exactly.</p>
+                            <p>If a section is shorter than the activation threshold, combine it with a neighbour or lower the threshold until it can be selected reliably.</p>
+                            <h5 id="scrollspy-list-caveats">Caveats</h5>
+                            <p>Scrollspy observes sections, not links, so every link needs a real target with visible height. Hidden or empty sections are ignored.</p>
+                            <p>When the container is not scrollable, the whole page becomes the scroll root and the active item changes with the page position instead.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

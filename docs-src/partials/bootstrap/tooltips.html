@@ -1,25 +1,58 @@
-<div id="tooltips" class="container pt-5 min-vh-100">
-        <div class="pt-5">
-            <div class="row">
-                <div class="col">
-                    <h1>Tooltips</h1>
-                    <div class="well text-center">
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">Left</button>
+<!-- Tooltips
+================================================== -->
+<div id="tooltips" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Tooltips</h1>
+                <p>Tooltips add a short, contextual hint to a control on hover or focus, with configurable placement, triggers, and HTML content.</p>
+            </div>
+        </div>
 
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">Top</button>
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Live demo</h4>
+                <p>Hover or focus the button to show a tooltip; tooltips are opt-in and need JavaScript initialisation.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="tooltips-live-button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">Hover to see the tooltip</button>
+                <!--@end-->
 
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">Bottom</button>
-
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">Right</button>
-                    </div>
-                    <!--@code--><button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">Left</button>
-
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">Top</button>
-
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">Bottom</button>
-
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">Right</button><!--@end-->
+                <h4 class="mt-5">Four directions</h4>
+                <p>Set <code>data-bs-placement</code> to <code>top</code>, <code>right</code>, <code>bottom</code>, or <code>left</code> to control where the tooltip appears.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-secondary" id="tooltips-top-button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">Top</button>
+                    <button type="button" class="btn btn-secondary" id="tooltips-right-button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on the right">Right</button>
+                    <button type="button" class="btn btn-secondary" id="tooltips-bottom-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on the bottom">Bottom</button>
+                    <button type="button" class="btn btn-secondary" id="tooltips-left-button" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on the left">Left</button>
                 </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Click trigger</h4>
+                <p>Set <code>data-bs-trigger="click"</code> when the tooltip should toggle from a click instead of hover or focus.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="tooltips-click-button" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-placement="top" data-bs-title="Tooltip toggled by click">Click to toggle tooltip</button>
+                <!--@end-->
+                <h4 class="mt-5">On links</h4>
+                <p>Add a tooltip to a link when its destination needs extra context beyond the link text.</p>
+                <!--@example-->
+                <p class="mb-0"><a href="#" id="tooltips-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on a link">Read the release notes</a></p>
+                <!--@end-->
+
+                <h4 class="mt-5">Disabled elements</h4>
+                <p>Wrap a disabled button in a focusable element so the tooltip can still receive pointer and keyboard events.</p>
+                <!--@example-->
+                <span id="tooltips-disabled-wrapper" class="d-inline-block" tabindex="0" role="button" aria-label="Show tooltip for the disabled button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip for a disabled button">
+                    <button type="button" class="btn btn-primary" disabled>Disabled button</button>
+                </span>
+                <!--@end-->
+
+                <h4 class="mt-5">HTML content</h4>
+                <p>Add <code>data-bs-html="true"</code> to render formatted content inside the tooltip; Bootstrap's sanitizer keeps the markup safe.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="tooltips-html-button" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="top" data-bs-title="&lt;em&gt;Tooltip&lt;/em&gt; with &lt;strong&gt;HTML&lt;/strong&gt;">Tooltip with HTML</button>
+                <!--@end-->
             </div>
         </div>
     </div>
+</div>
