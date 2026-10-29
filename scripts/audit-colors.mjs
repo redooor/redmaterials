@@ -156,7 +156,9 @@ const overrides = fs.existsSync(overridesFile) ? JSON.parse(fs.readFileSync(over
 const rows = new Map();
 postcss.parse(css, { from: cssFile }).walkDecls(decl => {
   const rgbTriplet = decl.prop.startsWith('--') && /^\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*$/.test(decl.value);   // --bs-primary-rgb: 33, 150, 243
-  if (!COLOR_PROPS.test(decl.prop) || !(LITERAL.test(decl.value) || rgbTriplet) || /^var\(/.test(decl.value.trim()) && !LITERAL.test(decl.value.replace(/var\([^)]*\)/g, ''))) return;
+  // rgba(var(--token-rgb), alpha) takes its colour from a token (and so from the active theme): not a literal
+  const stripped = decl.value.replace(/rgba?\(\s*var\(--[\w-]+\)\s*,\s*(?:var\([^()]*\)|[\d.]+)\s*\)/g, '');
+  if (!COLOR_PROPS.test(decl.prop) || !(LITERAL.test(stripped) || rgbTriplet) || /^var\(/.test(decl.value.trim()) && !LITERAL.test(decl.value.replace(/var\([^)]*\)/g, ''))) return;
   const pos = consumer.originalPositionFor({ line: decl.source.start.line, column: decl.source.start.column - 1 });
   const src = pos.source ? path.relative(root, path.resolve(path.dirname(cssFile), pos.source)) + ':' + pos.line : '(unmapped)';
   const rule = decl.parent;
@@ -240,8 +242,8 @@ Where values differed they got separate tokens; nothing was forced into a shared
 ## Decisions
 
 * **Brand and palette fills are identity colours** and are the same in both modes (\`bg-*\`, \`btn-*\`, \`text-bg-*\`, \`alert-*\`, \`badge\`, the palette loops).
-* **Palette *text* colours** (flat buttons, outline buttons) are lifted towards white in dark mode only where they would fall below 4.5:1 on the dark surface; colours that already pass are untouched.
-* **\`.text-*\` utilities are fixed colours**, as in Bootstrap; use \`.text-body-secondary\` and friends for theme-aware text.
+* **Palette *text* colours** (\`.text-*\`, \`.link-*\`, flat buttons, outline buttons) are lifted towards white in dark mode only where they would fall below 4.5:1 on the dark surface; colours that already pass are untouched, and hover/focus states step lighter rather than darker.
+* **Palette \`.text-*\` and \`.link-*\` utilities keep Bootstrap's opacity variables** in dark mode, and a nested \`[data-bs-theme="light"]\` restores the light values. Use \`.text-body-secondary\` and friends for neutral theme-aware text.
 * **The neutral \`default\` variant** follows the mode for buttons and the navigation sidebar. The sidebar keeps its own \`--rdm-sidebar-default-*\` tokens (from \`$default\`), so configuring \`$brand-default\` does not change it; the \`.bg-default\`, \`.border-default\` and \`.text-default\` utilities stay fixed.
 * **\`.navbar-light\` and \`.navbar-dark\`** are always light and dark; Bootstrap's \`data-bs-theme\` on a navbar works as well.
 * **Scoped themes** (\`data-bs-theme="light"\` on an element inside a dark page) also reset the text colour (zero-specificity rule in \`scaffolding.scss\`).

@@ -19,10 +19,10 @@ Dark mode is built from this inventory: every neutral colour is a CSS custom pro
 | `overlay` | Scrims (nav-sidebar overlay) | token |
 | `image` | Data-URL icons (select arrows) | dark variant of the image |
 
-## Summary (647 source declarations)
+## Summary (668 source declarations)
 
-* `token`: 458
-* `fixed`: 163
+* `token`: 487
+* `fixed`: 155
 * `light-only`: 26
 
 ## Tokens
@@ -45,8 +45,8 @@ Where values differed they got separate tokens; nothing was forced into a shared
 ## Decisions
 
 * **Brand and palette fills are identity colours** and are the same in both modes (`bg-*`, `btn-*`, `text-bg-*`, `alert-*`, `badge`, the palette loops).
-* **Palette *text* colours** (flat buttons, outline buttons) are lifted towards white in dark mode only where they would fall below 4.5:1 on the dark surface; colours that already pass are untouched.
-* **`.text-*` utilities are fixed colours**, as in Bootstrap; use `.text-body-secondary` and friends for theme-aware text.
+* **Palette *text* colours** (`.text-*`, `.link-*`, flat buttons, outline buttons) are lifted towards white in dark mode only where they would fall below 4.5:1 on the dark surface; colours that already pass are untouched, and hover/focus states step lighter rather than darker.
+* **Palette `.text-*` and `.link-*` utilities keep Bootstrap's opacity variables** in dark mode, and a nested `[data-bs-theme="light"]` restores the light values. Use `.text-body-secondary` and friends for neutral theme-aware text.
 * **The neutral `default` variant** follows the mode for buttons and the navigation sidebar. The sidebar keeps its own `--rdm-sidebar-default-*` tokens (from `$default`), so configuring `$brand-default` does not change it; the `.bg-default`, `.border-default` and `.text-default` utilities stay fixed.
 * **`.navbar-light` and `.navbar-dark`** are always light and dark; Bootstrap's `data-bs-theme` on a navbar works as well.
 * **Scoped themes** (`data-bs-theme="light"` on an element inside a dark page) also reset the text colour (zero-specificity rule in `scaffolding.scss`).
@@ -56,8 +56,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 
 | Source | Property | Why it stays the same in both modes |
 |---|---|---|
-| `scss/_bootstrap5-theme.scss:98` | `--bs-warning-border-subtle` | Dark-only override derived from the brand colour (the light value is Bootstrap's own). |
-| `scss/_bootstrap5-theme.scss:102` | `color` | Dark-only: .text-primary follows the lifted link colour, which is already a dark-mode token. |
+| `scss/_bootstrap5-theme.scss:99` | `--bs-warning-border-subtle` | Dark-only override derived from the brand colour (the light value is Bootstrap's own). |
 | `scss/forms.scss:172` | `background-color` | Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes. |
 | `scss/forms.scss:178` | `background-color` | Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes. |
 | `scss/loops/background.scss:10` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
@@ -66,8 +65,8 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/loops/border.scss:8` | `border-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/nav-sidebar.scss:16` | `color` | White text on a palette or brand fill; paired with the fill, identical in both modes. |
 | `scss/loops/nav-sidebar.scss:23` | `color` | White text on a palette or brand fill; paired with the fill, identical in both modes. |
-| `scss/loops/text.scss:9` | `color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
-| `scss/loops/text.scss:12` | `color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
+| `scss/loops/text.scss:17` | `color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
+| `scss/loops/text.scss:24` | `color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/mixins/alerts.scss:8` | `color` | White text on a palette or brand fill; paired with the fill, identical in both modes. |
 | `scss/nav-sidebar.scss:54` | `background` | Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes). |
 | `scss/nav-sidebar.scss:108` | `background-color` | Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes). |
@@ -90,66 +89,95 @@ Where values differed they got separate tokens; nothing was forced into a shared
 
 | Source | Property | Value | Example selectors | Role |
 |---|---|---|---|---|
-| `scss/_bootstrap5-theme.scss:38` | `--bs-primary` | `#1976D2` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:38` | `--bs-secondary` | `#757575` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:38` | `--bs-success` | `#4CAF50` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:38` | `--bs-info` | `#00BCD4` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:38` | `--bs-warning` | `#FFC107` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:38` | `--bs-danger` | `#F44336` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:38` | `--bs-light` | `#f8f9fa` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:38` | `--bs-dark` | `#343a40` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-primary-rgb` | `25, 118, 210` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-secondary-rgb` | `117, 117, 117` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-success-rgb` | `76, 175, 80` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-info-rgb` | `0, 188, 212` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-warning-rgb` | `255, 193, 7` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-danger-rgb` | `244, 67, 54` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-light-rgb` | `248, 249, 250` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-dark-rgb` | `52, 58, 64` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-primary-text-emphasis` | `rgb(10, 47, 84)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-secondary-text-emphasis` | `rgb(47, 47, 47)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-success-text-emphasis` | `rgb(30, 70, 32)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-info-text-emphasis` | `rgb(0, 75, 85)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-warning-text-emphasis` | `rgb(102, 77, 3)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-danger-text-emphasis` | `rgb(98, 27, 22)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-light-text-emphasis` | `rgb(99, 100, 100)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-dark-text-emphasis` | `rgb(21, 23, 26)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-primary-bg-subtle` | `rgb(209, 228, 246)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-secondary-bg-subtle` | `rgb(227, 227, 227)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-success-bg-subtle` | `rgb(219, 239, 220)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-info-bg-subtle` | `rgb(204, 242, 246)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-warning-bg-subtle` | `rgb(255, 243, 205)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-danger-bg-subtle` | `rgb(253, 217, 215)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-light-bg-subtle` | `rgb(254, 254, 254)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-dark-bg-subtle` | `rgb(214, 216, 217)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-primary-border-subtle` | `rgb(163, 200, 237)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-secondary-border-subtle` | `rgb(200, 200, 200)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-success-border-subtle` | `rgb(183, 223, 185)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-info-border-subtle` | `rgb(153, 228, 238)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-warning-border-subtle` | `rgb(255, 230, 156)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-danger-border-subtle` | `rgb(251, 180, 175)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-light-border-subtle` | `rgb(252, 253, 253)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-dark-border-subtle` | `rgb(174, 176, 179)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:72` | `--bs-focus-ring-color` | `rgba(25, 118, 210, .25)` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:80` | `--bs-link-color` | `#1976D2` | `:root, [data-bs-theme=light]` | light-only |
-| `scss/_bootstrap5-theme.scss:81` | `--bs-link-color-rgb` | `25, 118, 210` | `:root, [data-bs-theme=light]` | fixed |
-| `scss/_bootstrap5-theme.scss:82` | `--bs-link-hover-color` | `rgb(20, 92, 164)` | `:root, [data-bs-theme=light]` | light-only |
-| `scss/_bootstrap5-theme.scss:83` | `--bs-link-hover-color-rgb` | `20, 92, 164` | `:root, [data-bs-theme=light]` | fixed |
-| `scss/_bootstrap5-theme.scss:92` | `--bs-link-color` | `#5e9fe0` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:93` | `--bs-link-color-rgb` | `94, 159, 224` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:94` | `--bs-link-hover-color` | `rgb(128, 179, 230)` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:95` | `--bs-link-hover-color-rgb` | `128, 179, 230` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:98` | `--bs-warning-border-subtle` | `rgb(128, 97, 4)` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:102` | `color` | `rgba(var(--bs-link-color-rgb), var(--bs-text-opacity, 1))` | `[data-bs-theme=dark] .text-primary` | fixed |
-| `scss/_bootstrap5-theme.scss:133` | `--bs-btn-hover-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:134` | `--bs-btn-hover-bg` | `#1976D2` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:135` | `--bs-btn-hover-border-color` | `#1976D2` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:136` | `--bs-btn-focus-shadow-rgb` | `25, 118, 210` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:137` | `--bs-btn-active-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:138` | `--bs-btn-active-bg` | `rgb(23, 106, 189)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:139` | `--bs-btn-active-border-color` | `rgb(23, 106, 189)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:141` | `--bs-btn-disabled-bg` | `transparent` | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:146` | `--bs-btn-focus-shadow-rgb` | `25, 118, 210` (+7) | `.btn-primary`, `.btn-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-primary` | `#1976D2` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-secondary` | `#757575` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-success` | `#4CAF50` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-info` | `#00BCD4` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-warning` | `#FFC107` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-danger` | `#F44336` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-light` | `#f8f9fa` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-dark` | `#343a40` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:40` | `--bs-primary-rgb` | `25, 118, 210` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:40` | `--bs-secondary-rgb` | `117, 117, 117` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:40` | `--bs-success-rgb` | `76, 175, 80` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:40` | `--bs-info-rgb` | `0, 188, 212` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:40` | `--bs-warning-rgb` | `255, 193, 7` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:40` | `--bs-danger-rgb` | `244, 67, 54` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:40` | `--bs-light-rgb` | `248, 249, 250` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:40` | `--bs-dark-rgb` | `52, 58, 64` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-primary-text-emphasis` | `rgb(10, 47, 84)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-secondary-text-emphasis` | `rgb(47, 47, 47)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-success-text-emphasis` | `rgb(30, 70, 32)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-info-text-emphasis` | `rgb(0, 75, 85)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-warning-text-emphasis` | `rgb(102, 77, 3)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-danger-text-emphasis` | `rgb(98, 27, 22)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-light-text-emphasis` | `rgb(99, 100, 100)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-dark-text-emphasis` | `rgb(21, 23, 26)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-primary-bg-subtle` | `rgb(209, 228, 246)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-secondary-bg-subtle` | `rgb(227, 227, 227)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-success-bg-subtle` | `rgb(219, 239, 220)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-info-bg-subtle` | `rgb(204, 242, 246)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-warning-bg-subtle` | `rgb(255, 243, 205)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-danger-bg-subtle` | `rgb(253, 217, 215)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-light-bg-subtle` | `rgb(254, 254, 254)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-dark-bg-subtle` | `rgb(214, 216, 217)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:46` | `--bs-primary-border-subtle` | `rgb(163, 200, 237)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:46` | `--bs-secondary-border-subtle` | `rgb(200, 200, 200)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:46` | `--bs-success-border-subtle` | `rgb(183, 223, 185)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:46` | `--bs-info-border-subtle` | `rgb(153, 228, 238)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:46` | `--bs-warning-border-subtle` | `rgb(255, 230, 156)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:46` | `--bs-danger-border-subtle` | `rgb(251, 180, 175)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:46` | `--bs-light-border-subtle` | `rgb(252, 253, 253)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:46` | `--bs-dark-border-subtle` | `rgb(174, 176, 179)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:73` | `--bs-focus-ring-color` | `rgba(25, 118, 210, .25)` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:81` | `--bs-link-color` | `#1976D2` | `:root, [data-bs-theme=light]` | light-only |
+| `scss/_bootstrap5-theme.scss:82` | `--bs-link-color-rgb` | `25, 118, 210` | `:root, [data-bs-theme=light]` | fixed |
+| `scss/_bootstrap5-theme.scss:83` | `--bs-link-hover-color` | `rgb(20, 92, 164)` | `:root, [data-bs-theme=light]` | light-only |
+| `scss/_bootstrap5-theme.scss:84` | `--bs-link-hover-color-rgb` | `20, 92, 164` | `:root, [data-bs-theme=light]` | fixed |
+| `scss/_bootstrap5-theme.scss:93` | `--bs-link-color` | `#5e9fe0` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:94` | `--bs-link-color-rgb` | `94, 159, 224` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:95` | `--bs-link-hover-color` | `rgb(128, 179, 230)` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:96` | `--bs-link-hover-color-rgb` | `128, 179, 230` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:99` | `--bs-warning-border-subtle` | `rgb(128, 97, 4)` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:128` | `--rdm-text-primary-rgb` | `25, 118, 210` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:128` | `--rdm-text-secondary-rgb` | `117, 117, 117` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:128` | `--rdm-text-success-rgb` | `76, 175, 80` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:128` | `--rdm-text-info-rgb` | `0, 188, 212` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:128` | `--rdm-text-warning-rgb` | `255, 193, 7` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:128` | `--rdm-text-danger-rgb` | `244, 67, 54` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:129` | `--rdm-text-primary-hover-rgb` | `10, 88, 202` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:129` | `--rdm-text-secondary-hover-rgb` | `86, 94, 100` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:129` | `--rdm-text-success-hover-rgb` | `20, 108, 67` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:129` | `--rdm-text-info-hover-rgb` | `61, 213, 243` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:129` | `--rdm-text-warning-hover-rgb` | `255, 205, 57` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:129` | `--rdm-text-danger-hover-rgb` | `176, 42, 55` | `:root, [data-bs-theme=light]` | token |
+| `scss/_bootstrap5-theme.scss:138` | `--rdm-text-primary-rgb` | `94, 159, 224` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:138` | `--rdm-text-secondary-rgb` | `152, 152, 152` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:138` | `--rdm-text-success-rgb` | `76, 175, 80` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:138` | `--rdm-text-info-rgb` | `0, 188, 212` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:138` | `--rdm-text-warning-rgb` | `255, 193, 7` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:138` | `--rdm-text-danger-rgb` | `247, 114, 104` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:139` | `--rdm-text-primary-hover-rgb` | `128, 179, 231` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:139` | `--rdm-text-secondary-hover-rgb` | `172, 172, 172` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:139` | `--rdm-text-success-hover-rgb` | `103, 189, 106` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:139` | `--rdm-text-info-hover-rgb` | `0, 224, 253` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:139` | `--rdm-text-warning-hover-rgb` | `255, 203, 48` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:139` | `--rdm-text-danger-hover-rgb` | `249, 150, 143` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:140` | `--rdm-text-primary-anchor-rgb` | `128, 179, 231` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:140` | `--rdm-text-secondary-anchor-rgb` | `172, 172, 172` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:140` | `--rdm-text-success-anchor-rgb` | `103, 189, 106` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:140` | `--rdm-text-info-anchor-rgb` | `0, 224, 253` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:140` | `--rdm-text-warning-anchor-rgb` | `255, 203, 48` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:140` | `--rdm-text-danger-anchor-rgb` | `249, 150, 143` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:184` | `--bs-btn-hover-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:185` | `--bs-btn-hover-bg` | `#1976D2` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:186` | `--bs-btn-hover-border-color` | `#1976D2` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:187` | `--bs-btn-focus-shadow-rgb` | `25, 118, 210` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:188` | `--bs-btn-active-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:189` | `--bs-btn-active-bg` | `rgb(23, 106, 189)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:190` | `--bs-btn-active-border-color` | `rgb(23, 106, 189)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:192` | `--bs-btn-disabled-bg` | `transparent` | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:197` | `--bs-btn-focus-shadow-rgb` | `25, 118, 210` (+7) | `.btn-primary`, `.btn-secondary` | fixed |
 | `scss/_tokens-palette.scss:72` | `--rdm-ctx-default` | `#f8f8f8` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens-palette.scss:72` | `--rdm-ctx-primary` | `#1976D2` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens-palette.scss:72` | `--rdm-ctx-secondary` | `#757575` | `:root, [data-bs-theme=light]` | token |
@@ -385,7 +413,6 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/_tokens.scss:29` | `--rdm-text-subtle` | `#ccc` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens.scss:30` | `--rdm-text-muted` | `#666666` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens.scss:31` | `--rdm-text-secondary` | `#6c757d` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens.scss:32` | `--rdm-card-cap-bg` | `rgba(var(--bs-body-color-rgb), 0.03)` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens.scss:33` | `--rdm-table-text` | `#333` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens.scss:34` | `--rdm-table-header-color` | `#757575` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens.scss:37` | `--rdm-default-bg` | `#f8f8f8` | `:root, [data-bs-theme=light]` | token |
@@ -485,7 +512,6 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/forms.scss:102` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `select[multiple]:focus, select[size]:not([size="` | fixed |
 | `scss/forms.scss:113` | `background-color` | `transparent` | `.form-check-input` | fixed |
 | `scss/forms.scss:117` | `border-color` | `#1976D2` | `.form-check-input:focus` | fixed |
-| `scss/forms.scss:118` | `box-shadow` | `0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25)` | `.form-check-input:focus` | fixed |
 | `scss/forms.scss:124` | `background-color` | `#1976D2` | `.form-check-input:checked` | fixed |
 | `scss/forms.scss:125` | `border-color` | `#1976D2` | `.form-check-input:checked` | fixed |
 | `scss/forms.scss:128` | `background-color` | `#1976D2` | `.form-check-input[type=checkbox]:indeterminate` | fixed |
@@ -500,10 +526,6 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/forms.scss:172` | `background-color` | `#92c2f2` | `.form-range::-webkit-slider-thumb:active` | fixed |
 | `scss/forms.scss:176` | `background-color` | `#1976D2` | `.form-range::-moz-range-thumb` | fixed |
 | `scss/forms.scss:178` | `background-color` | `#92c2f2` | `.form-range::-moz-range-thumb:active` | fixed |
-| `scss/forms.scss:182` | `background-color` | `rgba(var(--bs-primary-rgb), 0.25)` | `.form-range::-webkit-slider-runnable-track` | fixed |
-| `scss/forms.scss:185` | `background-color` | `rgba(var(--bs-primary-rgb), 0.25)` | `.form-range::-moz-range-track` | fixed |
-| `scss/forms.scss:189` | `box-shadow` | `0 0 0 1px var(--rdm-focus-gap), 0 0 0 0.2rem rgba(var(--bs-primary-rgb` | `.form-range:focus::-webkit-slider-thumb` | fixed |
-| `scss/forms.scss:192` | `box-shadow` | `0 0 0 1px var(--rdm-focus-gap), 0 0 0 0.2rem rgba(var(--bs-primary-rgb` | `.form-range:focus::-moz-range-thumb` | fixed |
 | `scss/forms.scss:217` | `box-shadow` | `inset 0 -2px 0 #4CAF50` | `.form-control.is-valid, .was-validated .form-con` | fixed |
 | `scss/forms.scss:219` | `box-shadow` | `inset 0 -2px 0 #4CAF50` | `.form-control.is-valid:focus, .was-validated .fo` | fixed |
 | `scss/forms.scss:227` | `box-shadow` | `inset 0 -2px 0 #F44336` | `.form-control.is-invalid, .was-validated .form-c` | fixed |
@@ -526,8 +548,9 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/loops/nav-sidebar.scss:16` | `color` | `#FFFFFF` (+1) | `.nav-sidebar-red .nav-sidebar-title .nav-sidebar`, `.nav-sidebar-pink .nav-sidebar-title .nav-sideba` | fixed |
 | `scss/loops/nav-sidebar.scss:23` | `color` | `#FFFFFF` (+1) | `.nav-sidebar-red .nav-sidebar-menu li.active a, `, `.nav-sidebar-pink .nav-sidebar-menu li.active a,` | fixed |
 | `scss/loops/nav-sidebar.scss:24` | `background-color` | `#F44336` (+18) | `.nav-sidebar-red .nav-sidebar-menu li.active a, `, `.nav-sidebar-pink .nav-sidebar-menu li.active a,` | fixed |
-| `scss/loops/text.scss:9` | `color` | `#f8f8f8` (+10) | `.text-default`, `.text-primary` | fixed |
-| `scss/loops/text.scss:12` | `color` | `#dfdfdf` (+10) | `a.text-default:hover`, `a.text-primary:hover` | fixed |
+| `scss/loops/text.scss:17` | `color` | `#f8f8f8` (+4) | `.text-default`, `.text-light` | fixed |
+| `scss/loops/text.scss:22` | `color` | `rgb(var(--rdm-text-primary-anchor-rgb))` (+5) | `a.text-primary:hover`, `a.text-secondary:hover` | fixed |
+| `scss/loops/text.scss:24` | `color` | `#dfdfdf` (+4) | `a.text-default:hover`, `a.text-light:hover` | fixed |
 | `scss/mixins/alerts.scss:6` | `background-color` | `#1976D2` (+4) | `.alert-primary`, `.alert-success` | fixed |
 | `scss/mixins/alerts.scss:7` | `border-color` | `#1976D2` (+4) | `.alert-primary`, `.alert-success` | fixed |
 | `scss/mixins/alerts.scss:8` | `color` | `#FFFFFF` (+1) | `.alert-primary`, `.alert-success` | fixed |
@@ -718,15 +741,12 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/pagination.scss:12` | `--bs-pagination-hover-color` | `#1976D2` | `.pagination` | fixed |
 | `scss/pagination.scss:14` | `--bs-pagination-hover-border-color` | `transparent` | `.pagination` | fixed |
 | `scss/pagination.scss:15` | `--bs-pagination-focus-color` | `#fff` | `.pagination` | fixed |
-| `scss/pagination.scss:17` | `--bs-pagination-focus-box-shadow` | `0 0 0 .2rem rgba(var(--bs-primary-rgb), .35)` | `.pagination` | fixed |
 | `scss/pagination.scss:18` | `--bs-pagination-active-color` | `#fff` | `.pagination` | fixed |
 | `scss/pagination.scss:19` | `--bs-pagination-active-bg` | `#1976D2` | `.pagination` | fixed |
 | `scss/pagination.scss:20` | `--bs-pagination-active-border-color` | `#1976D2` | `.pagination` | fixed |
 | `scss/pagination.scss:23` | `--bs-pagination-disabled-border-color` | `transparent` | `.pagination` | fixed |
-| `scss/pagination.scss:40` | `box-shadow` | `0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.35)` | `.page-item .page-link:focus-visible` | fixed |
 | `scss/pagination.scss:48` | `color` | `#fff` | `.page-item.active .page-link` | fixed |
 | `scss/pagination.scss:49` | `background-color` | `#1976D2` | `.page-item.active .page-link` | fixed |
-| `scss/pagination.scss:51` | `box-shadow` | `0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.35)` | `.page-item.active .page-link:focus-visible` | fixed |
 | `scss/pagination.scss:54` | `color` | `#fff` | `.page-item.active .page-link:hover` | fixed |
 | `scss/pagination.scss:55` | `background-color` | `#145ca4` | `.page-item.active .page-link:hover` | fixed |
 | `scss/progress-bars.scss:13` | `background-color` | `#1976D2` | `.progress-bar` | fixed |

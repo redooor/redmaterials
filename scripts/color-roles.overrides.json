@@ -1,5 +1,5 @@
 {
-  "scss/_bootstrap5-theme.scss:98|--bs-warning-border-subtle": {
+  "scss/_bootstrap5-theme.scss:99|--bs-warning-border-subtle": {
     "role": "fixed",
     "reason": "Dark-only override derived from the brand colour (the light value is Bootstrap's own).",
     "match": "rgb(128, 97, 4)"
@@ -44,12 +44,12 @@
     "reason": "White text on a palette or brand fill; paired with the fill, identical in both modes.",
     "match": "#FFFFFF"
   },
-  "scss/loops/text.scss:9|color": {
+  "scss/loops/text.scss:17|color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#f8f8f8"
   },
-  "scss/loops/text.scss:12|color": {
+  "scss/loops/text.scss:24|color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#dfdfdf"
@@ -138,10 +138,5 @@
     "role": "fixed",
     "reason": "Fallback declaration immediately followed by the tokenised one.",
     "match": "#ddd"
-  },
-  "scss/_bootstrap5-theme.scss:102|color": {
-    "role": "fixed",
-    "reason": "Dark-only: .text-primary follows the lifted link colour, which is already a dark-mode token.",
-    "match": "rgba(var(--bs-link-color-rgb), var(--bs-text-opacity, 1))"
   }
 }

@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 @use "sass:math";
 @use "variables" as *;
 @use "tokens-palette" as palette;
@@ -96,10 +97,60 @@ $bs-link-dark-hover: color.adjust($bs-link-dark, $lightness: 8%);
 
     // Bootstrap's own dark hover fill for warning list items is 4.3:1 under white text.
     --bs-warning-border-subtle: #{round-color(shade-color($brand-warning, 50%))};
+}
 
-    // The primary text utility follows the lifted link colour on dark surfaces.
-    .text-primary {
-        color: rgba(var(--bs-link-color-rgb), var(--bs-text-opacity, 1)) !important;
+// Bootstrap's text and link utilities carry fixed colours (.text-<name> itself is emitted by loops/text.scss), so they do not
+// follow the dark palette.  The colour each one shows is a pair of tokens
+// (--rdm-text-<name>-rgb and its -hover twin) that the light scope sets to
+// Bootstrap's own values and the dark scope sets to the palette colour lifted
+// just enough to reach 4.5:1 on the raised dark surface, with a hover that is
+// lighter than the base (never darker).  Scoped themes follow the cascade.
+$bs-text-surface: #2b3035;
+$bs-text-min-contrast: 4.5;
+$bs-text-hover-lightness: 8%;
+
+// Bootstrap's compiled light link-hover colours (the base colours are the
+// theme colours themselves).
+$bs-link-light-hover: (
+    "primary": #0a58ca,
+    "secondary": #565e64,
+    "success": #146c43,
+    "info": #3dd5f3,
+    "warning": #ffcd39,
+    "danger": #b02a37,
+);
+
+$bs-text-names: ("primary", "secondary", "success", "info", "warning", "danger");
+
+:root,
+[data-bs-theme="light"] {
+    @each $name in $bs-text-names {
+        --rdm-text-#{$name}-rgb: #{rgb-triplet(map.get($bs-theme-colors, $name))};
+        --rdm-text-#{$name}-hover-rgb: #{rgb-triplet(map.get($bs-link-light-hover, $name))};
+        // a.text-<name>:hover (loops/text.scss) has always been the colour 10% darker
+        --rdm-text-#{$name}-anchor-rgb: #{rgb-triplet(color.adjust(map.get($bs-theme-colors, $name), $lightness: -10%))};
+    }
+}
+
+[data-bs-theme="dark"] {
+    @each $name in $bs-text-names {
+        $base: round-color(palette.lift(map.get($bs-theme-colors, $name), $bs-text-surface, $bs-text-min-contrast));
+        --rdm-text-#{$name}-rgb: #{rgb-triplet($base)};
+        --rdm-text-#{$name}-hover-rgb: #{rgb-triplet(round-color(color.adjust($base, $lightness: $bs-text-hover-lightness)))};
+        --rdm-text-#{$name}-anchor-rgb: #{rgb-triplet(round-color(color.adjust($base, $lightness: $bs-text-hover-lightness)))};
+    }
+}
+
+@each $name in $bs-text-names {
+    .link-#{$name} {
+        color: rgba(var(--rdm-text-#{$name}-rgb), var(--bs-link-opacity, 1)) !important;
+        text-decoration-color: rgba(var(--rdm-text-#{$name}-rgb), var(--bs-link-underline-opacity, 1)) !important;
+    }
+    .link-#{$name}:hover,
+    .link-#{$name}:focus,
+    .link-#{$name}:focus-visible {
+        color: rgba(var(--rdm-text-#{$name}-hover-rgb), var(--bs-link-opacity, 1)) !important;
+        text-decoration-color: rgba(var(--rdm-text-#{$name}-hover-rgb), var(--bs-link-underline-opacity, 1)) !important;
     }
 }
 
