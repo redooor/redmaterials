@@ -54,12 +54,12 @@
     "reason": "White text on a palette or brand fill; paired with the fill, identical in both modes.",
     "match": "#FFFFFF"
   },
-  "scss/nav-sidebar.scss:54|background": {
+  "scss/nav-sidebar.scss:56|background": {
     "role": "fixed",
     "reason": "Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes).",
     "match": "#333"
   },
-  "scss/nav-sidebar.scss:108|background-color": {
+  "scss/nav-sidebar.scss:111|background-color": {
     "role": "fixed",
     "reason": "Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes).",
     "match": "#666"

@@ -22,5 +22,13 @@
   {
     "class": "tooltip",
     "reason": "Bootstrap's Tooltip JavaScript creates the .tooltip element at runtime when a [data-bs-toggle=\"tooltip\"] trigger is activated; it never appears in static markup. The rdm-overlays example exercises the restyled element."
+  },
+  {
+    "class": "navbar-dark",
+    "reason": "Compatibility aliases for Bootstrap 3/4 markup that Bootstrap 5.3 dropped; Redmaterials keeps them styled so existing apps do not break. The docs use data-bs-theme on the navbar instead."
+  },
+  {
+    "class": "navbar-light",
+    "reason": "Compatibility aliases for Bootstrap 3/4 markup that Bootstrap 5.3 dropped; Redmaterials keeps them styled so existing apps do not break. The docs use data-bs-theme on the navbar instead."
   }
 ]

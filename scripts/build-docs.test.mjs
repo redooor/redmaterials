@@ -43,6 +43,14 @@ test('expandColors repeats once per colour and works with an id per colour', () 
   assert.equal((out.match(/<i id="x-/g) || []).length, COLORS.length);
   assert.ok(out.includes('id="x-deep-orange"'));
 });
+test('expandColors: a block template keeps its indentation in every copy and leaves no blank lines', () => {
+  const out = expandColors('<div>\n    <!--@each-color\n    <i class="bg-{color}"></i>\n    <b></b>-->\n</div>');
+  const lines = out.split('\n');
+  assert.ok(lines.every(l => l.trim() !== ''));
+  assert.equal(lines[1], '    <i class="bg-red"></i>');
+  assert.equal(lines[2], '    <b></b>');
+  assert.equal(lines[3], '    <i class="bg-pink"></i>');
+});
 test('expandColors: each-color+default also repeats the default colour first', () => {
   const out = expandColors('<!--@each-color+default <i class="bg-{color}"></i>-->');
   assert.equal((out.match(/<i class="bg-/g) || []).length, COLORS.length + 1);

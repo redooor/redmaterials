@@ -70,8 +70,8 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/loops/text.scss:17` | `color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/text.scss:24` | `color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/mixins/alerts.scss:8` | `color` | White text on a palette or brand fill; paired with the fill, identical in both modes. |
-| `scss/nav-sidebar.scss:54` | `background` | Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes). |
-| `scss/nav-sidebar.scss:108` | `background-color` | Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes). |
+| `scss/nav-sidebar.scss:56` | `background` | Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes). |
+| `scss/nav-sidebar.scss:111` | `background-color` | Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes). |
 | `scss/navbar.scss:27` | `--bs-navbar-color` | `.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme. |
 | `scss/navbar.scss:28` | `--bs-navbar-hover-color` | `.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme. |
 | `scss/navbar.scss:29` | `--bs-navbar-disabled-color` | `.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme. |
@@ -709,9 +709,9 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/mixins/tables.scss:75` | `--rdm-table-orange-hover-bg` | `#3c2b12` | `[data-bs-theme=dark]` | token |
 | `scss/mixins/tables.scss:75` | `--rdm-table-deep-orange-hover-bg` | `#3e1c12` | `[data-bs-theme=dark]` | token |
 | `scss/mixins/tables.scss:75` | `--rdm-table-brown-hover-bg` | `#292422` | `[data-bs-theme=dark]` | token |
-| `scss/nav-sidebar.scss:54` | `background` | `#333` | `.nav-sidebar-overlay` | fixed |
-| `scss/nav-sidebar.scss:107` | `color` | `#fff` | `.nav-sidebar-menu li.active a, .nav-sidebar-menu` | fixed |
-| `scss/nav-sidebar.scss:108` | `background-color` | `#666` | `.nav-sidebar-menu li.active a, .nav-sidebar-menu` | fixed |
+| `scss/nav-sidebar.scss:56` | `background` | `#333` | `.nav-sidebar-overlay` | fixed |
+| `scss/nav-sidebar.scss:110` | `color` | `#fff` | `.nav-sidebar-menu li.active a, .nav-sidebar-menu` | fixed |
+| `scss/nav-sidebar.scss:111` | `background-color` | `#666` | `.nav-sidebar-menu li.active a, .nav-sidebar-menu` | fixed |
 | `scss/navbar.scss:19` | `background-color` | `transparent` | `.navbar-toggle` | fixed |
 | `scss/navbar.scss:27` | `--bs-navbar-color` | `rgba(0, 0, 0, 0.65)` | `.navbar-light` | fixed |
 | `scss/navbar.scss:28` | `--bs-navbar-hover-color` | `rgba(0, 0, 0, 0.8)` | `.navbar-light` | fixed |

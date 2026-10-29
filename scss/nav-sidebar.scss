@@ -34,6 +34,8 @@
     .nav-sidebar-brand {
         font-size: 24px;
         color: var(--rdm-text-strong);
+        // Bootstrap 5 underlines every link at rest
+        text-decoration: none;
         &:hover, &:focus {
             text-decoration: none;
         }
@@ -84,6 +86,7 @@
         display: block;
         padding: 10px 20px;
         color: var(--rdm-text-strong);
+        text-decoration: none;
     }
     li a:hover,
     li a:focus {

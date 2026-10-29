@@ -2731,6 +2731,7 @@ select[size]:not([size="1"]):focus,
 .nav-sidebar-title .nav-sidebar-brand {
   font-size: 24px;
   color: var(--rdm-text-strong);
+  text-decoration: none;
 }
 .nav-sidebar-title .nav-sidebar-brand:hover, .nav-sidebar-title .nav-sidebar-brand:focus {
   text-decoration: none;
@@ -2779,6 +2780,7 @@ select[size]:not([size="1"]):focus,
   display: block;
   padding: 10px 20px;
   color: var(--rdm-text-strong);
+  text-decoration: none;
 }
 .nav-sidebar-menu li a:hover,
 .nav-sidebar-menu li a:focus {

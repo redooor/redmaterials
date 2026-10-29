@@ -15,9 +15,17 @@ export function expandIncludes(html, readPartial, stack = []) {
 }
 
 // <!--@each-color …--> repeats over the 19 palette colours; <!--@each-color+default …--> also includes `default` first.
+// A template written as a block (starting on the line after the marker, indented like the marker) keeps the author's
+// indentation in every copy: the first copy borrows the marker's own indentation, the others carry theirs, and no
+// blank lines are left between copies, so the copyable snippet stays tidy.
 export function expandColors(html) {
-  return html.replace(/<!--@each-color(\+default)?\s+([\s\S]*?)-->/g, (_, withDefault, tpl) =>
-    (withDefault ? ['default', ...COLORS] : COLORS).map(c => tpl.replace(/\{color\}/g, c)).join('\n'));
+  return html.replace(/<!--@each-color(\+default)?([ \t]*\n[ \t]*|\s+)([\s\S]*?)-->/g, (_, withDefault, gap, tpl) => {
+    const block = gap.includes('\n');
+    const indent = block ? gap.slice(gap.lastIndexOf('\n') + 1) : '';
+    return (withDefault ? ['default', ...COLORS] : COLORS)
+      .map((c, i) => (block && i > 0 ? indent : '') + tpl.replace(/\{color\}/g, c).trimEnd())
+      .join('\n');
+  });
 }
 
 export function expandInline(html, readFile) {
