@@ -19,10 +19,10 @@ Dark mode is built from this inventory: every neutral colour is a CSS custom pro
 | `overlay` | Scrims (nav-sidebar overlay) | token |
 | `image` | Data-URL icons (select arrows) | dark variant of the image |
 
-## Summary (649 source declarations)
+## Summary (647 source declarations)
 
-* `token`: 457
-* `fixed`: 166
+* `token`: 458
+* `fixed`: 163
 * `light-only`: 26
 
 ## Tokens
@@ -57,6 +57,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | Source | Property | Why it stays the same in both modes |
 |---|---|---|
 | `scss/_bootstrap5-theme.scss:98` | `--bs-warning-border-subtle` | Dark-only override derived from the brand colour (the light value is Bootstrap's own). |
+| `scss/_bootstrap5-theme.scss:102` | `color` | Dark-only: .text-primary follows the lifted link colour, which is already a dark-mode token. |
 | `scss/forms.scss:172` | `background-color` | Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes. |
 | `scss/forms.scss:178` | `background-color` | Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes. |
 | `scss/loops/background.scss:10` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
@@ -89,7 +90,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 
 | Source | Property | Value | Example selectors | Role |
 |---|---|---|---|---|
-| `scss/_bootstrap5-theme.scss:38` | `--bs-primary` | `#2196F3` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:38` | `--bs-primary` | `#1976D2` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:38` | `--bs-secondary` | `#757575` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:38` | `--bs-success` | `#4CAF50` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:38` | `--bs-info` | `#00BCD4` | `:root` | fixed |
@@ -97,7 +98,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/_bootstrap5-theme.scss:38` | `--bs-danger` | `#F44336` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:38` | `--bs-light` | `#f8f9fa` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:38` | `--bs-dark` | `#343a40` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:39` | `--bs-primary-rgb` | `33, 150, 243` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:39` | `--bs-primary-rgb` | `25, 118, 210` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:39` | `--bs-secondary-rgb` | `117, 117, 117` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:39` | `--bs-success-rgb` | `76, 175, 80` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:39` | `--bs-info-rgb` | `0, 188, 212` | `:root` | fixed |
@@ -105,7 +106,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/_bootstrap5-theme.scss:39` | `--bs-danger-rgb` | `244, 67, 54` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:39` | `--bs-light-rgb` | `248, 249, 250` | `:root` | fixed |
 | `scss/_bootstrap5-theme.scss:39` | `--bs-dark-rgb` | `52, 58, 64` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:43` | `--bs-primary-text-emphasis` | `rgb(13, 60, 97)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:43` | `--bs-primary-text-emphasis` | `rgb(10, 47, 84)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:43` | `--bs-secondary-text-emphasis` | `rgb(47, 47, 47)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:43` | `--bs-success-text-emphasis` | `rgb(30, 70, 32)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:43` | `--bs-info-text-emphasis` | `rgb(0, 75, 85)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
@@ -113,7 +114,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/_bootstrap5-theme.scss:43` | `--bs-danger-text-emphasis` | `rgb(98, 27, 22)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:43` | `--bs-light-text-emphasis` | `rgb(99, 100, 100)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:43` | `--bs-dark-text-emphasis` | `rgb(21, 23, 26)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:44` | `--bs-primary-bg-subtle` | `rgb(211, 234, 253)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:44` | `--bs-primary-bg-subtle` | `rgb(209, 228, 246)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:44` | `--bs-secondary-bg-subtle` | `rgb(227, 227, 227)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:44` | `--bs-success-bg-subtle` | `rgb(219, 239, 220)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:44` | `--bs-info-bg-subtle` | `rgb(204, 242, 246)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
@@ -121,7 +122,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/_bootstrap5-theme.scss:44` | `--bs-danger-bg-subtle` | `rgb(253, 217, 215)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:44` | `--bs-light-bg-subtle` | `rgb(254, 254, 254)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:44` | `--bs-dark-bg-subtle` | `rgb(214, 216, 217)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:45` | `--bs-primary-border-subtle` | `rgb(166, 213, 250)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
+| `scss/_bootstrap5-theme.scss:45` | `--bs-primary-border-subtle` | `rgb(163, 200, 237)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:45` | `--bs-secondary-border-subtle` | `rgb(200, 200, 200)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:45` | `--bs-success-border-subtle` | `rgb(183, 223, 185)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:45` | `--bs-info-border-subtle` | `rgb(153, 228, 238)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
@@ -129,253 +130,255 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/_bootstrap5-theme.scss:45` | `--bs-danger-border-subtle` | `rgb(251, 180, 175)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:45` | `--bs-light-border-subtle` | `rgb(252, 253, 253)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
 | `scss/_bootstrap5-theme.scss:45` | `--bs-dark-border-subtle` | `rgb(174, 176, 179)` | `:root:not([data-bs-theme=dark]), [data-bs-theme=` | light-only |
-| `scss/_bootstrap5-theme.scss:72` | `--bs-focus-ring-color` | `rgba(33, 150, 243, .25)` | `:root` | fixed |
-| `scss/_bootstrap5-theme.scss:80` | `--bs-link-color` | `#2196F3` | `:root, [data-bs-theme=light]` | light-only |
-| `scss/_bootstrap5-theme.scss:81` | `--bs-link-color-rgb` | `33, 150, 243` | `:root, [data-bs-theme=light]` | fixed |
-| `scss/_bootstrap5-theme.scss:82` | `--bs-link-hover-color` | `rgb(12, 124, 213)` | `:root, [data-bs-theme=light]` | light-only |
-| `scss/_bootstrap5-theme.scss:83` | `--bs-link-hover-color-rgb` | `12, 124, 213` | `:root, [data-bs-theme=light]` | fixed |
-| `scss/_bootstrap5-theme.scss:92` | `--bs-link-color` | `#37a1f4` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:93` | `--bs-link-color-rgb` | `55, 161, 244` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:94` | `--bs-link-hover-color` | `rgb(94, 179, 246)` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:95` | `--bs-link-hover-color-rgb` | `94, 179, 246` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:72` | `--bs-focus-ring-color` | `rgba(25, 118, 210, .25)` | `:root` | fixed |
+| `scss/_bootstrap5-theme.scss:80` | `--bs-link-color` | `#1976D2` | `:root, [data-bs-theme=light]` | light-only |
+| `scss/_bootstrap5-theme.scss:81` | `--bs-link-color-rgb` | `25, 118, 210` | `:root, [data-bs-theme=light]` | fixed |
+| `scss/_bootstrap5-theme.scss:82` | `--bs-link-hover-color` | `rgb(20, 92, 164)` | `:root, [data-bs-theme=light]` | light-only |
+| `scss/_bootstrap5-theme.scss:83` | `--bs-link-hover-color-rgb` | `20, 92, 164` | `:root, [data-bs-theme=light]` | fixed |
+| `scss/_bootstrap5-theme.scss:92` | `--bs-link-color` | `#5e9fe0` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:93` | `--bs-link-color-rgb` | `94, 159, 224` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:94` | `--bs-link-hover-color` | `rgb(128, 179, 230)` | `[data-bs-theme=dark]` | fixed |
+| `scss/_bootstrap5-theme.scss:95` | `--bs-link-hover-color-rgb` | `128, 179, 230` | `[data-bs-theme=dark]` | fixed |
 | `scss/_bootstrap5-theme.scss:98` | `--bs-warning-border-subtle` | `rgb(128, 97, 4)` | `[data-bs-theme=dark]` | fixed |
-| `scss/_bootstrap5-theme.scss:128` | `--bs-btn-hover-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:129` | `--bs-btn-hover-bg` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:130` | `--bs-btn-hover-border-color` | `#2196F3` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:131` | `--bs-btn-focus-shadow-rgb` | `33, 150, 243` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:132` | `--bs-btn-active-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:133` | `--bs-btn-active-bg` | `rgb(30, 135, 219)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:134` | `--bs-btn-active-border-color` | `rgb(30, 135, 219)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:136` | `--bs-btn-disabled-bg` | `transparent` | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
-| `scss/_bootstrap5-theme.scss:141` | `--bs-btn-focus-shadow-rgb` | `33, 150, 243` (+7) | `.btn-primary`, `.btn-secondary` | fixed |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-default` | `#f8f8f8` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-primary` | `#2196F3` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-secondary` | `#757575` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-warning` | `#FFC107` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-danger` | `#F44336` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-success` | `#4CAF50` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-info` | `#00BCD4` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-light` | `#f8f9fa` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-dark` | `#343a40` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-white` | `#fff` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-ctx-muted` | `#9E9E9E` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-default` | `#f8f8f8` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-red` | `#F44336` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-pink` | `#E91E63` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-purple` | `#9C27B0` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-deep-purple` | `#673AB7` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-indigo` | `#3F51B5` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-blue` | `#2196F3` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-light-blue` | `#03A9F4` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-cyan` | `#00BCD4` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-teal` | `#009688` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-green` | `#4CAF50` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-light-green` | `#8BC34A` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-lime` | `#CDDC39` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-yellow` | `#FFEB3B` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-amber` | `#FFC107` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-orange` | `#FF9800` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-deep-orange` | `#FF5722` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-brown` | `#795548` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-grey` | `#9E9E9E` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:70` | `--rdm-pal-blue-grey` | `#607D8B` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-default-hover` | `#dfdfdf` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-primary-hover` | `#0c7cd5` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-secondary-hover` | `#5c5c5c` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-warning-hover` | `#d39e00` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-danger-hover` | `#ea1c0d` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-success-hover` | `#3d8b40` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-info-hover` | `#008fa1` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-light-hover` | `#dae0e5` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-dark-hover` | `#1d2124` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-white-hover` | `#e6e6e6` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-ctx-muted-hover` | `#858585` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-default-hover` | `#dfdfdf` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-red-hover` | `#ea1c0d` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-pink-hover` | `#c1134e` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-purple-hover` | `#771e86` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-deep-purple-hover` | `#512e90` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-indigo-hover` | `#32408f` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-blue-hover` | `#0c7cd5` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-light-blue-hover` | `#0286c2` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-cyan-hover` | `#008fa1` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-teal-hover` | `#00635a` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-green-hover` | `#3d8b40` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-light-green-hover` | `#71a436` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-lime-hover` | `#b2c022` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-yellow-hover` | `#ffe608` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-amber-hover` | `#d39e00` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-orange-hover` | `#cc7a00` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-deep-orange-hover` | `#ee3900` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-brown-hover` | `#593f35` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-grey-hover` | `#858585` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:71` | `--rdm-pal-blue-grey-hover` | `#4b626d` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-default-active` | `#c5c5c5` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-primary-active` | `#0960a5` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-secondary-active` | `#424242` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-warning-active` | `#a07800` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-danger-active` | `#ba160a` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-success-active` | `#2d682f` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-info-active` | `#00626e` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-light-active` | `#bdc6d0` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-dark-active` | `#060708` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-white-active` | `#cccccc` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-ctx-muted-active` | `#6b6b6b` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-default-active` | `#c5c5c5` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-red-active` | `#ba160a` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-pink-active` | `#930e3b` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-purple-active` | `#52145d` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-deep-purple-active` | `#3b216a` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-indigo-active` | `#252f69` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-blue-active` | `#0960a5` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-light-blue-active` | `#02638f` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-cyan-active` | `#00626e` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-teal-active` | `#00302c` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-green-active` | `#2d682f` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-light-green-active` | `#577d2a` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-lime-active` | `#89951a` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-yellow-active` | `#d4be00` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-amber-active` | `#a07800` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-orange-active` | `#995b00` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-deep-orange-active` | `#bb2d00` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-brown-active` | `#392822` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-grey-active` | `#6b6b6b` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:72` | `--rdm-pal-blue-grey-active` | `#36474f` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-default-focus` | `#acacac` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-primary-focus` | `#064475` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-secondary-focus` | `#292929` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-warning-focus` | `#6d5200` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-danger-focus` | `#891008` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-success-focus` | `#1e441f` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-info-focus` | `#00343b` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-light-focus` | `#9fadba` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-dark-focus` | `hsl(210, 10.3448275862%, -7.2549019608%)` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-white-focus` | `#b3b3b3` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-ctx-muted-focus` | `#525252` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-default-focus` | `#acacac` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-red-focus` | `#891008` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-pink-focus` | `#640a29` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-purple-focus` | `#2d0b33` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-deep-purple-focus` | `#261543` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-indigo-focus` | `#171e44` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-blue-focus` | `#064475` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-light-blue-focus` | `#01405d` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-cyan-focus` | `#00343b` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-teal-focus` | `hsl(174.4, 100%, -0.5882352941%)` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-green-focus` | `#1e441f` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-light-green-focus` | `#3c571d` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-lime-focus` | `#616913` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-yellow-focus` | `#a19100` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-amber-focus` | `#6d5200` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-orange-focus` | `#663d00` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-deep-orange-focus` | `#882100` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-brown-focus` | `#19120f` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-grey-focus` | `#525252` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:73` | `--rdm-pal-blue-grey-focus` | `#212c31` | `:root, [data-bs-theme=light]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-ctx-secondary` | `#919191` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-ctx-danger` | `#f5564a` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-ctx-dark` | `#8f9396` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-pal-red` | `#f5564a` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-pal-pink` | `#ef568a` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-pal-purple` | `#bf73cc` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-pal-deep-purple` | `#9c7fd0` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-pal-indigo` | `#828ecf` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-pal-teal` | `#1aa194` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-pal-brown` | `#a1887f` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:85` | `--rdm-pal-blue-grey` | `#78919c` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-default-hover` | `hsl(0, 0%, 107.2549019608%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-primary-hover` | `#51adf6` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-secondary-hover` | `#aaaaaa` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-warning-hover` | `#ffce3a` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-danger-hover` | `#f8837a` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-success-hover` | `#6ec071` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-info-hover` | `#08e3ff` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-light-hover` | `hsl(210, 16.6666666667%, 107.6470588235%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-dark-hover` | `#aaacaf` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-white-hover` | `hsl(0, 0%, 110%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-ctx-muted-hover` | `#b8b8b8` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-default-hover` | `hsl(0, 0%, 107.2549019608%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-red-hover` | `#f8837a` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-pink-hover` | `#f385aa` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-purple-hover` | `#d098d9` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-deep-purple-hover` | `#b9a4de` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-indigo-hover` | `#a7afdd` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-blue-hover` | `#51adf6` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-light-blue-hover` | `#2ebcfc` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-cyan-hover` | `#08e3ff` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-teal-hover` | `#20cdbc` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-green-hover` | `#6ec071` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-light-green-hover` | `#a4d070` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-lime-hover` | `#d8e464` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-yellow-hover` | `#fff06e` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-amber-hover` | `#ffce3a` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-orange-hover` | `#ffad33` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-deep-orange-hover` | `#ff7e55` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-brown-hover` | `#b7a39c` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-grey-hover` | `#b8b8b8` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:88` | `--rdm-pal-blue-grey-hover` | `#95a9b2` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-default-active` | `hsl(0, 0%, 115.2549019608%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-primary-active` | `#78bff8` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-secondary-active` | `#bfbfbf` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-warning-active` | `#ffd863` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-danger-active` | `#faa7a1` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-success-active` | `#8acc8d` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-info-active` | `#31e8ff` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-light-active` | `hsl(210, 16.6666666667%, 115.6470588235%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-dark-active` | `#bfc1c2` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-white-active` | `hsl(0, 0%, 118%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-ctx-muted-active` | `#cccccc` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-default-active` | `hsl(0, 0%, 115.2549019608%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-red-active` | `#faa7a1` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-pink-active` | `#f7aac4` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-purple-active` | `#ddb6e4` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-deep-purple-active` | `#d0c2e9` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-indigo-active` | `#c4cae8` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-blue-active` | `#78bff8` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-light-blue-active` | `#56c9fd` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-cyan-active` | `#31e8ff` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-teal-active` | `#37dfcf` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-green-active` | `#8acc8d` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-light-green-active` | `#b7da8f` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-lime-active` | `#e1ea87` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-yellow-active` | `#fff497` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-amber-active` | `#ffd863` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-orange-active` | `#ffbd5c` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-deep-orange-active` | `#ff9d7e` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-brown-active` | `#c8b9b4` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-grey-active` | `#cccccc` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:91` | `--rdm-pal-blue-grey-active` | `#adbcc3` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-default-focus` | `hsl(0, 0%, 123.2549019608%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-primary-focus` | `#9fd2fa` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-secondary-focus` | `#d3d3d3` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-warning-focus` | `#ffe28c` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-danger-focus` | `#fccbc8` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-success-focus` | `#a7d9a9` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-info-focus` | `#5aecff` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-light-focus` | `hsl(210, 16.6666666667%, 123.6470588235%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-dark-focus` | `#d4d5d6` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-white-focus` | `hsl(0, 0%, 126%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-ctx-muted-focus` | `#e0e0e0` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-default-focus` | `hsl(0, 0%, 123.2549019608%)` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-red-focus` | `#fccbc8` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-pink-focus` | `#facfde` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-purple-focus` | `#ebd4ef` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-deep-purple-focus` | `#e7e0f4` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-indigo-focus` | `#e2e5f4` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-blue-focus` | `#9fd2fa` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-light-blue-focus` | `#7ed6fd` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-cyan-focus` | `#5aecff` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-teal-focus` | `#5ae5d8` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-green-focus` | `#a7d9a9` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-light-green-focus` | `#cbe4ae` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-lime-focus` | `#e9f0aa` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-yellow-focus` | `#fff9c0` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-amber-focus` | `#ffe28c` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-orange-focus` | `#ffce85` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-deep-orange-focus` | `#ffbca7` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-brown-focus` | `#d9cfcb` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-grey-focus` | `#e0e0e0` | `[data-bs-theme=dark]` | token |
-| `scss/_tokens-palette.scss:94` | `--rdm-pal-blue-grey-focus` | `#c5cfd4` | `[data-bs-theme=dark]` | token |
+| `scss/_bootstrap5-theme.scss:102` | `color` | `rgba(var(--bs-link-color-rgb), var(--bs-text-opacity, 1))` | `[data-bs-theme=dark] .text-primary` | fixed |
+| `scss/_bootstrap5-theme.scss:133` | `--bs-btn-hover-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:134` | `--bs-btn-hover-bg` | `#1976D2` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:135` | `--bs-btn-hover-border-color` | `#1976D2` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:136` | `--bs-btn-focus-shadow-rgb` | `25, 118, 210` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:137` | `--bs-btn-active-color` | `#fff` (+1) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:138` | `--bs-btn-active-bg` | `rgb(23, 106, 189)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:139` | `--bs-btn-active-border-color` | `rgb(23, 106, 189)` (+7) | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:141` | `--bs-btn-disabled-bg` | `transparent` | `.btn-outline-primary`, `.btn-outline-secondary` | fixed |
+| `scss/_bootstrap5-theme.scss:146` | `--bs-btn-focus-shadow-rgb` | `25, 118, 210` (+7) | `.btn-primary`, `.btn-secondary` | fixed |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-default` | `#f8f8f8` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-primary` | `#1976D2` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-secondary` | `#757575` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-warning` | `#FFC107` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-danger` | `#F44336` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-success` | `#4CAF50` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-info` | `#00BCD4` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-light` | `#f8f9fa` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-dark` | `#343a40` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-white` | `#fff` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-ctx-muted` | `#9E9E9E` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-default` | `#f8f8f8` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-red` | `#F44336` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-pink` | `#E91E63` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-purple` | `#9C27B0` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-deep-purple` | `#673AB7` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-indigo` | `#3F51B5` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-blue` | `#2196F3` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-light-blue` | `#03A9F4` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-cyan` | `#00BCD4` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-teal` | `#009688` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-green` | `#4CAF50` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-light-green` | `#8BC34A` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-lime` | `#CDDC39` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-yellow` | `#FFEB3B` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-amber` | `#FFC107` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-orange` | `#FF9800` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-deep-orange` | `#FF5722` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-brown` | `#795548` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-grey` | `#9E9E9E` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:72` | `--rdm-pal-blue-grey` | `#607D8B` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-default-hover` | `#dfdfdf` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-primary-hover` | `#145ca4` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-secondary-hover` | `#5c5c5c` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-warning-hover` | `#d39e00` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-danger-hover` | `#ea1c0d` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-success-hover` | `#3d8b40` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-info-hover` | `#008fa1` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-light-hover` | `#dae0e5` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-dark-hover` | `#1d2124` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-white-hover` | `#e6e6e6` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-ctx-muted-hover` | `#858585` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-default-hover` | `#dfdfdf` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-red-hover` | `#ea1c0d` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-pink-hover` | `#c1134e` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-purple-hover` | `#771e86` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-deep-purple-hover` | `#512e90` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-indigo-hover` | `#32408f` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-blue-hover` | `#0c7cd5` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-light-blue-hover` | `#0286c2` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-cyan-hover` | `#008fa1` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-teal-hover` | `#00635a` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-green-hover` | `#3d8b40` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-light-green-hover` | `#71a436` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-lime-hover` | `#b2c022` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-yellow-hover` | `#ffe608` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-amber-hover` | `#d39e00` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-orange-hover` | `#cc7a00` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-deep-orange-hover` | `#ee3900` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-brown-hover` | `#593f35` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-grey-hover` | `#858585` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:73` | `--rdm-pal-blue-grey-hover` | `#4b626d` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-default-active` | `#c5c5c5` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-primary-active` | `#0e4377` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-secondary-active` | `#424242` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-warning-active` | `#a07800` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-danger-active` | `#ba160a` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-success-active` | `#2d682f` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-info-active` | `#00626e` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-light-active` | `#bdc6d0` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-dark-active` | `#060708` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-white-active` | `#cccccc` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-ctx-muted-active` | `#6b6b6b` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-default-active` | `#c5c5c5` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-red-active` | `#ba160a` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-pink-active` | `#930e3b` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-purple-active` | `#52145d` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-deep-purple-active` | `#3b216a` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-indigo-active` | `#252f69` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-blue-active` | `#0960a5` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-light-blue-active` | `#02638f` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-cyan-active` | `#00626e` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-teal-active` | `#00302c` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-green-active` | `#2d682f` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-light-green-active` | `#577d2a` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-lime-active` | `#89951a` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-yellow-active` | `#d4be00` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-amber-active` | `#a07800` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-orange-active` | `#995b00` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-deep-orange-active` | `#bb2d00` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-brown-active` | `#392822` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-grey-active` | `#6b6b6b` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:74` | `--rdm-pal-blue-grey-active` | `#36474f` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-default-focus` | `#acacac` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-primary-focus` | `#092949` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-secondary-focus` | `#292929` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-warning-focus` | `#6d5200` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-danger-focus` | `#891008` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-success-focus` | `#1e441f` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-info-focus` | `#00343b` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-light-focus` | `#9fadba` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-dark-focus` | `hsl(210, 10.3448275862%, -7.2549019608%)` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-white-focus` | `#b3b3b3` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-ctx-muted-focus` | `#525252` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-default-focus` | `#acacac` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-red-focus` | `#891008` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-pink-focus` | `#640a29` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-purple-focus` | `#2d0b33` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-deep-purple-focus` | `#261543` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-indigo-focus` | `#171e44` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-blue-focus` | `#064475` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-light-blue-focus` | `#01405d` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-cyan-focus` | `#00343b` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-teal-focus` | `hsl(174.4, 100%, -0.5882352941%)` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-green-focus` | `#1e441f` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-light-green-focus` | `#3c571d` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-lime-focus` | `#616913` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-yellow-focus` | `#a19100` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-amber-focus` | `#6d5200` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-orange-focus` | `#663d00` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-deep-orange-focus` | `#882100` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-brown-focus` | `#19120f` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-grey-focus` | `#525252` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:75` | `--rdm-pal-blue-grey-focus` | `#212c31` | `:root, [data-bs-theme=light]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-ctx-primary` | `#4791db` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-ctx-secondary` | `#919191` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-ctx-danger` | `#f5564a` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-ctx-dark` | `#8f9396` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-pal-red` | `#f5564a` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-pal-pink` | `#ef568a` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-pal-purple` | `#bf73cc` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-pal-deep-purple` | `#9c7fd0` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-pal-indigo` | `#828ecf` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-pal-teal` | `#1aa194` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-pal-brown` | `#a1887f` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:90` | `--rdm-pal-blue-grey` | `#78919c` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-default-hover` | `hsl(0, 0%, 107.2549019608%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-primary-hover` | `#79afe5` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-secondary-hover` | `#aaaaaa` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-warning-hover` | `#ffce3a` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-danger-hover` | `#f88f88` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-success-hover` | `#6ec071` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-info-hover` | `#08e3ff` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-light-hover` | `hsl(210, 16.6666666667%, 107.6470588235%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-dark-hover` | `#aaacaf` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-white-hover` | `hsl(0, 0%, 110%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-ctx-muted-hover` | `#b8b8b8` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-default-hover` | `hsl(0, 0%, 107.2549019608%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-red-hover` | `#f88f88` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-pink-hover` | `#f48bae` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-purple-hover` | `#d098d9` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-deep-purple-hover` | `#b9a4de` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-indigo-hover` | `#a7afdd` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-blue-hover` | `#5ab1f6` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-light-blue-hover` | `#2ebcfc` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-cyan-hover` | `#08e3ff` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-teal-hover` | `#20cdbc` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-green-hover` | `#6ec071` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-light-green-hover` | `#a4d070` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-lime-hover` | `#d8e464` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-yellow-hover` | `#fff06e` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-amber-hover` | `#ffce3a` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-orange-hover` | `#ffad33` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-deep-orange-hover` | `#ff8b66` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-brown-hover` | `#baa8a1` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-grey-hover` | `#b8b8b8` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:93` | `--rdm-pal-blue-grey-hover` | `#9badb6` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-default-active` | `hsl(0, 0%, 115.2549019608%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-primary-active` | `#9fc6ec` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-secondary-active` | `#c2c2c2` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-warning-active` | `#ffd863` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-danger-active` | `#fab0ab` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-success-active` | `#96d198` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-info-active` | `#31e8ff` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-light-active` | `hsl(210, 16.6666666667%, 115.6470588235%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-dark-active` | `#c2c4c5` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-white-active` | `hsl(0, 0%, 118%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-ctx-muted-active` | `#cccccc` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-default-active` | `hsl(0, 0%, 115.2549019608%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-red-active` | `#fab0ab` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-pink-active` | `#f7aec7` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-purple-active` | `#ddb6e4` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-deep-purple-active` | `#d0c2e9` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-indigo-active` | `#c4cae8` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-blue-active` | `#8cc9f9` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-light-blue-active` | `#67cefd` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-cyan-active` | `#31e8ff` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-teal-active` | `#37dfcf` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-green-active` | `#96d198` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-light-green-active` | `#b7da8f` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-lime-active` | `#e1ea87` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-yellow-active` | `#fff497` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-amber-active` | `#ffd863` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-orange-active` | `#ffbd5c` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-deep-orange-active` | `#ffb098` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-brown-active` | `#cec0bb` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-grey-active` | `#cccccc` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:96` | `--rdm-pal-blue-grey-active` | `#b9c6cc` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-default-focus` | `hsl(0, 0%, 123.2549019608%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-primary-focus` | `#b6d3f1` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-secondary-focus` | `#d3d3d3` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-warning-focus` | `#ffe28c` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-danger-focus` | `#fccbc8` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-success-focus` | `#a7d9a9` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-info-focus` | `#5aecff` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-light-focus` | `hsl(210, 16.6666666667%, 123.6470588235%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-dark-focus` | `#d4d5d6` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-white-focus` | `hsl(0, 0%, 126%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-ctx-muted-focus` | `#e0e0e0` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-default-focus` | `hsl(0, 0%, 123.2549019608%)` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-red-focus` | `#fccbc8` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-pink-focus` | `#facfde` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-purple-focus` | `#ebd4ef` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-deep-purple-focus` | `#e7e0f4` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-indigo-focus` | `#e2e5f4` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-blue-focus` | `#9fd2fa` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-light-blue-focus` | `#7ed6fd` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-cyan-focus` | `#5aecff` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-teal-focus` | `#5ae5d8` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-green-focus` | `#a7d9a9` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-light-green-focus` | `#cbe4ae` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-lime-focus` | `#e9f0aa` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-yellow-focus` | `#fff9c0` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-amber-focus` | `#ffe28c` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-orange-focus` | `#ffce85` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-deep-orange-focus` | `#ffbca7` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-brown-focus` | `#d9cfcb` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-grey-focus` | `#e0e0e0` | `[data-bs-theme=dark]` | token |
+| `scss/_tokens-palette.scss:99` | `--rdm-pal-blue-grey-focus` | `#c5cfd4` | `[data-bs-theme=dark]` | token |
 | `scss/_tokens.scss:26` | `--rdm-text` | `#424242` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens.scss:27` | `--rdm-text-strong` | `#333` | `:root, [data-bs-theme=light]` | token |
 | `scss/_tokens.scss:28` | `--rdm-text-disabled` | `rgba(0, 0, 0, 0.26)` | `:root, [data-bs-theme=light]` | token |
@@ -468,36 +471,35 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/_tokens.scss:159` | `--rdm-shadow-dropdown` | `0 6px 12px rgba(0, 0, 0, .5)` | `[data-bs-theme=dark]` | token |
 | `scss/_tokens.scss:160` | `--rdm-shadow-ribbon` | `0 0 3px rgba(0, 0, 0, .6)` | `[data-bs-theme=dark]` | token |
 | `scss/badges.scss:28` | `color` | `#333` | `.badge.bg-light, .badge.bg-warning, .badge.bg-ye` | fixed |
-| `scss/buttons.scss:48` | `color` | `#2196F3` | `.btn-link` | fixed |
-| `scss/dropdowns.scss:11` | `--bs-dropdown-link-active-bg` | `#2196F3` | `.dropdown-menu` | fixed |
+| `scss/dropdowns.scss:11` | `--bs-dropdown-link-active-bg` | `#1976D2` | `.dropdown-menu` | fixed |
 | `scss/forms.scss:30` | `background-color` | `transparent` | `textarea, textarea.form-control, input.form-cont` | fixed |
-| `scss/forms.scss:32` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `textarea:focus, textarea.form-control:focus, inp` | fixed |
+| `scss/forms.scss:32` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `textarea:focus, textarea.form-control:focus, inp` | fixed |
 | `scss/forms.scss:33` | `background-color` | `transparent` | `textarea:focus, textarea.form-control:focus, inp` | fixed |
 | `scss/forms.scss:57` | `background-color` | `transparent` | `select:not(.form-select)` | fixed |
 | `scss/forms.scss:64` | `background-color` | `transparent` | `select:not(.form-select):focus` | fixed |
-| `scss/forms.scss:65` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `select:not(.form-select):focus` | fixed |
+| `scss/forms.scss:65` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `select:not(.form-select):focus` | fixed |
 | `scss/forms.scss:75` | `background-color` | `transparent` | `.form-select` | fixed |
 | `scss/forms.scss:84` | `background-color` | `transparent` | `.form-select:focus` | fixed |
-| `scss/forms.scss:85` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `.form-select:focus` | fixed |
-| `scss/forms.scss:101` | `border-color` | `#2196F3` | `select[multiple]:focus, select[size]:not([size="` | fixed |
-| `scss/forms.scss:102` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `select[multiple]:focus, select[size]:not([size="` | fixed |
+| `scss/forms.scss:85` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `.form-select:focus` | fixed |
+| `scss/forms.scss:101` | `border-color` | `#1976D2` | `select[multiple]:focus, select[size]:not([size="` | fixed |
+| `scss/forms.scss:102` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `select[multiple]:focus, select[size]:not([size="` | fixed |
 | `scss/forms.scss:113` | `background-color` | `transparent` | `.form-check-input` | fixed |
-| `scss/forms.scss:117` | `border-color` | `#2196F3` | `.form-check-input:focus` | fixed |
+| `scss/forms.scss:117` | `border-color` | `#1976D2` | `.form-check-input:focus` | fixed |
 | `scss/forms.scss:118` | `box-shadow` | `0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25)` | `.form-check-input:focus` | fixed |
-| `scss/forms.scss:124` | `background-color` | `#2196F3` | `.form-check-input:checked` | fixed |
-| `scss/forms.scss:125` | `border-color` | `#2196F3` | `.form-check-input:checked` | fixed |
-| `scss/forms.scss:128` | `background-color` | `#2196F3` | `.form-check-input[type=checkbox]:indeterminate` | fixed |
-| `scss/forms.scss:129` | `border-color` | `#2196F3` | `.form-check-input[type=checkbox]:indeterminate` | fixed |
+| `scss/forms.scss:124` | `background-color` | `#1976D2` | `.form-check-input:checked` | fixed |
+| `scss/forms.scss:125` | `border-color` | `#1976D2` | `.form-check-input:checked` | fixed |
+| `scss/forms.scss:128` | `background-color` | `#1976D2` | `.form-check-input[type=checkbox]:indeterminate` | fixed |
+| `scss/forms.scss:129` | `border-color` | `#1976D2` | `.form-check-input[type=checkbox]:indeterminate` | fixed |
 | `scss/forms.scss:133` | `background-color` | `transparent` | `.form-check-input:disabled` | fixed |
 | `scss/forms.scss:149` | `background-color` | `transparent` | `.form-switch .form-check-input` | fixed |
-| `scss/forms.scss:151` | `background-color` | `#2196F3` | `.form-switch .form-check-input:checked` | fixed |
-| `scss/forms.scss:152` | `border-color` | `#2196F3` | `.form-switch .form-check-input:checked` | fixed |
-| `scss/forms.scss:155` | `border-color` | `#2196F3` | `.form-switch .form-check-input:focus` | fixed |
+| `scss/forms.scss:151` | `background-color` | `#1976D2` | `.form-switch .form-check-input:checked` | fixed |
+| `scss/forms.scss:152` | `border-color` | `#1976D2` | `.form-switch .form-check-input:checked` | fixed |
+| `scss/forms.scss:155` | `border-color` | `#1976D2` | `.form-switch .form-check-input:focus` | fixed |
 | `scss/forms.scss:159` | `background-color` | `transparent` | `.form-switch .form-check-input:disabled` | fixed |
-| `scss/forms.scss:170` | `background-color` | `#2196F3` | `.form-range::-webkit-slider-thumb` | fixed |
-| `scss/forms.scss:172` | `background-color` | `#b2dbfb` | `.form-range::-webkit-slider-thumb:active` | fixed |
-| `scss/forms.scss:176` | `background-color` | `#2196F3` | `.form-range::-moz-range-thumb` | fixed |
-| `scss/forms.scss:178` | `background-color` | `#b2dbfb` | `.form-range::-moz-range-thumb:active` | fixed |
+| `scss/forms.scss:170` | `background-color` | `#1976D2` | `.form-range::-webkit-slider-thumb` | fixed |
+| `scss/forms.scss:172` | `background-color` | `#92c2f2` | `.form-range::-webkit-slider-thumb:active` | fixed |
+| `scss/forms.scss:176` | `background-color` | `#1976D2` | `.form-range::-moz-range-thumb` | fixed |
+| `scss/forms.scss:178` | `background-color` | `#92c2f2` | `.form-range::-moz-range-thumb:active` | fixed |
 | `scss/forms.scss:182` | `background-color` | `rgba(var(--bs-primary-rgb), 0.25)` | `.form-range::-webkit-slider-runnable-track` | fixed |
 | `scss/forms.scss:185` | `background-color` | `rgba(var(--bs-primary-rgb), 0.25)` | `.form-range::-moz-range-track` | fixed |
 | `scss/forms.scss:189` | `box-shadow` | `0 0 0 1px var(--rdm-focus-gap), 0 0 0 0.2rem rgba(var(--bs-primary-rgb` | `.form-range:focus::-webkit-slider-thumb` | fixed |
@@ -514,11 +516,11 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/loops/background.scss:22` | `background-color` | `#dfdfdf` (+19) | `.bg-default.btn:hover`, `.bg-red.btn:hover` | fixed |
 | `scss/loops/background.scss:27` | `background-color` | `transparent` | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
 | `scss/loops/border.scss:8` | `border-color` | `#f8f8f8` (+10) | `.border-default`, `.border-primary` | fixed |
-| `scss/loops/buttons.scss:18` | `background-color` | `#2196F3` (+9) | `.btn-primary`, `.btn-secondary` | fixed |
-| `scss/loops/buttons.scss:20` | `background-color` | `#0c7cd5` (+9) | `.btn-primary:hover`, `.btn-secondary:hover` | fixed |
-| `scss/loops/buttons.scss:24` | `background-color` | `#0c7cd5` (+9) | `.btn-primary:active, .btn-primary.active`, `.btn-secondary:active, .btn-secondary.active` | fixed |
-| `scss/loops/buttons.scss:28` | `background-color` | `#0960a5` (+9) | `.btn-primary:focus`, `.btn-secondary:focus` | fixed |
-| `scss/loops/buttons.scss:32` | `background-color` | `#064475` (+9) | `.btn-primary .ink`, `.btn-secondary .ink` | fixed |
+| `scss/loops/buttons.scss:18` | `background-color` | `#1976D2` (+9) | `.btn-primary`, `.btn-secondary` | fixed |
+| `scss/loops/buttons.scss:20` | `background-color` | `#145ca4` (+9) | `.btn-primary:hover`, `.btn-secondary:hover` | fixed |
+| `scss/loops/buttons.scss:24` | `background-color` | `#145ca4` (+9) | `.btn-primary:active, .btn-primary.active`, `.btn-secondary:active, .btn-secondary.active` | fixed |
+| `scss/loops/buttons.scss:28` | `background-color` | `#0e4377` (+9) | `.btn-primary:focus`, `.btn-secondary:focus` | fixed |
+| `scss/loops/buttons.scss:32` | `background-color` | `#092949` (+9) | `.btn-primary .ink`, `.btn-secondary .ink` | fixed |
 | `scss/loops/buttons.scss:37` | `background-color` | `transparent` | `.btn-default.btn-flat`, `.btn-primary.btn-flat` | fixed |
 | `scss/loops/nav-sidebar.scss:14` | `background-color` | `#F44336` (+18) | `.nav-sidebar-red .nav-sidebar-title`, `.nav-sidebar-pink .nav-sidebar-title` | fixed |
 | `scss/loops/nav-sidebar.scss:16` | `color` | `#FFFFFF` (+1) | `.nav-sidebar-red .nav-sidebar-title .nav-sidebar`, `.nav-sidebar-pink .nav-sidebar-title .nav-sideba` | fixed |
@@ -526,10 +528,10 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/loops/nav-sidebar.scss:24` | `background-color` | `#F44336` (+18) | `.nav-sidebar-red .nav-sidebar-menu li.active a, `, `.nav-sidebar-pink .nav-sidebar-menu li.active a,` | fixed |
 | `scss/loops/text.scss:9` | `color` | `#f8f8f8` (+10) | `.text-default`, `.text-primary` | fixed |
 | `scss/loops/text.scss:12` | `color` | `#dfdfdf` (+10) | `a.text-default:hover`, `a.text-primary:hover` | fixed |
-| `scss/mixins/alerts.scss:6` | `background-color` | `#2196F3` (+4) | `.alert-primary`, `.alert-success` | fixed |
-| `scss/mixins/alerts.scss:7` | `border-color` | `#2196F3` (+4) | `.alert-primary`, `.alert-success` | fixed |
+| `scss/mixins/alerts.scss:6` | `background-color` | `#1976D2` (+4) | `.alert-primary`, `.alert-success` | fixed |
+| `scss/mixins/alerts.scss:7` | `border-color` | `#1976D2` (+4) | `.alert-primary`, `.alert-success` | fixed |
 | `scss/mixins/alerts.scss:8` | `color` | `#FFFFFF` (+1) | `.alert-primary`, `.alert-success` | fixed |
-| `scss/mixins/alerts.scss:10` | `border-top-color` | `#0d8aee` (+4) | `.alert-primary hr`, `.alert-success hr` | fixed |
+| `scss/mixins/alerts.scss:10` | `border-top-color` | `#1669bb` (+4) | `.alert-primary hr`, `.alert-success hr` | fixed |
 | `scss/mixins/alerts.scss:13` | `color` | `#E3F2FD` (+4) | `.alert-primary .alert-link`, `.alert-success .alert-link` | fixed |
 | `scss/mixins/badges.scss:6` | `background-color` | `#9E9E9E` | `.badge-default` | fixed |
 | `scss/mixins/badges.scss:11` | `background-color` | `#858585` | `.badge-default[href]:hover, .badge-default[href]` | fixed |
@@ -701,36 +703,33 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/navbar.scss:52` | `background-color` | `transparent` | `.navbar-dark .form-control:focus` | fixed |
 | `scss/navbar.scss:53` | `box-shadow` | `inset 0 -2px 0 #fff` | `.navbar-dark .form-control:focus` | fixed |
 | `scss/navbar.scss:62` | `background-color` | `transparent` | `.navbar-nav.navbar-breadcrumb > .nav-item > .nav` | fixed |
-| `scss/navs.scss:14` | `--bs-nav-tabs-link-active-color` | `#2196F3` | `.nav-tabs` | fixed |
 | `scss/navs.scss:15` | `--bs-nav-tabs-link-active-bg` | `transparent` | `.nav-tabs` | fixed |
 | `scss/navs.scss:16` | `--bs-nav-tabs-link-active-border-color` | `transparent` | `.nav-tabs` | fixed |
-| `scss/navs.scss:26` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `.nav-tabs .nav-link:hover, .nav-tabs .nav-link:f` | fixed |
-| `scss/navs.scss:29` | `color` | `#2196F3` | `.nav-tabs .nav-link.active` | fixed |
-| `scss/navs.scss:31` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `.nav-tabs .nav-link.active` | fixed |
-| `scss/navs.scss:35` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `.nav-tabs .nav-link.active:hover, .nav-tabs .nav` | fixed |
-| `scss/navs.scss:48` | `color` | `#2196F3` | `.nav-tabs .nav-item.show .nav-link` | fixed |
-| `scss/navs.scss:50` | `box-shadow` | `inset 0 -2px 0 #2196F3` | `.nav-tabs .nav-item.show .nav-link` | fixed |
+| `scss/navs.scss:26` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `.nav-tabs .nav-link:hover, .nav-tabs .nav-link:f` | fixed |
+| `scss/navs.scss:31` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `.nav-tabs .nav-link.active` | fixed |
+| `scss/navs.scss:35` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `.nav-tabs .nav-link.active:hover, .nav-tabs .nav` | fixed |
+| `scss/navs.scss:50` | `box-shadow` | `inset 0 -2px 0 #1976D2` | `.nav-tabs .nav-item.show .nav-link` | fixed |
 | `scss/navs.scss:56` | `--bs-nav-pills-link-active-color` | `#fff` | `.nav-pills` | fixed |
-| `scss/navs.scss:57` | `--bs-nav-pills-link-active-bg` | `#2196F3` | `.nav-pills` | fixed |
+| `scss/navs.scss:57` | `--bs-nav-pills-link-active-bg` | `#1976D2` | `.nav-pills` | fixed |
 | `scss/navs.scss:66` | `color` | `#fff` | `.nav-pills .nav-link.active, .nav-pills .show > ` | fixed |
-| `scss/navs.scss:67` | `background-color` | `#2196F3` | `.nav-pills .nav-link.active, .nav-pills .show > ` | fixed |
-| `scss/pagination.scss:7` | `--bs-pagination-color` | `#2196F3` | `.pagination` | fixed |
+| `scss/navs.scss:67` | `background-color` | `#1976D2` | `.nav-pills .nav-link.active, .nav-pills .show > ` | fixed |
+| `scss/pagination.scss:7` | `--bs-pagination-color` | `#1976D2` | `.pagination` | fixed |
 | `scss/pagination.scss:10` | `--bs-pagination-border-color` | `transparent` | `.pagination` | fixed |
-| `scss/pagination.scss:12` | `--bs-pagination-hover-color` | `#2196F3` | `.pagination` | fixed |
+| `scss/pagination.scss:12` | `--bs-pagination-hover-color` | `#1976D2` | `.pagination` | fixed |
 | `scss/pagination.scss:14` | `--bs-pagination-hover-border-color` | `transparent` | `.pagination` | fixed |
 | `scss/pagination.scss:15` | `--bs-pagination-focus-color` | `#fff` | `.pagination` | fixed |
 | `scss/pagination.scss:17` | `--bs-pagination-focus-box-shadow` | `0 0 0 .2rem rgba(var(--bs-primary-rgb), .35)` | `.pagination` | fixed |
 | `scss/pagination.scss:18` | `--bs-pagination-active-color` | `#fff` | `.pagination` | fixed |
-| `scss/pagination.scss:19` | `--bs-pagination-active-bg` | `#2196F3` | `.pagination` | fixed |
-| `scss/pagination.scss:20` | `--bs-pagination-active-border-color` | `#2196F3` | `.pagination` | fixed |
+| `scss/pagination.scss:19` | `--bs-pagination-active-bg` | `#1976D2` | `.pagination` | fixed |
+| `scss/pagination.scss:20` | `--bs-pagination-active-border-color` | `#1976D2` | `.pagination` | fixed |
 | `scss/pagination.scss:23` | `--bs-pagination-disabled-border-color` | `transparent` | `.pagination` | fixed |
 | `scss/pagination.scss:40` | `box-shadow` | `0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.35)` | `.page-item .page-link:focus-visible` | fixed |
 | `scss/pagination.scss:48` | `color` | `#fff` | `.page-item.active .page-link` | fixed |
-| `scss/pagination.scss:49` | `background-color` | `#2196F3` | `.page-item.active .page-link` | fixed |
+| `scss/pagination.scss:49` | `background-color` | `#1976D2` | `.page-item.active .page-link` | fixed |
 | `scss/pagination.scss:51` | `box-shadow` | `0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.35)` | `.page-item.active .page-link:focus-visible` | fixed |
 | `scss/pagination.scss:54` | `color` | `#fff` | `.page-item.active .page-link:hover` | fixed |
-| `scss/pagination.scss:55` | `background-color` | `#0c7cd5` | `.page-item.active .page-link:hover` | fixed |
-| `scss/progress-bars.scss:13` | `background-color` | `#2196F3` | `.progress-bar` | fixed |
+| `scss/pagination.scss:55` | `background-color` | `#145ca4` | `.page-item.active .page-link:hover` | fixed |
+| `scss/progress-bars.scss:13` | `background-color` | `#1976D2` | `.progress-bar` | fixed |
 | `scss/tables.scss:12` | `--bs-table-bg` | `transparent` | `.table` | fixed |
 | `scss/tables.scss:13` | `--bs-table-accent-bg` | `transparent` | `.table` | fixed |
 | `scss/tables.scss:69` | `background-color` | `transparent` | `.table-responsive-vertical > .table` | fixed |

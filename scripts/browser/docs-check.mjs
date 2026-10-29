@@ -159,8 +159,8 @@ try {
       const bs = await page.evaluate(() => ({ disabled: document.getElementById('redmaterials-css').disabled, primary: (() => { const b = document.querySelector('.btn-primary'); return b && getComputedStyle(b).backgroundColor; })() }));
       check('7a "Bootstrap" disables redmaterials.css and shows stock Bootstrap blue', bs.disabled && (!bs.primary || bs.primary === 'rgb(13, 110, 253)'), JSON.stringify(bs));
       await page.click('label[for=theme-rdm]');
-      const rdm = await poll(() => page.evaluate(() => ({ disabled: document.getElementById('redmaterials-css').disabled, primary: (() => { const b = document.querySelector('.btn-primary'); return b && getComputedStyle(b).backgroundColor; })() })), v => v.primary === 'rgb(33, 150, 243)');
-      check('7b "Redmaterials" re-enables it (Redmaterials primary colour is back)', !rdm.disabled && rdm.primary === 'rgb(33, 150, 243)', JSON.stringify(rdm));
+      const rdm = await poll(() => page.evaluate(() => ({ disabled: document.getElementById('redmaterials-css').disabled, primary: (() => { const b = document.querySelector('.btn-primary'); return b && getComputedStyle(b).backgroundColor; })() })), v => v.primary === 'rgb(25, 118, 210)');
+      check('7b "Redmaterials" re-enables it (Redmaterials primary colour is back)', !rdm.disabled && rdm.primary === 'rgb(25, 118, 210)', JSON.stringify(rdm));
       await page.close();
       const inv = await open(file, { init: () => { try { localStorage.setItem('docs-theme', 'banana'); localStorage.setItem('docs-color-mode', 'banana'); } catch (e) { /* ignore */ } } });
       const st = await inv.page.evaluate(() => ({ theme: document.documentElement.getAttribute('data-docs-theme'), disabled: document.getElementById('redmaterials-css').disabled }));

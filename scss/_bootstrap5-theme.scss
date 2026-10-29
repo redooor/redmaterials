@@ -96,6 +96,11 @@ $bs-link-dark-hover: color.adjust($bs-link-dark, $lightness: 8%);
 
     // Bootstrap's own dark hover fill for warning list items is 4.3:1 under white text.
     --bs-warning-border-subtle: #{round-color(shade-color($brand-warning, 50%))};
+
+    // The primary text utility follows the lifted link colour on dark surfaces.
+    .text-primary {
+        color: rgba(var(--bs-link-color-rgb), var(--bs-text-opacity, 1)) !important;
+    }
 }
 
 // The emphasis/subtle values are derived from the light Material palette.

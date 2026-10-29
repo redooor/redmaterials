@@ -7,7 +7,7 @@ $default: #f8f8f8 !default;
 $default-text: #333 !default;
 
 $brand-default: $default !default;
-$brand-primary: $blue !default;
+$brand-primary: $blue-700 !default; // #1976d2: 4.6:1 on white (500 is 3.1:1)
 $brand-secondary: $grey-600 !default;
 $brand-warning: $amber !default;
 $brand-danger: $red !default;

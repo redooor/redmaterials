@@ -17,6 +17,8 @@
 // values step lighter instead.
 
 $dark-surface: #212529;
+$dark-hover-surface: #3b3f44; // rgba(255, 255, 255, .08) over $dark-surface
+$dark-active-surface: #4c5054; // rgba(255, 255, 255, .16) over $dark-surface
 
 @function channel-luminance($value) {
     $s: math.div($value, 255);
@@ -77,9 +79,12 @@ $dark-surface: #212529;
 // scope redeclares all of them, so the inherited light value is correct.
 @mixin palette-dark($prefix, $name, $color) {
     $base: lift($color);
-    $hover: color.adjust($base, $lightness: 10%);
-    $active: color.adjust($base, $lightness: 18%);
-    $focus: color.adjust($base, $lightness: 26%);
+    // Hover and active/focus sit on a lighter wash (--rdm-flat-hover-bg and
+    // --rdm-flat-active-bg composited on the dark surface), so they are lifted
+    // against that wash rather than the page.
+    $hover: lift(color.adjust($base, $lightness: 10%), $dark-hover-surface);
+    $active: lift(color.adjust($base, $lightness: 18%), $dark-active-surface);
+    $focus: lift(color.adjust($base, $lightness: 26%), $dark-active-surface);
 
     @if not ($base == $color) {
         --rdm-#{$prefix}-#{$name}: #{$base};

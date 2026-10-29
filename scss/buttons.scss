@@ -45,7 +45,7 @@ fieldset[disabled] .btn {
     color: var(--rdm-text);
 }
 .btn-link {
-    color: $brand-primary;
+    color: var(--bs-link-color);
     &:disabled, &.disabled, &[disabled] {
         color: var(--rdm-text-disabled);
         opacity: 1;

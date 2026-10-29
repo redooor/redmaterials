@@ -7,12 +7,12 @@
   "scss/forms.scss:172|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes.",
-    "match": "#b2dbfb"
+    "match": "#92c2f2"
   },
   "scss/forms.scss:178|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes.",
-    "match": "#b2dbfb"
+    "match": "#92c2f2"
   },
   "scss/loops/background.scss:10|background-color": {
     "role": "fixed",
@@ -132,11 +132,16 @@
   "scss/pagination.scss:55|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the active page darkened); identical in both modes.",
-    "match": "#0c7cd5"
+    "match": "#145ca4"
   },
   "scss/wells.scss:14|border-color": {
     "role": "fixed",
     "reason": "Fallback declaration immediately followed by the tokenised one.",
     "match": "#ddd"
+  },
+  "scss/_bootstrap5-theme.scss:102|color": {
+    "role": "fixed",
+    "reason": "Dark-only: .text-primary follows the lifted link colour, which is already a dark-mode token.",
+    "match": "rgba(var(--bs-link-color-rgb), var(--bs-text-opacity, 1))"
   }
 }

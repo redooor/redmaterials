@@ -11,7 +11,7 @@
 // not on the list item.
 .nav-tabs {
     --bs-nav-tabs-border-width: 0;
-    --bs-nav-tabs-link-active-color: #{$brand-primary};
+    --bs-nav-tabs-link-active-color: var(--bs-link-color);
     --bs-nav-tabs-link-active-bg: transparent;
     --bs-nav-tabs-link-active-border-color: transparent;
     border-bottom: 0;
@@ -26,7 +26,7 @@
             box-shadow: inset 0 -2px 0 $brand-primary;
         }
         &.active {
-            color: $brand-primary;
+            color: var(--bs-link-color);
             border: none;
             box-shadow: inset 0 -2px 0 $brand-primary;
             &:hover,
@@ -45,7 +45,7 @@
     }
 
     .nav-item.show .nav-link {
-        color: $brand-primary;
+        color: var(--bs-link-color);
         border: none;
         box-shadow: inset 0 -2px 0 $brand-primary;
     }
