@@ -1,11 +1,44 @@
 {
   "bootstrap": [
-    { "id": "navbar", "title": "Navbar" }, { "id": "buttons", "title": "Buttons", "examples": [
-      { "variant": "default", "selector": ".bs-component .btn-primary" } ] }, { "id": "type", "title": "Typography" },
-    { "id": "tables", "title": "Tables" }, { "id": "forms", "title": "Forms" }, { "id": "nav", "title": "Nav" },
-    { "id": "indicators", "title": "Indicators" }, { "id": "progress", "title": "Progress Bars" },
-    { "id": "container", "title": "Containers" }, { "id": "cards", "title": "Cards" }, { "id": "dialogs", "title": "Modals" },
-    { "id": "popover", "title": "Popover" }, { "id": "tooltips", "title": "Tooltips" }
+    { "id": "navbar", "title": "Navbar" },
+    { "id": "buttons", "title": "Buttons", "examples": [
+      { "variant": "default", "selector": ".bs-component .btn-primary" } ] },
+    { "id": "type", "title": "Typography", "examples": [
+      { "variant": "headings", "selector": ".bs-component h1" },
+      { "variant": "display", "selector": ".bs-component .display-1" },
+      { "variant": "lead", "selector": ".bs-component .lead" },
+      { "variant": "lists", "selector": ".bs-component .list-unstyled" },
+      { "variant": "blockquote", "selector": ".bs-component .blockquote" },
+      { "variant": "inline-text", "selector": ".bs-component mark" },
+      { "variant": "abbreviations", "selector": ".bs-component abbr" },
+      { "variant": "text-utilities", "selector": ".bs-component .text-uppercase" },
+      { "variant": "link-utilities", "selector": ".bs-component .link-primary" } ] },
+    { "id": "colors", "title": "Colors & backgrounds", "examples": [
+      { "variant": "text-colors", "selector": ".bs-component .text-primary" },
+      { "variant": "background-colors", "selector": ".bs-component .bg-primary" },
+      { "variant": "text-bg", "selector": ".bs-component .text-bg-primary" },
+      { "variant": "border-colors", "selector": ".bs-component .border-primary" },
+      { "variant": "subtle-variants", "selector": ".bs-component .bg-primary-subtle" },
+      { "variant": "background-opacity", "selector": ".bs-component .bg-opacity-50" },
+      { "variant": "text-opacity", "selector": ".bs-component .text-opacity-75" } ] },
+    { "id": "tables", "title": "Tables" },
+    { "id": "forms", "title": "Forms" },
+    { "id": "nav", "title": "Nav" },
+    { "id": "indicators", "title": "Indicators" },
+    { "id": "progress", "title": "Progress Bars" },
+    { "id": "container", "title": "Containers" },
+    { "id": "images", "title": "Images & figures", "examples": [
+      { "variant": "responsive", "selector": ".bs-component .img-fluid" },
+      { "variant": "thumbnails", "selector": ".bs-component .img-thumbnail" },
+      { "variant": "rounded", "selector": ".bs-component .rounded-circle" },
+      { "variant": "alignment", "selector": ".bs-component .float-start" },
+      { "variant": "figures", "selector": ".bs-component .figure" },
+      { "variant": "picture", "selector": ".bs-component picture" },
+      { "variant": "aspect-ratios", "selector": ".bs-component .ratio-16x9" } ] },
+    { "id": "cards", "title": "Cards" },
+    { "id": "dialogs", "title": "Modals" },
+    { "id": "popover", "title": "Popover" },
+    { "id": "tooltips", "title": "Tooltips" }
   ],
   "redmaterials": [
     { "id": "navbar", "title": "Navbar" }, { "id": "nav-sidebar", "title": "Nav Sidebar" }, { "id": "buttons", "title": "Buttons" },

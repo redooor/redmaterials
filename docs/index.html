@@ -85,12 +85,14 @@
 <li class="nav-item"><a class="nav-link link-body-emphasis active fw-bold" href="#navbar" aria-current="location">Navbar</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#buttons">Buttons</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#type">Typography</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#colors">Colors & backgrounds</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#tables">Tables</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#forms">Forms</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#nav">Nav</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#indicators">Indicators</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#progress">Progress Bars</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#container">Containers</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#images">Images & figures</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#cards">Cards</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#dialogs">Modals</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#popover">Popover</a></li>
@@ -824,372 +826,442 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>Typography</h1>
+                <p>Bootstrap's typography and text utilities give headings, lists, quotes, and inline text a consistent rhythm.</p>
             </div>
         </div>
 
-        <!-- Headings -->
         <div class="row">
             <div class="col-lg-12">
-                <div class="bs-component mb-4">
-                    <h4>Headings</h4>
-                    <div class="table-responsive"><table class="table table-bordered">
-                        <tbody>
-                            <tr>
-                                <th>&lt;h1&gt;&lt;/h1&gt;<br> &lt;span class="h1"&gt;&lt;/span&gt;
-                                </th>
-                                <td>
-                                    <h1>h1. Redmaterials Heading</h1>
-                                    <span class="h1">h1. Redmaterials Heading</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>&lt;h2&gt;&lt;/h2&gt;<br> &lt;span class="h2"&gt;&lt;/span&gt;
-                                </th>
-                                <td>
-                                    <h2>h2. Redmaterials Heading</h2>
-                                    <span class="h2">h2. Redmaterials Heading</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>&lt;h3&gt;&lt;/h3&gt;<br> &lt;span class="h3"&gt;&lt;/span&gt;
-                                </th>
-                                <td>
-                                    <h3>h3. Redmaterials Heading</h3>
-                                    <span class="h3">h3. Redmaterials Heading</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>&lt;h4&gt;&lt;/h4&gt;<br> &lt;span class="h4"&gt;&lt;/span&gt;
-                                </th>
-                                <td>
-                                    <h4>h4. Redmaterials Heading</h4>
-                                    <span class="h4">h4. Redmaterials Heading</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>&lt;h5&gt;&lt;/h5&gt;<br> &lt;span class="h5"&gt;&lt;/span&gt;
-                                </th>
-                                <td>
-                                    <h5>h5. Redmaterials Heading</h5>
-                                    <span class="h5">h5. Redmaterials Heading</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>&lt;h6&gt;&lt;/h6&gt;<br> &lt;span class="h6"&gt;&lt;/span&gt;
-                                </th>
-                                <td>
-                                    <h6>h6. Redmaterials Heading</h6>
-                                    <span class="h6">h6. Redmaterials Heading</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>&lt;p class="lead"&gt;&lt;/p&gt;<br> &lt;span class="lead"&gt;&lt;/span&gt;
-                                </th>
-                                <td>
-                                    <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                                    <span class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>&lt;p&gt;&lt;/p&gt;</th>
-                                <td>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</td>
-                            </tr>
-                        </tbody>
-                    </table></div>
+                <h4>Headings</h4>
+                <p>Use the six semantic heading levels, or apply the matching <code>.h1</code> through <code>.h6</code> classes when the element cannot be a heading.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <h1>h1. Redmaterials heading</h1>
+                <p class="h1">h1. Redmaterials heading</p>
+                <h2>h2. Redmaterials heading</h2>
+                <p class="h2">h2. Redmaterials heading</p>
+                <h3>h3. Redmaterials heading</h3>
+                <p class="h3">h3. Redmaterials heading</p>
+                <h4>h4. Redmaterials heading</h4>
+                <p class="h4">h4. Redmaterials heading</p>
+                <h5>h5. Redmaterials heading</h5>
+                <p class="h5">h5. Redmaterials heading</p>
+                <h6>h6. Redmaterials heading</h6>
+                <p class="h6">h6. Redmaterials heading</p>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Display Headings</h4>
-                    <div class="well">
-                        <h1 class="display-1">Display 1</h1>
-                        <h1 class="display-2">Display 2</h1>
-                        <h1 class="display-3">Display 3</h1>
-                        <h1 class="display-4">Display 4</h1>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;h1 class=&quot;display-1&quot;&gt;Display 1&lt;/h1&gt;
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;h1&gt;h1. Redmaterials heading&lt;/h1&gt;
+&lt;p class=&quot;h1&quot;&gt;h1. Redmaterials heading&lt;/p&gt;
+&lt;h2&gt;h2. Redmaterials heading&lt;/h2&gt;
+&lt;p class=&quot;h2&quot;&gt;h2. Redmaterials heading&lt;/p&gt;
+&lt;h3&gt;h3. Redmaterials heading&lt;/h3&gt;
+&lt;p class=&quot;h3&quot;&gt;h3. Redmaterials heading&lt;/p&gt;
+&lt;h4&gt;h4. Redmaterials heading&lt;/h4&gt;
+&lt;p class=&quot;h4&quot;&gt;h4. Redmaterials heading&lt;/p&gt;
+&lt;h5&gt;h5. Redmaterials heading&lt;/h5&gt;
+&lt;p class=&quot;h5&quot;&gt;h5. Redmaterials heading&lt;/p&gt;
+&lt;h6&gt;h6. Redmaterials heading&lt;/h6&gt;
+&lt;p class=&quot;h6&quot;&gt;h6. Redmaterials heading&lt;/p&gt;</code></pre>
+
+                <h4 class="mt-5">Display headings</h4>
+                <p>Display headings are larger than regular headings and work well for short introductory statements.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <h1 class="display-1">Display 1</h1>
+                <h1 class="display-2">Display 2</h1>
+                <h1 class="display-3">Display 3</h1>
+                <h1 class="display-4">Display 4</h1>
+                <h1 class="display-5">Display 5</h1>
+                <h1 class="display-6">Display 6</h1>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;h1 class=&quot;display-1&quot;&gt;Display 1&lt;/h1&gt;
 &lt;h1 class=&quot;display-2&quot;&gt;Display 2&lt;/h1&gt;
 &lt;h1 class=&quot;display-3&quot;&gt;Display 3&lt;/h1&gt;
-&lt;h1 class=&quot;display-4&quot;&gt;Display 4&lt;/h1&gt;</code></pre>
+&lt;h1 class=&quot;display-4&quot;&gt;Display 4&lt;/h1&gt;
+&lt;h1 class=&quot;display-5&quot;&gt;Display 5&lt;/h1&gt;
+&lt;h1 class=&quot;display-6&quot;&gt;Display 6&lt;/h1&gt;</code></pre>
+
+                <h4 class="mt-5">Lead</h4>
+                <p>The lead class makes an opening paragraph stand out from the body copy that follows it.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <p class="lead">Redmaterials brings Material Design details to Bootstrap 5 with a clear, expressive visual language.</p>
+                <p>Regular paragraphs use the body text size, while the lead paragraph introduces the content with extra emphasis.</p>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Inline text elements</h4>
-                    <div class="well">
-                        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
-                        <p><del>This line of text is meant to be treated as deleted text.</del></p>
-                        <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
-                        <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
-                        <p><u>This line of text will render as underlined</u></p>
-                        <p><small>This line of text is meant to be treated as fine print.</small></p>
-                        <p><strong>This line rendered as bold text.</strong></p>
-                        <p><em>This line rendered as italicized text.</em></p>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p&gt;You can use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text.&lt;/p&gt;
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p class=&quot;lead&quot;&gt;Redmaterials brings Material Design details to Bootstrap 5 with a clear, expressive visual language.&lt;/p&gt;
+&lt;p&gt;Regular paragraphs use the body text size, while the lead paragraph introduces the content with extra emphasis.&lt;/p&gt;</code></pre>
+
+                <h4 class="mt-5">Lists</h4>
+                <p>Unstyled and inline lists remove default markers, while description lists pair terms with their definitions.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="list-unstyled">
+                    <li>Unstyled list item</li>
+                    <li>Another unstyled list item
+                        <ul>
+                            <li>Nested item stays marked</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="list-inline">
+                    <li class="list-inline-item">Inline item one</li>
+                    <li class="list-inline-item">Inline item two</li>
+                    <li class="list-inline-item">Inline item three</li>
+                </ul>
+                <dl class="row">
+                    <dt class="col-sm-3">Description list</dt>
+                    <dd class="col-sm-9">A description list pairs a term with the definition that explains it.</dd>
+                    <dt class="col-sm-3">Term</dt>
+                    <dd class="col-sm-9">Definitions can also contain paragraphs, links, and other inline content.</dd>
+                </dl>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;list-unstyled&quot;&gt;
+    &lt;li&gt;Unstyled list item&lt;/li&gt;
+    &lt;li&gt;Another unstyled list item
+        &lt;ul&gt;
+            &lt;li&gt;Nested item stays marked&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class=&quot;list-inline&quot;&gt;
+    &lt;li class=&quot;list-inline-item&quot;&gt;Inline item one&lt;/li&gt;
+    &lt;li class=&quot;list-inline-item&quot;&gt;Inline item two&lt;/li&gt;
+    &lt;li class=&quot;list-inline-item&quot;&gt;Inline item three&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl class=&quot;row&quot;&gt;
+    &lt;dt class=&quot;col-sm-3&quot;&gt;Description list&lt;/dt&gt;
+    &lt;dd class=&quot;col-sm-9&quot;&gt;A description list pairs a term with the definition that explains it.&lt;/dd&gt;
+    &lt;dt class=&quot;col-sm-3&quot;&gt;Term&lt;/dt&gt;
+    &lt;dd class=&quot;col-sm-9&quot;&gt;Definitions can also contain paragraphs, links, and other inline content.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+                <h4 class="mt-5">Blockquote</h4>
+                <p>Wrap a quote in a blockquote and place its attribution in a blockquote footer inside the figure caption.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Steve Jobs in <cite title="Source Title">Source Title</cite>
+                    </figcaption>
+                </figure>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;figure&gt;
+    &lt;blockquote class=&quot;blockquote&quot;&gt;
+        &lt;p&gt;Design is not just what it looks like and feels like. Design is how it works.&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;figcaption class=&quot;blockquote-footer&quot;&gt;
+        Steve Jobs in &lt;cite title=&quot;Source Title&quot;&gt;Source Title&lt;/cite&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+                <h4 class="mt-5">Inline text</h4>
+                <p>Use semantic inline elements to mark highlights, deletions, insertions, emphasis, and fine print.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                <p><del>This line of text is meant to be treated as deleted text.</del></p>
+                <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+                <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+                <p><u>This line of text will render as underlined.</u></p>
+                <p><small>This line of text is meant to be treated as fine print.</small></p>
+                <p><strong>This line rendered as bold text.</strong></p>
+                <p><em>This line rendered as italicized text.</em></p>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p&gt;You can use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text.&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;This line of text is meant to be treated as deleted text.&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;&lt;s&gt;This line of text is meant to be treated as no longer accurate.&lt;/s&gt;&lt;/p&gt;
 &lt;p&gt;&lt;ins&gt;This line of text is meant to be treated as an addition to the document.&lt;/ins&gt;&lt;/p&gt;
-&lt;p&gt;&lt;u&gt;This line of text will render as underlined&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;This line of text will render as underlined.&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;&lt;small&gt;This line of text is meant to be treated as fine print.&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;This line rendered as bold text.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This line rendered as italicized text.&lt;/em&gt;&lt;/p&gt;</code></pre>
+
+                <h4 class="mt-5">Abbreviations</h4>
+                <p>Add a title to an abbreviation to show its expanded form on hover, and use <code>.initialism</code> for a slightly smaller version.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <p><abbr title="attribute">attr</abbr></p>
+                <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Abbreviations</h4>
-                    <div class="well">
-                        <p><abbr title="attribute">attr</abbr></p>
-                        <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p&gt;&lt;abbr title=&quot;attribute&quot;&gt;attr&lt;/abbr&gt;&lt;/p&gt;
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p&gt;&lt;abbr title=&quot;attribute&quot;&gt;attr&lt;/abbr&gt;&lt;/p&gt;
 &lt;p&gt;&lt;abbr title=&quot;HyperText Markup Language&quot; class=&quot;initialism&quot;&gt;HTML&lt;/abbr&gt;&lt;/p&gt;</code></pre>
+
+                <h4 class="mt-5">Text utilities</h4>
+                <p>Combine alignment, transform, weight, and font-size utilities to control how text is presented.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <p class="text-start">Start aligned text on all viewport sizes.</p>
+                <p class="text-center">Center aligned text on all viewport sizes.</p>
+                <p class="text-end">End aligned text on all viewport sizes.</p>
+                <p class="text-sm-start">Start aligned text on viewports sized SM or wider.</p>
+                <p class="text-md-center">Center aligned text on viewports sized MD or wider.</p>
+                <p class="text-lg-end">End aligned text on viewports sized LG or wider.</p>
+                <p class="text-lowercase">Lowercased text.</p>
+                <p class="text-uppercase">Uppercased text.</p>
+                <p class="text-capitalize">Capitalized text.</p>
+                <p class="fw-light">Light weight text.</p>
+                <p class="fw-normal">Normal weight text.</p>
+                <p class="fw-medium">Medium weight text.</p>
+                <p class="fw-semibold">Semibold weight text.</p>
+                <p class="fw-bold">Bold weight text.</p>
+                <p class="fs-1">Font size 1</p>
+                <p class="fs-2">Font size 2</p>
+                <p class="fs-3">Font size 3</p>
+                <p class="fs-4">Font size 4</p>
+                <p class="fs-5">Font size 5</p>
+                <p class="fs-6">Font size 6</p>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Blockquote</h4>
-                    <div class="well">
-                        <blockquote class="blockquote">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                        </blockquote>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;blockquote class=&quot;blockquote&quot;&gt;
-    &lt;p class=&quot;mb-0&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
-    &lt;footer class=&quot;blockquote-footer&quot;&gt;Someone famous in &lt;cite title=&quot;Source Title&quot;&gt;Source Title&lt;/cite&gt;&lt;/footer&gt;
-&lt;/blockquote&gt;</code></pre>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p class=&quot;text-start&quot;&gt;Start aligned text on all viewport sizes.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;Center aligned text on all viewport sizes.&lt;/p&gt;
+&lt;p class=&quot;text-end&quot;&gt;End aligned text on all viewport sizes.&lt;/p&gt;
+&lt;p class=&quot;text-sm-start&quot;&gt;Start aligned text on viewports sized SM or wider.&lt;/p&gt;
+&lt;p class=&quot;text-md-center&quot;&gt;Center aligned text on viewports sized MD or wider.&lt;/p&gt;
+&lt;p class=&quot;text-lg-end&quot;&gt;End aligned text on viewports sized LG or wider.&lt;/p&gt;
+&lt;p class=&quot;text-lowercase&quot;&gt;Lowercased text.&lt;/p&gt;
+&lt;p class=&quot;text-uppercase&quot;&gt;Uppercased text.&lt;/p&gt;
+&lt;p class=&quot;text-capitalize&quot;&gt;Capitalized text.&lt;/p&gt;
+&lt;p class=&quot;fw-light&quot;&gt;Light weight text.&lt;/p&gt;
+&lt;p class=&quot;fw-normal&quot;&gt;Normal weight text.&lt;/p&gt;
+&lt;p class=&quot;fw-medium&quot;&gt;Medium weight text.&lt;/p&gt;
+&lt;p class=&quot;fw-semibold&quot;&gt;Semibold weight text.&lt;/p&gt;
+&lt;p class=&quot;fw-bold&quot;&gt;Bold weight text.&lt;/p&gt;
+&lt;p class=&quot;fs-1&quot;&gt;Font size 1&lt;/p&gt;
+&lt;p class=&quot;fs-2&quot;&gt;Font size 2&lt;/p&gt;
+&lt;p class=&quot;fs-3&quot;&gt;Font size 3&lt;/p&gt;
+&lt;p class=&quot;fs-4&quot;&gt;Font size 4&lt;/p&gt;
+&lt;p class=&quot;fs-5&quot;&gt;Font size 5&lt;/p&gt;
+&lt;p class=&quot;fs-6&quot;&gt;Font size 6&lt;/p&gt;</code></pre>
+
+                <h4 class="mt-5">Link utilities</h4>
+                <p>Link utilities change colour, underline offset, and opacity while keeping links recognisable.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <p>
+                    <a href="#" class="link-primary">Primary link</a>
+                    <a href="#" class="link-secondary">Secondary link</a>
+                    <a href="#" class="link-success">Success link</a>
+                    <a href="#" class="link-danger">Danger link</a>
+                    <a href="#" class="link-warning">Warning link</a>
+                    <a href="#" class="link-info">Info link</a>
+                </p>
+                <p>
+                    <a href="#" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Emphasis link with a hover underline</a>
+                </p>
+                <p>
+                    <a href="#" class="link-primary link-opacity-50">Primary link at 50% opacity</a>
+                    <a href="#" class="link-primary link-offset-3">Primary link with an offset underline</a>
+                    <a href="#" class="link-primary link-underline">Primary link with an underline</a>
+                </p>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>List</h4>
-                    <div class="well">
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Consectetur adipiscing elit</li>
-                            <li>Integer molestie lorem at massa</li>
-                            <li>Facilisis in pretium nisl aliquet</li>
-                            <li>Nulla volutpat aliquam velit
-                                <ul>
-                                    <li>Phasellus iaculis neque</li>
-                                    <li>Purus sodales ultricies</li>
-                                    <li>Vestibulum laoreet porttitor sem
-                                        <ul>
-                                            <li>Phasellus iaculis neque</li>
-                                            <li>Purus sodales ultricies</li>
-                                            <li>Vestibulum laoreet porttitor sem</li>
-                                            <li>Ac tristique libero volutpat at</li>
-                                        </ul>
-                                    </li>
-                                    <li>Ac tristique libero volutpat at</li>
-                                </ul>
-                            </li>
-                            <li>Faucibus porta lacus fringilla vel</li>
-                            <li>Eget porttitor lorem</li>
-                        </ul>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul&gt;
-    &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
-    &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-    &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-    &lt;li&gt;Facilisis in pretium nisl aliquet&lt;/li&gt;
-    &lt;li&gt;Nulla volutpat aliquam velit
-        &lt;ul&gt;
-            &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
-            &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
-            &lt;li&gt;Vestibulum laoreet porttitor sem
-                &lt;ul&gt;
-                    &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
-                    &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
-                    &lt;li&gt;Vestibulum laoreet porttitor sem&lt;/li&gt;
-                    &lt;li&gt;Ac tristique libero volutpat at&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/li&gt;
-            &lt;li&gt;Ac tristique libero volutpat at&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Faucibus porta lacus fringilla vel&lt;/li&gt;
-    &lt;li&gt;Eget porttitor lorem&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-primary&quot;&gt;Primary link&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-secondary&quot;&gt;Secondary link&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-success&quot;&gt;Success link&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-danger&quot;&gt;Danger link&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-warning&quot;&gt;Warning link&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-info&quot;&gt;Info link&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover&quot;&gt;Emphasis link with a hover underline&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-primary link-opacity-50&quot;&gt;Primary link at 50% opacity&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-primary link-offset-3&quot;&gt;Primary link with an offset underline&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;link-primary link-underline&quot;&gt;Primary link with an underline&lt;/a&gt;
+&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Colors & backgrounds
+================================================== -->
+<div id="colors" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Colors &amp; backgrounds</h1>
+                <p>Bootstrap's colour utilities set text, background, border, and subtle emphasis colours without writing custom CSS.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Text colors</h4>
+                <p>Use <code>.text-*</code> utilities for contextual text, and the body utilities for colours that follow the active light or dark mode.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-2">
+                    <div class="col-sm-6 col-lg-4"><p class="text-primary mb-0">.text-primary</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-secondary mb-0">.text-secondary</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-success mb-0">.text-success</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-danger mb-0">.text-danger</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-warning mb-0">.text-warning</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-info mb-0">.text-info</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-light bg-dark rounded p-2 mb-0">.text-light</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-dark bg-white rounded p-2 mb-0">.text-dark</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-body mb-0">.text-body</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-body-emphasis mb-0">.text-body-emphasis</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-body-secondary mb-0">.text-body-secondary</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-body-tertiary mb-0">.text-body-tertiary</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-white bg-dark rounded p-2 mb-0">.text-white</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-black-50 bg-white rounded p-2 mb-0">.text-black-50</p></div>
+                    <div class="col-sm-6 col-lg-4"><p class="text-white-50 bg-dark rounded p-2 mb-0">.text-white-50</p></div>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Unstyled List</h4>
-                    <div class="well">
-                        <ul class="list-unstyled">
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Consectetur adipiscing elit</li>
-                            <li>Integer molestie lorem at massa</li>
-                            <li>Facilisis in pretium nisl aliquet</li>
-                            <li>Nulla volutpat aliquam velit
-                                <ul class="list-unstyled">
-                                    <li>Phasellus iaculis neque</li>
-                                    <li>Purus sodales ultricies</li>
-                                    <li>Vestibulum laoreet porttitor sem</li>
-                                    <li>Ac tristique libero volutpat at</li>
-                                </ul>
-                            </li>
-                            <li>Faucibus porta lacus fringilla vel</li>
-                            <li>These children are styled
-                                <ul>
-                                    <li>Phasellus iaculis neque</li>
-                                    <li>Purus sodales ultricies</li>
-                                    <li>Vestibulum laoreet porttitor sem</li>
-                                    <li>Ac tristique libero volutpat at</li>
-                                </ul>
-                            </li>
-                            <li>Eget porttitor lorem</li>
-                        </ul>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;list-unstyled&quot;&gt;
-    &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
-    &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-    &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-    &lt;li&gt;Facilisis in pretium nisl aliquet&lt;/li&gt;
-    &lt;li&gt;Nulla volutpat aliquam velit
-        &lt;ul class=&quot;list-unstyled&quot;&gt;
-            &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
-            &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
-            &lt;li&gt;Vestibulum laoreet porttitor sem&lt;/li&gt;
-            &lt;li&gt;Ac tristique libero volutpat at&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Faucibus porta lacus fringilla vel&lt;/li&gt;
-    &lt;li&gt;These children are styled
-        &lt;ul&gt;
-            &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
-            &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
-            &lt;li&gt;Vestibulum laoreet porttitor sem&lt;/li&gt;
-            &lt;li&gt;Ac tristique libero volutpat at&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Eget porttitor lorem&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Inline List</h4>
-                    <div class="well">
-                        <ul class="list-inline">
-                            <li class="list-inline-item">Lorem ipsum</li>
-                            <li class="list-inline-item">Phasellus iaculis</li>
-                            <li class="list-inline-item">Nulla volutpat</li>
-                        </ul>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;list-inline&quot;&gt;
-    &lt;li class=&quot;list-inline-item&quot;&gt;Lorem ipsum&lt;/li&gt;
-    &lt;li class=&quot;list-inline-item&quot;&gt;Phasellus iaculis&lt;/li&gt;
-    &lt;li class=&quot;list-inline-item&quot;&gt;Nulla volutpat&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-2&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-primary mb-0&quot;&gt;.text-primary&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-secondary mb-0&quot;&gt;.text-secondary&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-success mb-0&quot;&gt;.text-success&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-danger mb-0&quot;&gt;.text-danger&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-warning mb-0&quot;&gt;.text-warning&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-info mb-0&quot;&gt;.text-info&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-light bg-dark rounded p-2 mb-0&quot;&gt;.text-light&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-dark bg-white rounded p-2 mb-0&quot;&gt;.text-dark&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-body mb-0&quot;&gt;.text-body&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-body-emphasis mb-0&quot;&gt;.text-body-emphasis&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-body-secondary mb-0&quot;&gt;.text-body-secondary&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-body-tertiary mb-0&quot;&gt;.text-body-tertiary&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-white bg-dark rounded p-2 mb-0&quot;&gt;.text-white&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-black-50 bg-white rounded p-2 mb-0&quot;&gt;.text-black-50&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;p class=&quot;text-white-50 bg-dark rounded p-2 mb-0&quot;&gt;.text-white-50&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Background colors</h4>
+                <p>Set an element's background with <code>.bg-*</code>, using contrasting text utilities so the label stays readable.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-2">
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-white bg-primary">.bg-primary</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-white bg-secondary">.bg-secondary</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-white bg-success">.bg-success</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-white bg-danger">.bg-danger</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-dark bg-warning">.bg-warning</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-dark bg-info">.bg-info</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-dark bg-light">.bg-light</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-white bg-dark">.bg-dark</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border bg-body text-body">.bg-body</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded bg-body-secondary text-body">.bg-body-secondary</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded bg-body-tertiary text-body">.bg-body-tertiary</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-dark bg-white">.bg-white</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-white bg-black">.bg-black</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border bg-transparent text-body">.bg-transparent</div></div>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Description list alignment</h4>
-                    <div class="well">
-                        <dl class="row">
-                            <dt class="col-sm-3">Description lists</dt>
-                            <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
-
-                            <dt class="col-sm-3">Euismod</dt>
-                            <dd class="col-sm-9">
-                                <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
-                                <p>Donec id elit non mi porta gravida at eget metus.</p>
-                            </dd>
-
-                            <dt class="col-sm-3">Malesuada porta</dt>
-                            <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
-
-                            <dt class="col-sm-3 text-truncate">Truncated term is truncated when the line is very very very long</dt>
-                            <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-
-                            <dt class="col-sm-3">Nesting</dt>
-                            <dd class="col-sm-9">
-                                <dl class="row">
-                                    <dt class="col-sm-4">Nested definition list</dt>
-                                    <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
-                                </dl>
-                            </dd>
-                        </dl>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;dl class=&quot;row&quot;&gt;
-    &lt;dt class=&quot;col-sm-3&quot;&gt;Description lists&lt;/dt&gt;
-    &lt;dd class=&quot;col-sm-9&quot;&gt;A description list is perfect for defining terms.&lt;/dd&gt;
-
-    &lt;dt class=&quot;col-sm-3&quot;&gt;Euismod&lt;/dt&gt;
-    &lt;dd class=&quot;col-sm-9&quot;&gt;
-        &lt;p&gt;Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.&lt;/p&gt;
-        &lt;p&gt;Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
-    &lt;/dd&gt;
-
-    &lt;dt class=&quot;col-sm-3&quot;&gt;Malesuada porta&lt;/dt&gt;
-    &lt;dd class=&quot;col-sm-9&quot;&gt;Etiam porta sem malesuada magna mollis euismod.&lt;/dd&gt;
-
-    &lt;dt class=&quot;col-sm-3 text-truncate&quot;&gt;Truncated term is truncated when the line is very very very long&lt;/dt&gt;
-    &lt;dd class=&quot;col-sm-9&quot;&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.&lt;/dd&gt;
-
-    &lt;dt class=&quot;col-sm-3&quot;&gt;Nesting&lt;/dt&gt;
-    &lt;dd class=&quot;col-sm-9&quot;&gt;
-        &lt;dl class=&quot;row&quot;&gt;
-            &lt;dt class=&quot;col-sm-4&quot;&gt;Nested definition list&lt;/dt&gt;
-            &lt;dd class=&quot;col-sm-8&quot;&gt;Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.&lt;/dd&gt;
-        &lt;/dl&gt;
-    &lt;/dd&gt;
-&lt;/dl&gt;</code></pre>
                 </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-2&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-white bg-primary&quot;&gt;.bg-primary&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-white bg-secondary&quot;&gt;.bg-secondary&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-white bg-success&quot;&gt;.bg-success&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-white bg-danger&quot;&gt;.bg-danger&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-dark bg-warning&quot;&gt;.bg-warning&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-dark bg-info&quot;&gt;.bg-info&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-dark bg-light&quot;&gt;.bg-light&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-white bg-dark&quot;&gt;.bg-dark&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border bg-body text-body&quot;&gt;.bg-body&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded bg-body-secondary text-body&quot;&gt;.bg-body-secondary&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded bg-body-tertiary text-body&quot;&gt;.bg-body-tertiary&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-dark bg-white&quot;&gt;.bg-white&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-white bg-black&quot;&gt;.bg-black&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border bg-transparent text-body&quot;&gt;.bg-transparent&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 
-                <div class="bs-component mb-4">
-                    <h4>Text Color</h4>
-                    <div class="well" data-bs-theme="light">
-                        <p class="lead text-primary">.text-primary</p>
-                        <p class="lead text-secondary">.text-secondary</p>
-                        <p class="lead text-success">.text-success</p>
-                        <p class="lead text-danger">.text-danger</p>
-                        <p class="lead text-warning">.text-warning</p>
-                        <p class="lead text-info">.text-info</p>
-                        <p class="lead text-light bg-dark">.text-light</p>
-                        <p class="lead text-dark">.text-dark</p>
-                        <p class="lead text-body-secondary">.text-body-secondary</p>
-                        <p class="lead text-white bg-dark">.text-white</p>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p class=&quot;lead text-primary&quot;&gt;.text-primary&lt;/p&gt;
-&lt;p class=&quot;lead text-secondary&quot;&gt;.text-secondary&lt;/p&gt;
-&lt;p class=&quot;lead text-success&quot;&gt;.text-success&lt;/p&gt;
-&lt;p class=&quot;lead text-danger&quot;&gt;.text-danger&lt;/p&gt;
-&lt;p class=&quot;lead text-warning&quot;&gt;.text-warning&lt;/p&gt;
-&lt;p class=&quot;lead text-info&quot;&gt;.text-info&lt;/p&gt;
-&lt;p class=&quot;lead text-light bg-dark&quot;&gt;.text-light&lt;/p&gt;
-&lt;p class=&quot;lead text-dark&quot;&gt;.text-dark&lt;/p&gt;
-&lt;p class=&quot;lead text-body-secondary&quot;&gt;.text-body-secondary&lt;/p&gt;
-&lt;p class=&quot;lead text-white bg-dark&quot;&gt;.text-white&lt;/p&gt;</code></pre>
+                <h4 class="mt-5">Text background</h4>
+                <p>The <code>.text-bg-*</code> utilities pair a background colour with a contrasting text colour in a single class.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-2">
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-bg-primary">.text-bg-primary</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-bg-secondary">.text-bg-secondary</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-bg-success">.text-bg-success</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-bg-danger">.text-bg-danger</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-bg-warning">.text-bg-warning</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-bg-info">.text-bg-info</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-bg-light">.text-bg-light</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded text-bg-dark">.text-bg-dark</div></div>
                 </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-2&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-bg-primary&quot;&gt;.text-bg-primary&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-bg-secondary&quot;&gt;.text-bg-secondary&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-bg-success&quot;&gt;.text-bg-success&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-bg-danger&quot;&gt;.text-bg-danger&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-bg-warning&quot;&gt;.text-bg-warning&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-bg-info&quot;&gt;.text-bg-info&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-bg-light&quot;&gt;.text-bg-light&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded text-bg-dark&quot;&gt;.text-bg-dark&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 
-                <div class="bs-component mb-4">
-                    <h4>Link Color</h4>
-                    <div class="well" data-bs-theme="light">
-                        <p class="lead"><a href="#" class="text-primary">Primary link</a></p>
-                        <p class="lead"><a href="#" class="text-secondary">Secondary link</a></p>
-                        <p class="lead"><a href="#" class="text-success">Success link</a></p>
-                        <p class="lead"><a href="#" class="text-danger">Danger link</a></p>
-                        <p class="lead"><a href="#" class="text-warning">Warning link</a></p>
-                        <p class="lead"><a href="#" class="text-info">Info link</a></p>
-                        <p class="lead"><a href="#" class="text-light bg-dark">Light link</a></p>
-                        <p class="lead"><a href="#" class="text-dark">Dark link</a></p>
-                        <p class="lead"><a href="#" class="text-body-secondary">Muted link</a></p>
-                        <p class="lead"><a href="#" class="text-white bg-dark">White link</a></p>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-primary&quot;&gt;Primary link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-secondary&quot;&gt;Secondary link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-success&quot;&gt;Success link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-danger&quot;&gt;Danger link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-warning&quot;&gt;Warning link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-info&quot;&gt;Info link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-light bg-dark&quot;&gt;Light link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-dark&quot;&gt;Dark link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-body-secondary&quot;&gt;Muted link&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;lead&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-white bg-dark&quot;&gt;White link&lt;/a&gt;&lt;/p&gt;</code></pre>
+                <h4 class="mt-5">Border colors</h4>
+                <p>Combine <code>.border</code> with a <code>.border-*</code> utility to colour a border.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-2">
+                    <div class="col-sm-6 col-lg-4"><div class="border border-primary rounded p-3">.border-primary</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-secondary rounded p-3">.border-secondary</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-success rounded p-3">.border-success</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-danger rounded p-3">.border-danger</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-warning rounded p-3">.border-warning</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-info rounded p-3">.border-info</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-light rounded p-3 bg-dark text-white">.border-light</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-dark rounded p-3 bg-white text-dark">.border-dark</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-white rounded p-3 bg-dark text-white">.border-white</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="border border-black rounded p-3 bg-white text-dark">.border-black</div></div>
                 </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-2&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-primary rounded p-3&quot;&gt;.border-primary&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-secondary rounded p-3&quot;&gt;.border-secondary&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-success rounded p-3&quot;&gt;.border-success&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-danger rounded p-3&quot;&gt;.border-danger&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-warning rounded p-3&quot;&gt;.border-warning&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-info rounded p-3&quot;&gt;.border-info&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-light rounded p-3 bg-dark text-white&quot;&gt;.border-light&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-dark rounded p-3 bg-white text-dark&quot;&gt;.border-dark&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-white rounded p-3 bg-dark text-white&quot;&gt;.border-white&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;border border-black rounded p-3 bg-white text-dark&quot;&gt;.border-black&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 
-                <div class="bs-component mb-4">
-                    <h4>Background Color</h4>
-                    <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
-                    <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
-                    <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
-                    <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
-                    <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
-                    <div class="p-3 mb-2 bg-info text-white">.bg-info</div>
-                    <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
-                    <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
-                    <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+                <h4 class="mt-5">Subtle variants</h4>
+                <p>Subtle backgrounds and emphasis text are designed to work together and adapt to the active colour mode, with a matching subtle border.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-2">
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border border-primary-subtle bg-primary-subtle text-primary-emphasis">.bg-primary-subtle .text-primary-emphasis</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border border-secondary-subtle bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle .text-secondary-emphasis</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border border-success-subtle bg-success-subtle text-success-emphasis">.bg-success-subtle .text-success-emphasis</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border border-danger-subtle bg-danger-subtle text-danger-emphasis">.bg-danger-subtle .text-danger-emphasis</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border border-warning-subtle bg-warning-subtle text-warning-emphasis">.bg-warning-subtle .text-warning-emphasis</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border border-info-subtle bg-info-subtle text-info-emphasis">.bg-info-subtle .text-info-emphasis</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border border-light-subtle bg-light-subtle text-light-emphasis">.bg-light-subtle .text-light-emphasis</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded border border-dark-subtle bg-dark-subtle text-dark-emphasis">.bg-dark-subtle .text-dark-emphasis</div></div>
                 </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-2&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border border-primary-subtle bg-primary-subtle text-primary-emphasis&quot;&gt;.bg-primary-subtle .text-primary-emphasis&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border border-secondary-subtle bg-secondary-subtle text-secondary-emphasis&quot;&gt;.bg-secondary-subtle .text-secondary-emphasis&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border border-success-subtle bg-success-subtle text-success-emphasis&quot;&gt;.bg-success-subtle .text-success-emphasis&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border border-danger-subtle bg-danger-subtle text-danger-emphasis&quot;&gt;.bg-danger-subtle .text-danger-emphasis&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border border-warning-subtle bg-warning-subtle text-warning-emphasis&quot;&gt;.bg-warning-subtle .text-warning-emphasis&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border border-info-subtle bg-info-subtle text-info-emphasis&quot;&gt;.bg-info-subtle .text-info-emphasis&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border border-light-subtle bg-light-subtle text-light-emphasis&quot;&gt;.bg-light-subtle .text-light-emphasis&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded border border-dark-subtle bg-dark-subtle text-dark-emphasis&quot;&gt;.bg-dark-subtle .text-dark-emphasis&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Background opacity</h4>
+                <p>Apply <code>.bg-opacity-*</code> to a coloured background to make it more or less translucent.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-2">
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded bg-primary bg-opacity-10 text-body">.bg-opacity-10</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded bg-primary bg-opacity-25 text-body">.bg-opacity-25</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded bg-primary bg-opacity-50 text-body">.bg-opacity-50</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded bg-primary bg-opacity-75 text-white">.bg-opacity-75</div></div>
+                    <div class="col-sm-6 col-lg-4"><div class="p-3 rounded bg-primary bg-opacity-100 text-white">.bg-opacity-100</div></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-2&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded bg-primary bg-opacity-10 text-body&quot;&gt;.bg-opacity-10&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded bg-primary bg-opacity-25 text-body&quot;&gt;.bg-opacity-25&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded bg-primary bg-opacity-50 text-body&quot;&gt;.bg-opacity-50&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded bg-primary bg-opacity-75 text-white&quot;&gt;.bg-opacity-75&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-lg-4&quot;&gt;&lt;div class=&quot;p-3 rounded bg-primary bg-opacity-100 text-white&quot;&gt;.bg-opacity-100&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Text opacity</h4>
+                <p>Apply <code>.text-opacity-*</code> to theme-aware text to reduce its opacity. Lower opacities also reduce contrast, so use them sparingly; 75% is the lowest value shown here that still meets AA on the page surfaces.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <p class="fs-5 fw-semibold text-body text-opacity-100 mb-2">.text-opacity-100</p>
+                <p class="fs-5 fw-semibold text-body text-opacity-75 mb-0">.text-opacity-75</p>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;p class=&quot;fs-5 fw-semibold text-body text-opacity-100 mb-2&quot;&gt;.text-opacity-100&lt;/p&gt;
+&lt;p class=&quot;fs-5 fw-semibold text-body text-opacity-75 mb-0&quot;&gt;.text-opacity-75&lt;/p&gt;</code></pre>
             </div>
         </div>
     </div>
@@ -3083,6 +3155,180 @@
     Look, I'm in a large well!
 &lt;/div&gt;</code></pre>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Images & figures
+================================================== -->
+<div id="images" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Images &amp; figures</h1>
+                <p>Bootstrap's image helpers keep media responsive, shaped, aligned, and captioned without extra CSS.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Responsive images</h4>
+                <p>Add <code>.img-fluid</code> so an image scales with its parent instead of overflowing it.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row align-items-center g-4">
+                    <div class="col-md-7">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E" class="img-fluid rounded" alt="Abstract blue placeholder with hills and a yellow sun" width="800" height="450">
+                    </div>
+                    <div class="col-md-5">
+                        <p class="mb-0">The image scales down to fit narrow screens while keeping its natural aspect ratio.</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row align-items-center g-4&quot;&gt;
+    &lt;div class=&quot;col-md-7&quot;&gt;
+        &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;img-fluid rounded&quot; alt=&quot;Abstract blue placeholder with hills and a yellow sun&quot; width=&quot;800&quot; height=&quot;450&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-5&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The image scales down to fit narrow screens while keeping its natural aspect ratio.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Thumbnails</h4>
+                <p>Add <code>.img-thumbnail</code> for a padded border around an image.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E" class="img-thumbnail" alt="Blue thumbnail placeholder with hills and a yellow sun" width="280" height="158">
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;img-thumbnail&quot; alt=&quot;Blue thumbnail placeholder with hills and a yellow sun&quot; width=&quot;280&quot; height=&quot;158&quot;&gt;</code></pre>
+
+                <h4 class="mt-5">Rounded images</h4>
+                <p>Use <code>.rounded</code>, <code>.rounded-3</code>, or <code>.rounded-circle</code> to soften an image's corners.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E" class="rounded img-fluid" alt="Blue placeholder with rounded corners" width="160" height="90">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E" class="rounded-3 img-fluid" alt="Blue placeholder with larger rounded corners" width="160" height="90">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23198754'/%3E%3Ccircle cx='100' cy='100' r='64' fill='%23a3cfbb'/%3E%3C/svg%3E" class="rounded-circle img-fluid" alt="Green circular placeholder with a light circle" width="120" height="120">
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap align-items-center gap-3&quot;&gt;
+    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;rounded img-fluid&quot; alt=&quot;Blue placeholder with rounded corners&quot; width=&quot;160&quot; height=&quot;90&quot;&gt;
+    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;rounded-3 img-fluid&quot; alt=&quot;Blue placeholder with larger rounded corners&quot; width=&quot;160&quot; height=&quot;90&quot;&gt;
+    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23198754'/%3E%3Ccircle cx='100' cy='100' r='64' fill='%23a3cfbb'/%3E%3C/svg%3E&quot; class=&quot;rounded-circle img-fluid&quot; alt=&quot;Green circular placeholder with a light circle&quot; width=&quot;120&quot; height=&quot;120&quot;&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Image alignment</h4>
+                <p>Float images beside text, center them as block elements, or align them with the text utilities.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="clearfix mb-4">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23198754'/%3E%3Ccircle cx='100' cy='100' r='64' fill='%23a3cfbb'/%3E%3C/svg%3E" class="float-start rounded me-3 mb-2" alt="Green placeholder floated to the left" width="120" height="120">
+                    <p class="mb-0">This image floats to the start of the paragraph with <code>.float-start</code>, and the surrounding text wraps beside it. The clearfix keeps the following content below the float.</p>
+                </div>
+                <div class="clearfix mb-4">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23198754'/%3E%3Ccircle cx='100' cy='100' r='64' fill='%23a3cfbb'/%3E%3C/svg%3E" class="float-end rounded ms-3 mb-2" alt="Green placeholder floated to the right" width="120" height="120">
+                    <p class="mb-0">This image floats to the end of the paragraph with <code>.float-end</code>. On narrow screens the text still wraps around the image.</p>
+                </div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E" class="img-fluid rounded mx-auto d-block" alt="Blue placeholder centered with auto margins" width="400" height="225">
+                <div class="text-center mt-4">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E" class="img-fluid rounded" alt="Blue placeholder centered with a text alignment utility" width="280" height="158">
+                    <p class="text-body-secondary mt-2 mb-0">Centered with <code>.text-center</code>.</p>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;clearfix mb-4&quot;&gt;
+    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23198754'/%3E%3Ccircle cx='100' cy='100' r='64' fill='%23a3cfbb'/%3E%3C/svg%3E&quot; class=&quot;float-start rounded me-3 mb-2&quot; alt=&quot;Green placeholder floated to the left&quot; width=&quot;120&quot; height=&quot;120&quot;&gt;
+    &lt;p class=&quot;mb-0&quot;&gt;This image floats to the start of the paragraph with &lt;code&gt;.float-start&lt;/code&gt;, and the surrounding text wraps beside it. The clearfix keeps the following content below the float.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clearfix mb-4&quot;&gt;
+    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23198754'/%3E%3Ccircle cx='100' cy='100' r='64' fill='%23a3cfbb'/%3E%3C/svg%3E&quot; class=&quot;float-end rounded ms-3 mb-2&quot; alt=&quot;Green placeholder floated to the right&quot; width=&quot;120&quot; height=&quot;120&quot;&gt;
+    &lt;p class=&quot;mb-0&quot;&gt;This image floats to the end of the paragraph with &lt;code&gt;.float-end&lt;/code&gt;. On narrow screens the text still wraps around the image.&lt;/p&gt;
+&lt;/div&gt;
+&lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;img-fluid rounded mx-auto d-block&quot; alt=&quot;Blue placeholder centered with auto margins&quot; width=&quot;400&quot; height=&quot;225&quot;&gt;
+&lt;div class=&quot;text-center mt-4&quot;&gt;
+    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;img-fluid rounded&quot; alt=&quot;Blue placeholder centered with a text alignment utility&quot; width=&quot;280&quot; height=&quot;158&quot;&gt;
+    &lt;p class=&quot;text-body-secondary mt-2 mb-0&quot;&gt;Centered with &lt;code&gt;.text-center&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Figures</h4>
+                <p>Use <code>.figure</code>, <code>.figure-img</code>, and <code>.figure-caption</code> to pair an image with a caption.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <figure class="figure">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E" class="figure-img img-fluid rounded" alt="Blue figure placeholder with hills and a yellow sun" width="800" height="450">
+                    <figcaption class="figure-caption">An abstract landscape used as a figure placeholder.</figcaption>
+                </figure>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;figure class=&quot;figure&quot;&gt;
+    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;figure-img img-fluid rounded&quot; alt=&quot;Blue figure placeholder with hills and a yellow sun&quot; width=&quot;800&quot; height=&quot;450&quot;&gt;
+    &lt;figcaption class=&quot;figure-caption&quot;&gt;An abstract landscape used as a figure placeholder.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+                <h4 class="mt-5">Picture element</h4>
+                <p>A <code>picture</code> element can serve a wider image on larger screens while the <code>img</code> provides the fallback.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1200'%20height='675'%20viewBox='0%200%201200%20675'%3E%3Crect%20width='1200'%20height='675'%20fill='%236f42c1'/%3E%3Ccircle%20cx='300'%20cy='300'%20r='160'%20fill='%23d63384'/%3E%3Cpath%20d='M0%20540%20360%20300%20660%20520%20900%20240%201200%20500V675H0Z'%20fill='%23e685b5'/%3E%3C/svg%3E">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%236f42c1'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%23d63384'/%3E%3Cpath d='M0 270 180 150 330 260 450 120 600 250V338H0Z' fill='%23e685b5'/%3E%3C/svg%3E" class="img-fluid rounded" alt="Purple picture placeholder with hills and a pink circle" width="600" height="338">
+                </picture>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;picture&gt;
+    &lt;source media=&quot;(min-width: 768px)&quot; srcset=&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1200'%20height='675'%20viewBox='0%200%201200%20675'%3E%3Crect%20width='1200'%20height='675'%20fill='%236f42c1'/%3E%3Ccircle%20cx='300'%20cy='300'%20r='160'%20fill='%23d63384'/%3E%3Cpath%20d='M0%20540%20360%20300%20660%20520%20900%20240%201200%20500V675H0Z'%20fill='%23e685b5'/%3E%3C/svg%3E&quot;&gt;
+    &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%236f42c1'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%23d63384'/%3E%3Cpath d='M0 270 180 150 330 260 450 120 600 250V338H0Z' fill='%23e685b5'/%3E%3C/svg%3E&quot; class=&quot;img-fluid rounded&quot; alt=&quot;Purple picture placeholder with hills and a pink circle&quot; width=&quot;600&quot; height=&quot;338&quot;&gt;
+&lt;/picture&gt;</code></pre>
+
+                <h4 class="mt-5">Aspect ratios</h4>
+                <p>Use the preset <code>.ratio-*</code> classes to keep media in a fixed proportion as the container resizes.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div class="ratio ratio-1x1">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23198754'/%3E%3Ccircle cx='200' cy='200' r='120' fill='%23a3cfbb'/%3E%3C/svg%3E" class="object-fit-cover" alt="Green square placeholder for a 1 by 1 ratio" width="400" height="400">
+                        </div>
+                        <p class="mt-2 mb-0">.ratio-1x1</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="ratio ratio-4x3">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%230d6efd'/%3E%3Cpath d='M0 480 200 300 360 440 520 220 800 500V600H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='150' r='60' fill='%23ffc107'/%3E%3C/svg%3E" class="object-fit-cover" alt="Blue landscape placeholder for a 4 by 3 ratio" width="800" height="600">
+                        </div>
+                        <p class="mt-2 mb-0">.ratio-4x3</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="ratio ratio-16x9">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E" class="object-fit-cover" alt="Blue landscape placeholder for a 16 by 9 ratio" width="800" height="450">
+                        </div>
+                        <p class="mt-2 mb-0">.ratio-16x9</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="ratio ratio-21x9">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='840' height='360' viewBox='0 0 840 360'%3E%3Crect width='840' height='360' fill='%230d6efd'/%3E%3Cpath d='M0 280 210 170 380 260 546 120 840 300V360H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='672' cy='90' r='44' fill='%23ffc107'/%3E%3C/svg%3E" class="object-fit-cover" alt="Blue panoramic placeholder for a 21 by 9 ratio" width="840" height="360">
+                        </div>
+                        <p class="mt-2 mb-0">.ratio-21x9</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-3&quot;&gt;
+    &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;div class=&quot;ratio ratio-1x1&quot;&gt;
+            &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23198754'/%3E%3Ccircle cx='200' cy='200' r='120' fill='%23a3cfbb'/%3E%3C/svg%3E&quot; class=&quot;object-fit-cover&quot; alt=&quot;Green square placeholder for a 1 by 1 ratio&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;mt-2 mb-0&quot;&gt;.ratio-1x1&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;div class=&quot;ratio ratio-4x3&quot;&gt;
+            &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%230d6efd'/%3E%3Cpath d='M0 480 200 300 360 440 520 220 800 500V600H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='150' r='60' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;object-fit-cover&quot; alt=&quot;Blue landscape placeholder for a 4 by 3 ratio&quot; width=&quot;800&quot; height=&quot;600&quot;&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;mt-2 mb-0&quot;&gt;.ratio-4x3&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;div class=&quot;ratio ratio-16x9&quot;&gt;
+            &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%230d6efd'/%3E%3Cpath d='M0 360 200 220 360 330 520 160 800 380V450H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='640' cy='110' r='54' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;object-fit-cover&quot; alt=&quot;Blue landscape placeholder for a 16 by 9 ratio&quot; width=&quot;800&quot; height=&quot;450&quot;&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;mt-2 mb-0&quot;&gt;.ratio-16x9&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6&quot;&gt;
+        &lt;div class=&quot;ratio ratio-21x9&quot;&gt;
+            &lt;img src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='840' height='360' viewBox='0 0 840 360'%3E%3Crect width='840' height='360' fill='%230d6efd'/%3E%3Cpath d='M0 280 210 170 380 260 546 120 840 300V360H0Z' fill='%236ea8fe'/%3E%3Ccircle cx='672' cy='90' r='44' fill='%23ffc107'/%3E%3C/svg%3E&quot; class=&quot;object-fit-cover&quot; alt=&quot;Blue panoramic placeholder for a 21 by 9 ratio&quot; width=&quot;840&quot; height=&quot;360&quot;&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;mt-2 mb-0&quot;&gt;.ratio-21x9&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
             </div>
         </div>
     </div>
