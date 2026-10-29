@@ -66,7 +66,12 @@ export function renderSidebar(sections, page) {
   const otherPage = other === 'bootstrap' ? 'index.html' : 'redmaterials.html';
   const label = n => n === 'bootstrap' ? 'Bootstrap' : 'Redmaterials';
   const head = n => `<li class="nav-item px-3 pt-3 text-uppercase fw-bold small text-body-secondary">${label(n)}</li>`;
-  const links = (name, prefix) => sections[name].map(s => `<li class="nav-item"><a class="nav-link" href="${prefix}#${s.id}">${s.title}</a></li>`).join('\n');
+  // The current page starts at its first section, so that link is the static active default. docs.js keeps the
+  // active styling (bold + aria-current) in step with scrollspy as the reader scrolls.
+  const links = (name, prefix) => sections[name].map((s, i) => {
+    const active = name === page && i === 0;
+    return `<li class="nav-item"><a class="nav-link link-body-emphasis${active ? ' active fw-bold' : ''}" href="${prefix}#${s.id}"${active ? ' aria-current="location"' : ''}>${s.title}</a></li>`;
+  }).join('\n');
   return `<ul class="nav flex-column" id="nav_spy">\n${head(page)}\n${links(page, '')}\n</ul>\n`
     + `<ul class="nav flex-column">\n${head(other)}\n${links(other, otherPage)}\n</ul>`;
 }

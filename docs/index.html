@@ -48,7 +48,7 @@
 <body>
 <nav class="navbar bg-body-tertiary sticky-top d-lg-none">
     <div class="container-fluid">
-        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#docs-sidebar" aria-controls="docs-sidebar" aria-label="Open navigation"><i class="material-icons">menu</i></button>
+        <button class="btn btn-link link-body-emphasis" type="button" data-bs-toggle="offcanvas" data-bs-target="#docs-sidebar" aria-controls="docs-sidebar" aria-label="Open navigation"><i class="material-icons">menu</i></button>
         <a class="navbar-brand" href="#top"><img src="assets/img/redmaterials_logo_favicon.png" width="29" height="29" class="d-inline-block align-top me-2" alt="">Redmaterials</a>
     </div>
 </nav>
@@ -62,52 +62,54 @@
             <div class="offcanvas-body d-block p-0">
                 <a class="navbar-brand d-none d-lg-block px-3 pt-3" href="#top"><img src="assets/img/redmaterials_logo_favicon.png" width="29" height="29" class="d-inline-block align-top me-2" alt="">Redmaterials</a>
                 <div class="m-3 d-grid gap-2">
-  <div class="btn-group btn-group-sm" role="group" aria-label="Theme">
-    <input type="radio" class="btn-check" name="theme" id="theme-bs" value="bootstrap">
-    <label class="btn btn-outline-secondary" for="theme-bs">Bootstrap</label>
-    <input type="radio" class="btn-check" name="theme" id="theme-rdm" value="redmaterials">
-    <label class="btn btn-outline-secondary" for="theme-rdm">Redmaterials</label>
-  </div>
-  <div class="btn-group btn-group-sm" role="group" aria-label="Colour mode">
-    <input type="radio" class="btn-check" name="color-mode" id="mode-light" value="light">
-    <label class="btn btn-outline-secondary" for="mode-light">Light</label>
-    <input type="radio" class="btn-check" name="color-mode" id="mode-dark" value="dark">
-    <label class="btn btn-outline-secondary" for="mode-dark">Dark</label>
-    <input type="radio" class="btn-check" name="color-mode" id="mode-auto" value="auto">
-    <label class="btn btn-outline-secondary" for="mode-auto">Auto</label>
+  <div data-bs-theme="dark" class="bg-body rounded p-2 d-grid gap-2">
+    <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Theme">
+      <input type="radio" class="btn-check" name="theme" id="theme-bs" value="bootstrap">
+      <label class="btn btn-outline-light" for="theme-bs">Bootstrap</label>
+      <input type="radio" class="btn-check" name="theme" id="theme-rdm" value="redmaterials">
+      <label class="btn btn-outline-light" for="theme-rdm">Redmaterials</label>
+    </div>
+    <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Colour mode">
+      <input type="radio" class="btn-check" name="color-mode" id="mode-light" value="light">
+      <label class="btn btn-outline-light" for="mode-light">Light</label>
+      <input type="radio" class="btn-check" name="color-mode" id="mode-dark" value="dark">
+      <label class="btn btn-outline-light" for="mode-dark">Dark</label>
+      <input type="radio" class="btn-check" name="color-mode" id="mode-auto" value="auto">
+      <label class="btn btn-outline-light" for="mode-auto">Auto</label>
+    </div>
   </div>
 </div>
 
                 <ul class="nav flex-column" id="nav_spy">
 <li class="nav-item px-3 pt-3 text-uppercase fw-bold small text-body-secondary">Bootstrap</li>
-<li class="nav-item"><a class="nav-link" href="#navbar">Navbar</a></li>
-<li class="nav-item"><a class="nav-link" href="#buttons">Buttons</a></li>
-<li class="nav-item"><a class="nav-link" href="#type">Typography</a></li>
-<li class="nav-item"><a class="nav-link" href="#tables">Tables</a></li>
-<li class="nav-item"><a class="nav-link" href="#forms">Forms</a></li>
-<li class="nav-item"><a class="nav-link" href="#nav">Nav</a></li>
-<li class="nav-item"><a class="nav-link" href="#indicators">Indicators</a></li>
-<li class="nav-item"><a class="nav-link" href="#progress">Progress Bars</a></li>
-<li class="nav-item"><a class="nav-link" href="#container">Containers</a></li>
-<li class="nav-item"><a class="nav-link" href="#cards">Cards</a></li>
-<li class="nav-item"><a class="nav-link" href="#dialogs">Modals</a></li>
-<li class="nav-item"><a class="nav-link" href="#popover">Popover</a></li>
-<li class="nav-item"><a class="nav-link" href="#tooltips">Tooltips</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis active fw-bold" href="#navbar" aria-current="location">Navbar</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#buttons">Buttons</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#type">Typography</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#tables">Tables</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#forms">Forms</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#nav">Nav</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#indicators">Indicators</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#progress">Progress Bars</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#container">Containers</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#cards">Cards</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#dialogs">Modals</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#popover">Popover</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#tooltips">Tooltips</a></li>
 </ul>
 <ul class="nav flex-column">
 <li class="nav-item px-3 pt-3 text-uppercase fw-bold small text-body-secondary">Redmaterials</li>
-<li class="nav-item"><a class="nav-link" href="redmaterials.html#navbar">Navbar</a></li>
-<li class="nav-item"><a class="nav-link" href="redmaterials.html#nav-sidebar">Nav Sidebar</a></li>
-<li class="nav-item"><a class="nav-link" href="redmaterials.html#buttons">Buttons</a></li>
-<li class="nav-item"><a class="nav-link" href="redmaterials.html#tables">Tables</a></li>
-<li class="nav-item"><a class="nav-link" href="redmaterials.html#shadows">Shadows</a></li>
-<li class="nav-item"><a class="nav-link" href="redmaterials.html#ribbons">Corner Ribbons</a></li>
-<li class="nav-item"><a class="nav-link" href="redmaterials.html#cards">Cards</a></li>
-<li class="nav-item"><a class="nav-link" href="redmaterials.html#modals">Modals</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="redmaterials.html#navbar">Navbar</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="redmaterials.html#nav-sidebar">Nav Sidebar</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="redmaterials.html#buttons">Buttons</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="redmaterials.html#tables">Tables</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="redmaterials.html#shadows">Shadows</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="redmaterials.html#ribbons">Corner Ribbons</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="redmaterials.html#cards">Cards</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="redmaterials.html#modals">Modals</a></li>
 </ul>
                 <ul class="nav flex-column mb-4">
-                    <li class="nav-item"><a class="nav-link" href="https://github.com/redooor/redmaterials"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#top">Back to top</a></li>
+                    <li class="nav-item"><a class="nav-link link-body-emphasis" href="https://github.com/redooor/redmaterials"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+                    <li class="nav-item"><a class="nav-link link-body-emphasis" href="#top">Back to top</a></li>
                 </ul>
             </div>
         </div>
@@ -121,8 +123,8 @@
             <div class="col-md-10">
                 <h1>Redmaterials <small class="text-body-secondary fs-4">by Redooor</small></h1>
                 <p class="lead">A Bootstrap 5.3 theme inspired by Google Material Design. Version 0.2.0.</p>
-                <p>Redmaterials restyles Bootstrap's components with a Material look and adds a few of its own: a navigation sidebar, corner ribbons, the ripple effect, shadow depths and wells. This site shows every component twice: under <a href="index.html">Bootstrap</a> and under <a href="redmaterials.html">Redmaterials</a>. Use the <strong>Bootstrap | Redmaterials</strong> switch in the sidebar to see the same example with and without the theme.</p>
-                <p>Redmaterials is a consolidation of many works by various people; see the <a href="https://github.com/redooor/redmaterials#acknowledgement">acknowledgements</a>. Source code and issues are on <a href="https://github.com/redooor/redmaterials">GitHub</a>.</p>
+                <p>Redmaterials restyles Bootstrap's components with a Material look and adds a few of its own: a navigation sidebar, corner ribbons, the ripple effect, shadow depths and wells. This site shows every component twice: under <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="index.html">Bootstrap</a> and under <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="redmaterials.html">Redmaterials</a>. Use the <strong>Bootstrap | Redmaterials</strong> switch in the sidebar to see the same example with and without the theme.</p>
+                <p>Redmaterials is a consolidation of many works by various people; see the <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://github.com/redooor/redmaterials#acknowledgement">acknowledgements</a>. Source code and issues are on <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://github.com/redooor/redmaterials">GitHub</a>.</p>
             </div>
             <div class="col-md-2">
                 <img src="assets/img/redmaterials_logo_sm.png" class="img-fluid" alt="Redmaterials logo">
@@ -141,7 +143,7 @@
                 <p>Before the closing <code>&lt;/body&gt;</code>:</p>
                 <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;dist/js/redmaterials.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-                <p>Roboto is not bundled with Redmaterials, so add the font link above (or load it with <a href="https://github.com/typekit/webfontloader">Web Font Loader</a>). Material Icons is optional; it is used for the icons on this site.</p>
+                <p>Roboto is not bundled with Redmaterials, so add the font link above (or load it with <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://github.com/typekit/webfontloader">Web Font Loader</a>). Material Icons is optional; it is used for the icons on this site.</p>
 
                 <h2>Customising</h2>
                 <p>The theme colours and sizes are Sass variables. Load the variables module with your values first, then Redmaterials, and compile with Sass (<code>sass --load-path=path/to/redmaterials/scss theme.scss theme.css</code>):</p>
@@ -159,7 +161,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p>Upgrading from an earlier version? Read <a href="https://github.com/redooor/redmaterials/blob/master/UPGRADE.md">UPGRADE.md</a> for the steps and <a href="https://github.com/redooor/redmaterials/blob/master/BREAKING.md">BREAKING.md</a> for the removed classes. Changes in each release are listed in the <a href="https://github.com/redooor/redmaterials/blob/master/CHANGELOG.md">change log</a>.</p>
+                <p>Upgrading from an earlier version? Read <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://github.com/redooor/redmaterials/blob/master/UPGRADE.md">UPGRADE.md</a> for the steps and <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://github.com/redooor/redmaterials/blob/master/BREAKING.md">BREAKING.md</a> for the removed classes. Changes in each release are listed in the <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://github.com/redooor/redmaterials/blob/master/CHANGELOG.md">change log</a>.</p>
 
                 <h2>Note to users</h2>
                 <p>Components that Redmaterials inherits from Bootstrap are kept as close to Bootstrap as possible. The elements Redmaterials adds on top of Bootstrap (nav sidebar, corner ribbons, ripple effect, shadows, wells) are its own and may change in a future release. Contributions are welcome.</p>
@@ -4220,9 +4222,9 @@ sagittis lacus vel augue laoreet rutrum faucibus.&quot;&gt;Bottom&lt;/button&gt;
         <div class="row">
             <div class="col-lg-12">
                 <div class="well">
-                    <p>Made by <a href="https://www.redooor.com" rel="nofollow">Redooor</a>. Contact us at <a href="mailto:support@redooor.com">support@redooor.com</a>.</p>
-                    <p>Code released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
-                    <p>Based on <a href="https://getbootstrap.com" rel="nofollow">Bootstrap</a>. Web fonts from <a href="https://fonts.google.com">Google Fonts</a>.</p>
+                    <p>Made by <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://www.redooor.com" rel="nofollow">Redooor</a>. Contact us at <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="mailto:support@redooor.com">support@redooor.com</a>.</p>
+                    <p>Code released under the <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+                    <p>Based on <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://getbootstrap.com" rel="nofollow">Bootstrap</a>. Web fonts from <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="https://fonts.google.com">Google Fonts</a>.</p>
                 </div>
             </div>
         </div>
