@@ -99,8 +99,12 @@
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#toasts">Toasts</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#breadcrumbs">Breadcrumb</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#pagination">Pagination</a></li>
-<li class="nav-item"><a class="nav-link link-body-emphasis" href="#nav">Nav</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#nav">Nav & tabs</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#navbar">Navbar</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#offcanvas">Offcanvas</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#dropdowns">Dropdowns</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#collapse">Collapse</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#accordion">Accordion</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#cards">Cards</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#dialogs">Modals</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#popover">Popover</a></li>
@@ -4691,150 +4695,545 @@
     <div class="pt-5">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Navs</h1>
+                <h1>Nav &amp; tabs</h1>
+                <p>Bootstrap's nav components share one flexible markup and swap between plain links, tabs, pills, and underlined styles, with optional tab panes driven by data attributes.</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="bs-component mb-4">
-                    <h4>Basic Nav</h4>
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                    </ul>
+                <h4>Base nav</h4>
+                <p>Start with the <code>.nav</code> class and a <code>.nav-link</code> per item, using either a list or a plain <code>nav</code> element.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <nav class="nav mt-2">
+                    <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </nav>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Tabs</h4>
-                    <ul class="nav nav-tabs mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#home" data-bs-toggle="tab">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#profile" data-bs-toggle="tab">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="">Disabled</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#dropdown1" data-bs-toggle="tab">Sub-menu 1</a>
-                                <div class="dropdown-divider"></div>
-                                <div class="dropdown-header">Dropdown header</div>
-                                <a class="dropdown-item" href="#dropdown2" data-bs-toggle="tab">Sub-menu 2</a>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;nav class=&quot;nav mt-2&quot;&gt;
+    &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Horizontal alignment</h4>
+                <p>Change where a nav sits with the flexbox utilities <code>.justify-content-center</code> and <code>.justify-content-end</code>.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav justify-content-center mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav justify-content-center mb-2&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class=&quot;nav justify-content-end&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                <h4 class="mt-5">Vertical</h4>
+                <p>Stack nav items with the <code>.flex-column</code> utility and its responsive variants such as <code>.flex-sm-column</code>.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav flex-column&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                <h4 class="mt-5">Tabs</h4>
+                <p>Add <code>.nav-tabs</code> to turn the same nav markup into a tabbed strip.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav nav-tabs&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                <h4 class="mt-5">Pills</h4>
+                <p>Use <code>.nav-pills</code> for a row of compact, rounded navigation links.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav nav-pills&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                <h4 class="mt-5">Underline</h4>
+                <p>Use <code>.nav-underline</code> to mark the active item with a line instead of a filled tab.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav nav-underline">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav nav-underline&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                <h4 class="mt-5">Fill and justify</h4>
+                <p>Add <code>.nav-fill</code> to proportion links by their content, or <code>.nav-justified</code> to make every item the same width.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav nav-pills nav-fill mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">A longer link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav nav-pills nav-fill mb-2&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;A longer link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class=&quot;nav nav-pills nav-justified&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                <h4 class="mt-5">Working with flex utilities</h4>
+                <p>Combine nav classes with flex utilities to make a vertical nav on small screens and a full-width row from the <code>sm</code> breakpoint up.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="nav nav-pills flex-column flex-sm-row">
+                    <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+                    <a class="flex-sm-fill text-sm-center nav-link disabled" aria-disabled="true">Disabled</a>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;nav nav-pills flex-column flex-sm-row&quot;&gt;
+    &lt;a class=&quot;flex-sm-fill text-sm-center nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Active&lt;/a&gt;
+    &lt;a class=&quot;flex-sm-fill text-sm-center nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;a class=&quot;flex-sm-fill text-sm-center nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+    &lt;a class=&quot;flex-sm-fill text-sm-center nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Tabs with dynamic panes</h4>
+                <p>Pair each <code>data-bs-toggle="tab"</code> control with a matching pane and Bootstrap switches the <code>.active</code> and <code>.show</code> classes for you.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav nav-tabs" id="nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="nav-tabs-home-tab" data-bs-toggle="tab" data-bs-target="#nav-tabs-home" type="button" role="tab" aria-controls="nav-tabs-home" aria-selected="true">Home</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-tabs-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-tabs-profile" type="button" role="tab" aria-controls="nav-tabs-profile" aria-selected="false">Profile</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-tabs-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-tabs-contact" type="button" role="tab" aria-controls="nav-tabs-contact" aria-selected="false">Contact</button>
+                    </li>
+                </ul>
+                <div class="tab-content pt-3" id="nav-tabs-content">
+                    <div class="tab-pane fade show active" id="nav-tabs-home" role="tabpanel" aria-labelledby="nav-tabs-home-tab" tabindex="0">
+                        <p class="mb-0">The home pane is active when the page loads, and each tab swaps in its own pane.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-tabs-profile" role="tabpanel" aria-labelledby="nav-tabs-profile-tab" tabindex="0">
+                        <p class="mb-0">The profile pane appears when the Profile tab is selected, with a short fade transition.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-tabs-contact" role="tabpanel" aria-labelledby="nav-tabs-contact-tab" tabindex="0">
+                        <p class="mb-0">The contact pane completes the set and can hold any content.</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav nav-tabs&quot; id=&quot;nav-tabs&quot; role=&quot;tablist&quot;&gt;
+    &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link active&quot; id=&quot;nav-tabs-home-tab&quot; data-bs-toggle=&quot;tab&quot; data-bs-target=&quot;#nav-tabs-home&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-tabs-home&quot; aria-selected=&quot;true&quot;&gt;Home&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link&quot; id=&quot;nav-tabs-profile-tab&quot; data-bs-toggle=&quot;tab&quot; data-bs-target=&quot;#nav-tabs-profile&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-tabs-profile&quot; aria-selected=&quot;false&quot;&gt;Profile&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link&quot; id=&quot;nav-tabs-contact-tab&quot; data-bs-toggle=&quot;tab&quot; data-bs-target=&quot;#nav-tabs-contact&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-tabs-contact&quot; aria-selected=&quot;false&quot;&gt;Contact&lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;tab-content pt-3&quot; id=&quot;nav-tabs-content&quot;&gt;
+    &lt;div class=&quot;tab-pane fade show active&quot; id=&quot;nav-tabs-home&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-tabs-home-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The home pane is active when the page loads, and each tab swaps in its own pane.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-tabs-profile&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-tabs-profile-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The profile pane appears when the Profile tab is selected, with a short fade transition.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-tabs-contact&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-tabs-contact-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The contact pane completes the set and can hold any content.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Pills with dynamic panes</h4>
+                <p>The same tab behaviour works with pills; change the toggle to <code>data-bs-toggle="pill"</code> and keep the matching pane ids.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="nav-pills-home-tab" data-bs-toggle="pill" data-bs-target="#nav-pills-home" type="button" role="tab" aria-controls="nav-pills-home" aria-selected="true">Overview</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#nav-pills-profile" type="button" role="tab" aria-controls="nav-pills-profile" aria-selected="false">Usage</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#nav-pills-settings" type="button" role="tab" aria-controls="nav-pills-settings" aria-selected="false">Settings</button>
+                    </li>
+                </ul>
+                <div class="tab-content pt-3" id="nav-pills-content">
+                    <div class="tab-pane fade show active" id="nav-pills-home" role="tabpanel" aria-labelledby="nav-pills-home-tab" tabindex="0">
+                        <p class="mb-0">The overview pane introduces the component.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-pills-profile" role="tabpanel" aria-labelledby="nav-pills-profile-tab" tabindex="0">
+                        <p class="mb-0">The usage pane shows how the pills are marked up.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-pills-settings" role="tabpanel" aria-labelledby="nav-pills-settings-tab" tabindex="0">
+                        <p class="mb-0">The settings pane covers the available modifiers.</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav nav-pills&quot; role=&quot;tablist&quot;&gt;
+    &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link active&quot; id=&quot;nav-pills-home-tab&quot; data-bs-toggle=&quot;pill&quot; data-bs-target=&quot;#nav-pills-home&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-pills-home&quot; aria-selected=&quot;true&quot;&gt;Overview&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link&quot; id=&quot;nav-pills-profile-tab&quot; data-bs-toggle=&quot;pill&quot; data-bs-target=&quot;#nav-pills-profile&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-pills-profile&quot; aria-selected=&quot;false&quot;&gt;Usage&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link&quot; id=&quot;nav-pills-settings-tab&quot; data-bs-toggle=&quot;pill&quot; data-bs-target=&quot;#nav-pills-settings&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-pills-settings&quot; aria-selected=&quot;false&quot;&gt;Settings&lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;tab-content pt-3&quot; id=&quot;nav-pills-content&quot;&gt;
+    &lt;div class=&quot;tab-pane fade show active&quot; id=&quot;nav-pills-home&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-pills-home-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The overview pane introduces the component.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-pills-profile&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-pills-profile-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The usage pane shows how the pills are marked up.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-pills-settings&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-pills-settings-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The settings pane covers the available modifiers.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Vertical pills with panes</h4>
+                <p>Place a vertical nav-pills list beside a tab content area to build a settings-style layout that stacks on small screens.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                            <button class="nav-link active text-start" id="nav-vertical-home-tab" data-bs-toggle="pill" data-bs-target="#nav-vertical-home" type="button" role="tab" aria-controls="nav-vertical-home" aria-selected="true">Account</button>
+                            <button class="nav-link text-start" id="nav-vertical-profile-tab" data-bs-toggle="pill" data-bs-target="#nav-vertical-profile" type="button" role="tab" aria-controls="nav-vertical-profile" aria-selected="false">Notifications</button>
+                            <button class="nav-link text-start" id="nav-vertical-security-tab" data-bs-toggle="pill" data-bs-target="#nav-vertical-security" type="button" role="tab" aria-controls="nav-vertical-security" aria-selected="false">Security</button>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content" id="nav-vertical-content">
+                            <div class="tab-pane fade show active" id="nav-vertical-home" role="tabpanel" aria-labelledby="nav-vertical-home-tab" tabindex="0">
+                                <h5 class="h6">Account</h5>
+                                <p class="mb-0">Update your display name and the email address used for receipts.</p>
                             </div>
-                        </li>
-                    </ul>
-                    <div class="well">
-                        <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane fade show active" id="home">
-                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                            <div class="tab-pane fade" id="nav-vertical-profile" role="tabpanel" aria-labelledby="nav-vertical-profile-tab" tabindex="0">
+                                <h5 class="h6">Notifications</h5>
+                                <p class="mb-0">Choose which product updates arrive by email and which stay in the app.</p>
                             </div>
-                            <div class="tab-pane fade" id="profile">
-                                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
-                            </div>
-                            <div class="tab-pane fade" id="dropdown1">
-                                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-                            </div>
-                            <div class="tab-pane fade" id="dropdown2">
-                                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+                            <div class="tab-pane fade" id="nav-vertical-security" role="tabpanel" aria-labelledby="nav-vertical-security-tab" tabindex="0">
+                                <h5 class="h6">Security</h5>
+                                <p class="mb-0">Review active sessions and add a second factor for sign-in.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Vertical</h4>
-                    <nav class="nav flex-column">
-                        <a class="nav-link active" href="#">Active</a>
-                        <a class="nav-link" href="#">Link</a>
-                        <a class="nav-link" href="#">Link</a>
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </nav>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Pills</h4>
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item">Action</a>
-                                <a class="dropdown-item">Another action</a>
-                                <a class="dropdown-item" href="#">Nothing else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-                        </li>
-                    </ul>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-3&quot;&gt;
+    &lt;div class=&quot;col-md-3&quot;&gt;
+        &lt;div class=&quot;nav flex-column nav-pills&quot; role=&quot;tablist&quot; aria-orientation=&quot;vertical&quot;&gt;
+            &lt;button class=&quot;nav-link active text-start&quot; id=&quot;nav-vertical-home-tab&quot; data-bs-toggle=&quot;pill&quot; data-bs-target=&quot;#nav-vertical-home&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-vertical-home&quot; aria-selected=&quot;true&quot;&gt;Account&lt;/button&gt;
+            &lt;button class=&quot;nav-link text-start&quot; id=&quot;nav-vertical-profile-tab&quot; data-bs-toggle=&quot;pill&quot; data-bs-target=&quot;#nav-vertical-profile&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-vertical-profile&quot; aria-selected=&quot;false&quot;&gt;Notifications&lt;/button&gt;
+            &lt;button class=&quot;nav-link text-start&quot; id=&quot;nav-vertical-security-tab&quot; data-bs-toggle=&quot;pill&quot; data-bs-target=&quot;#nav-vertical-security&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-vertical-security&quot; aria-selected=&quot;false&quot;&gt;Security&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;div class=&quot;tab-content&quot; id=&quot;nav-vertical-content&quot;&gt;
+            &lt;div class=&quot;tab-pane fade show active&quot; id=&quot;nav-vertical-home&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-vertical-home-tab&quot; tabindex=&quot;0&quot;&gt;
+                &lt;h5 class=&quot;h6&quot;&gt;Account&lt;/h5&gt;
+                &lt;p class=&quot;mb-0&quot;&gt;Update your display name and the email address used for receipts.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-vertical-profile&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-vertical-profile-tab&quot; tabindex=&quot;0&quot;&gt;
+                &lt;h5 class=&quot;h6&quot;&gt;Notifications&lt;/h5&gt;
+                &lt;p class=&quot;mb-0&quot;&gt;Choose which product updates arrive by email and which stay in the app.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-vertical-security&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-vertical-security-tab&quot; tabindex=&quot;0&quot;&gt;
+                &lt;h5 class=&quot;h6&quot;&gt;Security&lt;/h5&gt;
+                &lt;p class=&quot;mb-0&quot;&gt;Review active sessions and add a second factor for sign-in.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Tabs with dropdowns</h4>
+                <p>Add a dropdown item to a tab list, then let its menu items switch panes with the same tab data attributes.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="nav-dropdown-home-tab" data-bs-toggle="tab" data-bs-target="#nav-dropdown-home" type="button" role="tab" aria-controls="nav-dropdown-home" aria-selected="true">Home</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-dropdown-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-dropdown-profile" type="button" role="tab" aria-controls="nav-dropdown-profile" aria-selected="false">Profile</button>
+                    </li>
+                    <li class="nav-item dropdown" id="nav-tabs-dropdown">
+                        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false">More</button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button" data-bs-toggle="tab" data-bs-target="#nav-dropdown-settings">Settings</button></li>
+                            <li><button class="dropdown-item" type="button" data-bs-toggle="tab" data-bs-target="#nav-dropdown-help">Help</button></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="tab-content pt-3" id="nav-dropdown-content">
+                    <div class="tab-pane fade show active" id="nav-dropdown-home" role="tabpanel" aria-labelledby="nav-dropdown-home-tab" tabindex="0">
+                        <p class="mb-0">The home pane is visible first.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-dropdown-profile" role="tabpanel" aria-labelledby="nav-dropdown-profile-tab" tabindex="0">
+                        <p class="mb-0">The profile pane is reachable directly from its tab.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-dropdown-settings" role="tabpanel" tabindex="0">
+                        <p class="mb-0">The settings pane is opened from the dropdown menu.</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-dropdown-help" role="tabpanel" tabindex="0">
+                        <p class="mb-0">The help pane is the second dropdown destination.</p>
+                    </div>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Fill</h4>
-                    <ul class="nav nav-pills nav-fill mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Longer nav link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                    </ul>
-                    <nav class="nav nav-pills nav-fill">
-                        <a class="nav-item nav-link active" href="#">Active</a>
-                        <a class="nav-item nav-link" href="#">Link</a>
-                        <a class="nav-item nav-link" href="#">Link</a>
-                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
-                    </nav>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Justify</h4>
-                    <ul class="nav nav-pills nav-justified mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Longer nav link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                    </ul>
-                    <nav class="nav nav-pills nav-justified">
-                        <a class="nav-item nav-link active" href="#">Active</a>
-                        <a class="nav-item nav-link" href="#">Link</a>
-                        <a class="nav-item nav-link" href="#">Link</a>
-                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
-                    </nav>
-                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;ul class=&quot;nav nav-tabs&quot; role=&quot;tablist&quot;&gt;
+    &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link active&quot; id=&quot;nav-dropdown-home-tab&quot; data-bs-toggle=&quot;tab&quot; data-bs-target=&quot;#nav-dropdown-home&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-dropdown-home&quot; aria-selected=&quot;true&quot;&gt;Home&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot; role=&quot;presentation&quot;&gt;
+        &lt;button class=&quot;nav-link&quot; id=&quot;nav-dropdown-profile-tab&quot; data-bs-toggle=&quot;tab&quot; data-bs-target=&quot;#nav-dropdown-profile&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-controls=&quot;nav-dropdown-profile&quot; aria-selected=&quot;false&quot;&gt;Profile&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item dropdown&quot; id=&quot;nav-tabs-dropdown&quot;&gt;
+        &lt;button class=&quot;nav-link dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot; type=&quot;button&quot; aria-expanded=&quot;false&quot;&gt;More&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;button class=&quot;dropdown-item&quot; type=&quot;button&quot; data-bs-toggle=&quot;tab&quot; data-bs-target=&quot;#nav-dropdown-settings&quot;&gt;Settings&lt;/button&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;button class=&quot;dropdown-item&quot; type=&quot;button&quot; data-bs-toggle=&quot;tab&quot; data-bs-target=&quot;#nav-dropdown-help&quot;&gt;Help&lt;/button&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;tab-content pt-3&quot; id=&quot;nav-dropdown-content&quot;&gt;
+    &lt;div class=&quot;tab-pane fade show active&quot; id=&quot;nav-dropdown-home&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-dropdown-home-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The home pane is visible first.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-dropdown-profile&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;nav-dropdown-profile-tab&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The profile pane is reachable directly from its tab.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-dropdown-settings&quot; role=&quot;tabpanel&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The settings pane is opened from the dropdown menu.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade&quot; id=&quot;nav-dropdown-help&quot; role=&quot;tabpanel&quot; tabindex=&quot;0&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The help pane is the second dropdown destination.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
             </div>
         </div>
     </div>
@@ -4843,224 +5242,1637 @@
 <!-- Navbar
 ================================================== -->
 <div id="navbar" class="container pt-5">
-    <div class="pt-5 clearfix">
+    <div class="pt-5">
         <div class="row">
             <div class="col-lg-12">
                 <h1>Navbar</h1>
-                
-                <div class="bs-component mb-4">
-                    <h4>Default Navbar</h4>
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light" data-bs-theme="light">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-bs1" aria-controls="navbarSupportedContent-bs1" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                <p>Navbars combine a brand, navigation, forms, and text into a responsive header that collapses behind a toggler when its expand breakpoint is reached.</p>
+            </div>
+        </div>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent-bs1">
-                            <ul class="navbar-nav me-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Link</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-bs1" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Dropdown
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-bs1">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link disabled" href="#">Disabled</a>
-                                </li>
-                                <li class="nav-item">
-                                    <span class="navbar-text">
-                                        Navbar text with an inline element
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot; data-bs-theme=&quot;light&quot;&gt;
-    &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Navbar&lt;/a&gt;
-    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarSupportedContent1&quot; aria-controls=&quot;navbarSupportedContent1&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
-        &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
-    &lt;/button&gt;
-
-    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent1&quot;&gt;
-        &lt;ul class=&quot;navbar-nav me-auto&quot;&gt;
-            &lt;li class=&quot;nav-item&quot;&gt;
-                &lt;a class=&quot;nav-link active&quot; href=&quot;#&quot; aria-current=&quot;page&quot;&gt;Home &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;nav-item&quot;&gt;
-                &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;nav-item dropdown&quot;&gt;
-                &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;navbarDropdown&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
-                    Dropdown
-                &lt;/a&gt;
-                &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;navbarDropdown&quot;&gt;
-                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;
-                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;
-                    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
-                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
-                &lt;/div&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;nav-item&quot;&gt;
-                &lt;a class=&quot;nav-link disabled&quot; href=&quot;#&quot;&gt;Disabled&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;nav-item&quot;&gt;
-                &lt;span class=&quot;navbar-text&quot;&gt;
-                    Navbar text with an inline element
-                &lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Brand text</h4>
+                <p>Put a product or project name in a <code>.navbar-brand</code>, as a link or as a heading-like span.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Redmaterials</a>
+                    </div>
+                </nav>
+                <nav class="navbar bg-body-tertiary mt-2">
+                    <div class="container-fluid">
+                        <span class="navbar-brand mb-0 h1">Redmaterials</span>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar bg-body-tertiary&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Redmaterials&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+&lt;nav class=&quot;navbar bg-body-tertiary mt-2&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;span class=&quot;navbar-brand mb-0 h1&quot;&gt;Redmaterials&lt;/span&gt;
     &lt;/div&gt;
 &lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Brand image</h4>
+                <p>Replace the brand text with an inline SVG image and give the image a descriptive alternative text.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='30'%20height='24'%20viewBox='0%200%2030%2024'%3E%3Crect%20width='30'%20height='24'%20rx='4'%20fill='%230d6efd'/%3E%3Crect%20x='6'%20y='12'%20width='4'%20height='7'%20rx='1'%20fill='%23fff'/%3E%3Crect%20x='13'%20y='8'%20width='4'%20height='11'%20rx='1'%20fill='%23fff'/%3E%3Crect%20x='20'%20y='4'%20width='4'%20height='15'%20rx='1'%20fill='%23fff'/%3E%3C/svg%3E" alt="Redmaterials" width="30" height="24">
+                        </a>
+                    </div>
+                </nav>
                 </div>
-                
-                <div class="bs-component mb-4">
-                    <h4>Navbar with items set to .px-3</h4>
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light" data-bs-theme="light">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-bs2" aria-controls="navbarSupportedContent-bs2" aria-expanded="false" aria-label="Toggle navigation">
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar bg-body-tertiary&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;
+            &lt;img src=&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='30'%20height='24'%20viewBox='0%200%2030%2024'%3E%3Crect%20width='30'%20height='24'%20rx='4'%20fill='%230d6efd'/%3E%3Crect%20x='6'%20y='12'%20width='4'%20height='7'%20rx='1'%20fill='%23fff'/%3E%3Crect%20x='13'%20y='8'%20width='4'%20height='11'%20rx='1'%20fill='%23fff'/%3E%3Crect%20x='20'%20y='4'%20width='4'%20height='15'%20rx='1'%20fill='%23fff'/%3E%3C/svg%3E&quot; alt=&quot;Redmaterials&quot; width=&quot;30&quot; height=&quot;24&quot;&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Brand image and text</h4>
+                <p>Combine the image with visible text, adding <code>.d-inline-block</code> and <code>.align-text-top</code> to the image.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='30'%20height='24'%20viewBox='0%200%2030%2024'%3E%3Crect%20width='30'%20height='24'%20rx='4'%20fill='%230d6efd'/%3E%3Crect%20x='6'%20y='12'%20width='4'%20height='7'%20rx='1'%20fill='%23fff'/%3E%3Crect%20x='13'%20y='8'%20width='4'%20height='11'%20rx='1'%20fill='%23fff'/%3E%3Crect%20x='20'%20y='4'%20width='4'%20height='15'%20rx='1'%20fill='%23fff'/%3E%3C/svg%3E" alt="" aria-hidden="true" width="30" height="24" class="d-inline-block align-text-top">
+                            Redmaterials
+                        </a>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar bg-body-tertiary&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;
+            &lt;img src=&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='30'%20height='24'%20viewBox='0%200%2030%2024'%3E%3Crect%20width='30'%20height='24'%20rx='4'%20fill='%230d6efd'/%3E%3Crect%20x='6'%20y='12'%20width='4'%20height='7'%20rx='1'%20fill='%23fff'/%3E%3Crect%20x='13'%20y='8'%20width='4'%20height='11'%20rx='1'%20fill='%23fff'/%3E%3Crect%20x='20'%20y='4'%20width='4'%20height='15'%20rx='1'%20fill='%23fff'/%3E%3C/svg%3E&quot; alt=&quot;&quot; aria-hidden=&quot;true&quot; width=&quot;30&quot; height=&quot;24&quot; class=&quot;d-inline-block align-text-top&quot;&gt;
+            Redmaterials
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Nav</h4>
+                <p>Build the menu from <code>.navbar-nav</code> and <code>.nav-link</code> items, including a dropdown, an active item, and a disabled item.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Redmaterials</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-nav-menu" aria-controls="navbar-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent-bs2">
-                            <ul class="navbar-nav me-auto">
+                        <div class="collapse navbar-collapse" id="navbar-nav-menu">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link px-3 active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link px-3" href="#">Link</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown-bs2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Dropdown
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-bs2">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <div class="dropdown-header">Dropdown header</div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                    <a class="nav-link" href="#">Features</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link px-3 disabled" href="#">Disabled</a>
+                                    <a class="nav-link" href="#">Pricing</a>
                                 </li>
                                 <li class="nav-item">
-                                    <span class="navbar-text px-3">
-                                        Navbar text with an inline element
-                                    </span>
+                                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                </li>
+                                <li class="nav-item dropdown" id="navbar-nav-dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Guides</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Getting started</a></li>
+                                        <li><a class="dropdown-item" href="#">Layout</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Accessibility</a></li>
+                                    </ul>
                                 </li>
                             </ul>
-                            <form class="d-flex my-2 my-lg-0">
-                                <input class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                            </form>
                         </div>
-                    </nav>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot; data-bs-theme=&quot;light&quot;&gt;
-    &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Navbar&lt;/a&gt;
-    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarSupportedContent1&quot; aria-controls=&quot;navbarSupportedContent1&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
-        &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
-    &lt;/button&gt;
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar navbar-expand-lg bg-body-tertiary&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Redmaterials&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-nav-menu&quot; aria-controls=&quot;navbar-nav-menu&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-nav-menu&quot;&gt;
+            &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Features&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Pricing&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item dropdown&quot; id=&quot;navbar-nav-dropdown&quot;&gt;
+                    &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Guides&lt;/a&gt;
+                    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Layout&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;hr class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Accessibility&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
 
-    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent1&quot;&gt;
-        &lt;ul class=&quot;navbar-nav me-auto&quot;&gt;
-            &lt;li class=&quot;nav-item&quot;&gt;
-                &lt;a class=&quot;nav-link px-3 active&quot; href=&quot;#&quot; aria-current=&quot;page&quot;&gt;Home &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;nav-item&quot;&gt;
-                &lt;a class=&quot;nav-link px-3&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;nav-item dropdown&quot;&gt;
-                &lt;a class=&quot;nav-link px-3 dropdown-toggle&quot; href=&quot;#&quot; id=&quot;navbarDropdown&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
-                    Dropdown
-                &lt;/a&gt;
-                &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;navbarDropdown&quot;&gt;
-                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;
-                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;
-                    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
-                    &lt;div class=&quot;dropdown-header&quot;&gt;Dropdown header&lt;/div&gt;
-                    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
-                &lt;/div&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;nav-item&quot;&gt;
-                &lt;a class=&quot;nav-link px-3 disabled&quot; href=&quot;#&quot;&gt;Disabled&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;nav-item&quot;&gt;
-                &lt;span class=&quot;navbar-text px-3&quot;&gt;
-                    Navbar text with an inline element
-                &lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;form class=&quot;d-flex my-2 my-lg-0&quot;&gt;
-            &lt;input class=&quot;form-control me-sm-2&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot;&gt;
-            &lt;button class=&quot;btn btn-outline-dark my-2 my-sm-0&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;
+                <h4 class="mt-5">Forms</h4>
+                <p>Place search fields, input groups, and buttons in a navbar with flex utilities for spacing and alignment.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <form class="d-flex flex-wrap gap-2" role="search">
+                            <input class="form-control" type="search" placeholder="Search the docs" aria-label="Search the docs" style="max-width: 14rem">
+                            <button class="btn btn-outline-primary" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+                <nav class="navbar bg-body-tertiary mt-2">
+                    <form class="container-fluid">
+                        <div class="input-group">
+                            <span class="input-group-text" id="navbar-username-addon">@</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="navbar-username-addon">
+                        </div>
+                    </form>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar bg-body-tertiary&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;form class=&quot;d-flex flex-wrap gap-2&quot; role=&quot;search&quot;&gt;
+            &lt;input class=&quot;form-control&quot; type=&quot;search&quot; placeholder=&quot;Search the docs&quot; aria-label=&quot;Search the docs&quot; style=&quot;max-width: 14rem&quot;&gt;
+            &lt;button class=&quot;btn btn-outline-primary&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;
         &lt;/form&gt;
     &lt;/div&gt;
+&lt;/nav&gt;
+&lt;nav class=&quot;navbar bg-body-tertiary mt-2&quot;&gt;
+    &lt;form class=&quot;container-fluid&quot;&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;span class=&quot;input-group-text&quot; id=&quot;navbar-username-addon&quot;&gt;@&lt;/span&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot; aria-label=&quot;Username&quot; aria-describedby=&quot;navbar-username-addon&quot;&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
 &lt;/nav&gt;</code></pre>
-                </div>
-                
-                <div class="bs-component mb-4">
-                    <h4>Dark Navbar</h4>
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+
+                <h4 class="mt-5">Text</h4>
+                <p>Use <code>.navbar-text</code> for a vertically centred string of text, and place it alongside the nav links with <code>.me-auto</code>.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Docs</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-text-menu" aria-controls="navbar-text-menu" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
-                            <ul class="navbar-nav me-auto">
+                        <div class="collapse navbar-collapse" id="navbar-text-menu">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link px-3 active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link px-3" href="#">Link</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link px-3 dropdown-toggle" href="#" id="navbarDropdown-bs3" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Dropdown
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown-bs3">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <div class="dropdown-header">Dropdown header</div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                    <a class="nav-link" href="#">Features</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link px-3 disabled" href="#">Disabled</a>
-                                </li>
-                                <li class="nav-item">
-                                    <span class="navbar-text px-3">
-                                        Navbar text with an inline element
-                                    </span>
+                                    <a class="nav-link" href="#">Pricing</a>
                                 </li>
                             </ul>
-                            <form class="d-flex my-2 my-lg-0">
-                                <input class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                            </form>
+                            <span class="navbar-text">Signed in as <a href="#" class="link-body-emphasis">Ada Lovelace</a></span>
+                        </div>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar navbar-expand-lg bg-body-tertiary&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Docs&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-text-menu&quot; aria-controls=&quot;navbar-text-menu&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-text-menu&quot;&gt;
+            &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Features&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Pricing&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;span class=&quot;navbar-text&quot;&gt;Signed in as &lt;a href=&quot;#&quot; class=&quot;link-body-emphasis&quot;&gt;Ada Lovelace&lt;/a&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Colour schemes</h4>
+                <p>Set <code>data-bs-theme="dark"</code> on a navbar with a dark or coloured background so its links, text, and toggler use light-on-dark tokens.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Dark surface</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-color-dark-menu" aria-controls="navbar-color-dark-menu" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar-color-dark-menu">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <nav class="navbar navbar-expand-lg bg-primary mt-3" data-bs-theme="dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Primary surface</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-color-primary-menu" aria-controls="navbar-color-primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar-color-primary-menu">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar navbar-expand-lg bg-body-tertiary&quot; data-bs-theme=&quot;dark&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Dark surface&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-color-dark-menu&quot; aria-controls=&quot;navbar-color-dark-menu&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-color-dark-menu&quot;&gt;
+            &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Features&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+&lt;nav class=&quot;navbar navbar-expand-lg bg-primary mt-3&quot; data-bs-theme=&quot;dark&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Primary surface&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-color-primary-menu&quot; aria-controls=&quot;navbar-color-primary-menu&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-color-primary-menu&quot;&gt;
+            &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Features&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Containers</h4>
+                <p>Wrap a navbar in a <code>.container</code>, or use an inner <code>.container</code> or <code>.container-fluid</code>, to control how far its content stretches.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="container border rounded p-0">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Inside a container</a>
                         </div>
                     </nav>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot; data-bs-theme=&quot;light&quot;&gt;
-    ...
-&lt;/nav&gt;</code></pre>
                 </div>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary mt-3">
+                    <div class="container-md">
+                        <a class="navbar-brand" href="#">Inside a container-md</a>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;container border rounded p-0&quot;&gt;
+    &lt;nav class=&quot;navbar navbar-expand-lg bg-body-tertiary rounded&quot;&gt;
+        &lt;div class=&quot;container-fluid&quot;&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Inside a container&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;
+&lt;nav class=&quot;navbar navbar-expand-lg bg-body-tertiary mt-3&quot;&gt;
+    &lt;div class=&quot;container-md&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Inside a container-md&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Placement</h4>
+                <p>Use <code>.fixed-top</code> or <code>.sticky-top</code> for a non-static navbar; these demos add <code>.position-static</code> and <code>.position-relative</code> so they stay in the page flow.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar fixed-top position-static bg-body-tertiary">
+                    <div class="container-fluid">
+                        <span class="navbar-brand mb-0 h1">Fixed top</span>
+                        <span class="navbar-text">Rendered in the normal flow for this demo</span>
+                    </div>
+                </nav>
+                <nav class="navbar sticky-top position-relative bg-body-tertiary mt-3">
+                    <div class="container-fluid">
+                        <span class="navbar-brand mb-0 h1">Sticky top</span>
+                        <span class="navbar-text">Rendered in the normal flow for this demo</span>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar fixed-top position-static bg-body-tertiary&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;span class=&quot;navbar-brand mb-0 h1&quot;&gt;Fixed top&lt;/span&gt;
+        &lt;span class=&quot;navbar-text&quot;&gt;Rendered in the normal flow for this demo&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+&lt;nav class=&quot;navbar sticky-top position-relative bg-body-tertiary mt-3&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;span class=&quot;navbar-brand mb-0 h1&quot;&gt;Sticky top&lt;/span&gt;
+        &lt;span class=&quot;navbar-text&quot;&gt;Rendered in the normal flow for this demo&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Responsive behaviours</h4>
+                <p>Add <code>.navbar-expand</code> with an optional breakpoint suffix to choose when the menu expands, and use <code>.navbar-toggler</code> with <code>.navbar-collapse</code> below that width.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar navbar-expand-sm bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Expands at sm</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-responsive-sm-menu" aria-controls="navbar-responsive-sm-menu" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar-responsive-sm-menu">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary mt-3">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Expands at lg</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-responsive-lg-menu" aria-controls="navbar-responsive-lg-menu" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar-responsive-lg-menu">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <nav class="navbar navbar-expand bg-body-tertiary mt-3">
+                    <div class="container-fluid">
+                        <span class="navbar-brand mb-0 h1">Always expanded</span>
+                        <ul class="navbar-nav flex-row gap-3">
+                            <li class="nav-item"><a class="nav-link" href="#">One</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Two</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar navbar-expand-sm bg-body-tertiary&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Expands at sm&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-responsive-sm-menu&quot; aria-controls=&quot;navbar-responsive-sm-menu&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-responsive-sm-menu&quot;&gt;
+            &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+&lt;nav class=&quot;navbar navbar-expand-lg bg-body-tertiary mt-3&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Expands at lg&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-responsive-lg-menu&quot; aria-controls=&quot;navbar-responsive-lg-menu&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-responsive-lg-menu&quot;&gt;
+            &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+&lt;nav class=&quot;navbar navbar-expand bg-body-tertiary mt-3&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;span class=&quot;navbar-brand mb-0 h1&quot;&gt;Always expanded&lt;/span&gt;
+        &lt;ul class=&quot;navbar-nav flex-row gap-3&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;One&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Two&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Always collapsed</h4>
+                <p>Omit the <code>.navbar-expand-*</code> class and the menu stays behind the toggler at every width, as in this narrow demo.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div id="navbar-collapsed" class="border rounded p-2 bg-body-tertiary">
+                    <nav class="navbar bg-body">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Collapsed</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapsed-menu" aria-controls="navbar-collapsed-menu" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbar-collapsed-menu">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+                                    <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Disabled</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div id=&quot;navbar-collapsed&quot; class=&quot;border rounded p-2 bg-body-tertiary&quot;&gt;
+    &lt;nav class=&quot;navbar bg-body&quot;&gt;
+        &lt;div class=&quot;container-fluid&quot;&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Collapsed&lt;/a&gt;
+            &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-collapsed-menu&quot; aria-controls=&quot;navbar-collapsed-menu&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-collapsed-menu&quot;&gt;
+                &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link disabled&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">External content</h4>
+                <p>Point the toggler at a <code>.collapse</code> element outside the navbar to reveal a panel that lives elsewhere in the document.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="collapse" id="navbar-external-content">
+                    <div class="bg-body-tertiary p-4 rounded">
+                        <h5 class="h4">Collapsed content</h5>
+                        <p class="mb-0 text-body-secondary">This panel sits outside the navbar and is revealed by its toggler.</p>
+                    </div>
+                </div>
+                <nav class="navbar bg-body-tertiary" id="navbar-external-nav">
+                    <div class="container-fluid">
+                        <span class="navbar-brand mb-0 h1">External content</span>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-external-content" aria-controls="navbar-external-content" aria-expanded="false" aria-label="Toggle external content">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;collapse&quot; id=&quot;navbar-external-content&quot;&gt;
+    &lt;div class=&quot;bg-body-tertiary p-4 rounded&quot;&gt;
+        &lt;h5 class=&quot;h4&quot;&gt;Collapsed content&lt;/h5&gt;
+        &lt;p class=&quot;mb-0 text-body-secondary&quot;&gt;This panel sits outside the navbar and is revealed by its toggler.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;nav class=&quot;navbar bg-body-tertiary&quot; id=&quot;navbar-external-nav&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;span class=&quot;navbar-brand mb-0 h1&quot;&gt;External content&lt;/span&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-external-content&quot; aria-controls=&quot;navbar-external-content&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle external content&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Offcanvas navbar</h4>
+                <p>Turn the collapsing menu into an offcanvas drawer by pointing the toggler at an <code>.offcanvas</code> element instead of a <code>.navbar-collapse</code>.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav class="navbar bg-body-tertiary" id="navbar-offcanvas-nav">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Offcanvas navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-offcanvas" aria-controls="navbar-offcanvas" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="navbar-offcanvas" aria-labelledby="navbar-offcanvas-title">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="navbar-offcanvas-title">Navigation</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <form class="d-flex flex-wrap gap-2 mt-3" role="search">
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="max-width: 12rem">
+                                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav class=&quot;navbar bg-body-tertiary&quot; id=&quot;navbar-offcanvas-nav&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Offcanvas navbar&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#navbar-offcanvas&quot; aria-controls=&quot;navbar-offcanvas&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;offcanvas offcanvas-end&quot; tabindex=&quot;-1&quot; id=&quot;navbar-offcanvas&quot; aria-labelledby=&quot;navbar-offcanvas-title&quot;&gt;
+            &lt;div class=&quot;offcanvas-header&quot;&gt;
+                &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;navbar-offcanvas-title&quot;&gt;Navigation&lt;/h5&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;offcanvas-body&quot;&gt;
+                &lt;ul class=&quot;navbar-nav justify-content-end flex-grow-1 pe-3&quot;&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                        &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/a&gt;
+                        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;hr class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;form class=&quot;d-flex flex-wrap gap-2 mt-3&quot; role=&quot;search&quot;&gt;
+                    &lt;input class=&quot;form-control&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot; style=&quot;max-width: 12rem&quot;&gt;
+                    &lt;button class=&quot;btn btn-outline-primary&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
             </div>
         </div>
     </div>
 </div>
+
+<!-- Offcanvas
+================================================== -->
+<div id="offcanvas" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Offcanvas</h1>
+                <p>Offcanvas builds a hidden side panel from a trigger, with options for scrolling, backdrop, colour scheme, responsive behaviour, and placement.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Live demo</h4>
+                <p>Launch an offcanvas panel from a button; the panel slides in from the start edge and closes from its header or the backdrop.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-live" aria-controls="offcanvas-live" id="offcanvas-live-button">Launch demo</button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-live" aria-labelledby="offcanvas-live-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-live-title">Offcanvas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>Content lives inside <code>.offcanvas-body</code> and scrolls independently when it is longer than the panel.</p>
+                        <a class="btn btn-primary" href="#" role="button">Take an action</a>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-live&quot; aria-controls=&quot;offcanvas-live&quot; id=&quot;offcanvas-live-button&quot;&gt;Launch demo&lt;/button&gt;
+&lt;div class=&quot;offcanvas offcanvas-start&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-live&quot; aria-labelledby=&quot;offcanvas-live-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-live-title&quot;&gt;Offcanvas&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p&gt;Content lives inside &lt;code&gt;.offcanvas-body&lt;/code&gt; and scrolls independently when it is longer than the panel.&lt;/p&gt;
+        &lt;a class=&quot;btn btn-primary&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;Take an action&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Body scrolling</h4>
+                <p>Add <code>data-bs-scroll="true"</code> and disable the backdrop so the page behind the open panel can still be scrolled.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-scroll" aria-controls="offcanvas-scroll" id="offcanvas-scroll-button">Enable body scrolling</button>
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvas-scroll" aria-labelledby="offcanvas-scroll-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-scroll-title">Body scrolling</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>Scroll this page while the panel stays open to see that the offcanvas no longer locks the body.</p>
+                        <p class="mb-0">The panel keeps its own scrollbar when its content is taller than the viewport.</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-scroll&quot; aria-controls=&quot;offcanvas-scroll&quot; id=&quot;offcanvas-scroll-button&quot;&gt;Enable body scrolling&lt;/button&gt;
+&lt;div class=&quot;offcanvas offcanvas-start&quot; data-bs-scroll=&quot;true&quot; data-bs-backdrop=&quot;false&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-scroll&quot; aria-labelledby=&quot;offcanvas-scroll-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-scroll-title&quot;&gt;Body scrolling&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p&gt;Scroll this page while the panel stays open to see that the offcanvas no longer locks the body.&lt;/p&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;The panel keeps its own scrollbar when its content is taller than the viewport.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Body scrolling with backdrop</h4>
+                <p>Keep the default backdrop while <code>data-bs-scroll="true"</code> allows the body to scroll behind the dimmed page.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-scroll-backdrop" aria-controls="offcanvas-scroll-backdrop" id="offcanvas-scroll-backdrop-button">Enable both options</button>
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvas-scroll-backdrop" aria-labelledby="offcanvas-scroll-backdrop-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-scroll-backdrop-title">Body scrolling with backdrop</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>The backdrop covers the page, but the body behind it can still be scrolled with the wheel or keyboard.</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-scroll-backdrop&quot; aria-controls=&quot;offcanvas-scroll-backdrop&quot; id=&quot;offcanvas-scroll-backdrop-button&quot;&gt;Enable both options&lt;/button&gt;
+&lt;div class=&quot;offcanvas offcanvas-start&quot; data-bs-scroll=&quot;true&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-scroll-backdrop&quot; aria-labelledby=&quot;offcanvas-scroll-backdrop-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-scroll-backdrop-title&quot;&gt;Body scrolling with backdrop&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p&gt;The backdrop covers the page, but the body behind it can still be scrolled with the wheel or keyboard.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Static backdrop</h4>
+                <p>Set <code>data-bs-backdrop="static"</code> and disable the keyboard so the panel stays open until its close button is used.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-static" aria-controls="offcanvas-static" id="offcanvas-static-button">Launch static backdrop</button>
+                <div class="offcanvas offcanvas-start" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" id="offcanvas-static" aria-labelledby="offcanvas-static-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-static-title">Static backdrop</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>Clicking the backdrop or pressing Escape will not dismiss this panel; use the close button in the header.</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-static&quot; aria-controls=&quot;offcanvas-static&quot; id=&quot;offcanvas-static-button&quot;&gt;Launch static backdrop&lt;/button&gt;
+&lt;div class=&quot;offcanvas offcanvas-start&quot; data-bs-backdrop=&quot;static&quot; data-bs-keyboard=&quot;false&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-static&quot; aria-labelledby=&quot;offcanvas-static-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-static-title&quot;&gt;Static backdrop&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p&gt;Clicking the backdrop or pressing Escape will not dismiss this panel; use the close button in the header.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Dark offcanvas</h4>
+                <p>Add <code>data-bs-theme="dark"</code> to the panel so its surface, text, and close button use Bootstrap's dark colour scheme.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-dark" aria-controls="offcanvas-dark" id="offcanvas-dark-button">Launch dark offcanvas</button>
+                <div class="offcanvas offcanvas-start" data-bs-theme="dark" tabindex="-1" id="offcanvas-dark" aria-labelledby="offcanvas-dark-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-dark-title">Dark offcanvas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>Bootstrap's dark theme variables recolour the panel without any custom CSS.</p>
+                        <button type="button" class="btn btn-outline-light">Outline action</button>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button class=&quot;btn btn-dark&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-dark&quot; aria-controls=&quot;offcanvas-dark&quot; id=&quot;offcanvas-dark-button&quot;&gt;Launch dark offcanvas&lt;/button&gt;
+&lt;div class=&quot;offcanvas offcanvas-start&quot; data-bs-theme=&quot;dark&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-dark&quot; aria-labelledby=&quot;offcanvas-dark-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-dark-title&quot;&gt;Dark offcanvas&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p&gt;Bootstrap's dark theme variables recolour the panel without any custom CSS.&lt;/p&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-light&quot;&gt;Outline action&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Responsive</h4>
+                <p>Use <code>.offcanvas-lg</code> so the panel behaves as an inline block on large screens and as an offcanvas panel below the large breakpoint.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-responsive" aria-controls="offcanvas-responsive" id="offcanvas-responsive-button">Toggle responsive offcanvas</button>
+                <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvas-responsive" aria-labelledby="offcanvas-responsive-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-responsive-title">Responsive offcanvas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p class="mb-0">On large screens this content is laid out in the page; on smaller screens it slides in from the end edge.</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-responsive&quot; aria-controls=&quot;offcanvas-responsive&quot; id=&quot;offcanvas-responsive-button&quot;&gt;Toggle responsive offcanvas&lt;/button&gt;
+&lt;div class=&quot;offcanvas-lg offcanvas-end&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-responsive&quot; aria-labelledby=&quot;offcanvas-responsive-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-responsive-title&quot;&gt;Responsive offcanvas&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;On large screens this content is laid out in the page; on smaller screens it slides in from the end edge.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Placement</h4>
+                <p>Choose <code>.offcanvas-start</code>, <code>.offcanvas-end</code>, <code>.offcanvas-top</code>, or <code>.offcanvas-bottom</code> to set which edge the panel enters from.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-2">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-placement-start" aria-controls="offcanvas-placement-start" id="offcanvas-placement-start-button">Start</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-placement-end" aria-controls="offcanvas-placement-end" id="offcanvas-placement-end-button">End</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-placement-top" aria-controls="offcanvas-placement-top" id="offcanvas-placement-top-button">Top</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-placement-bottom" aria-controls="offcanvas-placement-bottom" id="offcanvas-placement-bottom-button">Bottom</button>
+                </div>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-placement-start" aria-labelledby="offcanvas-placement-start-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-placement-start-title">Start placement</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p class="mb-0">This panel enters from the start edge of the viewport.</p>
+                    </div>
+                </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-placement-end" aria-labelledby="offcanvas-placement-end-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-placement-end-title">End placement</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p class="mb-0">This panel enters from the end edge of the viewport.</p>
+                    </div>
+                </div>
+                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvas-placement-top" aria-labelledby="offcanvas-placement-top-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-placement-top-title">Top placement</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p class="mb-0">This panel enters from the top edge and spans the width of the viewport.</p>
+                    </div>
+                </div>
+                <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvas-placement-bottom" aria-labelledby="offcanvas-placement-bottom-title">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvas-placement-bottom-title">Bottom placement</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p class="mb-0">This panel enters from the bottom edge and spans the width of the viewport.</p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-2&quot;&gt;
+    &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-placement-start&quot; aria-controls=&quot;offcanvas-placement-start&quot; id=&quot;offcanvas-placement-start-button&quot;&gt;Start&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-placement-end&quot; aria-controls=&quot;offcanvas-placement-end&quot; id=&quot;offcanvas-placement-end-button&quot;&gt;End&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-placement-top&quot; aria-controls=&quot;offcanvas-placement-top&quot; id=&quot;offcanvas-placement-top-button&quot;&gt;Top&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#offcanvas-placement-bottom&quot; aria-controls=&quot;offcanvas-placement-bottom&quot; id=&quot;offcanvas-placement-bottom-button&quot;&gt;Bottom&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;offcanvas offcanvas-start&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-placement-start&quot; aria-labelledby=&quot;offcanvas-placement-start-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-placement-start-title&quot;&gt;Start placement&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;This panel enters from the start edge of the viewport.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;offcanvas offcanvas-end&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-placement-end&quot; aria-labelledby=&quot;offcanvas-placement-end-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-placement-end-title&quot;&gt;End placement&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;This panel enters from the end edge of the viewport.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;offcanvas offcanvas-top&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-placement-top&quot; aria-labelledby=&quot;offcanvas-placement-top-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-placement-top-title&quot;&gt;Top placement&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;This panel enters from the top edge and spans the width of the viewport.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;offcanvas offcanvas-bottom&quot; tabindex=&quot;-1&quot; id=&quot;offcanvas-placement-bottom&quot; aria-labelledby=&quot;offcanvas-placement-bottom-title&quot;&gt;
+    &lt;div class=&quot;offcanvas-header&quot;&gt;
+        &lt;h5 class=&quot;offcanvas-title&quot; id=&quot;offcanvas-placement-bottom-title&quot;&gt;Bottom placement&lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;offcanvas&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;offcanvas-body&quot;&gt;
+        &lt;p class=&quot;mb-0&quot;&gt;This panel enters from the bottom edge and spans the width of the viewport.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dropdowns
+================================================== -->
+<div id="dropdowns" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Dropdowns</h1>
+                <p>Dropdowns toggle a contextual menu from a button or link, with options for splitting, sizing, direction, content, alignment, and closing behaviour.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Single button</h4>
+                <p>Add <code>data-bs-toggle="dropdown"</code> to a button and place its menu in a following <code>.dropdown-menu</code> element.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="dropdown" id="dropdowns-single">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown button</button>
+                    <ul class="dropdown-menu" id="dropdowns-single-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;dropdown&quot; id=&quot;dropdowns-single&quot;&gt;
+    &lt;button class=&quot;btn btn-primary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropdown button&lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot; id=&quot;dropdowns-single-menu&quot;&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Split button</h4>
+                <p>A split button keeps the primary action separate from a toggle that opens the menu, with the toggle labelled for assistive technology.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="btn-group" id="dropdowns-split">
+                    <button type="button" class="btn btn-primary">Split action</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle split dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;btn-group&quot; id=&quot;dropdowns-split&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Split action&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary dropdown-toggle dropdown-toggle-split&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;
+        &lt;span class=&quot;visually-hidden&quot;&gt;Toggle split dropdown&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;hr class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Dropdown buttons accept the same <code>.btn-lg</code> and <code>.btn-sm</code> size classes as regular buttons.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <div class="btn-group" id="dropdowns-sizing-lg">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Large button</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group" id="dropdowns-sizing-sm">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Small button</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap align-items-center gap-2&quot;&gt;
+    &lt;div class=&quot;btn-group&quot; id=&quot;dropdowns-sizing-lg&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary btn-lg dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Large button&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;btn-group&quot; id=&quot;dropdowns-sizing-sm&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary btn-sm dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Small button&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Dark dropdowns</h4>
+                <p>Add <code>data-bs-theme="dark"</code> to the menu to opt it into Bootstrap's dark dropdown colours while the rest of the page keeps its theme.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="dropdown" id="dropdowns-dark">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dark dropdown</button>
+                    <ul class="dropdown-menu" data-bs-theme="dark" id="dropdowns-dark-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;dropdown&quot; id=&quot;dropdowns-dark&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dark dropdown&lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot; data-bs-theme=&quot;dark&quot; id=&quot;dropdowns-dark-menu&quot;&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;hr class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Directions</h4>
+                <p>Use <code>.dropup</code>, <code>.dropend</code>, <code>.dropstart</code>, or <code>.dropup-center</code> to change the side the menu opens toward.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-3 align-items-center" id="dropdowns-directions">
+                    <div class="btn-group dropup">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropup</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group dropend">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropend</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group dropstart">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropstart</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group dropup-center dropup">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropup centered</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-3 align-items-center&quot; id=&quot;dropdowns-directions&quot;&gt;
+    &lt;div class=&quot;btn-group dropup&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropup&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;btn-group dropend&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropend&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;btn-group dropstart&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropstart&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;btn-group dropup-center dropup&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Dropup centered&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Menu items</h4>
+                <p>Build a menu from headers, dividers, item text, and regular, active, or disabled items to match the intent of each entry.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="dropdown" id="dropdowns-menu-items">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu items</button>
+                    <ul class="dropdown-menu">
+                        <li><h6 class="dropdown-header">Dropdown header</h6></li>
+                        <li><a class="dropdown-item active" href="#" aria-current="true">Active item</a></li>
+                        <li><a class="dropdown-item" href="#">Regular item</a></li>
+                        <li><a class="dropdown-item disabled" href="#" aria-disabled="true" tabindex="-1">Disabled item</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><span class="dropdown-item-text">Dropdown item text</span></li>
+                    </ul>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;dropdown&quot; id=&quot;dropdowns-menu-items&quot;&gt;
+    &lt;button class=&quot;btn btn-primary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Menu items&lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li&gt;&lt;h6 class=&quot;dropdown-header&quot;&gt;Dropdown header&lt;/h6&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item active&quot; href=&quot;#&quot; aria-current=&quot;true&quot;&gt;Active item&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Regular item&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;dropdown-item disabled&quot; href=&quot;#&quot; aria-disabled=&quot;true&quot; tabindex=&quot;-1&quot;&gt;Disabled item&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;hr class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span class=&quot;dropdown-item-text&quot;&gt;Dropdown item text&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Menu content</h4>
+                <p>Place forms inside a menu and use <code>data-bs-auto-close="outside"</code> so interacting with the fields does not dismiss it.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="dropdown" id="dropdowns-forms">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Open form menu</button>
+                    <div class="dropdown-menu">
+                        <form class="px-4 py-3">
+                            <div class="mb-3">
+                                <label class="form-label" for="dropdowns-form-email">Email address</label>
+                                <input type="email" class="form-control" id="dropdowns-form-email" placeholder="name@example.com" autocomplete="email">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="dropdowns-form-password">Password</label>
+                                <input type="password" class="form-control" id="dropdowns-form-password" placeholder="Password" autocomplete="current-password">
+                            </div>
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="dropdowns-form-remember">
+                                <label class="form-check-label" for="dropdowns-form-remember">Remember me</label>
+                            </div>
+                            <button type="button" class="btn btn-primary">Sign in</button>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">New around here? Sign up</a>
+                        <a class="dropdown-item" href="#">Forgot password?</a>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;dropdown&quot; id=&quot;dropdowns-forms&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-auto-close=&quot;outside&quot; aria-expanded=&quot;false&quot;&gt;Open form menu&lt;/button&gt;
+    &lt;div class=&quot;dropdown-menu&quot;&gt;
+        &lt;form class=&quot;px-4 py-3&quot;&gt;
+            &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;dropdowns-form-email&quot;&gt;Email address&lt;/label&gt;
+                &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;dropdowns-form-email&quot; placeholder=&quot;name@example.com&quot; autocomplete=&quot;email&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;mb-3&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;dropdowns-form-password&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;dropdowns-form-password&quot; placeholder=&quot;Password&quot; autocomplete=&quot;current-password&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-check mb-3&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;dropdowns-form-remember&quot;&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;dropdowns-form-remember&quot;&gt;Remember me&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Sign in&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+        &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;New around here? Sign up&lt;/a&gt;
+        &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Forgot password?&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Alignment</h4>
+                <p>Align a menu to the end edge with <code>.dropdown-menu-end</code>, or combine responsive classes with <code>data-bs-display="static"</code> to change alignment at a breakpoint.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-3 align-items-start">
+                    <div class="dropdown" id="dropdowns-align-end">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Right-aligned menu</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown" id="dropdowns-align-responsive">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Responsive alignment</button>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-3 align-items-start&quot;&gt;
+    &lt;div class=&quot;dropdown&quot; id=&quot;dropdowns-align-end&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Right-aligned menu&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu dropdown-menu-end&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;dropdown&quot; id=&quot;dropdowns-align-responsive&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-display=&quot;static&quot; aria-expanded=&quot;false&quot;&gt;Responsive alignment&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu dropdown-menu-end dropdown-menu-lg-start&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Auto close behaviour</h4>
+                <p>Set <code>data-bs-auto-close</code> to <code>inside</code> to close only on clicks inside the menu, to <code>outside</code> to close only on clicks outside it, or to <code>false</code> to leave closing to the toggle.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-3 align-items-start" id="dropdowns-autoclose">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">Close on inside click</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Close on outside click</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">Manual close</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-3 align-items-start&quot; id=&quot;dropdowns-autoclose&quot;&gt;
+    &lt;div class=&quot;dropdown&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-auto-close=&quot;inside&quot; aria-expanded=&quot;false&quot;&gt;Close on inside click&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;dropdown&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-auto-close=&quot;outside&quot; aria-expanded=&quot;false&quot;&gt;Close on outside click&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;dropdown&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-auto-close=&quot;false&quot; aria-expanded=&quot;false&quot;&gt;Manual close&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Options</h4>
+                <p>Pass Bootstrap dropdown options through data attributes, such as <code>data-bs-offset="16,24"</code> or <code>data-bs-reference="parent"</code>.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-3 align-items-start">
+                    <div class="dropdown" id="dropdowns-offset">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="16,24" aria-expanded="false">Offset menu</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group" id="dropdowns-reference">
+                        <button type="button" class="btn btn-secondary">Parent reference</button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" data-bs-reference="parent" aria-expanded="false">
+                            <span class="visually-hidden">Toggle parent-referenced dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-3 align-items-start&quot;&gt;
+    &lt;div class=&quot;dropdown&quot; id=&quot;dropdowns-offset&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-offset=&quot;16,24&quot; aria-expanded=&quot;false&quot;&gt;Offset menu&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;btn-group&quot; id=&quot;dropdowns-reference&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Parent reference&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary dropdown-toggle dropdown-toggle-split&quot; data-bs-toggle=&quot;dropdown&quot; data-bs-reference=&quot;parent&quot; aria-expanded=&quot;false&quot;&gt;
+            &lt;span class=&quot;visually-hidden&quot;&gt;Toggle parent-referenced dropdown&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Collapse
+================================================== -->
+<div id="collapse" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Collapse</h1>
+                <p>Collapse toggles the visibility of content with a smooth height or width transition, driven by data attributes and accessible trigger controls.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Basic</h4>
+                <p>Use a link or button with <code>data-bs-toggle="collapse"</code> and a target that points at a <code>.collapse</code> element.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-2">
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse-example" role="button" aria-expanded="false" aria-controls="collapse-example">Link toggle</a>
+                    <button class="btn btn-primary" id="collapse-example-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-example" aria-expanded="false" aria-controls="collapse-example">Button toggle</button>
+                </div>
+                <div class="collapse mt-3" id="collapse-example">
+                    <div class="card card-body">
+                        Some placeholder content for the collapse component. This panel is hidden by default and revealed when a trigger is activated.
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-2&quot;&gt;
+    &lt;a class=&quot;btn btn-primary&quot; data-bs-toggle=&quot;collapse&quot; href=&quot;#collapse-example&quot; role=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapse-example&quot;&gt;Link toggle&lt;/a&gt;
+    &lt;button class=&quot;btn btn-primary&quot; id=&quot;collapse-example-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse-example&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapse-example&quot;&gt;Button toggle&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;collapse mt-3&quot; id=&quot;collapse-example&quot;&gt;
+    &lt;div class=&quot;card card-body&quot;&gt;
+        Some placeholder content for the collapse component. This panel is hidden by default and revealed when a trigger is activated.
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Horizontal</h4>
+                <p>Add <code>.collapse-horizontal</code> to transition the width instead of the height, and give the child an explicit width.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button class="btn btn-primary" id="collapse-horizontal-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-horizontal" aria-expanded="false" aria-controls="collapse-horizontal">Toggle width collapse</button>
+                <div class="collapse collapse-horizontal mt-3" id="collapse-horizontal">
+                    <div class="card card-body" style="width: 280px; max-width: 100%;">
+                        This content collapses horizontally. The card keeps a fixed width so the transition has a clear target size.
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button class=&quot;btn btn-primary&quot; id=&quot;collapse-horizontal-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse-horizontal&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapse-horizontal&quot;&gt;Toggle width collapse&lt;/button&gt;
+&lt;div class=&quot;collapse collapse-horizontal mt-3&quot; id=&quot;collapse-horizontal&quot;&gt;
+    &lt;div class=&quot;card card-body&quot; style=&quot;width: 280px; max-width: 100%;&quot;&gt;
+        This content collapses horizontally. The card keeps a fixed width so the transition has a clear target size.
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Multiple targets</h4>
+                <p>Point <code>data-bs-target</code> at a class to toggle several collapsible elements at once, or give each toggle its own target.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-2">
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse-multi-first" role="button" aria-expanded="false" aria-controls="collapse-multi-first">Toggle first</a>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-multi-second" aria-expanded="false" aria-controls="collapse-multi-second">Toggle second</button>
+                    <a class="btn btn-primary" id="collapse-multi-toggle" data-bs-toggle="collapse" href="#collapse-multi-first" data-bs-target=".collapse-multi" role="button" aria-expanded="false" aria-controls="collapse-multi-first collapse-multi-second">Toggle both</a>
+                </div>
+                <div class="row g-3 mt-1">
+                    <div class="col-md-6">
+                        <div class="collapse collapse-multi" id="collapse-multi-first">
+                            <div class="card card-body">
+                                The first collapsible card. The "Toggle both" control shows it together with the second card.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="collapse collapse-multi" id="collapse-multi-second">
+                            <div class="card card-body">
+                                The second collapsible card, reached by its own toggle or by the class-based multiple-target toggle.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-2&quot;&gt;
+    &lt;a class=&quot;btn btn-primary&quot; data-bs-toggle=&quot;collapse&quot; href=&quot;#collapse-multi-first&quot; role=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapse-multi-first&quot;&gt;Toggle first&lt;/a&gt;
+    &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapse-multi-second&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapse-multi-second&quot;&gt;Toggle second&lt;/button&gt;
+    &lt;a class=&quot;btn btn-primary&quot; id=&quot;collapse-multi-toggle&quot; data-bs-toggle=&quot;collapse&quot; href=&quot;#collapse-multi-first&quot; data-bs-target=&quot;.collapse-multi&quot; role=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapse-multi-first collapse-multi-second&quot;&gt;Toggle both&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row g-3 mt-1&quot;&gt;
+    &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;div class=&quot;collapse collapse-multi&quot; id=&quot;collapse-multi-first&quot;&gt;
+            &lt;div class=&quot;card card-body&quot;&gt;
+                The first collapsible card. The &quot;Toggle both&quot; control shows it together with the second card.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;div class=&quot;collapse collapse-multi&quot; id=&quot;collapse-multi-second&quot;&gt;
+            &lt;div class=&quot;card card-body&quot;&gt;
+                The second collapsible card, reached by its own toggle or by the class-based multiple-target toggle.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accordion
+================================================== -->
+<div id="accordion" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Accordion</h1>
+                <p>Accordions stack collapsible panels behind a single set of headers, with optional auto-collapse, flush styling, and independent panels.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Default</h4>
+                <p>Each panel pairs an <code>h2.accordion-header</code> button with an <code>.accordion-collapse</code> body, and <code>data-bs-parent</code> keeps only one panel open at a time.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="accordion" id="accordion-example">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-one-heading">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-one" aria-expanded="true" aria-controls="accordion-one">Accordion Item #1</button>
+                        </h2>
+                        <div id="accordion-one" class="accordion-collapse collapse show" data-bs-parent="#accordion-example" aria-labelledby="accordion-one-heading">
+                            <div class="accordion-body">
+                                <strong>This is the first item's accordion body.</strong> It is shown by default and stays open until another panel is chosen.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-two-heading">
+                            <button class="accordion-button collapsed" id="accordion-two-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-two" aria-expanded="false" aria-controls="accordion-two">Accordion Item #2</button>
+                        </h2>
+                        <div id="accordion-two" class="accordion-collapse collapse" data-bs-parent="#accordion-example" aria-labelledby="accordion-two-heading">
+                            <div class="accordion-body">
+                                <strong>This is the second item's accordion body.</strong> It is hidden by default and opens when its header is activated.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-three-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-three" aria-expanded="false" aria-controls="accordion-three">Accordion Item #3</button>
+                        </h2>
+                        <div id="accordion-three" class="accordion-collapse collapse" data-bs-parent="#accordion-example" aria-labelledby="accordion-three-heading">
+                            <div class="accordion-body">
+                                <strong>This is the third item's accordion body.</strong> Opening it closes the panel that was already expanded.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;accordion&quot; id=&quot;accordion-example&quot;&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-one-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-one&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;accordion-one&quot;&gt;Accordion Item #1&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-one&quot; class=&quot;accordion-collapse collapse show&quot; data-bs-parent=&quot;#accordion-example&quot; aria-labelledby=&quot;accordion-one-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the first item's accordion body.&lt;/strong&gt; It is shown by default and stays open until another panel is chosen.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-two-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button collapsed&quot; id=&quot;accordion-two-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-two&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;accordion-two&quot;&gt;Accordion Item #2&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-two&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#accordion-example&quot; aria-labelledby=&quot;accordion-two-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the second item's accordion body.&lt;/strong&gt; It is hidden by default and opens when its header is activated.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-three-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-three&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;accordion-three&quot;&gt;Accordion Item #3&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-three&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#accordion-example&quot; aria-labelledby=&quot;accordion-three-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the third item's accordion body.&lt;/strong&gt; Opening it closes the panel that was already expanded.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Flush</h4>
+                <p>Add <code>.accordion-flush</code> to remove the outer borders so the accordion sits edge to edge inside its parent.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="accordion accordion-flush" id="accordion-flush">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-flush-one-heading">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-flush-one" aria-expanded="true" aria-controls="accordion-flush-one">Accordion Item #1</button>
+                        </h2>
+                        <div id="accordion-flush-one" class="accordion-collapse collapse show" data-bs-parent="#accordion-flush" aria-labelledby="accordion-flush-one-heading">
+                            <div class="accordion-body">
+                                <strong>This is the first item's accordion body.</strong> The flush style removes the outer border while keeping the content readable.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-flush-two-heading">
+                            <button class="accordion-button collapsed" id="accordion-flush-two-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-flush-two" aria-expanded="false" aria-controls="accordion-flush-two">Accordion Item #2</button>
+                        </h2>
+                        <div id="accordion-flush-two" class="accordion-collapse collapse" data-bs-parent="#accordion-flush" aria-labelledby="accordion-flush-two-heading">
+                            <div class="accordion-body">
+                                <strong>This is the second item's accordion body.</strong> It opens in place of the first panel while keeping the flush layout.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;accordion accordion-flush&quot; id=&quot;accordion-flush&quot;&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-flush-one-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-flush-one&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;accordion-flush-one&quot;&gt;Accordion Item #1&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-flush-one&quot; class=&quot;accordion-collapse collapse show&quot; data-bs-parent=&quot;#accordion-flush&quot; aria-labelledby=&quot;accordion-flush-one-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the first item's accordion body.&lt;/strong&gt; The flush style removes the outer border while keeping the content readable.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-flush-two-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button collapsed&quot; id=&quot;accordion-flush-two-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-flush-two&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;accordion-flush-two&quot;&gt;Accordion Item #2&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-flush-two&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#accordion-flush&quot; aria-labelledby=&quot;accordion-flush-two-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the second item's accordion body.&lt;/strong&gt; It opens in place of the first panel while keeping the flush layout.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Always open</h4>
+                <p>Omit <code>data-bs-parent</code> when several panels may stay open at the same time, so each panel toggles independently.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="accordion" id="accordion-always">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-always-one-heading">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-always-one" aria-expanded="true" aria-controls="accordion-always-one">Accordion Item #1</button>
+                        </h2>
+                        <div id="accordion-always-one" class="accordion-collapse collapse show" aria-labelledby="accordion-always-one-heading">
+                            <div class="accordion-body">
+                                <strong>This is the first item's accordion body.</strong> Without a parent, opening another panel leaves this one open.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-always-two-heading">
+                            <button class="accordion-button collapsed" id="accordion-always-two-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-always-two" aria-expanded="false" aria-controls="accordion-always-two">Accordion Item #2</button>
+                        </h2>
+                        <div id="accordion-always-two" class="accordion-collapse collapse" aria-labelledby="accordion-always-two-heading">
+                            <div class="accordion-body">
+                                <strong>This is the second item's accordion body.</strong> It can stay open beside the first panel for side-by-side reference.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;accordion&quot; id=&quot;accordion-always&quot;&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-always-one-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-always-one&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;accordion-always-one&quot;&gt;Accordion Item #1&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-always-one&quot; class=&quot;accordion-collapse collapse show&quot; aria-labelledby=&quot;accordion-always-one-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the first item's accordion body.&lt;/strong&gt; Without a parent, opening another panel leaves this one open.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-always-two-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button collapsed&quot; id=&quot;accordion-always-two-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-always-two&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;accordion-always-two&quot;&gt;Accordion Item #2&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-always-two&quot; class=&quot;accordion-collapse collapse&quot; aria-labelledby=&quot;accordion-always-two-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the second item's accordion body.&lt;/strong&gt; It can stay open beside the first panel for side-by-side reference.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Accessible headings</h4>
+                <p>Keep the toggle inside a real heading element and connect the panel back with <code>aria-labelledby</code>, so screen readers announce the header and its state.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="accordion" id="accordion-headings">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-headings-one-heading">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-headings-one" aria-expanded="true" aria-controls="accordion-headings-one">Account settings</button>
+                        </h2>
+                        <div id="accordion-headings-one" class="accordion-collapse collapse show" data-bs-parent="#accordion-headings" aria-labelledby="accordion-headings-one-heading">
+                            <div class="accordion-body">
+                                Update your display name, email address, and password from this panel.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accordion-headings-two-heading">
+                            <button class="accordion-button collapsed" id="accordion-headings-two-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-headings-two" aria-expanded="false" aria-controls="accordion-headings-two">Notification preferences</button>
+                        </h2>
+                        <div id="accordion-headings-two" class="accordion-collapse collapse" data-bs-parent="#accordion-headings" aria-labelledby="accordion-headings-two-heading">
+                            <div class="accordion-body">
+                                Choose which product updates and account alerts you want to receive by email.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;accordion&quot; id=&quot;accordion-headings&quot;&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-headings-one-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-headings-one&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;accordion-headings-one&quot;&gt;Account settings&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-headings-one&quot; class=&quot;accordion-collapse collapse show&quot; data-bs-parent=&quot;#accordion-headings&quot; aria-labelledby=&quot;accordion-headings-one-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                Update your display name, email address, and password from this panel.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-headings-two-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button collapsed&quot; id=&quot;accordion-headings-two-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-headings-two&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;accordion-headings-two&quot;&gt;Notification preferences&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-headings-two&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#accordion-headings&quot; aria-labelledby=&quot;accordion-headings-two-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                Choose which product updates and account alerts you want to receive by email.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Borderless</h4>
+                <p>Use the <code>.border-0</code> utility on each <code>.accordion-item</code> for a soft, borderless stack that still keeps the header and body spacing.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="accordion" id="accordion-borderless">
+                    <div class="accordion-item border-0">
+                        <h2 class="accordion-header" id="accordion-borderless-one-heading">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-borderless-one" aria-expanded="true" aria-controls="accordion-borderless-one">Accordion Item #1</button>
+                        </h2>
+                        <div id="accordion-borderless-one" class="accordion-collapse collapse show" data-bs-parent="#accordion-borderless" aria-labelledby="accordion-borderless-one-heading">
+                            <div class="accordion-body">
+                                <strong>This is the first item's accordion body.</strong> Removing the item borders leaves a quieter surface for dense layouts.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0">
+                        <h2 class="accordion-header" id="accordion-borderless-two-heading">
+                            <button class="accordion-button collapsed" id="accordion-borderless-two-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-borderless-two" aria-expanded="false" aria-controls="accordion-borderless-two">Accordion Item #2</button>
+                        </h2>
+                        <div id="accordion-borderless-two" class="accordion-collapse collapse" data-bs-parent="#accordion-borderless" aria-labelledby="accordion-borderless-two-heading">
+                            <div class="accordion-body">
+                                <strong>This is the second item's accordion body.</strong> The borderless style keeps the same accessible toggle behaviour.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;accordion&quot; id=&quot;accordion-borderless&quot;&gt;
+    &lt;div class=&quot;accordion-item border-0&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-borderless-one-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-borderless-one&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;accordion-borderless-one&quot;&gt;Accordion Item #1&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-borderless-one&quot; class=&quot;accordion-collapse collapse show&quot; data-bs-parent=&quot;#accordion-borderless&quot; aria-labelledby=&quot;accordion-borderless-one-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the first item's accordion body.&lt;/strong&gt; Removing the item borders leaves a quieter surface for dense layouts.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;accordion-item border-0&quot;&gt;
+        &lt;h2 class=&quot;accordion-header&quot; id=&quot;accordion-borderless-two-heading&quot;&gt;
+            &lt;button class=&quot;accordion-button collapsed&quot; id=&quot;accordion-borderless-two-toggle&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#accordion-borderless-two&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;accordion-borderless-two&quot;&gt;Accordion Item #2&lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id=&quot;accordion-borderless-two&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#accordion-borderless&quot; aria-labelledby=&quot;accordion-borderless-two-heading&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;
+                &lt;strong&gt;This is the second item's accordion body.&lt;/strong&gt; The borderless style keeps the same accessible toggle behaviour.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Panels
 ================================================== -->
 <div id="cards" class="container pt-5">

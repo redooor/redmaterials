@@ -1,0 +1,233 @@
+<!-- Dropdowns
+================================================== -->
+<div id="dropdowns" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Dropdowns</h1>
+                <p>Dropdowns toggle a contextual menu from a button or link, with options for splitting, sizing, direction, content, alignment, and closing behaviour.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Single button</h4>
+                <p>Add <code>data-bs-toggle="dropdown"</code> to a button and place its menu in a following <code>.dropdown-menu</code> element.</p>
+                <!--@example-->
+                <div class="dropdown" id="dropdowns-single">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown button</button>
+                    <ul class="dropdown-menu" id="dropdowns-single-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Split button</h4>
+                <p>A split button keeps the primary action separate from a toggle that opens the menu, with the toggle labelled for assistive technology.</p>
+                <!--@example-->
+                <div class="btn-group" id="dropdowns-split">
+                    <button type="button" class="btn btn-primary">Split action</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle split dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Dropdown buttons accept the same <code>.btn-lg</code> and <code>.btn-sm</code> size classes as regular buttons.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <div class="btn-group" id="dropdowns-sizing-lg">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Large button</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group" id="dropdowns-sizing-sm">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Small button</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Dark dropdowns</h4>
+                <p>Add <code>data-bs-theme="dark"</code> to the menu to opt it into Bootstrap's dark dropdown colours while the rest of the page keeps its theme.</p>
+                <!--@example-->
+                <div class="dropdown" id="dropdowns-dark">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dark dropdown</button>
+                    <ul class="dropdown-menu" data-bs-theme="dark" id="dropdowns-dark-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Directions</h4>
+                <p>Use <code>.dropup</code>, <code>.dropend</code>, <code>.dropstart</code>, or <code>.dropup-center</code> to change the side the menu opens toward.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-3 align-items-center" id="dropdowns-directions">
+                    <div class="btn-group dropup">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropup</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group dropend">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropend</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group dropstart">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropstart</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group dropup-center dropup">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropup centered</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Menu items</h4>
+                <p>Build a menu from headers, dividers, item text, and regular, active, or disabled items to match the intent of each entry.</p>
+                <!--@example-->
+                <div class="dropdown" id="dropdowns-menu-items">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu items</button>
+                    <ul class="dropdown-menu">
+                        <li><h6 class="dropdown-header">Dropdown header</h6></li>
+                        <li><a class="dropdown-item active" href="#" aria-current="true">Active item</a></li>
+                        <li><a class="dropdown-item" href="#">Regular item</a></li>
+                        <li><a class="dropdown-item disabled" href="#" aria-disabled="true" tabindex="-1">Disabled item</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><span class="dropdown-item-text">Dropdown item text</span></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Menu content</h4>
+                <p>Place forms inside a menu and use <code>data-bs-auto-close="outside"</code> so interacting with the fields does not dismiss it.</p>
+                <!--@example-->
+                <div class="dropdown" id="dropdowns-forms">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Open form menu</button>
+                    <div class="dropdown-menu">
+                        <form class="px-4 py-3">
+                            <div class="mb-3">
+                                <label class="form-label" for="dropdowns-form-email">Email address</label>
+                                <input type="email" class="form-control" id="dropdowns-form-email" placeholder="name@example.com" autocomplete="email">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="dropdowns-form-password">Password</label>
+                                <input type="password" class="form-control" id="dropdowns-form-password" placeholder="Password" autocomplete="current-password">
+                            </div>
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="dropdowns-form-remember">
+                                <label class="form-check-label" for="dropdowns-form-remember">Remember me</label>
+                            </div>
+                            <button type="button" class="btn btn-primary">Sign in</button>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">New around here? Sign up</a>
+                        <a class="dropdown-item" href="#">Forgot password?</a>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Alignment</h4>
+                <p>Align a menu to the end edge with <code>.dropdown-menu-end</code>, or combine responsive classes with <code>data-bs-display="static"</code> to change alignment at a breakpoint.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-3 align-items-start">
+                    <div class="dropdown" id="dropdowns-align-end">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Right-aligned menu</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown" id="dropdowns-align-responsive">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Responsive alignment</button>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Auto close behaviour</h4>
+                <p>Set <code>data-bs-auto-close</code> to <code>inside</code> to close only on clicks inside the menu, to <code>outside</code> to close only on clicks outside it, or to <code>false</code> to leave closing to the toggle.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-3 align-items-start" id="dropdowns-autoclose">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">Close on inside click</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Close on outside click</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">Manual close</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Options</h4>
+                <p>Pass Bootstrap dropdown options through data attributes, such as <code>data-bs-offset="16,24"</code> or <code>data-bs-reference="parent"</code>.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-3 align-items-start">
+                    <div class="dropdown" id="dropdowns-offset">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="16,24" aria-expanded="false">Offset menu</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group" id="dropdowns-reference">
+                        <button type="button" class="btn btn-secondary">Parent reference</button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" data-bs-reference="parent" aria-expanded="false">
+                            <span class="visually-hidden">Toggle parent-referenced dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>
