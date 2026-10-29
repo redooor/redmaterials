@@ -44,6 +44,11 @@ jobs:
           node scripts/browser/docs-check.mjs file
           node scripts/browser/docs-check.mjs http
           node scripts/browser/contrast-audit.mjs --selftest
+          for theme in redmaterials bootstrap; do
+            for mode in light dark; do
+              node scripts/browser/contrast-audit.mjs http --theme "$theme" --mode "$mode" --widths 1280,360
+            done
+          done
 
       - name: Committed docs and dist are up to date (tracked and untracked files)
         if: matrix.node == 20
