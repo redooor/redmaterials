@@ -5,421 +5,122 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>Buttons</h1>
-                    <p>Buttons are by default flat in design. If you want a raised effect, please see "Material Buttons".</p>
+                <p>Bootstrap's button classes provide consistent colours, sizes, states, and toggle behaviour for actions and links.</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="bs-component mb-4">
-                    <h4>Buttons</h4>
-                    <a href="#" class="btn btn-secondary mb-2" role="button">Default (using Secondary color)</a>
-                    <a href="#" class="btn btn-primary mb-2" role="button">Primary</a>
-                    <a href="#" class="btn btn-secondary mb-2" role="button">Secondary</a>
-                    <a href="#" class="btn btn-success mb-2" role="button">Success</a>
-                    <a href="#" class="btn btn-info mb-2" role="button">Info</a>
-                    <a href="#" class="btn btn-warning mb-2" role="button">Warning</a>
-                    <a href="#" class="btn btn-danger mb-2" role="button">Danger</a>
-                    <a href="#" class="btn btn-light mb-2" role="button">Light</a>
-                    <a href="#" class="btn btn-dark mb-2" role="button">Dark</a>
-                    <a href="#" class="btn btn-link mb-2" role="button">Link</a>
-                    <!--@code--><a href="#" class="btn btn-secondary" role="button">Default</a>
-<a href="#" class="btn btn-primary" role="button">Primary</a>
-<a href="#" class="btn btn-secondary" role="button">Secondary</a>
-<a href="#" class="btn btn-success" role="button">Success</a>
-<a href="#" class="btn btn-info" role="button">Info</a>
-<a href="#" class="btn btn-warning" role="button">Warning</a>
-<a href="#" class="btn btn-danger" role="button">Danger</a>
-<a href="#" class="btn btn-light" role="button">Light</a>
-<a href="#" class="btn btn-dark" role="button">Dark</a>
-<a href="#" class="btn btn-link" role="button">Link</a><!--@end-->
+                <h4>Variants</h4>
+                <p>Use a contextual <code>.btn-*</code> class for the eight theme colours, or <code>.btn-link</code> for a button that looks like a link.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-primary">Primary</button>
+                    <button type="button" class="btn btn-secondary">Secondary</button>
+                    <button type="button" class="btn btn-success">Success</button>
+                    <button type="button" class="btn btn-danger">Danger</button>
+                    <button type="button" class="btn btn-warning">Warning</button>
+                    <button type="button" class="btn btn-info">Info</button>
+                    <button type="button" class="btn btn-light">Light</button>
+                    <button type="button" class="btn btn-dark">Dark</button>
+                    <button type="button" class="btn btn-link">Link</button>
                 </div>
-                
-                <div class="bs-component mb-4">
-                    <h4>Ripple Effect</h4>
-                    <button type="button" class="btn btn-secondary ripple-effect mb-2">Default (using Secondary color)</button>
-                    <button type="button" class="btn btn-primary ripple-effect mb-2">Primary</button>
-                    <button type="button" class="btn btn-secondary ripple-effect mb-2">Secondary</button>
-                    <button type="button" class="btn btn-success ripple-effect mb-2">Success</button>
-                    <button type="button" class="btn btn-info ripple-effect mb-2">Info</button>
-                    <button type="button" class="btn btn-warning ripple-effect mb-2">Warning</button>
-                    <button type="button" class="btn btn-danger ripple-effect mb-2">Danger</button>
-                    <button type="button" class="btn btn-light ripple-effect mb-2">Light</button>
-                    <button type="button" class="btn btn-dark ripple-effect mb-2">Dark</button>
-                    <button type="button" class="btn btn-link ripple-effect mb-2">Link</button>
-                    <!--@code--><button type="button" class="btn btn-secondary ripple-effect">Default</button>
-<button type="button" class="btn btn-primary ripple-effect">Primary</button>
-<button type="button" class="btn btn-secondary ripple-effect">Secondary</button>
-<button type="button" class="btn btn-success ripple-effect">Success</button>
-<button type="button" class="btn btn-info ripple-effect">Info</button>
-<button type="button" class="btn btn-warning ripple-effect">Warning</button>
-<button type="button" class="btn btn-danger ripple-effect">Danger</button>
-<button type="button" class="btn btn-light ripple-effect">Light</button>
-<button type="button" class="btn btn-dark ripple-effect">Dark</button>
-<button type="button" class="btn btn-link ripple-effect">Link</button><!--@end-->
-                </div>
+                <!--@end-->
 
-                <div class="bs-component mb-4">
-                    <h4>Disabled Buttons</h4>
-                    <button type="button" class="btn btn-secondary disabled mb-2">Default (using Secondary color)</button>
-                    <button type="button" class="btn btn-primary disabled mb-2">Primary</button>
-                    <button type="button" class="btn btn-secondary disabled mb-2">Secondary</button>
-                    <button type="button" class="btn btn-success disabled mb-2">Success</button>
-                    <button type="button" class="btn btn-info disabled mb-2">Info</button>
-                    <button type="button" class="btn btn-warning disabled mb-2">Warning</button>
-                    <button type="button" class="btn btn-danger disabled mb-2">Danger</button>
-                    <button type="button" class="btn btn-light disabled mb-2">Light</button>
-                    <button type="button" class="btn btn-dark disabled mb-2">Dark</button>
-                    <button type="button" class="btn btn-link disabled mb-2">Link</button>
-                    <!--@code--><button type="button" class="btn btn-secondary disabled">Default</button>
-...<!--@end-->
+                <h4 class="mt-5">Outline</h4>
+                <p>Outline buttons use a transparent background and a coloured border, and fill with the matching colour on hover.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-primary">Primary</button>
+                    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                    <button type="button" class="btn btn-outline-success">Success</button>
+                    <button type="button" class="btn btn-outline-danger">Danger</button>
+                    <button type="button" class="btn btn-outline-warning">Warning</button>
+                    <button type="button" class="btn btn-outline-info">Info</button>
+                    <button type="button" class="btn btn-outline-light">Light</button>
+                    <button type="button" class="btn btn-outline-dark">Dark</button>
                 </div>
-                
-                <div class="bs-component mb-4">
-                    <h4>Outline Buttons</h4>
-                    <button type="button" class="btn btn-outline-primary mb-2">Primary</button>
-                    <button type="button" class="btn btn-outline-secondary mb-2">Secondary</button>
-                    <button type="button" class="btn btn-outline-success mb-2">Success</button>
-                    <button type="button" class="btn btn-outline-danger mb-2">Danger</button>
-                    <button type="button" class="btn btn-outline-warning mb-2">Warning</button>
-                    <button type="button" class="btn btn-outline-info mb-2">Info</button>
-                    <button type="button" class="btn btn-outline-light mb-2">Light</button>
-                    <button type="button" class="btn btn-outline-dark mb-2">Dark</button>
-                    <!--@code--><button type="button" class="btn btn-outline-primary">Primary</button>
-<button type="button" class="btn btn-outline-secondary">Secondary</button>
-<button type="button" class="btn btn-outline-success">Success</button>
-<button type="button" class="btn btn-outline-danger">Danger</button>
-<button type="button" class="btn btn-outline-warning">Warning</button>
-<button type="button" class="btn btn-outline-info">Info</button>
-<button type="button" class="btn btn-outline-light">Light</button>
-<button type="button" class="btn btn-outline-dark">Dark</button><!--@end-->
-                </div>
-                
-                <div class="bs-component mb-4">
-                    <h4>Sizes</h4>
-                    <a href="#" class="btn btn-primary btn-lg">Large button</a>
-                    <a href="#" class="btn btn-primary">Default button</a>
-                    <a href="#" class="btn btn-primary btn-sm">Small button</a>
-                    <a href="#" class="btn btn-primary btn-sm">Mini button</a>
-                    <!--@code--><a href="#" class="btn btn-primary btn-lg">Large button</a>
-<a href="#" class="btn btn-primary">Default button</a>
-<a href="#" class="btn btn-primary btn-sm">Small button</a>
-<a href="#" class="btn btn-primary btn-sm">Mini button</a><!--@end-->
-                </div>
-                
-                <div class="bs-example mb-4">
-                    <div class="well">
-                        <button type="button" class="btn btn-raised btn-primary w-100 ripple-effect">Block level button</button>
-                        <button type="button" class="btn btn-flat btn-primary w-100 ripple-effect">Block level button</button>
-                    </div>
-                    <!--@code--><button type="button" class="btn btn-raised btn-primary w-100 ripple-effect">Block level button</button>
-<button type="button" class="btn btn-flat btn-primary w-100 ripple-effect">Block level button</button><!--@end-->
-                </div>
+                <!--@end-->
 
-                <div class="bs-component mb-4">
-                    <h4>Dropdown</h4>
-                    <div class="btn-group flex-wrap mb-2">
-                        <button type="button" id="buttonsDropdown1" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Default
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="buttonsDropdown1">
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <div class="dropdown-divider"></div>
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group flex-wrap mb-2">
-                        <button type="button" id="buttonsDropdown2" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Primary
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="buttonsDropdown2">
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <div class="dropdown-divider"></div>
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group flex-wrap mb-2">
-                        <button type="button" id="buttonsDropdown3" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Success
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="buttonsDropdown3">
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <div class="dropdown-divider"></div>
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group flex-wrap mb-2">
-                        <button type="button" id="buttonsDropdown4" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Info
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="buttonsDropdown4">
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <div class="dropdown-divider"></div>
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                        </div>
-                    </div>
-
-                    <div class="btn-group flex-wrap mb-2">
-                        <button type="button" id="buttonsDropdown5" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Warning
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="buttonsDropdown5">
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                            <div class="dropdown-divider"></div>
-                            <div class="dropdown-header">Dropdown header</div>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                        </div>
-                    </div>
-                    <!--@code--><div class="btn-group">
-    <button type="button" id="dropdownMenuButton1" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Primary
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <a class="dropdown-item" href="#">Dropdown link</a>
-        <a class="dropdown-item" href="#">Dropdown link</a>
-        <div class="dropdown-divider"></div>
-        <div class="dropdown-header">Dropdown header</div>
-        <a class="dropdown-item" href="#">Dropdown link</a>
-    </div>
-</div><!--@end-->
+                <h4 class="mt-5">Sizes</h4>
+                <p>Add <code>.btn-lg</code> or <code>.btn-sm</code> to change a button's font size and padding.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                    <button type="button" class="btn btn-primary">Default button</button>
+                    <button type="button" class="btn btn-primary btn-sm">Small button</button>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Group Buttons</h4>
-                    <div class="btn-group flex-wrap mb-2" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Left</button>
-                        <button type="button" class="btn btn-secondary">Middle</button>
-                        <button type="button" class="btn btn-secondary">Right</button>
-                    </div>
-                    <!--@code--><div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary">Left</button>
-    <button type="button" class="btn btn-secondary">Middle</button>
-    <button type="button" class="btn btn-secondary">Right</button>
-</div><!--@end-->
-                </div>
-                <div class="bs-component mb-4">
-                    <div class="btn-group flex-wrap mb-2" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Secondary</button>
-                        <button type="button" class="btn btn-primary">Primary</button>
-                        <button type="button" class="btn btn-info">Info</button>
-                        <button type="button" class="btn btn-success ripple-effect">Ripple Effect</button>
-                        <button type="button" class="btn btn-danger disabled">Disabled</button>
-                        <div class="btn-group flex-wrap" role="group">
-                            <button type="button" id="buttonsDropdown6" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Warning
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="buttonsDropdown6">
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                                <div class="dropdown-divider"></div>
-                                <div class="dropdown-header">Dropdown header</div>
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--@code--><div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-success ripple-effect">Ripple Effect</button>
-    <button type="button" class="btn btn-danger disabled">Disabled</button>
-    <div class="btn-group" role="group">
-        <button type="button" id="dropdownMenuButton2" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Warning
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-            <a class="dropdown-item" href="#">Dropdown link</a>
-            <a class="dropdown-item" href="#">Dropdown link</a>
-            <div class="dropdown-divider"></div>
-            <div class="dropdown-header">Dropdown header</div>
-            <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-    </div>
-</div><!--@end-->
-                </div>
-                <div class="bs-component mb-4">
-                    <div class="btn-toolbar" role="toolbar">
-                        <div class="btn-group flex-wrap btn-group-lg">
-                            <button type="button" class="btn ripple-effect btn-secondary">Large</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">Group</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">Size</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="btn-toolbar" role="toolbar">
-                        <div class="btn-group flex-wrap">
-                            <button type="button" class="btn ripple-effect btn-secondary">Default (using Secondary color)</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">Group</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">Size</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="btn-toolbar" role="toolbar">
-                        <div class="btn-group flex-wrap btn-group-sm">
-                            <button type="button" class="btn ripple-effect btn-secondary">Small</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">Group</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">Size</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="btn-toolbar mb-4" role="toolbar">
-                        <div class="btn-group flex-wrap btn-group-sm">
-                            <button type="button" class="btn ripple-effect btn-secondary">Very Small</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">Group</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">Size</button>
-                        </div>
-                    </div>
-                    <!--@code--><div class="btn-toolbar" role="toolbar">
-    <div class="btn-group btn-group-lg">
-        <button type="button" class="btn ripple-effect btn-secondary">Large</button>
-        <button type="button" class="btn ripple-effect btn-secondary">Group</button>
-        <button type="button" class="btn ripple-effect btn-secondary">Size</button>
-    </div>
-</div>
-<div class="btn-toolbar" role="toolbar">
-    <div class="btn-group">
-        <button type="button" class="btn ripple-effect btn-secondary">Default</button>
-        <button type="button" class="btn ripple-effect btn-secondary">Group</button>
-        <button type="button" class="btn ripple-effect btn-secondary">Size</button>
-    </div>
-</div>
-<div class="btn-toolbar" role="toolbar">
-    <div class="btn-group btn-group-sm">
-        <button type="button" class="btn ripple-effect btn-secondary">Small</button>
-        <button type="button" class="btn ripple-effect btn-secondary">Group</button>
-        <button type="button" class="btn ripple-effect btn-secondary">Size</button>
-    </div>
-</div>
-<div class="btn-toolbar" role="toolbar">
-    <div class="btn-group btn-group-sm">
-        <button type="button" class="btn ripple-effect btn-secondary">Very Small</button>
-        <button type="button" class="btn ripple-effect btn-secondary">Group</button>
-        <button type="button" class="btn ripple-effect btn-secondary">Size</button>
-    </div>
-</div><!--@end-->
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="bs-component mb-4">
-                    <h4>Toolbar</h4>
-                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                        <div class="btn-group flex-wrap mb-2 me-2" role="group">
-                            <a href="#" class="btn btn-secondary">1</a>
-                            <a href="#" class="btn btn-secondary">2</a>
-                            <a href="#" class="btn btn-secondary">3</a>
-                            <a href="#" class="btn btn-secondary">4</a>
-                        </div>
-                        
-                        <div class="btn-group flex-wrap btn-raised mb-2 me-2" role="group">
-                            <button type="button" class="btn ripple-effect btn-secondary">5</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">6</button>
-                            <button type="button" class="btn ripple-effect btn-secondary">7</button>
-                        </div>
-                        
-                        <div class="btn-group flex-wrap mb-2 me-2" role="group">
-                            <button type="button" class="btn ripple-effect btn-warning">8</button>
-                            <button type="button" class="btn ripple-effect btn-info">9</button>
-                            <div class="btn-group flex-wrap">
-                                <button type="button" id="buttonsDropdown7" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="buttonsDropdown7">
-                                    <a class="dropdown-item" href="#">Dropdown link</a>
-                                    <a class="dropdown-item" href="#">Dropdown link</a>
-                                    <div class="dropdown-divider"></div>
-                                    <div class="dropdown-header">Dropdown header</div>
-                                    <a class="dropdown-item" href="#">Dropdown link</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <p>For raised group, apply .btn-raised to .btn-group instead.</p>
-                    <!--@code--><div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-    <div class="btn-group mb-2 me-2" role="group">
-        <a href="#" class="btn btn-secondary">1</a>
-        <a href="#" class="btn btn-secondary">2</a>
-        <a href="#" class="btn btn-secondary">3</a>
-        <a href="#" class="btn btn-secondary">4</a>
-    </div>
+                <!--@end-->
 
-    <div class="btn-group btn-raised mb-2 me-2" role="group">
-        <button type="button" class="btn ripple-effect btn-secondary">5</button>
-        <button type="button" class="btn ripple-effect btn-secondary">6</button>
-        <button type="button" class="btn ripple-effect btn-secondary">7</button>
-    </div>
-
-    <div class="btn-group mb-2 me-2" role="group">
-        <button type="button" class="btn ripple-effect btn-warning">8</button>
-        <button type="button" class="btn ripple-effect btn-info">9</button>
-        <div class="btn-group">
-            <button type="button" id="dropdownMenuButton3" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <a class="dropdown-item" href="#">Dropdown link</a>
-                <a class="dropdown-item" href="#">Dropdown link</a>
-                <div class="dropdown-divider"></div>
-                <div class="dropdown-header">Dropdown header</div>
-                <a class="dropdown-item" href="#">Dropdown link</a>
-            </div>
-        </div>
-    </div>
-</div><!--@end-->
+                <h4 class="mt-5">Disabled state</h4>
+                <p>Use the <code>disabled</code> attribute on a button, or <code>.disabled</code> and <code>aria-disabled="true"</code> on a link, to prevent interaction.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <button type="button" class="btn btn-primary" disabled>Disabled button</button>
+                    <a href="#" class="btn btn-primary disabled" role="button" aria-disabled="true" tabindex="-1">Disabled link</a>
                 </div>
+                <!--@end-->
 
-                <div class="bs-component mb-4">
-                    <h4>Vertical variation</h4>
-                    <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-secondary">Button</button>
-                        <button type="button" class="btn btn-secondary">Button</button>
-                        <div class="btn-group flex-wrap">
-                            <div class="btn-group flex-wrap">
-                                <button type="button" id="buttonsDropdown8" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="buttonsDropdown8">
-                                    <a class="dropdown-item" href="#">Dropdown link</a>
-                                    <a class="dropdown-item" href="#">Dropdown link</a>
-                                    <div class="dropdown-divider"></div>
-                                    <div class="dropdown-header">Dropdown header</div>
-                                    <a class="dropdown-item" href="#">Dropdown link</a>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-secondary">Button</button>
-                        <button type="button" class="btn btn-secondary">Button</button>
-                        <div class="btn-group flex-wrap">
-                            <button type="button" id="buttonsDropdown9" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="buttonsDropdown9">
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                                <div class="dropdown-divider"></div>
-                                <div class="dropdown-header">Dropdown header</div>
-                                <a class="dropdown-item" href="#">Dropdown link</a>
-                            </div>
-                        </div>
+                <h4 class="mt-5">Block buttons</h4>
+                <p>Wrap buttons in <code>.d-grid</code> with a gap utility to stack them at full width.</p>
+                <!--@example-->
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-primary">Block button</button>
+                    <button type="button" class="btn btn-secondary">Block button</button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Button tags</h4>
+                <p>The button classes work on <code>a</code>, <code>button</code>, and <code>input</code> elements; use the matching element for the action.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <a href="#" class="btn btn-primary" role="button">Link</a>
+                    <button type="submit" class="btn btn-primary">Button</button>
+                    <input type="button" class="btn btn-primary" value="Input">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                    <input type="reset" class="btn btn-primary" value="Reset">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Toggle states</h4>
+                <p>Add <code>data-bs-toggle="button"</code> to toggle a button's active state on click, or set <code>.active</code> and <code>aria-pressed="true"</code> for a static pressed state.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="button">Toggle button</button>
+                    <button type="button" class="btn btn-primary active" aria-pressed="true">Active state</button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Checkbox and radio buttons</h4>
+                <p>Pair <code>.btn-check</code> inputs with button labels to create checkbox and radio button groups that look like normal buttons.</p>
+                <!--@example-->
+                <div class="btn-group mb-3" role="group" aria-label="Checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" id="buttons-check-1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="buttons-check-1">Checkbox one</label>
+                    <input type="checkbox" class="btn-check" id="buttons-check-2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="buttons-check-2">Checkbox two</label>
+                </div>
+                <div class="btn-group" role="group" aria-label="Radio toggle button group">
+                    <input type="radio" class="btn-check" name="buttons-radio" id="buttons-radio-1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="buttons-radio-1">Radio one</label>
+                    <input type="radio" class="btn-check" name="buttons-radio" id="buttons-radio-2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="buttons-radio-2">Radio two</label>
+                    <input type="radio" class="btn-check" name="buttons-radio" id="buttons-radio-3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="buttons-radio-3">Radio three</label>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Close button</h4>
+                <p>Use <code>.btn-close</code> for a dismissible close control, and <code>.btn-close-white</code> on a dark surface.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <button type="button" class="btn-close" aria-label="Close"></button>
+                    <button type="button" class="btn-close" disabled aria-label="Close"></button>
+                    <div class="bg-dark rounded p-3 d-inline-flex">
+                        <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
                     </div>
-                    <!--@code--><div class="btn-group-vertical">
-    <button type="button" class="btn btn-secondary">Button</button>
-    <button type="button" class="btn btn-secondary">Button</button>
-    ...
-</div><!--@end-->
                 </div>
+                <!--@end-->
             </div>
         </div>
     </div>

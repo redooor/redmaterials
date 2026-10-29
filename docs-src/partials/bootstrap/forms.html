@@ -5,340 +5,477 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>Forms</h1>
+                <p>Bootstrap's form controls, layout helpers, and validation states build accessible forms for every input type.</p>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-6">
-                <div class="well bs-component">
-                    <form>
-                        <fieldset>
-                            <legend>Legend</legend>
-                            <div class="row">
-                                <label for="inputEmail" class="col-lg-2 col-form-label">Email</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label for="inputPassword" class="col-lg-2 col-form-label">Password</label>
-                                <div class="col-lg-10">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" aria-describedby="passwordHelpBlock">
-                                    <small id="passwordHelpBlock" class="form-text text-body-secondary">
-                                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="visually-hidden col-lg-2 col-form-label">Checkbox</label>
-                                <div class="col-lg-10 offset-lg-2">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="checkboxLegend">
-                                        <label class="form-check-label" for="checkboxLegend">Checkbox</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label for="textArea" class="col-lg-2 col-form-label">Textarea</label>
-                                <div class="col-lg-10">
-                                    <textarea class="form-control" rows="3" id="textArea"></textarea>
-                                    <small class="form-text text-body-secondary">A longer block of help text that breaks onto a new line and may extend beyond one line.</small>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="col-lg-2 col-form-label">Radios</label>
-                                <div class="col-lg-10">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                        <label class="form-check-label" for="optionsRadios1">Option one is this</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                        <label class="form-check-label" for="optionsRadios2">Option two can be something else</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label for="select" class="col-lg-2 col-form-label">Selects</label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" id="select">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                    <br>
-                                    <select multiple="" class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-10 offset-lg-2 text-end">
-                                    <button class="btn btn-secondary">Cancel</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="bs-component">
-                    <form>
-                        <div class="mb-3">
-                            <label for="focusedInput">Focused input</label>
-                            <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="disabledInput">Disabled input</label>
-                            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="inputWarning">Input invalid (warning)</label>
-                            <input type="text" class="form-control is-invalid" id="inputWarning">
-                            <div class="invalid-feedback">Please provide a valid value.</div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="inputError">Input invalid (error)</label>
-                            <input type="text" class="form-control is-invalid" id="inputError">
-                            <div class="invalid-feedback">This field has an error.</div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="inputSuccess">Input valid</label>
-                            <input type="text" class="form-control is-valid" id="inputSuccess">
-                            <div class="valid-feedback">Looks good!</div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="inputLarge">Large input (.form-control-lg)</label>
-                            <input class="form-control form-control-lg" type="text" id="inputLarge" placeholder="Large">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="inputDefault">Default input</label>
-                            <input type="text" class="form-control" id="inputDefault" placeholder="Default">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="inputSmall">Small input (.form-control-sm)</label>
-                            <input class="form-control form-control-sm" type="text" id="inputSmall" placeholder="Small">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Input addons</label>
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control">
-                                <button class="btn btn-secondary" type="button">Button</button>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Input addons with flat btn</label>
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control">
-                                <button class="btn btn-primary btn-flat" type="button">Button</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!--@code--><!-- Disabled -->
-<input class="form-control" type="text" disabled>
-
-<!-- Invalid state -->
-<input type="text" class="form-control is-invalid">
-<div class="invalid-feedback">This field has an error.</div>
-
-<!-- Valid state -->
-<input type="text" class="form-control is-valid">
-<div class="valid-feedback">Looks good!</div>
-
-<!-- Sizing -->
-<input class="form-control form-control-lg" type="text">
-<input class="form-control" type="text">
-<input class="form-control form-control-sm" type="text">
-
-<!-- Input addons -->
-<div class="input-group">
-    <span class="input-group-text">$</span>
-    <input type="text" class="form-control">
-    <button class="btn btn-secondary" type="button">Button</button>
-</div><!--@end-->
-                </div>
-            </div>
-        </div>
-
-        <!-- Custom Controls -->
-        <div class="row mt-4">
             <div class="col-lg-12">
-                <h4>Custom Controls</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="bs-component mb-4">
-                    <form>
-                        <div class="mb-3">
-                            <label>Custom Switch</label>
-                            <div class="form-check form-switch">
-                                <input type="checkbox" class="form-check-input" id="customSwitch1">
-                                <label class="form-check-label" for="customSwitch1">Toggle this switch</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input type="checkbox" class="form-check-input" id="customSwitch2" checked>
-                                <label class="form-check-label" for="customSwitch2">Checked switch</label>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="customRange1">Custom Range</label>
-                            <input type="range" class="form-range" id="customRange1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="customFile1">Custom File Input</label>
-                            <input type="file" class="form-control" id="customFile1">
-                        </div>
-                    </form>
-                    <!--@code--><div class="form-check form-switch">
-    <input type="checkbox" class="form-check-input" id="customSwitch1">
-    <label class="form-check-label" for="customSwitch1">Toggle this switch</label>
-</div>
-
-<input type="range" class="form-range" id="customRange1">
-
-<input type="file" class="form-control" id="customFile1"><!--@end-->
+                <h4>Form controls</h4>
+                <p>Use <code>.form-control</code> on text inputs and textareas, with a <code>label</code> tied to each control's <code>id</code>.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="forms-text" class="form-label">Full name</label>
+                    <input type="text" class="form-control" id="forms-text" placeholder="Ada Lovelace">
                 </div>
-            </div>
-        </div>
-
-        <!-- Form Validation -->
-        <div class="row mt-4">
-            <div class="col-lg-12">
-                <h4>Form Validation</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="bs-component mb-4">
-                    <form class="was-validated">
-                        <div class="mb-3">
-                            <label for="validationFirstName">First name</label>
-                            <input type="text" class="form-control" id="validationFirstName" value="John" required>
-                            <div class="valid-feedback">Looks good!</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="validationLastName">Last name</label>
-                            <input type="text" class="form-control" id="validationLastName" value="" required>
-                            <div class="invalid-feedback">Please provide a last name.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="validationEmail">Email</label>
-                            <input type="email" class="form-control" id="validationEmail" value="not-an-email" required>
-                            <div class="invalid-feedback">Please provide a valid email address.</div>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </form>
-                    <!--@code--><form class="was-validated">
-    <div class="mb-3">
-        <label for="validationFirstName">First name</label>
-        <input type="text" class="form-control" id="validationFirstName" value="John" required>
-        <div class="valid-feedback">Looks good!</div>
-    </div>
-    <div class="mb-3">
-        <label for="validationLastName">Last name</label>
-        <input type="text" class="form-control" id="validationLastName" value="" required>
-        <div class="invalid-feedback">Please provide a last name.</div>
-    </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
-</form><!--@end-->
+                <div class="mb-3">
+                    <label for="forms-email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="forms-email" placeholder="ada@example.com" aria-describedby="forms-email-help">
+                    <div id="forms-email-help" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Input Groups -->
-        <div class="row mt-4">
-            <div class="col-lg-12">
-                <h4>Input Groups (Bootstrap 5)</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="bs-component mb-4">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" placeholder="Username">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Recipient's username">
-                        <span class="input-group-text">@example.com</span>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" placeholder="Amount">
-                        <span class="input-group-text">.00</span>
-                    </div>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-secondary" type="button">Search</button>
-                        <input type="text" class="form-control" placeholder="Search query">
-                    </div>
-                    <!--@code--><div class="input-group mb-3">
-    <span class="input-group-text">@</span>
-    <input type="text" class="form-control" placeholder="Username">
-</div>
-
-<div class="input-group mb-3">
-    <span class="input-group-text">$</span>
-    <input type="text" class="form-control" placeholder="Amount">
-    <span class="input-group-text">.00</span>
-</div>
-
-<div class="input-group mb-3">
-    <button class="btn btn-secondary" type="button">Search</button>
-    <input type="text" class="form-control" placeholder="Search query">
-</div><!--@end-->
+                <div>
+                    <label for="forms-textarea" class="form-label">Comments</label>
+                    <textarea class="form-control" id="forms-textarea" rows="3" placeholder="Tell us what you think"></textarea>
                 </div>
-            </div>
-        </div>
+                <!--@end-->
 
-        <!-- Plaintext input -->
-        <div class="row mt-4">
-            <div class="col-lg-12">
-                <h4>Plaintext Input</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="bs-component mb-4">
-                    <form>
-                        <div class="row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label for="inputPassword2" class="col-sm-2 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-                            </div>
-                        </div>
-                    </form>
-                    <!--@code--><div class="row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-    </div>
-</div><!--@end-->
+                <h4 class="mt-5">Readonly and plaintext</h4>
+                <p>A readonly input keeps its form styling, while <code>.form-control-plaintext</code> renders the value as plain text.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="forms-readonly" class="form-label">Readonly input</label>
+                    <input class="form-control" type="text" id="forms-readonly" value="This value cannot be edited" readonly>
                 </div>
+                <div>
+                    <label for="forms-plaintext" class="form-label">Plaintext input</label>
+                    <input class="form-control-plaintext" type="text" id="forms-plaintext" value="email@example.com" readonly>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">File and colour inputs</h4>
+                <p>File inputs use <code>.form-control</code>, and <code>.form-control-color</code> sizes a native colour picker to its swatch.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="forms-file" class="form-label">Default file input</label>
+                    <input class="form-control" type="file" id="forms-file">
+                </div>
+                <div>
+                    <label for="forms-color" class="form-label">Colour picker</label>
+                    <input type="color" class="form-control form-control-color" id="forms-color" value="#0d6efd" title="Choose your colour">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Add <code>.form-control-lg</code> or <code>.form-control-sm</code> to match an input's height to its context.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="forms-size-lg" class="form-label">Large input</label>
+                    <input class="form-control form-control-lg" type="text" id="forms-size-lg" placeholder=".form-control-lg">
+                </div>
+                <div class="mb-3">
+                    <label for="forms-size-default" class="form-label">Default input</label>
+                    <input class="form-control" type="text" id="forms-size-default" placeholder=".form-control">
+                </div>
+                <div>
+                    <label for="forms-size-sm" class="form-label">Small input</label>
+                    <input class="form-control form-control-sm" type="text" id="forms-size-sm" placeholder=".form-control-sm">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Selects</h4>
+                <p>Use <code>.form-select</code> for single and multiple selects, with <code>.form-select-lg</code> or <code>.form-select-sm</code> for sizing.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="forms-select" class="form-label">Default select</label>
+                    <select class="form-select" id="forms-select">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="forms-select-size" class="form-label">Sized selects</label>
+                    <select class="form-select form-select-lg mb-2" id="forms-select-size">
+                        <option selected>Large select</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                    </select>
+                    <label class="visually-hidden" for="forms-select-sm">Small select</label>
+                    <select class="form-select form-select-sm" id="forms-select-sm">
+                        <option selected>Small select</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="forms-select-multiple" class="form-label">Multiple select</label>
+                    <select class="form-select" id="forms-select-multiple" multiple size="3">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                    </select>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Checks and radios</h4>
+                <p>Use <code>.form-check</code> for checkboxes and radios, with <code>.form-check-inline</code> or the <code>disabled</code> attribute as needed.</p>
+                <!--@example-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="forms-check">
+                    <label class="form-check-label" for="forms-check">Default checkbox</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="forms-check-checked" checked>
+                    <label class="form-check-label" for="forms-check-checked">Checked checkbox</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="forms-check-disabled" disabled>
+                    <label class="form-check-label" for="forms-check-disabled">Disabled checkbox</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="forms-check-inline-1">
+                    <label class="form-check-label" for="forms-check-inline-1">Inline one</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="forms-check-inline-2">
+                    <label class="form-check-label" for="forms-check-inline-2">Inline two</label>
+                </div>
+                <hr>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="forms-radio" id="forms-radio-1" checked>
+                    <label class="form-check-label" for="forms-radio-1">Default radio</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="forms-radio" id="forms-radio-2">
+                    <label class="form-check-label" for="forms-radio-2">Second default radio</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="forms-radio-disabled" id="forms-radio-disabled" disabled>
+                    <label class="form-check-label" for="forms-radio-disabled">Disabled radio</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="forms-radio-inline" id="forms-radio-inline-1" checked>
+                    <label class="form-check-label" for="forms-radio-inline-1">Inline radio one</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="forms-radio-inline" id="forms-radio-inline-2">
+                    <label class="form-check-label" for="forms-radio-inline-2">Inline radio two</label>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Toggle buttons</h4>
+                <p>Pair a <code>.btn-check</code> input with a label styled as a button to build checkbox and radio button groups.</p>
+                <!--@example-->
+                <div class="btn-group mb-3" role="group" aria-label="Checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" id="forms-btn-check-1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="forms-btn-check-1">Checkbox toggle</label>
+                    <input type="checkbox" class="btn-check" id="forms-btn-check-2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="forms-btn-check-2">Second toggle</label>
+                </div>
+                <div class="btn-group" role="group" aria-label="Radio toggle button group">
+                    <input type="radio" class="btn-check" name="forms-btn-radio" id="forms-btn-radio-1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="forms-btn-radio-1">Radio one</label>
+                    <input type="radio" class="btn-check" name="forms-btn-radio" id="forms-btn-radio-2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="forms-btn-radio-2">Radio two</label>
+                    <input type="radio" class="btn-check" name="forms-btn-radio" id="forms-btn-radio-3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="forms-btn-radio-3">Radio three</label>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Switches</h4>
+                <p>Add <code>.form-switch</code> to a checkbox to render it as a toggle switch.</p>
+                <!--@example-->
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="forms-switch">
+                    <label class="form-check-label" for="forms-switch">Toggle this switch</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="forms-switch-checked" checked>
+                    <label class="form-check-label" for="forms-switch-checked">Checked switch</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="forms-switch-disabled" disabled>
+                    <label class="form-check-label" for="forms-switch-disabled">Disabled switch</label>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Range</h4>
+                <p>Use <code>.form-range</code> for a native range slider, with an optional disabled state.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="forms-range" class="form-label">Example range</label>
+                    <input type="range" class="form-range" id="forms-range" min="0" max="5" step="0.5">
+                </div>
+                <div>
+                    <label for="forms-range-disabled" class="form-label">Disabled range</label>
+                    <input type="range" class="form-range" id="forms-range-disabled" disabled>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Datalist</h4>
+                <p>Connect an input to a <code>datalist</code> with its <code>list</code> attribute to offer suggested values.</p>
+                <!--@example-->
+                <label for="forms-datalist" class="form-label">Choose a browser</label>
+                <input class="form-control" list="forms-datalist-options" id="forms-datalist" placeholder="Type to search...">
+                <datalist id="forms-datalist-options">
+                    <option value="Chrome"></option>
+                    <option value="Firefox"></option>
+                    <option value="Safari"></option>
+                    <option value="Edge"></option>
+                    <option value="Opera"></option>
+                </datalist>
+                <!--@end-->
+
+                <h4 class="mt-5">Floating labels</h4>
+                <p>Wrap a control and its label in <code>.form-floating</code> to float the label when the field is focused or filled; it also works with selects, textareas, and grid columns.</p>
+                <!--@example-->
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="forms-floating-input" placeholder="name@example.com">
+                    <label for="forms-floating-input">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="forms-floating-select">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="forms-floating-select">Works with selects</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="forms-floating-textarea" style="height: 100px;"></textarea>
+                    <label for="forms-floating-textarea">Comments</label>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="forms-floating-grid-1" placeholder="First name">
+                            <label for="forms-floating-grid-1">First name</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="forms-floating-grid-2" placeholder="Last name">
+                            <label for="forms-floating-grid-2">Last name</label>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Grid layout</h4>
+                <p>Place form controls in grid columns to build multi-column forms that collapse on smaller screens.</p>
+                <!--@example-->
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="forms-grid-first" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="forms-grid-first">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="forms-grid-last" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="forms-grid-last">
+                    </div>
+                    <div class="col-12">
+                        <label for="forms-grid-address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="forms-grid-address" placeholder="1234 Main St">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="forms-grid-city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="forms-grid-city">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="forms-grid-state" class="form-label">State</label>
+                        <select class="form-select" id="forms-grid-state">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="forms-grid-zip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="forms-grid-zip">
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Horizontal form</h4>
+                <p>Use grid classes and <code>.col-form-label</code> to align labels beside their controls.</p>
+                <!--@example-->
+                <div class="row mb-3">
+                    <label for="forms-horizontal-email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="forms-horizontal-email">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="forms-horizontal-password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="forms-horizontal-password">
+                    </div>
+                </div>
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="forms-horizontal-radio" id="forms-horizontal-radio-1" checked>
+                            <label class="form-check-label" for="forms-horizontal-radio-1">First radio</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="forms-horizontal-radio" id="forms-horizontal-radio-2">
+                            <label class="form-check-label" for="forms-horizontal-radio-2">Second radio</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row mb-3">
+                    <div class="col-sm-10 offset-sm-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="forms-horizontal-check">
+                            <label class="form-check-label" for="forms-horizontal-check">Check me out</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary">Sign in</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Inline form</h4>
+                <p>The <code>.row-cols-lg-auto</code> layout keeps controls inline on large screens and stacks them on small ones.</p>
+                <!--@example-->
+                <form class="row row-cols-lg-auto g-3 align-items-center">
+                    <div class="col-12">
+                        <label class="visually-hidden" for="forms-inline-username">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-text">@</div>
+                            <input type="text" class="form-control" id="forms-inline-username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label class="visually-hidden" for="forms-inline-select">Preference</label>
+                        <select class="form-select" id="forms-inline-select">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="forms-inline-check">
+                            <label class="form-check-label" for="forms-inline-check">Remember me</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                <!--@end-->
+
+                <h4 class="mt-5">Auto-sizing</h4>
+                <p>Combine <code>.col-auto</code> with <code>.w-auto</code> to make controls take only the width their content needs.</p>
+                <!--@example-->
+                <div class="row gy-2 gx-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="forms-auto-name">Name</label>
+                        <input type="text" class="form-control" id="forms-auto-name" placeholder="Jane Doe">
+                    </div>
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="forms-auto-username">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-text">@</div>
+                            <input type="text" class="form-control" id="forms-auto-username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="forms-auto-select">Preference</label>
+                        <select class="form-select w-auto" id="forms-auto-select">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="forms-auto-check">
+                            <label class="form-check-label" for="forms-auto-check">Remember me</label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Help text</h4>
+                <p>Use <code>.form-text</code> and <code>aria-describedby</code> to associate guidance with a control.</p>
+                <!--@example-->
+                <label for="forms-help-password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="forms-help-password" aria-describedby="forms-help-password-text">
+                <div id="forms-help-password-text" class="form-text">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</div>
+                <!--@end-->
+
+                <h4 class="mt-5">Disabled fieldset</h4>
+                <p>Add <code>disabled</code> to a <code>fieldset</code> to disable every control it contains.</p>
+                <!--@example-->
+                <fieldset disabled>
+                    <legend>Disabled fieldset example</legend>
+                    <div class="mb-3">
+                        <label for="forms-disabled-name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="forms-disabled-name" placeholder="Disabled input">
+                    </div>
+                    <div class="mb-3">
+                        <label for="forms-disabled-select" class="form-label">Select</label>
+                        <select class="form-select" id="forms-disabled-select">
+                            <option>Disabled select</option>
+                        </select>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="forms-disabled-check">
+                        <label class="form-check-label" for="forms-disabled-check">Can't check this</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </fieldset>
+                <!--@end-->
+
+                <h4 class="mt-5">Validation</h4>
+                <p>Use <code>.is-valid</code> and <code>.is-invalid</code> with feedback elements for server-style validation; the <code>.needs-validation</code> class provides the hook for client-side validation.</p>
+                <!--@example-->
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-6">
+                        <label for="forms-valid-first" class="form-label">First name</label>
+                        <input type="text" class="form-control is-valid" id="forms-valid-first" value="Mark" required>
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="forms-invalid-last" class="form-label">Last name</label>
+                        <input type="text" class="form-control is-invalid" id="forms-invalid-last" value="" required>
+                        <div class="invalid-feedback">Please provide a valid last name.</div>
+                    </div>
+                </form>
+                <!--@end-->
+
+                <h4 class="mt-5">Browser validation</h4>
+                <p>Add <code>.was-validated</code> to a form to show the native validation styles immediately, without extra JavaScript.</p>
+                <!--@example-->
+                <form class="was-validated">
+                    <div class="mb-3">
+                        <label for="forms-browser-username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="forms-browser-username" required>
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="forms-browser-email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="forms-browser-email" required>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <!--@end-->
+
+                <h4 class="mt-5">Validation tooltips</h4>
+                <p>Replace the feedback blocks with <code>.valid-tooltip</code> or <code>.invalid-tooltip</code> inside a <code>.position-relative</code> wrapper to show validation as a tooltip.</p>
+                <!--@example class="pb-5"-->
+                <div class="row g-3">
+                    <div class="col-md-6 position-relative">
+                        <label for="forms-tooltip-first" class="form-label">First name</label>
+                        <input type="text" class="form-control is-invalid" id="forms-tooltip-first" value="" required>
+                        <div class="invalid-tooltip">Please choose a unique and valid username.</div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <label for="forms-tooltip-last" class="form-label">Last name</label>
+                        <input type="text" class="form-control is-valid" id="forms-tooltip-last" value="Otto" required>
+                        <div class="valid-tooltip">Looks good!</div>
+                    </div>
+                </div>
+                <!--@end-->
             </div>
         </div>
     </div>

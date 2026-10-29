@@ -1,0 +1,175 @@
+<!-- Input group
+================================================== -->
+<div id="input-group" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Input group</h1>
+                <p>Input groups attach addons, buttons, and other controls to a single form field without writing custom CSS.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Basic addons</h4>
+                <p>Place text or symbols in a <code>.input-group-text</code> before or after an input to label the expected value.</p>
+                <!--@example-->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="input-group-basic-addon">@</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="input-group-basic-addon">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="input-group-basic-domain">
+                    <span class="input-group-text" id="input-group-basic-domain">@example.com</span>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <span class="input-group-text">.00</span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Wrapping</h4>
+                <p>Add <code>.flex-nowrap</code> to keep an input group on one line when its addons would otherwise wrap.</p>
+                <!--@example-->
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="input-group-wrap-addon">https://example.com/</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="input-group-wrap-addon">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Add <code>.input-group-sm</code> or <code>.input-group-lg</code> to the input group to size every control inside it.</p>
+                <!--@example-->
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="input-group-small-addon">Small</span>
+                    <input type="text" class="form-control" aria-label="Small input group" aria-describedby="input-group-small-addon">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="input-group-default-addon">Default</span>
+                    <input type="text" class="form-control" aria-label="Default input group" aria-describedby="input-group-default-addon">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="input-group-large-addon">Large</span>
+                    <input type="text" class="form-control" aria-label="Large input group" aria-describedby="input-group-large-addon">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Checkboxes and radios</h4>
+                <p>Place a <code>.form-check-input</code> inside an <code>.input-group-text</code> to add a checkbox or radio addon.</p>
+                <!--@example-->
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    </span>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input">
+                    </span>
+                    <input type="text" class="form-control" aria-label="Text input with radio button">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Multiple inputs</h4>
+                <p>Two <code>.form-control</code> elements can share one input group, with a single label describing both.</p>
+                <!--@example-->
+                <div class="input-group" id="input-group-multiple">
+                    <span class="input-group-text">First and last name</span>
+                    <input type="text" class="form-control" aria-label="First name">
+                    <input type="text" class="form-control" aria-label="Last name">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Multiple addons</h4>
+                <p>Stack several <code>.input-group-text</code> elements on either side of a single control.</p>
+                <!--@example-->
+                <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <span class="input-group-text">0.00</span>
+                    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-label="Product price (with dot and two decimal places)">
+                    <span class="input-group-text">$</span>
+                    <span class="input-group-text">0.00</span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Buttons</h4>
+                <p>Add a button before or after an input, using <code>.btn-outline-secondary</code> so it adapts to the active colour mode.</p>
+                <!--@example-->
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-secondary" type="button">Search</button>
+                    <input type="text" class="form-control" placeholder="Search query" aria-label="Search query">
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username">
+                    <button class="btn btn-outline-secondary" type="button">Copy</button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Buttons with dropdowns</h4>
+                <p>Combine a dropdown button with an input to offer common values beside a free-text field.</p>
+                <!--@example-->
+                <div class="input-group" id="input-group-dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Segmented buttons</h4>
+                <p>A segmented dropdown keeps the main action separate from a split toggle that opens the menu.</p>
+                <!--@example-->
+                <div class="input-group" id="input-group-segmented">
+                    <button type="button" class="btn btn-outline-secondary">Action</button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                    <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Custom select and file</h4>
+                <p>Use an <code>.input-group-text</code> as a <code>label</code> to attach a select or file input to an input group.</p>
+                <!--@example-->
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="input-group-select">Options</label>
+                    <select class="form-select" id="input-group-select">
+                        <option selected>Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label class="input-group-text" for="input-group-file">Upload</label>
+                    <input type="file" class="form-control" id="input-group-file">
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Validation</h4>
+                <p>Add <code>.has-validation</code> to an input group so its feedback element sits inside the group's rounded border.</p>
+                <!--@example-->
+                <label for="input-group-validation" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text">@</span>
+                    <input type="text" class="form-control is-invalid" id="input-group-validation" required aria-describedby="input-group-validation-feedback">
+                    <div class="invalid-feedback" id="input-group-validation-feedback">Please choose a username.</div>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

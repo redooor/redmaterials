@@ -1,405 +1,178 @@
-<!-- Containers
+<!-- Grid & containers
 ================================================== -->
 <div id="container" class="container pt-5">
     <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Grid &amp; containers</h1>
+                <p>Containers center and pad content, while the grid's rows and columns arrange it into a responsive layout.</p>
+            </div>
+        </div>
 
         <div class="row">
-            <div class="col">
-                <h1>Containers</h1>
-                <div class="bs-component mb-4">
-                    <h4>Hero</h4>
-                    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-                        <h1 class="display-4">Hello, world!</h1>
-                        <p class="lead">This is a simple hero unit, a simple hero-style component for calling extra attention to featured content or information.</p>
-                        <hr class="my-4">
-                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                        <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                        </p>
-                    </div>
-                    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-                        <div class="container">
-                            <h1 class="display-4">Fluid hero</h1>
-                            <p class="lead">This is a modified hero that occupies the entire horizontal space of its parent.</p>
+            <div class="col-lg-12">
+                <h4>Containers</h4>
+                <p>Each container class caps the content width at a different breakpoint, and <code>.container-fluid</code> always spans the full available width.</p>
+                <!--@example-->
+                <div class="bg-body-secondary rounded p-3">
+                    <div class="container border rounded bg-body p-2 mb-2">.container</div>
+                    <div class="container-sm border rounded bg-body p-2 mb-2">.container-sm</div>
+                    <div class="container-md border rounded bg-body p-2 mb-2">.container-md</div>
+                    <div class="container-lg border rounded bg-body p-2 mb-2">.container-lg</div>
+                    <div class="container-xl border rounded bg-body p-2 mb-2">.container-xl</div>
+                    <div class="container-xxl border rounded bg-body p-2 mb-2">.container-xxl</div>
+                    <div class="container-fluid border rounded bg-body p-2">.container-fluid</div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Breakpoints</h4>
+                <p>Bootstrap's responsive breakpoints define the container widths and the infix used by the grid classes.</p>
+                <!--@example-->
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Breakpoint</th>
+                                <th scope="col">Class infix</th>
+                                <th scope="col">Container max-width</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">Extra small</th><td><code>&lt;576px</code></td><td>None (auto)</td></tr>
+                            <tr><th scope="row">Small</th><td><code>sm</code></td><td>540px</td></tr>
+                            <tr><th scope="row">Medium</th><td><code>md</code></td><td>720px</td></tr>
+                            <tr><th scope="row">Large</th><td><code>lg</code></td><td>960px</td></tr>
+                            <tr><th scope="row">Extra large</th><td><code>xl</code></td><td>1140px</td></tr>
+                            <tr><th scope="row">Extra extra large</th><td><code>xxl</code></td><td>1320px</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Grid rows and columns</h4>
+                <p>Rows group columns, and column classes set how many of the twelve grid units each item occupies.</p>
+                <!--@example-->
+                <div class="row g-2 mb-2">
+                    <div class="col-12 border rounded bg-body-tertiary p-2">.col-12</div>
+                </div>
+                <div class="row g-2 mb-2">
+                    <div class="col-6 border rounded bg-body-tertiary p-2">.col-6</div>
+                    <div class="col-6 border rounded bg-body-tertiary p-2">.col-6</div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-4 border rounded bg-body-tertiary p-2">.col-4</div>
+                    <div class="col-4 border rounded bg-body-tertiary p-2">.col-4</div>
+                    <div class="col-4 border rounded bg-body-tertiary p-2">.col-4</div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Auto-layout columns</h4>
+                <p>Equal-width <code>.col</code> classes share the remaining space, while <code>.col-auto</code> sizes itself to its content.</p>
+                <!--@example-->
+                <div class="row g-2 mb-2">
+                    <div class="col border rounded bg-body-tertiary p-2">.col</div>
+                    <div class="col border rounded bg-body-tertiary p-2">.col</div>
+                    <div class="col border rounded bg-body-tertiary p-2">.col</div>
+                </div>
+                <div class="row g-2">
+                    <div class="col border rounded bg-body-tertiary p-2">.col</div>
+                    <div class="col-auto border rounded bg-body-tertiary p-2">.col-auto</div>
+                    <div class="col border rounded bg-body-tertiary p-2">.col</div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Row columns</h4>
+                <p>The <code>.row-cols-*</code> utilities set a responsive number of equal-width columns per row.</p>
+                <!--@example-->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
+                    <div class="col"><div class="border rounded bg-body-tertiary p-2">Column</div></div>
+                    <div class="col"><div class="border rounded bg-body-tertiary p-2">Column</div></div>
+                    <div class="col"><div class="border rounded bg-body-tertiary p-2">Column</div></div>
+                    <div class="col"><div class="border rounded bg-body-tertiary p-2">Column</div></div>
+                    <div class="col"><div class="border rounded bg-body-tertiary p-2">Column</div></div>
+                    <div class="col"><div class="border rounded bg-body-tertiary p-2">Column</div></div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Gutters</h4>
+                <p>Gutter utilities set the horizontal and vertical space between columns with <code>.g-*</code>, <code>.gx-*</code>, and <code>.gy-*</code>.</p>
+                <!--@example-->
+                <div class="row g-0 mb-2">
+                    <div class="col-6"><div class="border rounded bg-body-tertiary p-2">.g-0</div></div>
+                    <div class="col-6"><div class="border rounded bg-body-tertiary p-2">.g-0</div></div>
+                </div>
+                <div class="row g-3 mb-2">
+                    <div class="col-6"><div class="border rounded bg-body-tertiary p-2">.g-3</div></div>
+                    <div class="col-6"><div class="border rounded bg-body-tertiary p-2">.g-3</div></div>
+                </div>
+                <div class="row gx-5 gy-2">
+                    <div class="col-6"><div class="border rounded bg-body-tertiary p-2">.gx-5 .gy-2</div></div>
+                    <div class="col-6"><div class="border rounded bg-body-tertiary p-2">.gx-5 .gy-2</div></div>
+                    <div class="col-6"><div class="border rounded bg-body-tertiary p-2">.gx-5 .gy-2</div></div>
+                    <div class="col-6"><div class="border rounded bg-body-tertiary p-2">.gx-5 .gy-2</div></div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Offsets</h4>
+                <p>Offset classes shift a column to the right by a number of grid units, and can be set per breakpoint.</p>
+                <!--@example-->
+                <div class="row g-2 mb-2">
+                    <div class="col-md-4 border rounded bg-body-tertiary p-2">.col-md-4</div>
+                    <div class="col-md-4 offset-md-4 border rounded bg-body-tertiary p-2">.col-md-4 .offset-md-4</div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-6 offset-3 border rounded bg-body-tertiary p-2">.col-6 .offset-3</div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Order</h4>
+                <p>Order classes change the visual order of columns without changing the document order.</p>
+                <!--@example-->
+                <div class="row g-2">
+                    <div class="col border rounded bg-body-tertiary p-2 order-3 order-md-2">First in source, second on md+</div>
+                    <div class="col border rounded bg-body-tertiary p-2 order-1">Second in source, first</div>
+                    <div class="col border rounded bg-body-tertiary p-2 order-2">Third in source, third</div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Alignment</h4>
+                <p>Align items vertically within a row or self-align a single column, and use justify utilities for horizontal alignment.</p>
+                <!--@example-->
+                <div class="row align-items-center g-2 mb-2" style="height: 8rem;">
+                    <div class="col border rounded bg-body-tertiary p-2">.align-items-center</div>
+                    <div class="col border rounded bg-body-tertiary p-2">.align-items-center</div>
+                    <div class="col border rounded bg-body-tertiary p-2">.align-items-center</div>
+                </div>
+                <div class="row align-items-start g-2 mb-2" style="height: 8rem;">
+                    <div class="col border rounded bg-body-tertiary p-2">.align-items-start</div>
+                    <div class="col align-self-end border rounded bg-body-tertiary p-2">.align-self-end</div>
+                    <div class="col border rounded bg-body-tertiary p-2">.align-items-start</div>
+                </div>
+                <div class="row justify-content-center g-2">
+                    <div class="col-4 border rounded bg-body-tertiary p-2 text-center">.justify-content-center</div>
+                    <div class="col-4 border rounded bg-body-tertiary p-2 text-center">.justify-content-center</div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Nesting</h4>
+                <p>Place a new row inside a column to nest a grid within the parent grid.</p>
+                <!--@example-->
+                <div class="row g-2">
+                    <div class="col-sm-6 border rounded bg-body-tertiary p-2">
+                        Level 1: .col-sm-6
+                        <div class="row g-2 mt-1">
+                            <div class="col-6"><div class="border rounded bg-body p-2">Level 2: .col-6</div></div>
+                            <div class="col-6"><div class="border rounded bg-body p-2">Level 2: .col-6</div></div>
                         </div>
                     </div>
-                    <!--@code--><div class="p-5 mb-4 bg-body-tertiary rounded-3">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple hero-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
-</div>
-
-<div class="p-5 mb-4 bg-body-tertiary rounded-3">
-    <div class="container">
-        <h1 class="display-4">Fluid hero</h1>
-        <p class="lead">This is a modified hero that occupies the entire horizontal space of its parent.</p>
-    </div>
-</div><!--@end-->
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col">
-                <h4>List groups</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="bs-component mb-4">
-                    <p class="lead">Normal list</p>
-                    <ul class="list-group">
-                        <li class="list-group-item active">Active List</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item disabled">Disabled list</li>
-                    </ul>
-                    <!--@code--><ul class="list-group">
-    <li class="list-group-item active">Active List</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item disabled">Disabled list</li>
-</ul><!--@end-->
-                </div>
-                <div class="bs-component mb-4">
-                    <p class="lead">Link list</p>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">Active List</a>
-                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item list-group-item-action disabled">Disabled List</a>
+                    <div class="col-sm-6 border rounded bg-body-tertiary p-2">
+                        Level 1: .col-sm-6
+                        <div class="row g-2 mt-1">
+                            <div class="col-12"><div class="border rounded bg-body p-2">Level 2: .col-12</div></div>
+                        </div>
                     </div>
-                    <!--@code--><div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action active">Active List</a>
-    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-    <a href="#" class="list-group-item list-group-item-action disabled">Disabled List</a>
-</div><!--@end-->
                 </div>
-                <div class="bs-component mb-4">
-                    <p class="lead">Button list</p>
-                    <div class="list-group">
-                        <button type="button" class="list-group-item list-group-item-action active">Active List</button>
-                        <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-                        <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-                        <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-                        <button type="button" class="list-group-item list-group-item-action" disabled>Disabled List</button>
-                    </div>
-                    <!--@code--><div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action active">Active List</button>
-    <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-    <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-    <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-    <button type="button" class="list-group-item list-group-item-action" disabled>Disabled List</button>
-</div><!--@end-->
-                </div>
-                <div class="bs-component mb-4">
-                    <p class="lead">Flushed List</p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                    <!--@code--><ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-</ul><!--@end-->
-                </div>
-                <div class="bs-component mb-4">
-                    <p class="lead">Contexture List</p>
-                    <ul class="list-group">
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
-                        <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
-                        <li class="list-group-item list-group-item-success">This is a success list group item</li>
-                        <li class="list-group-item list-group-item-danger">This is a danger list group item</li>
-                        <li class="list-group-item list-group-item-warning">This is a warning list group item</li>
-                        <li class="list-group-item list-group-item-info">This is a info list group item</li>
-                        <li class="list-group-item list-group-item-light">This is a light list group item</li>
-                        <li class="list-group-item list-group-item-dark">This is a dark list group item</li>
-                    </ul>
-                    <!--@code--><ul class="list-group">
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
-    <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
-    <li class="list-group-item list-group-item-success">This is a success list group item</li>
-    <li class="list-group-item list-group-item-danger">This is a danger list group item</li>
-    <li class="list-group-item list-group-item-warning">This is a warning list group item</li>
-    <li class="list-group-item list-group-item-info">This is a info list group item</li>
-    <li class="list-group-item list-group-item-light">This is a light list group item</li>
-    <li class="list-group-item list-group-item-dark">This is a dark list group item</li>
-</ul><!--@end-->
-                </div>
-                <div class="bs-component mb-4">
-                    <p class="lead">Action Contexture List</p>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">This is a secondary list group item</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-success">This is a success list group item</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">This is a danger list group item</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-warning">This is a warning list group item</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-info">This is a info list group item</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a light list group item</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-dark">This is a dark list group item</a>
-                    </div>
-                    <!--@code--><div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">This is a secondary list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-success">This is a success list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">This is a danger list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-warning">This is a warning list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-info">This is a info list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a light list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">This is a dark list group item</a>
-</div><!--@end-->
-                </div>
-                <div class="bs-component mb-4">
-                    <p class="lead">List with Badges</p>
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Cras justo odio
-                            <span class="badge text-bg-primary rounded-pill">14</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Dapibus ac facilisis in
-                            <span class="badge text-bg-primary rounded-pill">2</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Morbi leo risus
-                            <span class="badge text-bg-primary rounded-pill">1</span>
-                        </li>
-                    </ul>
-                    <!--@code--><ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <span class="badge text-bg-primary rounded-pill">14</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        Dapibus ac facilisis in
-        <span class="badge text-bg-primary rounded-pill">2</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        Morbi leo risus
-        <span class="badge text-bg-primary rounded-pill">1</span>
-    </li>
-</ul><!--@end-->
-                </div>
-                <div class="bs-component mb-4">
-                    <p class="lead">Custom content</p>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">List group item heading</h5>
-                                <small>3 days ago</small>
-                            </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                            <small>Donec id elit non mi porta.</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">List group item heading</h5>
-                                <small class="text-body-secondary">3 days ago</small>
-                            </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                            <small class="text-body-secondary">Donec id elit non mi porta.</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">List group item heading</h5>
-                                <small class="text-body-secondary">3 days ago</small>
-                            </div>
-                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                            <small class="text-body-secondary">Donec id elit non mi porta.</small>
-                        </a>
-                    </div>
-                    <!--@code--><div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small>3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Donec id elit non mi porta.</small>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-body-secondary">3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small class="text-body-secondary">Donec id elit non mi porta.</small>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-body-secondary">3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small class="text-body-secondary">Donec id elit non mi porta.</small>
-    </a>
-</div><!--@end-->
-                </div>
-            </div>
-        </div>
-
-        <!-- Breadcrumbs -->
-        <div id="breadcrumbs" class="row mt-4">
-            <div class="col-lg-12">
-                <h4>Breadcrumbs</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="bs-component mb-4">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home</li>
-                        </ol>
-                    </nav>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Library</li>
-                        </ol>
-                    </nav>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Library</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data</li>
-                        </ol>
-                    </nav>
-                    <!--@code--><nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Library</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Data</li>
-    </ol>
-</nav><!--@end-->
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagination -->
-        <div id="pagination" class="row mt-4">
-            <div class="col-lg-12">
-                <h4>Pagination</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="bs-component mb-4">
-                    <p class="lead">Basic</p>
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination flex-wrap">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                    <p class="lead">With disabled and active states</p>
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination flex-wrap">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1 <span class="visually-hidden">(current)</span></a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                    <!--@code--><nav aria-label="Page navigation">
-    <ul class="pagination">
-        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
-        <li class="page-item active"><a class="page-link" href="#">1 <span class="visually-hidden">(current)</span></a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-</nav><!--@end-->
-                </div>
-            </div>
-        </div>
-
-        <!-- List Group Horizontal -->
-        <div class="row mt-4">
-            <div class="col-lg-12">
-                <h4>List Group Horizontal</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="bs-component mb-4">
-                    <ul class="list-group list-group-horizontal">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                    </ul>
-                    <!--@code--><ul class="list-group list-group-horizontal">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-</ul><!--@end-->
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h4>Wells</h4>
-                <p>We're keeping the wells from Bootstrap v3.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="bs-component">
-                    <p class="lead">Normal</p>
-                    <div class="well">
-                        Look, I'm in a well!
-                    </div>
-                    <!--@code--><div class="well">
-    Look, I'm in a well!
-</div><!--@end-->
-                </div>
-            </div>
-            <div class="col">
-                <div class="bs-component">
-                    <p class="lead">Small</p>
-                    <div class="well well-sm">
-                        Look, I'm in a small well!
-                    </div>
-                    <!--@code--><div class="well well-sm">
-    Look, I'm in a small well!
-</div><!--@end-->
-                </div>
-            </div>
-            <div class="col">
-                <div class="bs-component">
-                    <p class="lead">Large</p>
-                    <div class="well well-lg">
-                        Look, I'm in a large well!
-                    </div>
-                    <!--@code--><div class="well well-lg">
-    Look, I'm in a large well!
-</div><!--@end-->
-                </div>
+                <!--@end-->
             </div>
         </div>
     </div>
