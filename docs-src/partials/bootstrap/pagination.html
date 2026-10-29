@@ -1,0 +1,138 @@
+<!-- Pagination
+================================================== -->
+<div id="pagination" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Pagination</h1>
+                <p>Split long result sets into pages with linked page numbers, previous and next controls, and size or alignment utilities.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Overview</h4>
+                <p>Wrap the page list in a <code>nav</code> with an <code>aria-label</code>, and mark the current page with <code>.active</code> and <code>aria-current="page"</code>.</p>
+                <!--@example-->
+                <nav aria-label="Pagination">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Working with icons</h4>
+                <p>Use an icon for the previous and next controls and give each link an <code>aria-label</code>, while hiding the decorative symbol with <code>aria-hidden="true"</code>.</p>
+                <!--@example-->
+                <nav aria-label="Pagination with icons">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Disabled and active states</h4>
+                <p>Add <code>.disabled</code> and <code>aria-disabled="true"</code> to a page item that cannot be used, and <code>.active</code> to the current page.</p>
+                <!--@example-->
+                <nav aria-label="Disabled pagination">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">1</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">2</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav aria-label="Active pagination" class="mt-3">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Add <code>.pagination-lg</code> or <code>.pagination-sm</code> to change the size of the whole page list.</p>
+                <!--@example-->
+                <nav aria-label="Large pagination">
+                    <ul class="pagination pagination-lg flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Small pagination" class="mt-3">
+                    <ul class="pagination pagination-sm flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Alignment</h4>
+                <p>Use <code>.justify-content-center</code> or <code>.justify-content-end</code> to align the page list within its container.</p>
+                <!--@example-->
+                <nav aria-label="Centered pagination">
+                    <ul class="pagination justify-content-center flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="End-aligned pagination" class="mt-3">
+                    <ul class="pagination justify-content-end flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

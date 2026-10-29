@@ -1,0 +1,84 @@
+<!-- Spinners
+================================================== -->
+<div id="spinners" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Spinners</h1>
+                <p>Indicate loading states with border or grow spinners, in theme colours, at several sizes, and inside buttons.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Border</h4>
+                <p>Use <code>.spinner-border</code> for a lightweight loading indicator and include visually hidden status text.</p>
+                <!--@example-->
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Grow</h4>
+                <p>Use <code>.spinner-grow</code> for a pulsing indicator that draws attention without rotating.</p>
+                <!--@example-->
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Colours</h4>
+                <p>Set the spinner colour with the <code>.text-*</code> utilities.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-success" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-danger" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-warning" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-info" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="bg-dark rounded p-2 d-inline-flex"><div class="spinner-border text-light" role="status"><span class="visually-hidden">Loading...</span></div></div>
+                    <div class="bg-warning rounded p-2 d-inline-flex"><div class="spinner-border text-dark" role="status"><span class="visually-hidden">Loading...</span></div></div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Alignment</h4>
+                <p>Place a spinner with flexbox, a float, or text alignment depending on the surrounding layout.</p>
+                <!--@example-->
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                <div class="clearfix mb-3">
+                    <div class="spinner-border float-end" role="status"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                <div class="text-center">
+                    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizes</h4>
+                <p>Add <code>.spinner-border-sm</code> for a small spinner, or set a custom size with width and height.</p>
+                <!--@example-->
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border" role="status" style="width: 3rem; height: 3rem;"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">In buttons</h4>
+                <p>Place a small spinner inside a disabled button and keep the status text available to assistive technology.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary me-2" disabled>
+                    <span class="spinner-border spinner-border-sm me-2" role="status"><span class="visually-hidden">Loading...</span></span>
+                    Please wait
+                </button>
+                <button type="button" class="btn btn-secondary" disabled>
+                    <span class="spinner-grow spinner-grow-sm me-2" role="status"><span class="visually-hidden">Loading...</span></span>
+                    Please wait
+                </button>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

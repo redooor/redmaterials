@@ -1,0 +1,62 @@
+<!-- Breadcrumb
+================================================== -->
+<div id="breadcrumbs" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Breadcrumb</h1>
+                <p>Show the current page's location within a navigational hierarchy with a flexible, accessible breadcrumb trail.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Default</h4>
+                <p>The default breadcrumb separates items with a slash and styles the current page as active.</p>
+                <!--@example-->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    </ol>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Custom divider</h4>
+                <p>The default divider is a slash; changing it needs a stylesheet that sets the <code>--bs-breadcrumb-divider</code> CSS variable, shown in the snippet below.</p>
+                <!--@example-->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    </ol>
+                </nav>
+                <!--@end-->
+                <!--@code-->
+<!-- Custom dividers require a stylesheet; this inline variable is shown only to document the API. -->
+<nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+</nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Accessibility</h4>
+                <p>Wrap the trail in a <code>nav</code> with an <code>aria-label</code>, and mark the current page with <code>aria-current="page"</code>.</p>
+                <!--@example-->
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Accessories</li>
+                    </ol>
+                </nav>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

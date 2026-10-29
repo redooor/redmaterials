@@ -91,8 +91,14 @@
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#input-group">Input group</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#buttons">Buttons</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#button-group">Button group</a></li>
-<li class="nav-item"><a class="nav-link link-body-emphasis" href="#indicators">Indicators</a></li>
-<li class="nav-item"><a class="nav-link link-body-emphasis" href="#progress">Progress Bars</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#alerts">Alerts</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#badges">Badges</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#spinners">Spinners</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#placeholders">Placeholders</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#progress">Progress</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#toasts">Toasts</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#breadcrumbs">Breadcrumb</a></li>
+<li class="nav-item"><a class="nav-link link-body-emphasis" href="#pagination">Pagination</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#nav">Nav</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#navbar">Navbar</a></li>
 <li class="nav-item"><a class="nav-link link-body-emphasis" href="#cards">Cards</a></li>
@@ -3240,175 +3246,268 @@
     </div>
 </div>
 
-<!-- Indicators
+<!-- Alerts
 ================================================== -->
-<div id="indicators" class="container pt-5">
+<div id="alerts" class="container pt-5">
     <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Alerts</h1>
+                <p>Provide contextual feedback messages for typical user actions with the eight theme colours and optional links, headings, icons, and a close button.</p>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-lg-12">
-                <h1>Indicators</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h4>Alerts with links</h4>
-                <div class="bs-component mb-4">
-                    <div class="alert alert-primary" role="alert">
-                        This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    </div>
-                    <div class="alert alert-secondary" role="alert">
-                        This is a secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    </div>
-                    <div class="alert alert-success" role="alert">
-                        This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    </div>
-                    <div class="alert alert-danger" role="alert">
-                        This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    </div>
-                    <div class="alert alert-warning" role="alert">
-                        This is a warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    </div>
-                    <div class="alert alert-info" role="alert">
-                        This is a info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    </div>
-                    <div class="alert alert-light" role="alert">
-                        This is a light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    </div>
-                    <div class="alert alert-dark" role="alert">
-                        This is a dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;
-    This is a primary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+                <h4>Contextual alerts</h4>
+                <p>Use one of the eight contextual classes to match the message to its meaning.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="alert alert-primary" role="alert">A simple primary alert—check it out!</div>
+                <div class="alert alert-secondary" role="alert">A simple secondary alert—check it out!</div>
+                <div class="alert alert-success" role="alert">A simple success alert—check it out!</div>
+                <div class="alert alert-danger" role="alert">A simple danger alert—check it out!</div>
+                <div class="alert alert-warning" role="alert">A simple warning alert—check it out!</div>
+                <div class="alert alert-info" role="alert">A simple info alert—check it out!</div>
+                <div class="alert alert-light" role="alert">A simple light alert—check it out!</div>
+                <div class="alert alert-dark" role="alert">A simple dark alert—check it out!</div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;A simple primary alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-secondary&quot; role=&quot;alert&quot;&gt;A simple secondary alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;A simple success alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;A simple danger alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning&quot; role=&quot;alert&quot;&gt;A simple warning alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;A simple info alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-light&quot; role=&quot;alert&quot;&gt;A simple light alert—check it out!&lt;/div&gt;
+&lt;div class=&quot;alert alert-dark&quot; role=&quot;alert&quot;&gt;A simple dark alert—check it out!&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Alert links</h4>
+                <p>Add <code>.alert-link</code> to a link inside an alert so it inherits the alert's contextual colour.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="alert alert-primary" role="alert">
+                    A primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+                <div class="alert alert-secondary" role="alert">
+                    A secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+                <div class="alert alert-success" role="alert">
+                    A success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+                <div class="alert alert-danger" role="alert">
+                    A danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+                <div class="alert alert-warning" role="alert">
+                    A warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+                <div class="alert alert-info" role="alert">
+                    An info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+                <div class="alert alert-light" role="alert">
+                    A light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+                <div class="alert alert-dark" role="alert">
+                    A dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;
+    A primary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
 &lt;/div&gt;
 &lt;div class=&quot;alert alert-secondary&quot; role=&quot;alert&quot;&gt;
-    This is a secondary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+    A secondary alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
 &lt;/div&gt;
 &lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
-    This is a success alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+    A success alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
 &lt;/div&gt;
 &lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;
-    This is a danger alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+    A danger alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
 &lt;/div&gt;
 &lt;div class=&quot;alert alert-warning&quot; role=&quot;alert&quot;&gt;
-    This is a warning alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+    A warning alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
 &lt;/div&gt;
 &lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;
-    This is a info alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+    An info alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
 &lt;/div&gt;
 &lt;div class=&quot;alert alert-light&quot; role=&quot;alert&quot;&gt;
-    This is a light alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+    A light alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
 &lt;/div&gt;
 &lt;div class=&quot;alert alert-dark&quot; role=&quot;alert&quot;&gt;
-    This is a dark alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
+    A dark alert with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;an example link&lt;/a&gt;. Give it a click if you like.
 &lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Additional content</h4>
+                <p>Alerts can hold a heading, a paragraph, and a horizontal rule to separate a longer message from its summary.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Well done!</h4>
+                    <p>Aww yeah, you successfully read this important alert message. This example text runs a little longer so you can see how spacing within an alert works with this kind of content.</p>
+                    <hr>
+                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
                 </div>
-                <div class="bs-component mb-4">
-                    <h4>Alerts with Additional Content</h4>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <h4 class="alert-heading">Well done!</h4>
-                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                        <hr>
-                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;alert alert-warning alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
     &lt;h4 class=&quot;alert-heading&quot;&gt;Well done!&lt;/h4&gt;
-    &lt;p&gt;Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.&lt;/p&gt;
+    &lt;p&gt;Aww yeah, you successfully read this important alert message. This example text runs a little longer so you can see how spacing within an alert works with this kind of content.&lt;/p&gt;
     &lt;hr&gt;
     &lt;p class=&quot;mb-0&quot;&gt;Whenever you need to, be sure to use margin utilities to keep things nice and tidy.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Icons</h4>
+                <p>Pair an inline SVG icon with <code>.d-flex</code> to add visual emphasis without loading an icon font.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="flex-shrink-0 me-2" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                    <div>A success alert with a check mark icon.</div>
+                </div>
+                <div class="alert alert-info d-flex align-items-center" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="flex-shrink-0 me-2" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+                    </svg>
+                    <div>An info alert with an information icon.</div>
+                </div>
+                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="flex-shrink-0 me-2" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                    </svg>
+                    <div>A warning alert with a warning triangle icon.</div>
+                </div>
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="flex-shrink-0 me-2" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                    </svg>
+                    <div>A danger alert with an exclamation mark icon.</div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;alert alert-success d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+    &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; fill=&quot;currentColor&quot; class=&quot;flex-shrink-0 me-2&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+        &lt;path d=&quot;M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z&quot;/&gt;
+    &lt;/svg&gt;
+    &lt;div&gt;A success alert with a check mark icon.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-info d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+    &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; fill=&quot;currentColor&quot; class=&quot;flex-shrink-0 me-2&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+        &lt;path d=&quot;M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2&quot;/&gt;
+    &lt;/svg&gt;
+    &lt;div&gt;An info alert with an information icon.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+    &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; fill=&quot;currentColor&quot; class=&quot;flex-shrink-0 me-2&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+        &lt;path d=&quot;M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2&quot;/&gt;
+    &lt;/svg&gt;
+    &lt;div&gt;A warning alert with a warning triangle icon.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-danger d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+    &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; fill=&quot;currentColor&quot; class=&quot;flex-shrink-0 me-2&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+        &lt;path d=&quot;M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2&quot;/&gt;
+    &lt;/svg&gt;
+    &lt;div&gt;A danger alert with an exclamation mark icon.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Dismissible</h4>
+                <p>Add <code>.alert-dismissible</code> and a <code>.btn-close</code> button with <code>data-bs-dismiss="alert"</code> to let readers remove an alert.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div id="alerts-dismissible" class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div id=&quot;alerts-dismissible&quot; class=&quot;alert alert-warning alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+    &lt;strong&gt;Holy guacamole!&lt;/strong&gt; You should check in on some of those fields below.
     &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre>
-                </div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Badges
+================================================== -->
+<div id="badges" class="container pt-5">
+    <div class="pt-5">
         <div class="row">
-            <div class="col">
-                <h4>Dismissible Alerts</h4>
+            <div class="col-lg-12">
+                <h1>Badges</h1>
+                <p>Use small count and label indicators in headings, buttons, and interface corners, with contextual colours and pill or dot shapes.</p>
             </div>
         </div>
+
         <div class="row">
-            <div class="col">
-                <div class="bs-component mb-4">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+            <div class="col-lg-12">
+                <h4>In headings</h4>
+                <p>Badges scale to the size of their parent heading, so they work at every heading level.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <h1>Example heading <span class="badge text-bg-secondary">New</span></h1>
+                <h2>Example heading <span class="badge text-bg-secondary">New</span></h2>
+                <h3>Example heading <span class="badge text-bg-secondary">New</span></h3>
+                <h4>Example heading <span class="badge text-bg-secondary">New</span></h4>
+                <h5>Example heading <span class="badge text-bg-secondary">New</span></h5>
+                <h6>Example heading <span class="badge text-bg-secondary">New</span></h6>
                 </div>
-            </div>
-            <div class="col">
-                <div class="bs-component">
-                    <div class="alert alert-dismissible alert-success">
-                        <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="bs-component">
-                    <div class="alert alert-dismissible alert-info">
-                        <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;alert alert-danger alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
-    &lt;strong&gt;Oh snap!&lt;/strong&gt; &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;Change a few things up&lt;/a&gt; and try submitting again.
-    &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
-&lt;/div&gt;
-            
-&lt;div class=&quot;alert alert-dismissible alert-success&quot;&gt;
-    &lt;strong&gt;Well done!&lt;/strong&gt; You successfully read &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;this important alert message&lt;/a&gt;.
-    &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
-&lt;/div&gt;
-            
-&lt;div class=&quot;alert alert-dismissible alert-info&quot;&gt;
-    &lt;strong&gt;Heads up!&lt;/strong&gt; This &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;alert needs your attention&lt;/a&gt;, but it's not super important.
-    &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h4>Badges in headings</h4>
-                <div class="well">
-                    <h1>Example heading <span class="badge text-bg-secondary">New</span></h1>
-                    <h2>Example heading <span class="badge text-bg-secondary">New</span></h2>
-                    <h3>Example heading <span class="badge text-bg-secondary">New</span></h3>
-                    <h4>Example heading <span class="badge text-bg-secondary">New</span></h4>
-                    <h5>Example heading <span class="badge text-bg-secondary">New</span></h5>
-                    <h6>Example heading <span class="badge text-bg-secondary">New</span></h6>
-                </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;h1&gt;Example heading &lt;span class=&quot;badge text-bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h1&gt;
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;h1&gt;Example heading &lt;span class=&quot;badge text-bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h1&gt;
 &lt;h2&gt;Example heading &lt;span class=&quot;badge text-bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h2&gt;
 &lt;h3&gt;Example heading &lt;span class=&quot;badge text-bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h3&gt;
 &lt;h4&gt;Example heading &lt;span class=&quot;badge text-bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h4&gt;
 &lt;h5&gt;Example heading &lt;span class=&quot;badge text-bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h5&gt;
 &lt;h6&gt;Example heading &lt;span class=&quot;badge text-bg-secondary&quot;&gt;New&lt;/span&gt;&lt;/h6&gt;</code></pre>
-                <h4>Badges in buttons</h4>
-                <div class="well">
-                    <button type="button" class="btn btn-primary">
-                        Notifications <span class="badge text-bg-light ms-2">4</span>
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                        Profile <span class="badge text-bg-light ms-2">9</span>
-                        <span class="visually-hidden">unread messages</span>
-                    </button>
-                </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
-  Notifications &lt;span class=&quot;badge text-bg-light ms-2&quot;&gt;4&lt;/span&gt;
-&lt;/button&gt;
 
-&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
-  Profile &lt;span class=&quot;badge text-bg-light ms-2&quot;&gt;9&lt;/span&gt;
-  &lt;span class=&quot;visually-hidden&quot;&gt;unread messages&lt;/span&gt;
+                <h4 class="mt-5">In buttons</h4>
+                <p>Place a badge inside a button and pair the number with visually hidden text so screen readers announce what it counts.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button type="button" class="btn btn-primary">
+                    Notifications <span class="badge text-bg-light ms-2">4</span>
+                    <span class="visually-hidden">unread messages</span>
+                </button>
+                <button type="button" class="btn btn-secondary">
+                    Profile <span class="badge text-bg-light ms-2">9</span>
+                    <span class="visually-hidden">unread messages</span>
+                </button>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
+    Notifications &lt;span class=&quot;badge text-bg-light ms-2&quot;&gt;4&lt;/span&gt;
+    &lt;span class=&quot;visually-hidden&quot;&gt;unread messages&lt;/span&gt;
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;
+    Profile &lt;span class=&quot;badge text-bg-light ms-2&quot;&gt;9&lt;/span&gt;
+    &lt;span class=&quot;visually-hidden&quot;&gt;unread messages&lt;/span&gt;
 &lt;/button&gt;</code></pre>
-                <h4>Badges as Labels</h4>
-                <p>Labels are deprecated in Bootstrap v4, so we use Badges to replace them.</p>
-                <div class="well">
+
+                <h4 class="mt-5">Positioned</h4>
+                <p>Combine <code>.position-absolute</code>, <code>.top-0</code>, <code>.start-100</code>, and <code>.translate-middle</code> to pin a badge to the corner of a button.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button type="button" class="btn btn-primary position-relative me-3">
+                    Inbox
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </button>
+                <button type="button" class="btn btn-secondary position-relative">
+                    Updates
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        4
+                        <span class="visually-hidden">unread updates</span>
+                    </span>
+                </button>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary position-relative me-3&quot;&gt;
+    Inbox
+    &lt;span class=&quot;position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger&quot;&gt;
+        99+
+        &lt;span class=&quot;visually-hidden&quot;&gt;unread messages&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary position-relative&quot;&gt;
+    Updates
+    &lt;span class=&quot;position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger&quot;&gt;
+        4
+        &lt;span class=&quot;visually-hidden&quot;&gt;unread updates&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/button&gt;</code></pre>
+
+                <h4 class="mt-5">Background colours</h4>
+                <p>Use the <code>.text-bg-*</code> utilities to pair a contextual background with a readable text colour, on spans or on links.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-2 mb-3">
                     <span class="badge text-bg-primary">Primary</span>
                     <span class="badge text-bg-secondary">Secondary</span>
                     <span class="badge text-bg-success">Success</span>
@@ -3418,36 +3517,7 @@
                     <span class="badge text-bg-light">Light</span>
                     <span class="badge text-bg-dark">Dark</span>
                 </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;span class=&quot;badge text-bg-primary&quot;&gt;Primary&lt;/span&gt;
-&lt;span class=&quot;badge text-bg-secondary&quot;&gt;Secondary&lt;/span&gt;
-&lt;span class=&quot;badge text-bg-success&quot;&gt;Success&lt;/span&gt;
-&lt;span class=&quot;badge text-bg-danger&quot;&gt;Danger&lt;/span&gt;
-&lt;span class=&quot;badge text-bg-warning&quot;&gt;Warning&lt;/span&gt;
-&lt;span class=&quot;badge text-bg-info&quot;&gt;Info&lt;/span&gt;
-&lt;span class=&quot;badge text-bg-light&quot;&gt;Light&lt;/span&gt;
-&lt;span class=&quot;badge text-bg-dark&quot;&gt;Dark&lt;/span&gt;</code></pre>
-                <h4>Pill Badges</h4>
-                <p>This is similar to the old badges in Bootstrap v3.</p>
-                <div class="well">
-                    <span class="badge rounded-pill text-bg-primary">Primary</span>
-                    <span class="badge rounded-pill text-bg-secondary">Secondary</span>
-                    <span class="badge rounded-pill text-bg-success">Success</span>
-                    <span class="badge rounded-pill text-bg-danger">Danger</span>
-                    <span class="badge rounded-pill text-bg-warning">Warning</span>
-                    <span class="badge rounded-pill text-bg-info">Info</span>
-                    <span class="badge rounded-pill text-bg-light">Light</span>
-                    <span class="badge rounded-pill text-bg-dark">Dark</span>
-                </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;span class=&quot;badge rounded-pill text-bg-primary&quot;&gt;Primary&lt;/span&gt;
-&lt;span class=&quot;badge rounded-pill text-bg-secondary&quot;&gt;Secondary&lt;/span&gt;
-&lt;span class=&quot;badge rounded-pill text-bg-success&quot;&gt;Success&lt;/span&gt;
-&lt;span class=&quot;badge rounded-pill text-bg-danger&quot;&gt;Danger&lt;/span&gt;
-&lt;span class=&quot;badge rounded-pill text-bg-warning&quot;&gt;Warning&lt;/span&gt;
-&lt;span class=&quot;badge rounded-pill text-bg-info&quot;&gt;Info&lt;/span&gt;
-&lt;span class=&quot;badge rounded-pill text-bg-light&quot;&gt;Light&lt;/span&gt;
-&lt;span class=&quot;badge rounded-pill text-bg-dark&quot;&gt;Dark&lt;/span&gt;</code></pre>
-                <h4>Link Badges</h4>
-                <div class="well">
+                <div class="d-flex flex-wrap gap-2">
                     <a href="#" class="badge text-bg-primary">Primary</a>
                     <a href="#" class="badge text-bg-secondary">Secondary</a>
                     <a href="#" class="badge text-bg-success">Success</a>
@@ -3457,245 +3527,1159 @@
                     <a href="#" class="badge text-bg-light">Light</a>
                     <a href="#" class="badge text-bg-dark">Dark</a>
                 </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;a href=&quot;#&quot; class=&quot;badge text-bg-primary&quot;&gt;Primary&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;badge text-bg-secondary&quot;&gt;Secondary&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;badge text-bg-success&quot;&gt;Success&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;badge text-bg-danger&quot;&gt;Danger&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;badge text-bg-warning&quot;&gt;Warning&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;badge text-bg-info&quot;&gt;Info&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;badge text-bg-light&quot;&gt;Light&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;badge text-bg-dark&quot;&gt;Dark&lt;/a&gt;</code></pre>
-            </div>
-        </div>
-        <!-- Spinners -->
-        <div id="spinners" class="row mt-4">
-            <div class="col">
-                <h4>Spinners</h4>
-                <div class="bs-component mb-4">
-                    <p class="lead">spinner-border</p>
-                    <div class="spinner-border text-primary me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-border text-secondary me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-border text-success me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-border text-danger me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-border text-warning me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-border text-info me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-border text-light me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-border text-dark me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;spinner-border text-primary&quot; role=&quot;status&quot;&gt;
-    &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class=&quot;spinner-border text-secondary&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&quot;spinner-border text-success&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&quot;spinner-border text-danger&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&quot;spinner-border text-warning&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&quot;spinner-border text-info&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&quot;spinner-border text-dark&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;</code></pre>
                 </div>
-                <div class="bs-component mb-4">
-                    <p class="lead">spinner-grow</p>
-                    <div class="spinner-grow text-primary me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-grow text-secondary me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-grow text-success me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-grow text-danger me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-grow text-warning me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-grow text-info me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-grow text-light me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <div class="spinner-grow text-dark me-2" role="status"><span class="visually-hidden">Loading...</span></div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;spinner-grow text-primary&quot; role=&quot;status&quot;&gt;
-    &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-2 mb-3&quot;&gt;
+    &lt;span class=&quot;badge text-bg-primary&quot;&gt;Primary&lt;/span&gt;
+    &lt;span class=&quot;badge text-bg-secondary&quot;&gt;Secondary&lt;/span&gt;
+    &lt;span class=&quot;badge text-bg-success&quot;&gt;Success&lt;/span&gt;
+    &lt;span class=&quot;badge text-bg-danger&quot;&gt;Danger&lt;/span&gt;
+    &lt;span class=&quot;badge text-bg-warning&quot;&gt;Warning&lt;/span&gt;
+    &lt;span class=&quot;badge text-bg-info&quot;&gt;Info&lt;/span&gt;
+    &lt;span class=&quot;badge text-bg-light&quot;&gt;Light&lt;/span&gt;
+    &lt;span class=&quot;badge text-bg-dark&quot;&gt;Dark&lt;/span&gt;
 &lt;/div&gt;
-&lt;div class=&quot;spinner-grow text-secondary&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&quot;spinner-grow text-success&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;</code></pre>
-                </div>
-            </div>
-        </div>
-
-        <!-- Toasts -->
-        <div id="toasts" class="row mt-4">
-            <div class="col">
-                <h4>Toasts</h4>
-                <div class="bs-component mb-4">
-                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-header">
-                            <strong class="me-auto">Bootstrap</strong>
-                            <small>11 mins ago</small>
-                            <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close"></button>
-                        </div>
-                        <div class="toast-body">
-                            Hello, world! This is a toast message.
-                        </div>
-                    </div>
-                    <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;toast show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
-    &lt;div class=&quot;toast-header&quot;&gt;
-        &lt;strong class=&quot;me-auto&quot;&gt;Bootstrap&lt;/strong&gt;
-        &lt;small&gt;11 mins ago&lt;/small&gt;
-        &lt;button type=&quot;button&quot; class=&quot;btn-close ms-2 mb-1&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;toast-body&quot;&gt;
-        Hello, world! This is a toast message.
-    &lt;/div&gt;
+&lt;div class=&quot;d-flex flex-wrap gap-2&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;badge text-bg-primary&quot;&gt;Primary&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;badge text-bg-secondary&quot;&gt;Secondary&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;badge text-bg-success&quot;&gt;Success&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;badge text-bg-danger&quot;&gt;Danger&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;badge text-bg-warning&quot;&gt;Warning&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;badge text-bg-info&quot;&gt;Info&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;badge text-bg-light&quot;&gt;Light&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;badge text-bg-dark&quot;&gt;Dark&lt;/a&gt;
 &lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Pills</h4>
+                <p>Add <code>.rounded-pill</code> to give a badge fully rounded ends.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge rounded-pill text-bg-primary">Primary</span>
+                    <span class="badge rounded-pill text-bg-secondary">Secondary</span>
+                    <span class="badge rounded-pill text-bg-success">Success</span>
+                    <span class="badge rounded-pill text-bg-danger">Danger</span>
+                    <span class="badge rounded-pill text-bg-warning">Warning</span>
+                    <span class="badge rounded-pill text-bg-info">Info</span>
+                    <span class="badge rounded-pill text-bg-light">Light</span>
+                    <span class="badge rounded-pill text-bg-dark">Dark</span>
                 </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-2&quot;&gt;
+    &lt;span class=&quot;badge rounded-pill text-bg-primary&quot;&gt;Primary&lt;/span&gt;
+    &lt;span class=&quot;badge rounded-pill text-bg-secondary&quot;&gt;Secondary&lt;/span&gt;
+    &lt;span class=&quot;badge rounded-pill text-bg-success&quot;&gt;Success&lt;/span&gt;
+    &lt;span class=&quot;badge rounded-pill text-bg-danger&quot;&gt;Danger&lt;/span&gt;
+    &lt;span class=&quot;badge rounded-pill text-bg-warning&quot;&gt;Warning&lt;/span&gt;
+    &lt;span class=&quot;badge rounded-pill text-bg-info&quot;&gt;Info&lt;/span&gt;
+    &lt;span class=&quot;badge rounded-pill text-bg-light&quot;&gt;Light&lt;/span&gt;
+    &lt;span class=&quot;badge rounded-pill text-bg-dark&quot;&gt;Dark&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Indicator dot</h4>
+                <p>Use an empty badge with <code>.p-2</code>, <code>.bg-danger</code>, and <code>.rounded-circle</code> as a status dot, keeping the meaning in visually hidden text.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button type="button" class="btn btn-secondary position-relative">
+                    Notifications
+                    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                    </span>
+                </button>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary position-relative&quot;&gt;
+    Notifications
+    &lt;span class=&quot;position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle&quot;&gt;
+        &lt;span class=&quot;visually-hidden&quot;&gt;New alerts&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/button&gt;</code></pre>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Progress bars
+<!-- Spinners
+================================================== -->
+<div id="spinners" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Spinners</h1>
+                <p>Indicate loading states with border or grow spinners, in theme colours, at several sizes, and inside buttons.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Border</h4>
+                <p>Use <code>.spinner-border</code> for a lightweight loading indicator and include visually hidden status text.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;spinner-border text-primary&quot; role=&quot;status&quot;&gt;
+    &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Grow</h4>
+                <p>Use <code>.spinner-grow</code> for a pulsing indicator that draws attention without rotating.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;spinner-grow text-primary&quot; role=&quot;status&quot;&gt;
+    &lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Colours</h4>
+                <p>Set the spinner colour with the <code>.text-*</code> utilities.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-success" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-danger" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-warning" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border text-info" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="bg-dark rounded p-2 d-inline-flex"><div class="spinner-border text-light" role="status"><span class="visually-hidden">Loading...</span></div></div>
+                    <div class="bg-warning rounded p-2 d-inline-flex"><div class="spinner-border text-dark" role="status"><span class="visually-hidden">Loading...</span></div></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap gap-3&quot;&gt;
+    &lt;div class=&quot;spinner-border text-primary&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;spinner-border text-secondary&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;spinner-border text-success&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;spinner-border text-danger&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;spinner-border text-warning&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;spinner-border text-info&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;bg-dark rounded p-2 d-inline-flex&quot;&gt;&lt;div class=&quot;spinner-border text-light&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;bg-warning rounded p-2 d-inline-flex&quot;&gt;&lt;div class=&quot;spinner-border text-dark&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Alignment</h4>
+                <p>Place a spinner with flexbox, a float, or text alignment depending on the surrounding layout.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                <div class="clearfix mb-3">
+                    <div class="spinner-border float-end" role="status"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                <div class="text-center">
+                    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex justify-content-center mb-3&quot;&gt;
+    &lt;div class=&quot;spinner-border&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clearfix mb-3&quot;&gt;
+    &lt;div class=&quot;spinner-border float-end&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+    &lt;div class=&quot;spinner-border&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Sizes</h4>
+                <p>Add <code>.spinner-border-sm</code> for a small spinner, or set a custom size with width and height.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                    <div class="spinner-border" role="status" style="width: 3rem; height: 3rem;"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-wrap align-items-center gap-3&quot;&gt;
+    &lt;div class=&quot;spinner-border spinner-border-sm&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;spinner-border&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;spinner-border&quot; role=&quot;status&quot; style=&quot;width: 3rem; height: 3rem;&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">In buttons</h4>
+                <p>Place a small spinner inside a disabled button and keep the status text available to assistive technology.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button type="button" class="btn btn-primary me-2" disabled>
+                    <span class="spinner-border spinner-border-sm me-2" role="status"><span class="visually-hidden">Loading...</span></span>
+                    Please wait
+                </button>
+                <button type="button" class="btn btn-secondary" disabled>
+                    <span class="spinner-grow spinner-grow-sm me-2" role="status"><span class="visually-hidden">Loading...</span></span>
+                    Please wait
+                </button>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary me-2&quot; disabled&gt;
+    &lt;span class=&quot;spinner-border spinner-border-sm me-2&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/span&gt;
+    Please wait
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; disabled&gt;
+    &lt;span class=&quot;spinner-grow spinner-grow-sm me-2&quot; role=&quot;status&quot;&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Loading...&lt;/span&gt;&lt;/span&gt;
+    Please wait
+&lt;/button&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Placeholders
+================================================== -->
+<div id="placeholders" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Placeholders</h1>
+                <p>Build loading skeletons from lightweight placeholder spans, sized and coloured with Bootstrap utilities and animated while content arrives.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Card with placeholders</h4>
+                <p>Compose a card skeleton from placeholder spans in the title, text, and button positions.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="card" style="max-width: 22rem;">
+                    <svg class="card-img-top text-body-tertiary" width="100%" height="180" viewBox="0 0 800 180" aria-hidden="true" focusable="false">
+                        <rect width="800" height="180" fill="currentColor"/>
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-glow">
+                            <span class="placeholder col-6" aria-hidden="true"></span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                            <span class="placeholder col-7" aria-hidden="true"></span>
+                            <span class="placeholder col-4" aria-hidden="true"></span>
+                            <span class="placeholder col-4" aria-hidden="true"></span>
+                            <span class="placeholder col-6" aria-hidden="true"></span>
+                            <span class="placeholder col-8" aria-hidden="true"></span>
+                        </p>
+                        <a href="#" class="btn btn-primary disabled placeholder col-6" aria-disabled="true" aria-label="Loading" tabindex="-1"></a>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;card&quot; style=&quot;max-width: 22rem;&quot;&gt;
+    &lt;svg class=&quot;card-img-top text-body-tertiary&quot; width=&quot;100%&quot; height=&quot;180&quot; viewBox=&quot;0 0 800 180&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+        &lt;rect width=&quot;800&quot; height=&quot;180&quot; fill=&quot;currentColor&quot;/&gt;
+    &lt;/svg&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;h5 class=&quot;card-title placeholder-glow&quot;&gt;
+            &lt;span class=&quot;placeholder col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+        &lt;/h5&gt;
+        &lt;p class=&quot;card-text placeholder-glow&quot;&gt;
+            &lt;span class=&quot;placeholder col-7&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-4&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-4&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-8&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+        &lt;/p&gt;
+        &lt;a href=&quot;#&quot; class=&quot;btn btn-primary disabled placeholder col-6&quot; aria-disabled=&quot;true&quot; aria-label=&quot;Loading&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Widths</h4>
+                <p>Set placeholder widths with the grid <code>.col-*</code> classes or the <code>.w-*</code> utilities.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-column gap-2">
+                    <span class="placeholder col-6" aria-hidden="true"></span>
+                    <span class="placeholder col-8" aria-hidden="true"></span>
+                    <span class="placeholder w-75" aria-hidden="true"></span>
+                    <span class="placeholder w-50" aria-hidden="true"></span>
+                    <span class="placeholder w-25" aria-hidden="true"></span>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-column gap-2&quot;&gt;
+    &lt;span class=&quot;placeholder col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder col-8&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder w-75&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder w-50&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder w-25&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Colour</h4>
+                <p>Change the placeholder colour with a <code>.bg-*</code> utility.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-column gap-2">
+                    <span class="placeholder col-12 bg-primary" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-secondary" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-success" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-danger" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-warning" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-info" aria-hidden="true"></span>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-column gap-2&quot;&gt;
+    &lt;span class=&quot;placeholder col-12 bg-primary&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder col-12 bg-secondary&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder col-12 bg-success&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder col-12 bg-danger&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder col-12 bg-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder col-12 bg-info&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Use <code>.placeholder-lg</code>, <code>.placeholder-sm</code>, or <code>.placeholder-xs</code> to change the height of a placeholder.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="d-flex flex-column gap-2">
+                    <span class="placeholder placeholder-lg col-6" aria-hidden="true"></span>
+                    <span class="placeholder col-6" aria-hidden="true"></span>
+                    <span class="placeholder placeholder-sm col-6" aria-hidden="true"></span>
+                    <span class="placeholder placeholder-xs col-6" aria-hidden="true"></span>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;d-flex flex-column gap-2&quot;&gt;
+    &lt;span class=&quot;placeholder placeholder-lg col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder placeholder-sm col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;placeholder placeholder-xs col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Animation</h4>
+                <p>Add <code>.placeholder-glow</code> for a soft pulse or <code>.placeholder-wave</code> for a moving shine.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <p class="placeholder-glow mb-0">
+                            <span class="placeholder col-12" aria-hidden="true"></span>
+                            <span class="placeholder col-8" aria-hidden="true"></span>
+                            <span class="placeholder col-6" aria-hidden="true"></span>
+                            <span class="placeholder col-10" aria-hidden="true"></span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="placeholder-wave mb-0">
+                            <span class="placeholder col-12" aria-hidden="true"></span>
+                            <span class="placeholder col-8" aria-hidden="true"></span>
+                            <span class="placeholder col-6" aria-hidden="true"></span>
+                            <span class="placeholder col-10" aria-hidden="true"></span>
+                        </p>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;row g-3&quot;&gt;
+    &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;p class=&quot;placeholder-glow mb-0&quot;&gt;
+            &lt;span class=&quot;placeholder col-12&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-8&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-10&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;p class=&quot;placeholder-wave mb-0&quot;&gt;
+            &lt;span class=&quot;placeholder col-12&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-8&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;placeholder col-10&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Buttons</h4>
+                <p>Use a placeholder inside a disabled button, or as the whole disabled button, to reserve an action's space while it loads.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button type="button" class="btn btn-primary me-2" disabled aria-label="Loading">
+                    <span class="placeholder col-6" aria-hidden="true"></span>
+                </button>
+                <a href="#" class="btn btn-secondary disabled placeholder col-6" aria-disabled="true" aria-label="Loading" tabindex="-1"></a>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary me-2&quot; disabled aria-label=&quot;Loading&quot;&gt;
+    &lt;span class=&quot;placeholder col-6&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-secondary disabled placeholder col-6&quot; aria-disabled=&quot;true&quot; aria-label=&quot;Loading&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Progress
 ================================================== -->
 <div id="progress" class="container pt-5">
     <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Progress</h1>
+                <p>Show task completion with progress bars that support labels, custom heights, contextual backgrounds, stacking, and stripes.</p>
+            </div>
+        </div>
 
         <div class="row">
-            <div class="col">
-                <h1>Progress bars</h1>
-
-                <h4 id="progress-basic">Basic Progress</h4>
-                <p>You can use Bootstrap's utilities for setting width as well, look at 75% for example.</p>
-                <div class="well">
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-4">
-                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-4">
-                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-4">
-                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress mt-4">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+            <div class="col-lg-12">
+                <h4>Basic</h4>
+                <p>Set the bar width with a percentage and describe the value with <code>aria-valuenow</code>, <code>aria-valuemin</code>, <code>aria-valuemax</code>, and an accessible name.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Basic progress at 0 percent"></div>
                 </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;0&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 25%&quot; aria-valuenow=&quot;25&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot; aria-valuenow=&quot;50&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar w-75&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;75&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 100%&quot; aria-valuenow=&quot;100&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                
-                <h4>Labeled Progress</h4>
-                <p>If you need to add a label, you must set the height to a bigger value to show it.</p>
-                <div class="well">
-                    <div class="progress" style="height: 22px;">
-                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                    </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="Basic progress at 25 percent"></div>
                 </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress&quot; style=&quot;height: 22px;&quot;&gt;
-    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 25%;&quot; aria-valuenow=&quot;25&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;25%&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                
-                <h4 id="progress-alternatives">Contextual alternatives</h4>
-                <p>Use background utility classes to change the appearance of individual progress bars.</p>
-                <div class="well">
-                    <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
-                    </div>
-
-                    <div class="progress mt-4">
-                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                    </div>
-
-                    <div class="progress mt-4">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
-                    </div>
-
-                    <div class="progress mt-4">
-                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
-                    </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Basic progress at 50 percent"></div>
                 </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar bg-info&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 20%&quot;&gt;&lt;/div&gt;
+                <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Basic progress at 75 percent"></div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Basic progress at 100 percent"></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 0%&quot; aria-valuenow=&quot;0&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Basic progress at 0 percent&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-
-&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;40&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 40%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 25%&quot; aria-valuenow=&quot;25&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Basic progress at 25 percent&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-
-&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar bg-warning&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;60&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 60%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot; aria-valuenow=&quot;50&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Basic progress at 50 percent&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-
+&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 75%&quot; aria-valuenow=&quot;75&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Basic progress at 75 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar bg-danger&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;80&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 80%&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 100%&quot; aria-valuenow=&quot;100&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Basic progress at 100 percent&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-                <h4 id="progress-striped">Striped</h4>
-                <div class="well">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
-                    </div>
-                    
-                    <div class="progress mt-4">
-                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                    </div>
-
-                    <div class="progress mt-4">
-                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
-                    </div>
-
-                    <div class="progress mt-4">
-                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
-                    </div>
-
-                    <div class="progress mt-4">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-                    </div>
+                <h4 class="mt-5">Labels</h4>
+                <p>Give the <code>.progress</code> a taller height so a percentage label fits inside the bar.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="progress mb-3" style="height: 22px;">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="Labelled progress at 25 percent">25%</div>
                 </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar progress-bar-striped&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 20%&quot;&gt;&lt;/div&gt;
+                <div class="progress" style="height: 32px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Labelled progress at 50 percent">50%</div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress mb-3&quot; style=&quot;height: 22px;&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 25%&quot; aria-valuenow=&quot;25&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Labelled progress at 25 percent&quot;&gt;25%&lt;/div&gt;
 &lt;/div&gt;
-
-&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar progress-bar-striped bg-info&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;40&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 40%&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar progress-bar-striped bg-success&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;60&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 60%&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar progress-bar-striped bg-warning&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;80&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 80%&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar progress-bar-striped bg-danger&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;100&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 100%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;progress&quot; style=&quot;height: 32px;&quot;&gt;
+    &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot; aria-valuenow=&quot;50&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Labelled progress at 50 percent&quot;&gt;50%&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-                <h4 id="progress-animated">Animated</h4>
-                <div class="well">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-                    </div>
+                <h4 class="mt-5">Height</h4>
+                <p>Set a custom height on the <code>.progress</code> container with a height value.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="progress mb-3" style="height: 1rem;">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Tall progress at 50 percent"></div>
                 </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;75&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 75%&quot;&gt;&lt;/div&gt;
+                <div class="progress" style="height: 2rem;">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Taller progress at 50 percent"></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress mb-3&quot; style=&quot;height: 1rem;&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot; aria-valuenow=&quot;50&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Tall progress at 50 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot; style=&quot;height: 2rem;&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot; aria-valuenow=&quot;50&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Taller progress at 50 percent&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-                <h4 id="progress-stacked">Stacked</h4>
-                <div class="well">
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%"></div>
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
-                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+                <h4 class="mt-5">Backgrounds</h4>
+                <p>Use <code>.bg-*</code> on the bar or <code>.text-bg-*</code> to set the bar and its label colour together.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" aria-label="Primary progress at 20 percent"></div>
+                </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Success progress at 40 percent"></div>
+                </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Warning progress at 60 percent"></div>
+                </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Danger progress at 80 percent"></div>
+                </div>
+                <div class="progress mb-3" style="height: 24px;">
+                    <div class="progress-bar text-bg-info" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="Info text-background progress at 45 percent">45%</div>
+                </div>
+                <div class="progress" style="height: 24px;">
+                    <div class="progress-bar text-bg-secondary" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Secondary text-background progress at 65 percent">65%</div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar bg-primary&quot; role=&quot;progressbar&quot; style=&quot;width: 20%&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Primary progress at 20 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 40%&quot; aria-valuenow=&quot;40&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Success progress at 40 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 60%&quot; aria-valuenow=&quot;60&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Warning progress at 60 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 80%&quot; aria-valuenow=&quot;80&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Danger progress at 80 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress mb-3&quot; style=&quot;height: 24px;&quot;&gt;
+    &lt;div class=&quot;progress-bar text-bg-info&quot; role=&quot;progressbar&quot; style=&quot;width: 45%&quot; aria-valuenow=&quot;45&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Info text-background progress at 45 percent&quot;&gt;45%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot; style=&quot;height: 24px;&quot;&gt;
+    &lt;div class=&quot;progress-bar text-bg-secondary&quot; role=&quot;progressbar&quot; style=&quot;width: 65%&quot; aria-valuenow=&quot;65&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Secondary text-background progress at 65 percent&quot;&gt;65%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Multiple bars</h4>
+                <p>Place several bars inside one <code>.progress</code> to show the parts of a total, giving each bar its own accessible name.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Completed at 35 percent"></div>
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="In review at 35 percent"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="Blocked at 30 percent"></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress&quot;&gt;
+    &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 35%&quot; aria-valuenow=&quot;35&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Completed at 35 percent&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;progress-bar bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 35%&quot; aria-valuenow=&quot;35&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;In review at 35 percent&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;progress-bar bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 30%&quot; aria-valuenow=&quot;30&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Blocked at 30 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Striped</h4>
+                <p>Add <code>.progress-bar-striped</code> to apply a striped background to any progress bar.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="progress mb-3">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="Striped progress at 25 percent"></div>
+                </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Striped success progress at 50 percent"></div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Striped info progress at 75 percent"></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar progress-bar-striped&quot; role=&quot;progressbar&quot; style=&quot;width: 25%&quot; aria-valuenow=&quot;25&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Striped progress at 25 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar progress-bar-striped bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot; aria-valuenow=&quot;50&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Striped success progress at 50 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;
+    &lt;div class=&quot;progress-bar progress-bar-striped bg-info&quot; role=&quot;progressbar&quot; style=&quot;width: 75%&quot; aria-valuenow=&quot;75&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Striped info progress at 75 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Animated stripes</h4>
+                <p>Add <code>.progress-bar-animated</code> to animate the stripes from left to right.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="progress mb-3">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Animated progress at 75 percent"></div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Animated success progress at 50 percent"></div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress mb-3&quot;&gt;
+    &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated&quot; role=&quot;progressbar&quot; style=&quot;width: 75%&quot; aria-valuenow=&quot;75&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Animated progress at 75 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;
+    &lt;div class=&quot;progress-bar progress-bar-striped progress-bar-animated bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot; aria-valuenow=&quot;50&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Animated success progress at 50 percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toasts
+================================================== -->
+<div id="toasts" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Toasts</h1>
+                <p>Show lightweight, dismissible notifications with a header, body, contextual colours, and optional stacking or placement.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Basic</h4>
+                <p>A toast combines a header with a close button and a body, and stays visible while it has the <code>.show</code> class.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Bootstrap</strong>
+                        <small class="text-body-secondary">11 mins ago</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Hello, world! This is a toast message.
                     </div>
                 </div>
-                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;progress&quot;&gt;
-    &lt;div class=&quot;progress-bar bg-success&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;35&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 35%&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;progress-bar bg-warning&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;20&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 20%&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;progress-bar bg-danger progress-bar-striped progress-bar-animated&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;10&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 10%&quot;&gt;&lt;/div&gt;
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;toast show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+    &lt;div class=&quot;toast-header&quot;&gt;
+        &lt;strong class=&quot;me-auto&quot;&gt;Bootstrap&lt;/strong&gt;
+        &lt;small class=&quot;text-body-secondary&quot;&gt;11 mins ago&lt;/small&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;toast-body&quot;&gt;
+        Hello, world! This is a toast message.
+    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Live example</h4>
+                <p>Click the button to show a toast from a fixed container at the bottom end of the viewport.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <button type="button" class="btn btn-primary" id="toasts-live-button">Show live toast</button>
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <div id="toasts-live" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">Redmaterials</strong>
+                            <small class="text-body-secondary">just now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Your changes have been saved.
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var trigger = document.getElementById('toasts-live-button');
+                        var toast = document.getElementById('toasts-live');
+                        if (trigger && toast && window.bootstrap) {
+                            trigger.addEventListener('click', function () {
+                                window.bootstrap.Toast.getOrCreateInstance(toast).show();
+                            });
+                        }
+                    });
+                </script>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; id=&quot;toasts-live-button&quot;&gt;Show live toast&lt;/button&gt;
+&lt;div class=&quot;toast-container position-fixed bottom-0 end-0 p-3&quot;&gt;
+    &lt;div id=&quot;toasts-live&quot; class=&quot;toast&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+        &lt;div class=&quot;toast-header&quot;&gt;
+            &lt;strong class=&quot;me-auto&quot;&gt;Redmaterials&lt;/strong&gt;
+            &lt;small class=&quot;text-body-secondary&quot;&gt;just now&lt;/small&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;toast-body&quot;&gt;
+            Your changes have been saved.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    document.addEventListener('DOMContentLoaded', function () {
+        var trigger = document.getElementById('toasts-live-button');
+        var toast = document.getElementById('toasts-live');
+        if (trigger &amp;&amp; toast &amp;&amp; window.bootstrap) {
+            trigger.addEventListener('click', function () {
+                window.bootstrap.Toast.getOrCreateInstance(toast).show();
+            });
+        }
+    });
+&lt;/script&gt;</code></pre>
+
+                <h4 class="mt-5">Translucent</h4>
+                <p>Toasts are slightly translucent by default, so the surface behind one shows through.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="bg-primary-subtle p-4 rounded">
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">Bootstrap</strong>
+                            <small class="text-body-secondary">11 mins ago</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            This toast blends with the subtle surface behind it.
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;bg-primary-subtle p-4 rounded&quot;&gt;
+    &lt;div class=&quot;toast show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+        &lt;div class=&quot;toast-header&quot;&gt;
+            &lt;strong class=&quot;me-auto&quot;&gt;Bootstrap&lt;/strong&gt;
+            &lt;small class=&quot;text-body-secondary&quot;&gt;11 mins ago&lt;/small&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;toast-body&quot;&gt;
+            This toast blends with the subtle surface behind it.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Stacking</h4>
+                <p>Wrap several toasts in a <code>.toast-container</code> to stack them with consistent spacing.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="toast-container position-static">
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">Bootstrap</strong>
+                            <small class="text-body-secondary">just now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            See? Just like this.
+                        </div>
+                    </div>
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">Bootstrap</strong>
+                            <small class="text-body-secondary">2 seconds ago</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Heads up, toasts stack like this.
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;toast-container position-static&quot;&gt;
+    &lt;div class=&quot;toast show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+        &lt;div class=&quot;toast-header&quot;&gt;
+            &lt;strong class=&quot;me-auto&quot;&gt;Bootstrap&lt;/strong&gt;
+            &lt;small class=&quot;text-body-secondary&quot;&gt;just now&lt;/small&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;toast-body&quot;&gt;
+            See? Just like this.
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;toast show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+        &lt;div class=&quot;toast-header&quot;&gt;
+            &lt;strong class=&quot;me-auto&quot;&gt;Bootstrap&lt;/strong&gt;
+            &lt;small class=&quot;text-body-secondary&quot;&gt;2 seconds ago&lt;/small&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;toast-body&quot;&gt;
+            Heads up, toasts stack like this.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Custom content</h4>
+                <p>Replace the default body with flexbox content such as an avatar, text, and actions.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-body">
+                        <div class="d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="flex-shrink-0 me-3 text-primary" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2 1a4 4 0 0 1 4 4v1H2v-1a4 4 0 0 1 4-4z"/>
+                            </svg>
+                            <div>
+                                <strong class="d-block">New message from Alex</strong>
+                                <p class="mb-2">The quarterly report is ready for your review.</p>
+                                <div class="d-flex gap-2">
+                                    <a href="#" class="btn btn-sm btn-primary">View message</a>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="toast">Dismiss</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;toast show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+    &lt;div class=&quot;toast-body&quot;&gt;
+        &lt;div class=&quot;d-flex&quot;&gt;
+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;32&quot; height=&quot;32&quot; fill=&quot;currentColor&quot; class=&quot;flex-shrink-0 me-3 text-primary&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+                &lt;path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2 1a4 4 0 0 1 4 4v1H2v-1a4 4 0 0 1 4-4z&quot;/&gt;
+            &lt;/svg&gt;
+            &lt;div&gt;
+                &lt;strong class=&quot;d-block&quot;&gt;New message from Alex&lt;/strong&gt;
+                &lt;p class=&quot;mb-2&quot;&gt;The quarterly report is ready for your review.&lt;/p&gt;
+                &lt;div class=&quot;d-flex gap-2&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-sm btn-primary&quot;&gt;View message&lt;/a&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-sm btn-outline-secondary&quot; data-bs-dismiss=&quot;toast&quot;&gt;Dismiss&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Colour schemes</h4>
+                <p>Use <code>.text-bg-*</code> on a borderless toast to apply a contextual colour scheme.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="toast-container position-static">
+                    <div class="toast align-items-center text-bg-primary border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">A primary toast with a matching close button.</div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="toast align-items-center text-bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">A success toast with a matching close button.</div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">A danger toast with a matching close button.</div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="toast align-items-center text-bg-warning border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">A warning toast uses the default dark close button.</div>
+                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;toast-container position-static&quot;&gt;
+    &lt;div class=&quot;toast align-items-center text-bg-primary border-0 show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+        &lt;div class=&quot;d-flex&quot;&gt;
+            &lt;div class=&quot;toast-body&quot;&gt;A primary toast with a matching close button.&lt;/div&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white me-2 m-auto&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;toast align-items-center text-bg-success border-0 show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+        &lt;div class=&quot;d-flex&quot;&gt;
+            &lt;div class=&quot;toast-body&quot;&gt;A success toast with a matching close button.&lt;/div&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white me-2 m-auto&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;toast align-items-center text-bg-danger border-0 show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+        &lt;div class=&quot;d-flex&quot;&gt;
+            &lt;div class=&quot;toast-body&quot;&gt;A danger toast with a matching close button.&lt;/div&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white me-2 m-auto&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;toast align-items-center text-bg-warning border-0 show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+        &lt;div class=&quot;d-flex&quot;&gt;
+            &lt;div class=&quot;toast-body&quot;&gt;A warning toast uses the default dark close button.&lt;/div&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-close me-2 m-auto&quot; data-bs-dismiss=&quot;toast&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h4 class="mt-5">Placement</h4>
+                <p>Use placement utilities inside a relative container for inline demos, and a real <code>.position-fixed</code> container for viewport placement.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <div class="position-relative bg-body-tertiary border rounded" style="height: 14rem;">
+                    <div class="toast-container position-absolute top-0 start-0 p-3">
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-body">Top start</div>
+                        </div>
+                    </div>
+                    <div class="toast-container position-absolute bottom-0 end-0 p-3">
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-body">Bottom end</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;div class=&quot;position-relative bg-body-tertiary border rounded&quot; style=&quot;height: 14rem;&quot;&gt;
+    &lt;div class=&quot;toast-container position-absolute top-0 start-0 p-3&quot;&gt;
+        &lt;div class=&quot;toast show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+            &lt;div class=&quot;toast-body&quot;&gt;Top start&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;toast-container position-absolute bottom-0 end-0 p-3&quot;&gt;
+        &lt;div class=&quot;toast show&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot;&gt;
+            &lt;div class=&quot;toast-body&quot;&gt;Bottom end&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Breadcrumb
+================================================== -->
+<div id="breadcrumbs" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Breadcrumb</h1>
+                <p>Show the current page's location within a navigational hierarchy with a flexible, accessible breadcrumb trail.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Default</h4>
+                <p>The default breadcrumb separates items with a slash and styles the current page as active.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    </ol>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+    &lt;ol class=&quot;breadcrumb&quot;&gt;
+        &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Custom divider</h4>
+                <p>The default divider is a slash; changing it needs a stylesheet that sets the <code>--bs-breadcrumb-divider</code> CSS variable, shown in the snippet below.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    </ol>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+    &lt;ol class=&quot;breadcrumb&quot;&gt;
+        &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                <pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;!-- Custom dividers require a stylesheet; this inline variable is shown only to document the API. --&gt;
+&lt;nav aria-label=&quot;breadcrumb&quot; style=&quot;--bs-breadcrumb-divider: '&gt;';&quot;&gt;
+    &lt;ol class=&quot;breadcrumb&quot;&gt;
+        &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Accessibility</h4>
+                <p>Wrap the trail in a <code>nav</code> with an <code>aria-label</code>, and mark the current page with <code>aria-current="page"</code>.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Accessories</li>
+                    </ol>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav aria-label=&quot;Breadcrumb&quot;&gt;
+    &lt;ol class=&quot;breadcrumb&quot;&gt;
+        &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Products&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Accessories&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination
+================================================== -->
+<div id="pagination" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Pagination</h1>
+                <p>Split long result sets into pages with linked page numbers, previous and next controls, and size or alignment utilities.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Overview</h4>
+                <p>Wrap the page list in a <code>nav</code> with an <code>aria-label</code>, and mark the current page with <code>.active</code> and <code>aria-current="page"</code>.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav aria-label="Pagination">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav aria-label=&quot;Pagination&quot;&gt;
+    &lt;ul class=&quot;pagination flex-wrap&quot;&gt;
+        &lt;li class=&quot;page-item disabled&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Previous&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item active&quot; aria-current=&quot;page&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2 &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Working with icons</h4>
+                <p>Use an icon for the previous and next controls and give each link an <code>aria-label</code>, while hiding the decorative symbol with <code>aria-hidden="true"</code>.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav aria-label="Pagination with icons">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav aria-label=&quot;Pagination with icons&quot;&gt;
+    &lt;ul class=&quot;pagination flex-wrap&quot;&gt;
+        &lt;li class=&quot;page-item&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; aria-label=&quot;Previous page&quot;&gt;
+                &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+                    &lt;path fill-rule=&quot;evenodd&quot; d=&quot;M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0&quot;/&gt;
+                &lt;/svg&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item active&quot; aria-current=&quot;page&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2 &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; aria-label=&quot;Next page&quot;&gt;
+                &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+                    &lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708&quot;/&gt;
+                &lt;/svg&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Disabled and active states</h4>
+                <p>Add <code>.disabled</code> and <code>aria-disabled="true"</code> to a page item that cannot be used, and <code>.active</code> to the current page.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav aria-label="Disabled pagination">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">1</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">2</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav aria-label="Active pagination" class="mt-3">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav aria-label=&quot;Disabled pagination&quot;&gt;
+    &lt;ul class=&quot;pagination flex-wrap&quot;&gt;
+        &lt;li class=&quot;page-item disabled&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Previous&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item disabled&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;1&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item disabled&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;2&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item disabled&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Next&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;nav aria-label=&quot;Active pagination&quot; class=&quot;mt-3&quot;&gt;
+    &lt;ul class=&quot;pagination flex-wrap&quot;&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item active&quot; aria-current=&quot;page&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2 &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Add <code>.pagination-lg</code> or <code>.pagination-sm</code> to change the size of the whole page list.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav aria-label="Large pagination">
+                    <ul class="pagination pagination-lg flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Small pagination" class="mt-3">
+                    <ul class="pagination pagination-sm flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav aria-label=&quot;Large pagination&quot;&gt;
+    &lt;ul class=&quot;pagination pagination-lg flex-wrap&quot;&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item active&quot; aria-current=&quot;page&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2 &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;nav aria-label=&quot;Small pagination&quot; class=&quot;mt-3&quot;&gt;
+    &lt;ul class=&quot;pagination pagination-sm flex-wrap&quot;&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item active&quot; aria-current=&quot;page&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2 &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+                <h4 class="mt-5">Alignment</h4>
+                <p>Use <code>.justify-content-center</code> or <code>.justify-content-end</code> to align the page list within its container.</p>
+                <div class="bs-component border rounded p-3 mb-3">
+                <nav aria-label="Centered pagination">
+                    <ul class="pagination justify-content-center flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="End-aligned pagination" class="mt-3">
+                    <ul class="pagination justify-content-end flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+                </div>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>&lt;nav aria-label=&quot;Centered pagination&quot;&gt;
+    &lt;ul class=&quot;pagination justify-content-center flex-wrap&quot;&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item active&quot; aria-current=&quot;page&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2 &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;nav aria-label=&quot;End-aligned pagination&quot; class=&quot;mt-3&quot;&gt;
+    &lt;ul class=&quot;pagination justify-content-end flex-wrap&quot;&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;page-item active&quot; aria-current=&quot;page&quot;&gt;
+            &lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2 &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
             </div>
         </div>
     </div>
@@ -3849,73 +4833,6 @@
                         <a class="nav-item nav-link" href="#">Link</a>
                         <a class="nav-item nav-link" href="#">Link</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
-                    </nav>
-                </div>
-                <div class="bs-component mb-4">
-                    <h4>Breadcrumbs</h4>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home</li>
-                        </ol>
-                    </nav>
-
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Library</li>
-                        </ol>
-                    </nav>
-
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Library</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data</li>
-                        </ol>
-                    </nav>
-                </div>
-                <div class="bs-component">
-                    <h4>Pagination</h4>
-                    <nav aria-label="...">
-                        <ul class="pagination flex-wrap">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center flex-wrap">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end flex-wrap">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
                     </nav>
                 </div>
             </div>

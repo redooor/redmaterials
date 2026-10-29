@@ -1,0 +1,107 @@
+<!-- Placeholders
+================================================== -->
+<div id="placeholders" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Placeholders</h1>
+                <p>Build loading skeletons from lightweight placeholder spans, sized and coloured with Bootstrap utilities and animated while content arrives.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Card with placeholders</h4>
+                <p>Compose a card skeleton from placeholder spans in the title, text, and button positions.</p>
+                <!--@example-->
+                <div class="card" style="max-width: 22rem;">
+                    <svg class="card-img-top text-body-tertiary" width="100%" height="180" viewBox="0 0 800 180" aria-hidden="true" focusable="false">
+                        <rect width="800" height="180" fill="currentColor"/>
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-glow">
+                            <span class="placeholder col-6" aria-hidden="true"></span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                            <span class="placeholder col-7" aria-hidden="true"></span>
+                            <span class="placeholder col-4" aria-hidden="true"></span>
+                            <span class="placeholder col-4" aria-hidden="true"></span>
+                            <span class="placeholder col-6" aria-hidden="true"></span>
+                            <span class="placeholder col-8" aria-hidden="true"></span>
+                        </p>
+                        <a href="#" class="btn btn-primary disabled placeholder col-6" aria-disabled="true" aria-label="Loading" tabindex="-1"></a>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Widths</h4>
+                <p>Set placeholder widths with the grid <code>.col-*</code> classes or the <code>.w-*</code> utilities.</p>
+                <!--@example-->
+                <div class="d-flex flex-column gap-2">
+                    <span class="placeholder col-6" aria-hidden="true"></span>
+                    <span class="placeholder col-8" aria-hidden="true"></span>
+                    <span class="placeholder w-75" aria-hidden="true"></span>
+                    <span class="placeholder w-50" aria-hidden="true"></span>
+                    <span class="placeholder w-25" aria-hidden="true"></span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Colour</h4>
+                <p>Change the placeholder colour with a <code>.bg-*</code> utility.</p>
+                <!--@example-->
+                <div class="d-flex flex-column gap-2">
+                    <span class="placeholder col-12 bg-primary" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-secondary" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-success" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-danger" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-warning" aria-hidden="true"></span>
+                    <span class="placeholder col-12 bg-info" aria-hidden="true"></span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizing</h4>
+                <p>Use <code>.placeholder-lg</code>, <code>.placeholder-sm</code>, or <code>.placeholder-xs</code> to change the height of a placeholder.</p>
+                <!--@example-->
+                <div class="d-flex flex-column gap-2">
+                    <span class="placeholder placeholder-lg col-6" aria-hidden="true"></span>
+                    <span class="placeholder col-6" aria-hidden="true"></span>
+                    <span class="placeholder placeholder-sm col-6" aria-hidden="true"></span>
+                    <span class="placeholder placeholder-xs col-6" aria-hidden="true"></span>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Animation</h4>
+                <p>Add <code>.placeholder-glow</code> for a soft pulse or <code>.placeholder-wave</code> for a moving shine.</p>
+                <!--@example-->
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <p class="placeholder-glow mb-0">
+                            <span class="placeholder col-12" aria-hidden="true"></span>
+                            <span class="placeholder col-8" aria-hidden="true"></span>
+                            <span class="placeholder col-6" aria-hidden="true"></span>
+                            <span class="placeholder col-10" aria-hidden="true"></span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="placeholder-wave mb-0">
+                            <span class="placeholder col-12" aria-hidden="true"></span>
+                            <span class="placeholder col-8" aria-hidden="true"></span>
+                            <span class="placeholder col-6" aria-hidden="true"></span>
+                            <span class="placeholder col-10" aria-hidden="true"></span>
+                        </p>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Buttons</h4>
+                <p>Use a placeholder inside a disabled button, or as the whole disabled button, to reserve an action's space while it loads.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary me-2" disabled aria-label="Loading">
+                    <span class="placeholder col-6" aria-hidden="true"></span>
+                </button>
+                <a href="#" class="btn btn-secondary disabled placeholder col-6" aria-disabled="true" aria-label="Loading" tabindex="-1"></a>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>
