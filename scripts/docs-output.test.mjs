@@ -35,7 +35,7 @@ for (const [name, html] of pages) {
   test(`${name}: copyable snippets are self-consistent (decoded, each snippet on its own)`, () => {
     const decode = t => t.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
     for (const m of html.matchAll(/<pre class="docs-snippet[^"]*"><code>([\s\S]*?)<\/code><\/pre>/g)) {
-      const code = decode(m[1]);
+      const code = decode(m[1].replace(/<[^>]*>/g, ''));
       const ids = new Set([...code.matchAll(/\sid="([^"]+)"/g)].map(x => x[1]));
       for (const x of code.matchAll(/<[^>]*data-bs-toggle="collapse"[^>]*>/g)) {
         const target = (x[0].match(/data-bs-target="#([^"]+)"/) || [])[1];

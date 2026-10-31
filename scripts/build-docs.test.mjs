@@ -21,7 +21,9 @@ test('expandVersion substitutes and honours the backslash escape', () => {
 test('expandExamples: preview, escaped snippet, class passthrough', () => {
   const out = expandExamples('<!--@example class="text-center"-->\n  <a href="x?a=1&amp;b=2" title="&quot;q&quot;">{{ $x }}</a>\n<!--@end-->');
   assert.match(out, /<div class="bs-component border rounded p-3 mb-3 text-center">/);
-  assert.match(out, /<pre class="docs-snippet [^"]*"><code>&lt;a href=&quot;x\?a=1&amp;amp;b=2&quot;/);
+  const code = out.match(/<pre class="docs-snippet [^"]*"><code>([\s\S]*?)<\/code>/)[1];
+  assert.match(code, /hljs-tag/);
+  assert.match(code.replace(/<[^>]*>/g, ''), /^&lt;a href=&quot;x\?a=1&amp;amp;b=2&quot;/);
   assert.ok(!out.includes('@example') && !out.includes('@end'));
 });
 test('expandExamples is safe for nested divs, comments with <div>, quoted ">" and an empty example', () => {
@@ -31,12 +33,13 @@ test('expandExamples is safe for nested divs, comments with <div>, quoted ">" an
 });
 test('expandExamples dedents the snippet but not the preview', () => {
   const out = expandExamples('<!--@example-->\n    <p>\n      x\n    </p>\n<!--@end-->');
-  assert.match(out, /<code>&lt;p&gt;\n  x\n&lt;\/p&gt;<\/code>/);
+  const code = out.match(/<code>([\s\S]*?)<\/code>/)[1].replace(/<[^>]*>/g, '');
+  assert.equal(code, '&lt;p&gt;\n  x\n&lt;/p&gt;');
 });
 test('expandCode emits a snippet only', () => {
   const out = expandExamples('<!--@code--><link rel="stylesheet" href="a.css"><!--@end-->');
   assert.ok(!out.includes('bs-component'));
-  assert.match(out, /<code>&lt;link rel=/);
+  assert.match(out.match(/<code>([\s\S]*?)<\/code>/)[1].replace(/<[^>]*>/g, ''), /^&lt;link rel=/);
 });
 test('expandColors repeats once per colour and works with an id per colour', () => {
   const out = expandColors('<!--@each-color <i id="x-{color}" class="bg-{color}"></i>-->');
@@ -56,14 +59,21 @@ test('expandColors: each-color+default also repeats the default colour first', (
   assert.equal((out.match(/<i class="bg-/g) || []).length, COLORS.length + 1);
   assert.ok(out.indexOf('bg-default') < out.indexOf('bg-red'));
 });
-test('renderSidebar: current page links are in the spy list, other-page links are outside it, order kept', () => {
+test('renderSidebar: Bootstrap first on both pages, only the current page open and in the spy list', () => {
   const sections = { bootstrap: [{ id: 'buttons', title: 'Buttons' }, { id: 'forms', title: 'Forms' }],
                      redmaterials: [{ id: 'ribbons', title: 'Corner Ribbons' }, { id: 'buttons', title: 'Buttons' }] };
-  const html = renderSidebar(sections, 'bootstrap');
-  const spy = html.slice(html.indexOf('id="nav_spy"'), html.indexOf('</ul>', html.indexOf('id="nav_spy"')));
-  assert.ok(spy.indexOf('#buttons') < spy.indexOf('#forms'));
-  assert.ok(!spy.includes('redmaterials.html'));
-  assert.match(html.slice(html.indexOf('</ul>')), /href="redmaterials\.html#ribbons"/);
+  for (const page of ['bootstrap', 'redmaterials']) {
+    const html = renderSidebar(sections, page);
+    assert.ok(html.indexOf('id="nav-bootstrap"') < html.indexOf('id="nav-redmaterials"'), `${page}: Bootstrap above Redmaterials`);
+    assert.equal((html.match(/accordion-collapse collapse show/g) || []).length, 1);
+    assert.match(html, new RegExp(`id="nav-${page}" class="accordion-collapse collapse show"`));
+    const spy = html.slice(html.indexOf('id="nav_spy"'), html.indexOf('</ul>', html.indexOf('id="nav_spy"')));
+    assert.ok(spy.includes(`#${sections[page][0].id}"`) && !/\.html/.test(spy));
+    assert.match(html, /data-docs-first="redmaterials\.html#ribbons"/);
+    assert.match(html, /data-docs-first="index\.html#buttons"/);
+  }
+  assert.match(renderSidebar(sections, 'bootstrap'), /href="redmaterials\.html#ribbons"/);
+  assert.match(renderSidebar(sections, 'redmaterials'), /href="index\.html#forms"/);
 });
 test('full build: every snippet decodes to its expanded example source, colours inside examples included, ids unique', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'docs-'));
@@ -73,7 +83,7 @@ test('full build: every snippet decodes to its expanded example source, colours 
   fs.writeFileSync(path.join(dir, 'src/pages/redmaterials.html'), '<!--@sidebar-->');
   build({ srcDir: path.join(dir, 'src'), outDir: path.join(dir, 'out'), pkg: { version: '9.9.9' } });
   const html = fs.readFileSync(path.join(dir, 'out/index.html'), 'utf8');
-  const snippet = decode(html.match(/<code>([\s\S]*?)<\/code>/)[1]);
+  const snippet = decode(html.match(/<code>([\s\S]*?)<\/code>/)[1].replace(/<[^>]*>/g, ''));
   const preview = html.match(/<div class="bs-component[^"]*">([\s\S]*?)<\/div>\n<pre class="docs-snippet/)[1];
   assert.equal(snippet.trim(), preview.trim());
   assert.ok(snippet.includes('id="b-deep-orange"') && snippet.includes('v9.9.9'));

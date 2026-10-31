@@ -11,6 +11,13 @@
             r.checked = r.value === st.mode;
             r.addEventListener('change', function () { docsState.set({ mode: r.value }); });
         });
+        // accordion: opening the other page's group goes to that page's first component
+        side.querySelectorAll('[data-docs-first]').forEach(function (btn) {
+            var pane = document.querySelector(btn.getAttribute('data-bs-target'));
+            pane.addEventListener('show.bs.collapse', function () {
+                if (!pane.querySelector('#nav_spy')) { window.location.href = btn.getAttribute('data-docs-first'); }
+            });
+        });
         // anchor navigation does not close an offcanvas by itself: close it after a section is chosen
         side.addEventListener('click', function (e) {
             var oc = e.target.closest('a.nav-link') && bootstrap.Offcanvas.getInstance(side);

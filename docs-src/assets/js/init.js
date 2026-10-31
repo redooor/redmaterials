@@ -14,7 +14,11 @@
         return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     function render() {
-        root.setAttribute('data-bs-theme', resolve(state.mode));
+        var resolved = resolve(state.mode);
+        root.setAttribute('data-bs-theme', resolved);
+        root.style.scrollBehavior = 'auto'; // no animated scrolling between sections (Bootstrap's reboot smooths it)
+        var hl = document.getElementById('hljs-light'), hd = document.getElementById('hljs-dark');
+        if (hl && hd) { hl.disabled = resolved === 'dark'; hd.disabled = resolved !== 'dark'; }
         root.setAttribute('data-docs-theme', state.theme);
         var link = document.getElementById('redmaterials-css'); // must precede this script in <head>
         if (link) { link.disabled = state.theme === 'bootstrap'; }

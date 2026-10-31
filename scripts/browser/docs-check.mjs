@@ -81,7 +81,7 @@ try {
       const generated = await page.evaluate(() => [...document.querySelectorAll('.bs-component.border.rounded.p-3')].filter(e => !(e.nextElementSibling && e.nextElementSibling.matches('pre.docs-snippet'))).length);
       check('3 every generated example is followed by its snippet', generated === 0, `${generated} without a snippet`);
       const styling = await page.evaluate(() => {
-        const allowed = [/\/dist\/vendor\/bootstrap\/bootstrap\.min\.css$/, /\/dist\/css\/redmaterials\.min\.css$/, /^https:\/\/fonts\.googleapis\.com\//];
+        const allowed = [/\/dist\/vendor\/bootstrap\/bootstrap\.min\.css$/, /\/dist\/css\/redmaterials\.min\.css$/, /\/dist\/vendor\/highlightjs\/a11y-(light|dark)\.min\.css$/, /^https:\/\/fonts\.googleapis\.com\//];
         const sheets = [...document.querySelectorAll('link[rel~=stylesheet]')].map(l => l.href).filter(h => !allowed.some(re => re.test(h)));
         const styles = document.querySelectorAll('style').length;
         // chrome (mobile bar, sidebar, footer) must carry no inline style at all
@@ -94,6 +94,35 @@ try {
       check('3b the docs define no styles (allowed stylesheets only, no <style>, style-free chrome, only sizing in example inline styles)', !styling.sheets.length && !styling.styles && !styling.chrome.length && !styling.examples.length, JSON.stringify(styling));
       const dupes = await page.evaluate(() => { const seen = {}, d = []; document.querySelectorAll('[id]').forEach(e => { if (seen[e.id]) d.push(e.id); seen[e.id] = 1; }); return [...new Set(d)]; });
       check('4 no duplicate ids', !dupes.length, dupes.slice(0, 8).join(','));
+      await page.close();
+    }
+
+    // 13: sidebar accordion (Bootstrap always above Redmaterials, only this page's group open, indented links),
+    // instant section jumps, highlighted snippets in the active colour mode
+    {
+      const { page } = await open(file);
+      const r = await page.evaluate(() => {
+        const b = document.getElementById('nav-bootstrap'), m = document.getElementById('nav-redmaterials');
+        const open = [b, m].filter(e => e.classList.contains('show')).map(e => e.id);
+        const link = document.querySelector('#docs-sidebar .accordion-collapse a.nav-link');
+        const head = document.querySelector('#docs-sidebar .accordion-button');
+        const tok = document.querySelector('pre.docs-snippet .hljs-name, pre.docs-snippet .hljs-attr, pre.docs-snippet .hljs-string');
+        const sheets = ['hljs-light', 'hljs-dark'].map(id => document.getElementById(id).disabled);
+        return { bFirst: !!(b.compareDocumentPosition(m) & Node.DOCUMENT_POSITION_FOLLOWING), open,
+                 indented: parseFloat(getComputedStyle(link).paddingLeft) - parseFloat(getComputedStyle(head).paddingLeft) >= 16,
+                 behaviour: getComputedStyle(document.documentElement).scrollBehavior, smooth: document.querySelector('main').hasAttribute('data-bs-smooth-scroll'),
+                 tokenColor: tok && getComputedStyle(tok).color, bodyColor: getComputedStyle(document.body).color, sheets,
+                 dark: document.documentElement.getAttribute('data-bs-theme') === 'dark' };
+      });
+      const want = file === 'index.html' ? 'nav-bootstrap' : 'nav-redmaterials';
+      check('13a sidebar: Bootstrap above Redmaterials, only this page\'s group open, links indented under their header', r.bFirst && r.open.length === 1 && r.open[0] === want && r.indented, JSON.stringify(r));
+      check('13b section jumps are instant (no smooth scrolling)', r.behaviour === 'auto' && !r.smooth, JSON.stringify(r));
+      check('13c snippets are syntax highlighted and the matching highlight theme is enabled', !!r.tokenColor && r.tokenColor !== r.bodyColor && r.sheets[r.dark ? 0 : 1] === true && r.sheets[r.dark ? 1 : 0] === false, JSON.stringify(r));
+      const other = file === 'index.html' ? 'redmaterials.html' : 'index.html';
+      await page.evaluate(() => document.querySelector('#docs-sidebar .accordion-button.collapsed').click());
+      await new Promise(res => setTimeout(res, 1500));
+      const landed = await page.evaluate(() => ({ url: location.pathname + location.hash, groups: ['nav-bootstrap', 'nav-redmaterials'].map(id => document.getElementById(id).classList.contains('show')) }));
+      check('13d opening the other group goes to that page\'s first component, with that group open', landed.url.endsWith(other + '#' + sections[other === 'index.html' ? 'bootstrap' : 'redmaterials'][0].id) && landed.groups.filter(Boolean).length === 1, JSON.stringify(landed));
       await page.close();
     }
 

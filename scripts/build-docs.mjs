@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import hljs from 'highlight.js';
 
 export const COLORS = ['red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',
   'green', 'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey'];
@@ -55,7 +56,10 @@ const dedent = s => {
   const indent = sized.length ? Math.min(...sized.map(l => l.match(/^ */)[0].length)) : 0;
   return lines.map(l => l.slice(indent)).join('\n');
 };
-const snippet = inner => `<pre class="docs-snippet border rounded p-3 mb-3 bg-body-tertiary overflow-auto"><code>${escapeHtml(dedent(inner))}</code></pre>`;
+// Highlighted at build time (no runtime script). The code element deliberately lacks the `hljs` class: that class
+// carries the theme's own background and text colour, so only the token colours (hljs-*) apply on Bootstrap's surface.
+const LANGUAGES = ['xml', 'javascript', 'css', 'scss', 'bash', 'json'];
+const snippet = inner => `<pre class="docs-snippet border rounded p-3 mb-3 bg-body overflow-auto"><code>${hljs.highlightAuto(dedent(inner), LANGUAGES).value}</code></pre>`;
 
 export function expandExamples(html) {
   return html
@@ -66,22 +70,30 @@ export function expandExamples(html) {
     .replace(/<!--@code\s*-->([\s\S]*?)<!--@end-->/g, (_, inner) => snippet(inner));
 }
 
-// The current page's links live in #nav_spy (the Bootstrap scrollspy target); links to the other
-// page sit in a second list OUTSIDE it, so scrollspy can never match a same-named hash on the other page.
-// Markup is Bootstrap's own `nav` (stock Bootstrap in "Bootstrap" mode, themed by Redmaterials otherwise): no docs CSS.
 export function renderSidebar(sections, page) {
-  const other = page === 'bootstrap' ? 'redmaterials' : 'bootstrap';
-  const otherPage = other === 'bootstrap' ? 'index.html' : 'redmaterials.html';
+  const href = (name, id) => `${name === 'bootstrap' ? 'index.html' : 'redmaterials.html'}#${id}`;
   const label = n => n === 'bootstrap' ? 'Bootstrap' : 'Redmaterials';
-  const head = n => `<li class="nav-item px-3 pt-3 text-uppercase fw-bold small text-body-secondary">${label(n)}</li>`;
   // The current page starts at its first section, so that link is the static active default. docs.js keeps the
   // active styling (bold + aria-current) in step with scrollspy as the reader scrolls.
-  const links = (name, prefix) => sections[name].map((s, i) => {
+  const links = name => sections[name].map((s, i) => {
     const active = name === page && i === 0;
-    return `<li class="nav-item"><a class="nav-link link-body-emphasis${active ? ' active fw-bold' : ''}" href="${prefix}#${s.id}"${active ? ' aria-current="location"' : ''}>${s.title}</a></li>`;
+    return `<li class="nav-item"><a class="nav-link link-body-emphasis ps-5${active ? ' active fw-bold' : ''}" href="${name === page ? '#' + s.id : href(name, s.id)}"${active ? ' aria-current="location"' : ''}>${s.title}</a></li>`;
   }).join('\n');
-  return `<ul class="nav flex-column" id="nav_spy">\n${head(page)}\n${links(page, '')}\n</ul>\n`
-    + `<ul class="nav flex-column">\n${head(other)}\n${links(other, otherPage)}\n</ul>`;
+  // Bootstrap is always first. One accordion item is open: the current page's. Opening the other item (docs.js)
+  // goes to that page's first section. Only the current page's list is #nav_spy (the Bootstrap scrollspy target), so
+  // scrollspy can never match a same-named hash on the other page. Markup is Bootstrap's own: no docs CSS.
+  const item = name => {
+    const open = name === page;
+    return `<div class="accordion-item border-0 bg-transparent">
+<h2 class="accordion-header"><button class="accordion-button${open ? '' : ' collapsed'} text-uppercase fw-bold small" type="button" data-bs-toggle="collapse" data-bs-target="#nav-${name}" aria-expanded="${open}" aria-controls="nav-${name}" data-docs-first="${href(name, sections[name][0].id)}">${label(name)}</button></h2>
+<div id="nav-${name}" class="accordion-collapse collapse${open ? ' show' : ''}" data-bs-parent="#nav_accordion">
+<ul class="nav flex-column pb-2"${open ? ' id="nav_spy"' : ''}>
+${links(name)}
+</ul>
+</div>
+</div>`;
+  };
+  return `<div class="accordion accordion-flush" id="nav_accordion">\n${item('bootstrap')}\n${item('redmaterials')}\n</div>`;
 }
 
 // {{root}} is '' (pages live next to dist/ and assets/), so every asset URL is relative and works from file://.
