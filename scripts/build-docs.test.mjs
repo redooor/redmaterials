@@ -1,0 +1,114 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { build, expandIncludes, expandColors, expandVersion, expandInline, expandExamples, assertNoDirectives, renderSidebar, COLORS } from './build-docs.mjs';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+
+const decode = s => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+
+test('expandIncludes inlines partials recursively', () => {
+  const files = { 'a.html': 'A[<!--@include b.html-->]', 'b.html': 'B' };
+  assert.equal(expandIncludes('<!--@include a.html-->', f => files[f]), 'A[B]');
+});
+test('expandIncludes throws on a missing partial and on a cycle', () => {
+  assert.throws(() => expandIncludes('<!--@include nope.html-->', () => undefined), /nope\.html/);
+  assert.throws(() => expandIncludes('<!--@include a.html-->', () => '<!--@include a.html-->'), /cycle/i);
+});
+test('expandVersion substitutes and honours the backslash escape', () => {
+  assert.equal(expandVersion('v{{version}} \\{{version}}', '0.2.0'), 'v0.2.0 {{version}}');
+});
+test('expandExamples: preview, escaped snippet, class passthrough', () => {
+  const out = expandExamples('<!--@example class="text-center"-->\n  <a href="x?a=1&amp;b=2" title="&quot;q&quot;">{{ $x }}</a>\n<!--@end-->');
+  assert.match(out, /<div class="bs-component border rounded p-3 mb-3 text-center">/);
+  const code = out.match(/<pre class="docs-snippet [^"]*"><code>([\s\S]*?)<\/code>/)[1];
+  assert.match(code, /hljs-tag/);
+  assert.match(code.replace(/<[^>]*>/g, ''), /^&lt;a href=&quot;x\?a=1&amp;amp;b=2&quot;/);
+  assert.ok(!out.includes('@example') && !out.includes('@end'));
+});
+test('expandExamples is safe for nested divs, comments with <div>, quoted ">" and an empty example', () => {
+  const src = '<!--@example--><div><div title="a>b"></div></div><!-- <div> --><!--@end--><!--@example--><!--@end-->';
+  const out = expandExamples(src);
+  assert.equal((out.match(/class="bs-component/g) || []).length, 2);
+});
+test('expandExamples dedents the snippet but not the preview', () => {
+  const out = expandExamples('<!--@example-->\n    <p>\n      x\n    </p>\n<!--@end-->');
+  const code = out.match(/<code>([\s\S]*?)<\/code>/)[1].replace(/<[^>]*>/g, '');
+  assert.equal(code, '&lt;p&gt;\n  x\n&lt;/p&gt;');
+});
+test('expandCode emits a snippet only', () => {
+  const out = expandExamples('<!--@code--><link rel="stylesheet" href="a.css"><!--@end-->');
+  assert.ok(!out.includes('bs-component'));
+  assert.match(out.match(/<code>([\s\S]*?)<\/code>/)[1].replace(/<[^>]*>/g, ''), /^&lt;link rel=/);
+});
+test('expandColors repeats once per colour and works with an id per colour', () => {
+  const out = expandColors('<!--@each-color <i id="x-{color}" class="bg-{color}"></i>-->');
+  assert.equal((out.match(/<i id="x-/g) || []).length, COLORS.length);
+  assert.ok(out.includes('id="x-deep-orange"'));
+});
+test('expandColors: a block template keeps its indentation in every copy and leaves no blank lines', () => {
+  const out = expandColors('<div>\n    <!--@each-color\n    <i class="bg-{color}"></i>\n    <b></b>-->\n</div>');
+  const lines = out.split('\n');
+  assert.ok(lines.every(l => l.trim() !== ''));
+  assert.equal(lines[1], '    <i class="bg-red"></i>');
+  assert.equal(lines[2], '    <b></b>');
+  assert.equal(lines[3], '    <i class="bg-pink"></i>');
+});
+test('expandColors: each-color+default also repeats the default colour first', () => {
+  const out = expandColors('<!--@each-color+default <i class="bg-{color}"></i>-->');
+  assert.equal((out.match(/<i class="bg-/g) || []).length, COLORS.length + 1);
+  assert.ok(out.indexOf('bg-default') < out.indexOf('bg-red'));
+});
+test('renderSidebar: one plain list in section order, the first link active, no accordion', () => {
+  const html = renderSidebar({ redmaterials: [{ id: 'ribbons', title: 'Corner Ribbons' }, { id: 'buttons', title: 'Buttons' }] });
+  assert.ok(html.startsWith('<ul class="nav flex-column" id="nav_spy">'));
+  assert.ok(html.indexOf('#ribbons"') < html.indexOf('#buttons"'));
+  assert.match(html, /href="#ribbons" aria-current="location"/);
+  assert.equal((html.match(/aria-current/g) || []).length, 1);
+  assert.ok(!/accordion|\.html/.test(html));
+});
+test('full build: every snippet decodes to its expanded example source, colours inside examples included, ids unique', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'docs-'));
+  fs.mkdirSync(path.join(dir, 'src/pages'), { recursive: true }); fs.mkdirSync(path.join(dir, 'out'));
+  fs.writeFileSync(path.join(dir, 'src/sections.json'), JSON.stringify({ redmaterials: [{ id: 'b', title: 'B' }] }));
+  fs.writeFileSync(path.join(dir, 'src/pages/index.html'), '<!--@sidebar--><!--@example--><!--@each-color <button id="b-{color}" class="btn bg-{color}">v{{version}}</button>--><!--@end-->');
+  build({ srcDir: path.join(dir, 'src'), outDir: path.join(dir, 'out'), pkg: { version: '9.9.9' } });
+  const html = fs.readFileSync(path.join(dir, 'out/index.html'), 'utf8');
+  const snippet = decode(html.match(/<code>([\s\S]*?)<\/code>/)[1].replace(/<[^>]*>/g, ''));
+  const preview = html.match(/<div class="bs-component[^"]*">([\s\S]*?)<\/div>\n<pre class="docs-snippet/)[1];
+  assert.equal(snippet.trim(), preview.trim());
+  assert.ok(snippet.includes('id="b-deep-orange"') && snippet.includes('v9.9.9'));
+  const ids = [...html.matchAll(/ id="([^"]+)"/g)].map(m => m[1]);
+  assert.equal(new Set(ids).size, ids.length, 'duplicate ids in generated page');
+});
+
+test('assertNoDirectives rejects a missing @end, an unsupported attribute and a typo', () => {
+  assert.throws(() => assertNoDirectives(expandExamples('<!--@example--><p>x</p>'), 'a.html'), /unconsumed directive/);
+  assert.throws(() => assertNoDirectives(expandExamples('<!--@example id="x"--><p>x</p><!--@end-->'), 'a.html'), /unconsumed directive/);
+  assert.throws(() => assertNoDirectives('<!--@exmaple--><!--@end-->', 'a.html'), /unconsumed directive/);
+  assert.throws(() => assertNoDirectives('<!--@include partials/missing.html\n<p>rest of the page</p>', 'a.html'), /unconsumed directive/);
+  assert.throws(() => assertNoDirectives(expandExamples('<!--@example class="a>b"--><p>x</p><!--@end-->'), 'a.html'), /unconsumed directive/);
+  assert.doesNotThrow(() => assertNoDirectives(expandExamples('<!--@example--><p>x</p><!--@end-->'), 'a.html'));
+});
+test('expandInline wraps a file in <script> and rejects a missing file', () => {
+  assert.equal(expandInline('<!--@inline a.js-->', f => f === 'a.js' ? 'var a=1;' : undefined), '<script>var a=1;</script>');
+  assert.throws(() => expandInline('<!--@inline nope.js-->', () => undefined), /nope\.js/);
+});
+function tmpSite(files) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'docs-'));
+  for (const [f, body] of Object.entries(files)) { fs.mkdirSync(path.dirname(path.join(dir, 'src', f)), { recursive: true }); fs.writeFileSync(path.join(dir, 'src', f), body); }
+  fs.mkdirSync(path.join(dir, 'out'));
+  return { src: path.join(dir, 'src'), out: path.join(dir, 'out') };
+}
+const SECTIONS = JSON.stringify({ redmaterials: [{ id: 'b', title: 'B' }] });
+test('build: a missing page file, and a malformed marker in a page, fail the build', () => {
+  const miss = tmpSite({ 'sections.json': SECTIONS });
+  assert.throws(() => build({ srcDir: miss.src, outDir: miss.out, pkg: { version: '1' } }), /missing page/);
+  const bad = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<!--@example--><b>x</b>' });
+  assert.throws(() => build({ srcDir: bad.src, outDir: bad.out, pkg: { version: '1' } }), /unconsumed directive/);
+});
+test('build: {{root}} is empty in pages and an inline file is wrapped in <script>', () => {
+  const site = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<link href="{{root}}dist/a.css"><!--@inline init.js-->', 'init.js': 'var x=1;' });
+  build({ srcDir: site.src, outDir: site.out, pkg: { version: '1' } });
+  assert.equal(fs.readFileSync(path.join(site.out, 'index.html'), 'utf8'), '<link href="dist/a.css"><script>var x=1;</script>');
+});

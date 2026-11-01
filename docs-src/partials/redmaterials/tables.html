@@ -1,0 +1,346 @@
+<!-- Redmaterials Tables
+================================================== -->
+<div id="tables" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Tables</h1>
+                <p><code>scss/tables.scss</code> builds on Bootstrap 5.3's variable-driven <code>.table</code>: transparent base, theme-aware borders, token-based striped, hover and active rows, and roomier <code>1.6rem</code> cell padding. The palette tables add a <code>.table-{colour}</code> class that tints the striped and hover rows and keeps the theme's table text colour, so they stay readable in light and dark mode. No data attribute or JavaScript is needed.</p>
+                <p>The table palette covers 17 of the 19 Material colours. There is no <code>.table-grey</code> or <code>.table-blue-grey</code>: <code>scss/tables.scss</code> stops at <code>.table-brown</code>, so those two classes are not documented as if they existed.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap has no <code>.table-red</code> … <code>.table-brown</code> palette classes, so its stripes and hover use its own colours, and its cell padding is tighter than the <code>1.6rem</code> Redmaterials uses; Redmaterials adds the palette classes that tint the striped and hover rows. <code>.table-sm</code> is Bootstrap 5; <code>.table-condensed</code>, <code>.table-no-border</code> and <code>.table-responsive-vertical</code> are Redmaterials additions.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Palette tables</h4>
+                <p>Each table combines the palette class with <code>.table-striped</code> and <code>.table-hover</code> so the tint is visible; the caption names the class.</p>
+                <!--@example-->
+                <table class="table table-striped table-hover table-red mb-3">
+                    <caption class="text-body-secondary"><code>.table-red</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-pink mb-3">
+                    <caption class="text-body-secondary"><code>.table-pink</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-purple mb-3">
+                    <caption class="text-body-secondary"><code>.table-purple</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-deep-purple mb-3">
+                    <caption class="text-body-secondary"><code>.table-deep-purple</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-indigo mb-3">
+                    <caption class="text-body-secondary"><code>.table-indigo</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-blue mb-3">
+                    <caption class="text-body-secondary"><code>.table-blue</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-light-blue mb-3">
+                    <caption class="text-body-secondary"><code>.table-light-blue</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-cyan mb-3">
+                    <caption class="text-body-secondary"><code>.table-cyan</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-teal mb-3">
+                    <caption class="text-body-secondary"><code>.table-teal</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-green mb-3">
+                    <caption class="text-body-secondary"><code>.table-green</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-light-green mb-3">
+                    <caption class="text-body-secondary"><code>.table-light-green</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-lime mb-3">
+                    <caption class="text-body-secondary"><code>.table-lime</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-yellow mb-3">
+                    <caption class="text-body-secondary"><code>.table-yellow</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-amber mb-3">
+                    <caption class="text-body-secondary"><code>.table-amber</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-orange mb-3">
+                    <caption class="text-body-secondary"><code>.table-orange</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-deep-orange mb-3">
+                    <caption class="text-body-secondary"><code>.table-deep-orange</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-hover table-brown mb-3">
+                    <caption class="text-body-secondary"><code>.table-brown</code></caption>
+                    <thead>
+                        <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                        <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                    </tbody>
+                </table>
+                <!--@end-->
+
+                <h4 class="mt-5">Bordered table</h4>
+                <p><code>.table-bordered</code> adds a border to every cell and around the table; the borders use the theme's token-based border colour and the table keeps the roomier cell padding.</p>
+                <!--@example-->
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <caption class="text-body-secondary"><code>.table-bordered</code></caption>
+                        <thead>
+                            <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                            <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                            <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Contextual rows</h4>
+                <p>Bootstrap's eight contextual table classes tint a whole row (or cell) from the theme's status tokens, and the theme keeps the text colour readable in both colour modes.</p>
+                <!--@example-->
+                <div class="table-responsive">
+                    <table class="table">
+                        <caption class="text-body-secondary">One row per contextual class</caption>
+                        <thead>
+                            <tr><th scope="col">Class</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-primary"><td><code>.table-primary</code></td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                            <tr class="table-secondary"><td><code>.table-secondary</code></td><td>Grace Hopper</td><td>Admiral</td></tr>
+                            <tr class="table-success"><td><code>.table-success</code></td><td>Alan Turing</td><td>Mathematician</td></tr>
+                            <tr class="table-danger"><td><code>.table-danger</code></td><td>Katherine Johnson</td><td>Computer</td></tr>
+                            <tr class="table-warning"><td><code>.table-warning</code></td><td>Margaret Hamilton</td><td>Software engineer</td></tr>
+                            <tr class="table-info"><td><code>.table-info</code></td><td>Barbara Liskov</td><td>Computer scientist</td></tr>
+                            <tr class="table-light"><td><code>.table-light</code></td><td>Edsger Dijkstra</td><td>Computer scientist</td></tr>
+                            <tr class="table-dark"><td><code>.table-dark</code></td><td>Donald Knuth</td><td>Computer scientist</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Striped and hover</h4>
+                <p>Bootstrap's <code>.table-striped</code>, <code>.table-hover</code> and <code>.table-active</code> are restyled from theme tokens, with a <code>0.3s</code> transition on the cells; the striped tint alternates rows and the hover tint follows the pointer, while <code>.table-active</code> marks a row persistently.</p>
+                <!--@example-->
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="tables-hover">
+                        <caption class="text-body-secondary">Striped, hover and one active row</caption>
+                        <thead>
+                            <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                            <tr class="table-active"><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                            <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Condensed and small</h4>
+                <p><code>.table-sm</code> is Bootstrap 5's half-padding class and <code>.table-condensed</code> is the backwards-compatible Redmaterials alias: both reduce the theme's <code>1.6rem</code> cell padding to <code>0.8rem</code> without changing borders or colours.</p>
+                <!--@example-->
+                <div class="table-responsive mb-3">
+                    <table class="table table-striped table-condensed">
+                        <caption class="text-body-secondary"><code>.table-condensed</code></caption>
+                        <thead>
+                            <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                            <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <caption class="text-body-secondary"><code>.table-sm</code></caption>
+                        <thead>
+                            <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                            <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">No border</h4>
+                <p><code>.table-no-border</code> removes every cell border while keeping the row padding, stripes and hover tint; the table's outer border is not part of <code>.table</code>, so the class only affects the cells.</p>
+                <!--@example-->
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-no-border">
+                        <caption class="text-body-secondary"><code>.table-no-border</code></caption>
+                        <thead>
+                            <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                            <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                            <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Responsive vertical</h4>
+                <p><code>.table-responsive-vertical</code> keeps a normal table above 768px and, at 768px and below, hides the header and footer, turns every row into a bordered block and every cell into a right-aligned line. Add <code>data-title</code> to each <code>td</code>: the stylesheet prints it with <code>::before</code> as the line's label. Narrow the browser to see the stacked layout.</p>
+                <!--@example-->
+                <div class="table-responsive-vertical">
+                    <table class="table table-striped">
+                        <caption class="text-body-secondary">Resize below 769px to stack the rows</caption>
+                        <thead>
+                            <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-title="#">1</td>
+                                <td data-title="Name">Ada Lovelace</td>
+                                <td data-title="Role">Engineer</td>
+                            </tr>
+                            <tr>
+                                <td data-title="#">2</td>
+                                <td data-title="Name">Grace Hopper</td>
+                                <td data-title="Role">Admiral</td>
+                            </tr>
+                            <tr>
+                                <td data-title="#">3</td>
+                                <td data-title="Name">Alan Turing</td>
+                                <td data-title="Role">Mathematician</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

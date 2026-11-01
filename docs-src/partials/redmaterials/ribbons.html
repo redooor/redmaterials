@@ -1,0 +1,147 @@
+<!-- Redmaterials Corner Ribbons
+================================================== -->
+<div id="ribbons" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Corner Ribbons</h1>
+                <p><code>scss/ribbons.scss</code> adds <code>.corner-ribbon-wrapper</code> and <code>.corner-ribbon</code>: the wrapper is a positioned, clipping container and the ribbon is an absolutely positioned <code>200px</code> band rotated <code>45</code> degrees into a corner. Use one of the four position classes and any Bootstrap <code>.bg-*</code> utility plus a matching <code>.text-*</code> colour; <code>.shadow</code> is optional and uses the ribbon shadow token. No data attribute or JavaScript is needed.</p>
+                <p>The wrapper needs a positioned container with some height. <code>.corner-ribbon-wrapper</code> already sets <code>position: relative</code>; the examples also add Bootstrap's <code>.position-relative</code> and a sizing-only <code>height</code> so the ribbon has room, and the wrapper's <code>overflow: hidden</code> clips the band to the corner.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Bootstrap has no corner-ribbon component or classes: stock Bootstrap adds no styling, so the bands sit in the normal flow and none of the four positions or colours rotate into a corner; Redmaterials adds <code>.corner-ribbon-wrapper</code>, <code>.corner-ribbon</code> and the four position classes.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Positions</h4>
+                <p>The four supported corners are <code>.top-left</code>, <code>.top-right</code>, <code>.bottom-left</code> and <code>.bottom-right</code>; each preview is a positioned wrapper with a single ribbon.</p>
+                <!--@example-->
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 200px;">
+                            <div class="corner-ribbon top-left bg-red text-dark shadow">top-left</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 200px;">
+                            <div class="corner-ribbon top-right bg-amber text-dark shadow">top-right</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 200px;">
+                            <div class="corner-ribbon bottom-left bg-teal text-dark shadow">bottom-left</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 200px;">
+                            <div class="corner-ribbon bottom-right bg-pink text-dark shadow">bottom-right</div>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Colours</h4>
+                <p>Every Material palette <code>.bg-{colour}</code> utility works, and Bootstrap's contextual <code>.bg-primary</code> family works too. Each ribbon below pairs its background with the text colour that keeps it readable; <code>.shadow</code> is added to every one.</p>
+                <!--@example-->
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-5 g-3">
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-red text-dark shadow">red</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-pink text-dark shadow">pink</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-purple text-white shadow">purple</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-deep-purple text-white shadow">deep-purple</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-indigo text-white shadow">indigo</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-blue text-dark shadow">blue</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-light-blue text-dark shadow">light-blue</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-cyan text-dark shadow">cyan</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-teal text-dark shadow">teal</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-green text-dark shadow">green</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-light-green text-dark shadow">light-green</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-lime text-dark shadow">lime</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-yellow text-dark shadow">yellow</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-amber text-dark shadow">amber</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-orange text-dark shadow">orange</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-deep-orange text-dark shadow">deep-orange</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-brown text-white shadow">brown</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-grey text-dark shadow">grey</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
+                            <div class="corner-ribbon top-left bg-blue-grey text-white shadow">blue-grey</div>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

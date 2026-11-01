@@ -1,0 +1,8 @@
+//
+// Cards
+// --------------------------------------------------
+// Bootstrap overlays the card header with a wash of the body colour, which
+// lightens a coloured card in dark mode and costs its white text contrast.
+.card {
+    --bs-card-cap-bg: var(--rdm-card-cap-bg);
+}

@@ -1,0 +1,120 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:math";
+@use "variables" as *;
+
+//
+// Palette text tokens
+// --------------------------------------------------
+// Brand and palette colours are identity colours and do not change between
+// modes when they are used as a fill.  When they are used as *text* (flat
+// buttons, outline buttons, .text-*) on a dark surface, a colour that falls
+// below 4.5:1 against Bootstrap's dark body background is lifted towards
+// white in 5% steps until it passes; colours that already pass are untouched.
+//
+// For each colour: base, hover, active and focus.  The light values are the
+// values the loops always used (darker for hover/active/focus); the dark
+// values step lighter instead.
+
+$dark-surface: #212529;
+$dark-hover-surface: #3b3f44; // rgba(255, 255, 255, .08) over $dark-surface
+$dark-active-surface: #4c5054; // rgba(255, 255, 255, .16) over $dark-surface
+
+@function channel-luminance($value) {
+    $s: math.div($value, 255);
+    @if $s <= 0.03928 {
+        @return math.div($s, 12.92);
+    }
+    @return math.pow(math.div($s + 0.055, 1.055), 2.4);
+}
+
+@function luminance($c) {
+    @return 0.2126 * channel-luminance(color.channel($c, "red", $space: rgb))
+        + 0.7152 * channel-luminance(color.channel($c, "green", $space: rgb))
+        + 0.0722 * channel-luminance(color.channel($c, "blue", $space: rgb));
+}
+
+@function contrast($a, $b) {
+    $la: luminance($a);
+    $lb: luminance($b);
+    @return math.div(math.max($la, $lb) + 0.05, math.min($la, $lb) + 0.05);
+}
+
+// The colour a translucent foreground actually shows on top of $background.
+// Opaque foregrounds are returned unchanged (bit-for-bit).
+@function composite($foreground, $background) {
+    $alpha: color.channel($foreground, "alpha");
+    @if $alpha >= 1 {
+        @return $foreground;
+    }
+    @if $alpha <= 0 {
+        @return $background;
+    }
+    @return rgb(
+        color.channel($foreground, "red", $space: rgb) * $alpha + color.channel($background, "red", $space: rgb) * (1 - $alpha),
+        color.channel($foreground, "green", $space: rgb) * $alpha + color.channel($background, "green", $space: rgb) * (1 - $alpha),
+        color.channel($foreground, "blue", $space: rgb) * $alpha + color.channel($background, "blue", $space: rgb) * (1 - $alpha)
+    );
+}
+
+@function lift($c, $surface: $dark-surface, $min: 4.5) {
+    @for $i from 0 through 20 {
+        $m: color.mix(#fff, $c, $i * 5%);
+        $visible: composite($m, $surface);
+        @if contrast($visible, $surface) >= $min {
+            @return $visible;
+        }
+    }
+    @return #fff;
+}
+
+@mixin palette-light($prefix, $name, $color) {
+    --rdm-#{$prefix}-#{$name}: #{$color};
+    --rdm-#{$prefix}-#{$name}-hover: #{color.adjust($color, $lightness: -10%)};
+    --rdm-#{$prefix}-#{$name}-active: #{color.adjust($color, $lightness: -20%)};
+    --rdm-#{$prefix}-#{$name}-focus: #{color.adjust($color, $lightness: -30%)};
+}
+
+// Dark tokens that are identical to their light twin are omitted: every light
+// scope redeclares all of them, so the inherited light value is correct.
+@mixin palette-dark($prefix, $name, $color) {
+    $base: lift($color);
+    // Hover and active/focus sit on a lighter wash (--rdm-flat-hover-bg and
+    // --rdm-flat-active-bg composited on the dark surface), so they are lifted
+    // against that wash rather than the page.
+    $hover: lift(color.adjust($base, $lightness: 10%), $dark-hover-surface);
+    $active: lift(color.adjust($base, $lightness: 18%), $dark-active-surface);
+    $focus: lift(color.adjust($base, $lightness: 26%), $dark-active-surface);
+
+    @if not ($base == $color) {
+        --rdm-#{$prefix}-#{$name}: #{$base};
+    }
+    @if not ($hover == color.adjust($color, $lightness: -10%)) {
+        --rdm-#{$prefix}-#{$name}-hover: #{$hover};
+    }
+    @if not ($active == color.adjust($color, $lightness: -20%)) {
+        --rdm-#{$prefix}-#{$name}-active: #{$active};
+    }
+    @if not ($focus == color.adjust($color, $lightness: -30%)) {
+        --rdm-#{$prefix}-#{$name}-focus: #{$focus};
+    }
+}
+
+:root,
+[data-bs-theme="light"] {
+    @each $name, $color in $brand-color-map {
+        @include palette-light("ctx", $name, $color);
+    }
+    @each $name, $pair in $color-name-text-map {
+        @include palette-light("pal", $name, list.nth($pair, 1));
+    }
+}
+
+[data-bs-theme="dark"] {
+    @each $name, $color in $brand-color-map {
+        @include palette-dark("ctx", $name, $color);
+    }
+    @each $name, $pair in $color-name-text-map {
+        @include palette-dark("pal", $name, list.nth($pair, 1));
+    }
+}

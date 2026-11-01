@@ -1,0 +1,64 @@
+<!-- Redmaterials List group
+================================================== -->
+<div id="rdm-list-group" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>List group</h1>
+                <p>Redmaterials keeps Bootstrap's list-group markup and adjusts the Material look: roomier <code>.list-group-item</code> padding, square first and last corners, a Material blue active item and a <code>.list-group-item-heading</code> helper for custom rows. No data attribute or JavaScript is required.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap uses tighter padding, rounded outer corners and a <code>#0d6efd</code> active fill; Redmaterials uses roomier <code>.list-group-item</code> padding, square first and last corners and a Material blue active item. The <code>.list-group-item-heading</code> spacing is Redmaterials-only; the list, active, action and disabled classes are Bootstrap 5.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Items</h4>
+                <p>Use a <code>ul</code> or <code>div</code> with <code>.list-group</code> and give every row <code>.list-group-item</code>.</p>
+                <!--@example-->
+                <ul class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+                <!--@end-->
+
+                <h4 class="mt-5">Active item</h4>
+                <p>Add <code>.active</code> and <code>aria-current="true"</code> to mark the current item; Redmaterials paints it with its Material blue instead of Bootstrap's default blue.</p>
+                <!--@example-->
+                <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">An active item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+                <!--@end-->
+
+                <h4 class="mt-5">Action states</h4>
+                <p>Use links or buttons with <code>.list-group-item-action</code> for rows that respond to hover and focus; add <code>.active</code> for the current row and <code>disabled</code> or <code>.disabled</code> for an unavailable one.</p>
+                <!--@example-->
+                <div class="list-group">
+                    <a href="#rdm-list-group" class="list-group-item list-group-item-action active" aria-current="true">The current link item</a>
+                    <a href="#rdm-list-group" class="list-group-item list-group-item-action">A second link item</a>
+                    <a href="#rdm-list-group" class="list-group-item list-group-item-action">A third link item</a>
+                    <button type="button" class="list-group-item list-group-item-action">A button item</button>
+                    <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Custom content with a heading</h4>
+                <p>Put <code>.list-group-item-heading</code> on a heading inside a custom <code>.list-group-item</code> to get a half-em gap below it; pair it with a paragraph and any Bootstrap utility.</p>
+                <!--@example-->
+                <div class="list-group" style="max-width: 32rem;">
+                    <div class="list-group-item">
+                        <h5 class="list-group-item-heading">Heading</h5>
+                        <p class="mb-0">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    </div>
+                    <div class="list-group-item">
+                        <h5 class="list-group-item-heading">Heading</h5>
+                        <p class="mb-0">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    </div>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

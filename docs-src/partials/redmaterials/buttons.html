@@ -1,0 +1,174 @@
+<!-- Redmaterials Buttons
+================================================== -->
+<div id="buttons" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Buttons</h1>
+                <p>Redmaterials keeps Bootstrap's button markup and adds Material variants: raised, flat, circle and a card action button. The base buttons need no data attribute or JavaScript; the optional ripple needs the Redmaterials script, described in the <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="#rdm-ripples">Ripples</a> section.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap has no shadow on <code>.btn-raised</code>, no colour change on <code>.btn-flat</code> and square corners instead of <code>.btn-circle</code>, and its contextual variants use Bootstrap's blue, grey and green rather than the Material palette; Redmaterials adds the raised shadow, the flat colour change and the circular shape, and uses the Material palette. The palette composition has no fill in stock Bootstrap because the <code>.bg-{colour}</code> utilities are Redmaterials-only. The markup and the size, outline and disabled classes are Bootstrap 5 throughout.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Raised buttons</h4>
+                <p>Add <code>.btn-raised</code> to a <code>.btn</code> for a depth-1 shadow that deepens on hover, focus and press.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-default btn-raised mb-2 me-2">Default</button>
+                <button type="button" class="btn btn-primary btn-raised mb-2 me-2">Primary</button>
+                <button type="button" class="btn btn-secondary btn-raised mb-2 me-2">Secondary</button>
+                <button type="button" class="btn btn-success btn-raised mb-2 me-2">Success</button>
+                <button type="button" class="btn btn-info btn-raised mb-2 me-2">Info</button>
+                <button type="button" class="btn btn-warning btn-raised mb-2 me-2">Warning</button>
+                <button type="button" class="btn btn-danger btn-raised mb-2 me-2">Danger</button>
+                <button type="button" class="btn btn-light btn-raised mb-2 me-2">Light</button>
+                <button type="button" class="btn btn-dark btn-raised mb-2 me-2">Dark</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Flat buttons</h4>
+                <p>Add <code>.btn-flat</code> for a borderless, background-free button whose label takes the contextual colour and whose hover adds a subtle fill.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-default btn-flat mb-2 me-2">Default</button>
+                <button type="button" class="btn btn-primary btn-flat mb-2 me-2">Primary</button>
+                <button type="button" class="btn btn-secondary btn-flat mb-2 me-2">Secondary</button>
+                <button type="button" class="btn btn-success btn-flat mb-2 me-2">Success</button>
+                <button type="button" class="btn btn-info btn-flat mb-2 me-2">Info</button>
+                <button type="button" class="btn btn-warning btn-flat mb-2 me-2">Warning</button>
+                <button type="button" class="btn btn-danger btn-flat mb-2 me-2">Danger</button>
+                <button type="button" class="btn btn-light btn-flat mb-2 me-2">Light</button>
+                <button type="button" class="btn btn-dark btn-flat mb-2 me-2">Dark</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Circle buttons</h4>
+                <p>Add <code>.btn-circle</code> for a 56px round button, size it with <code>.btn-lg</code> or <code>.btn-sm</code>, put a <code>.material-icons</code> icon inside, and give every icon-only button an <code>aria-label</code> so it has an accessible name.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-circle btn-raised btn-primary mb-2 me-2" aria-label="Add"><i class="material-icons" aria-hidden="true">&#xE145;</i></button>
+                <button type="button" class="btn btn-circle btn-flat btn-primary mb-2 me-2" aria-label="Edit"><i class="material-icons" aria-hidden="true">&#xE254;</i></button>
+                <button type="button" class="btn btn-circle btn-flat btn-secondary mb-2 me-2" aria-label="Share"><i class="material-icons" aria-hidden="true">&#xE80D;</i></button>
+                <button type="button" class="btn btn-circle btn-raised btn-danger mb-2 me-2" aria-label="Delete"><i class="material-icons" aria-hidden="true">&#xE872;</i></button>
+                <a href="#buttons" class="btn btn-circle btn-flat btn-info mb-2 me-2" aria-label="Search"><i class="material-icons" aria-hidden="true">&#xE8B6;</i></a>
+                <a href="#buttons" class="btn btn-circle btn-raised btn-success mb-2 me-2" aria-label="Done"><i class="material-icons" aria-hidden="true">&#xE876;</i></a>
+                <!--@end-->
+                <p>The same classes work on <code>&lt;a&gt;</code> elements; use <code>&lt;button&gt;</code> when the control performs an action rather than navigating.</p>
+
+                <h4 class="mt-5">Card action button</h4>
+                <p>Put <code>.card-action</code> on a card and <code>.btn-action</code> on the button it should float over its bottom edge.</p>
+                <!--@example-->
+                <div class="card card-action mb-5" style="max-width: 22rem;">
+                    <div class="card-body pb-5">
+                        <h5 class="card-title">Project card</h5>
+                        <p class="card-text mb-0">The action button is positioned against the bottom-right corner of the card.</p>
+                    </div>
+                    <button type="button" class="btn btn-circle btn-raised btn-primary btn-action" aria-label="Add item"><i class="material-icons" aria-hidden="true">&#xE145;</i></button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Default, white and muted</h4>
+                <p><code>.btn-default</code> is the mode-aware neutral, <code>.btn-white</code> is always white and <code>.btn-muted</code> is the Material grey; pair the fixed light fills with <code>.text-dark</code> so they stay readable in dark mode.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-default mb-2 me-2">Default</button>
+                <button type="button" class="btn btn-white text-dark mb-2 me-2">White</button>
+                <button type="button" class="btn btn-muted text-dark mb-2 me-2">Muted</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Contextual variants</h4>
+                <p>Use Bootstrap's eight contextual classes with the theme's Material colours; <code>.btn-light</code>, <code>.btn-info</code> and <code>.btn-warning</code> keep Bootstrap's dark label.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary mb-2 me-2">Primary</button>
+                <button type="button" class="btn btn-secondary mb-2 me-2">Secondary</button>
+                <button type="button" class="btn btn-success mb-2 me-2">Success</button>
+                <button type="button" class="btn btn-info mb-2 me-2">Info</button>
+                <button type="button" class="btn btn-warning mb-2 me-2">Warning</button>
+                <button type="button" class="btn btn-danger mb-2 me-2">Danger</button>
+                <button type="button" class="btn btn-light mb-2 me-2">Light</button>
+                <button type="button" class="btn btn-dark mb-2 me-2">Dark</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Outline buttons</h4>
+                <p>Bootstrap's outline buttons keep a 1px border (the theme removes it from filled buttons) and fill with the contextual colour on hover.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-outline-primary mb-2 me-2">Primary</button>
+                <button type="button" class="btn btn-outline-secondary mb-2 me-2">Secondary</button>
+                <button type="button" class="btn btn-outline-success mb-2 me-2">Success</button>
+                <button type="button" class="btn btn-outline-info mb-2 me-2">Info</button>
+                <button type="button" class="btn btn-outline-warning mb-2 me-2">Warning</button>
+                <button type="button" class="btn btn-outline-danger mb-2 me-2">Danger</button>
+                <button type="button" class="btn btn-outline-light mb-2 me-2">Light</button>
+                <button type="button" class="btn btn-outline-dark mb-2 me-2">Dark</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizes</h4>
+                <p>Use <code>.btn-lg</code> or <code>.btn-sm</code> on a button; both also resize the icon and diameter of <code>.btn-circle</code>.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary btn-lg btn-raised mb-2 me-2">Large button</button>
+                <button type="button" class="btn btn-primary btn-raised mb-2 me-2">Default button</button>
+                <button type="button" class="btn btn-primary btn-sm btn-raised mb-2 me-2">Small button</button>
+                <button type="button" class="btn btn-circle btn-lg btn-raised btn-primary mb-2 me-2" aria-label="Add (large)"><i class="material-icons" aria-hidden="true">&#xE145;</i></button>
+                <button type="button" class="btn btn-circle btn-sm btn-raised btn-primary mb-2 me-2" aria-label="Add (small)"><i class="material-icons" aria-hidden="true">&#xE145;</i></button>
+                <!--@end-->
+
+                <h4 class="mt-5">Button groups</h4>
+                <p>Wrap a row of buttons in <code>.btn-group</code>; add <code>.btn-group-lg</code> or <code>.btn-group-sm</code> to size the whole group, and use <code>.btn-group-vertical</code> to stack it. Give every group <code>role="group"</code> and an <code>aria-label</code> that names it.</p>
+                <!--@example-->
+                <div class="btn-group btn-group-lg mb-3" role="group" aria-label="Large button group">
+                    <button type="button" class="btn btn-primary">Left</button>
+                    <button type="button" class="btn btn-primary">Middle</button>
+                    <button type="button" class="btn btn-primary">Right</button>
+                </div>
+                <div class="btn-group btn-group-sm mb-3" role="group" aria-label="Small button group">
+                    <button type="button" class="btn btn-primary">Left</button>
+                    <button type="button" class="btn btn-primary">Middle</button>
+                    <button type="button" class="btn btn-primary">Right</button>
+                </div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-primary">Top</button>
+                    <button type="button" class="btn btn-primary">Middle</button>
+                    <button type="button" class="btn btn-primary">Bottom</button>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Disabled state</h4>
+                <p>Disable a <code>&lt;button&gt;</code> with the <code>disabled</code> attribute and an <code>&lt;a&gt;</code> with <code>.disabled</code>, <code>aria-disabled="true"</code> and <code>tabindex="-1"</code>.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary btn-raised me-2 mb-2" disabled>Disabled button</button>
+                <button type="button" class="btn btn-outline-secondary me-2 mb-2" disabled>Disabled outline</button>
+                <a href="#buttons" class="btn btn-primary btn-raised disabled" role="button" aria-disabled="true" tabindex="-1">Disabled link</a>
+                <!--@end-->
+
+                <h4 class="mt-5">Ripple effect on buttons</h4>
+                <p>Add <code>.ripple-effect</code> to animate ink from the click point; it needs <code>dist/js/redmaterials.min.js</code> (no jQuery) and is explained in full under <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="#rdm-ripples">Ripples</a>.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary btn-raised ripple-effect mb-2 me-2">Primary</button>
+                <button type="button" class="btn btn-secondary btn-raised ripple-effect mb-2 me-2">Secondary</button>
+                <button type="button" class="btn btn-success btn-raised ripple-effect mb-2 me-2">Success</button>
+                <button type="button" class="btn btn-danger btn-raised ripple-effect mb-2 me-2">Danger</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Palette colours</h4>
+                <p>There is no <code>.btn-{colour}</code> class for the 19 Material palette colours: compose <code>.bg-{colour}</code> with <code>.btn-raised</code> instead, and choose <code>.text-dark</code> or <code>.text-white</code> for the label because the fixed palette fill is the same in both colour modes.</p>
+                <!--@example-->
+                <button type="button" class="btn bg-red btn-raised text-dark mb-2 me-2">Red</button>
+                <button type="button" class="btn bg-pink btn-raised text-dark mb-2 me-2">Pink</button>
+                <button type="button" class="btn bg-purple btn-raised text-white mb-2 me-2">Purple</button>
+                <button type="button" class="btn bg-deep-purple btn-raised text-white mb-2 me-2">Deep purple</button>
+                <button type="button" class="btn bg-indigo btn-raised text-white mb-2 me-2">Indigo</button>
+                <button type="button" class="btn bg-blue btn-raised text-dark mb-2 me-2">Blue</button>
+                <button type="button" class="btn bg-light-blue btn-raised text-dark mb-2 me-2">Light blue</button>
+                <button type="button" class="btn bg-cyan btn-raised text-dark mb-2 me-2">Cyan</button>
+                <button type="button" class="btn bg-teal btn-raised text-dark mb-2 me-2">Teal</button>
+                <button type="button" class="btn bg-green btn-raised text-dark mb-2 me-2">Green</button>
+                <button type="button" class="btn bg-light-green btn-raised text-dark mb-2 me-2">Light green</button>
+                <button type="button" class="btn bg-lime btn-raised text-dark mb-2 me-2">Lime</button>
+                <button type="button" class="btn bg-yellow btn-raised text-dark mb-2 me-2">Yellow</button>
+                <button type="button" class="btn bg-amber btn-raised text-dark mb-2 me-2">Amber</button>
+                <button type="button" class="btn bg-orange btn-raised text-dark mb-2 me-2">Orange</button>
+                <button type="button" class="btn bg-deep-orange btn-raised text-dark mb-2 me-2">Deep orange</button>
+                <button type="button" class="btn bg-brown btn-raised text-white mb-2 me-2">Brown</button>
+                <button type="button" class="btn bg-grey btn-raised text-dark mb-2 me-2">Grey</button>
+                <button type="button" class="btn bg-blue-grey btn-raised text-white mb-2 me-2">Blue grey</button>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

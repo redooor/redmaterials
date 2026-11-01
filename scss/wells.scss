@@ -6,13 +6,13 @@
 // Base class
 .well {
     padding: 1.2em 1.5em;
-    background-color: $btn-default-bg-color;
+    background-color: var(--rdm-surface-translucent);
     border: none;
     border-radius: 0;
     box-shadow: none;
     blockquote {
         border-color: #ddd;
-        border-color: rgba(0, 0, 0, .15);
+        border-color: var(--rdm-blockquote-border);
     }
 }
 

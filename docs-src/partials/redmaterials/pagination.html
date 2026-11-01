@@ -1,0 +1,97 @@
+<!-- Redmaterials Pagination
+================================================== -->
+<div id="rdm-pagination" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Pagination</h1>
+                <p>Redmaterials keeps Bootstrap's pagination markup and gives the page links a Material treatment: borderless cells with 2px corners, roomier <code>0.8em 1.5em</code> padding, the Material primary for the active page and a soft focus ring. No data attribute or JavaScript is needed.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap uses a 1px border, <code>0.375rem</code> corners, <code>0.375rem 0.75rem</code> padding and a default blue active page; Redmaterials removes the border, uses 2px corners, <code>0.8em 1.5em</code> padding and the Material primary for the active page, with a soft focus ring. The <code>.pagination</code>, <code>.page-item</code>, <code>.page-link</code> and size classes are Bootstrap 5 throughout.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Overview</h4>
+                <p>Wrap the list in a <code>nav</code> with an <code>aria-label</code>, mark the current page with <code>.active</code> and <code>aria-current="page"</code>, and add <code>.flex-wrap</code> so long pagers wrap on narrow screens.</p>
+                <!--@example-->
+                <nav aria-label="Pagination example">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#rdm-pagination" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#rdm-pagination">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination">Next</a></li>
+                    </ul>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Icons</h4>
+                <p>Use an inline SVG for previous and next controls, hide the glyph from assistive technology and give each link an <code>aria-label</code> that names the destination.</p>
+                <!--@example-->
+                <nav aria-label="Pagination with icons">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item">
+                            <a class="page-link" href="#rdm-pagination" aria-label="Previous page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#rdm-pagination">2 <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#rdm-pagination" aria-label="Next page">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Sizes</h4>
+                <p>Add Bootstrap's <code>.pagination-lg</code> or <code>.pagination-sm</code> to the <code>.pagination</code> list; the Material colours, corners and padding scale with the size.</p>
+                <!--@example-->
+                <nav aria-label="Large pagination example">
+                    <ul class="pagination pagination-lg flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination" aria-label="Previous page (large)">&laquo;</a></li>
+                        <li class="page-item active" aria-current="page"><a class="page-link" href="#rdm-pagination">1 <span class="visually-hidden">(current)</span></a></li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination" aria-label="Next page (large)">&raquo;</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Small pagination example">
+                    <ul class="pagination pagination-sm flex-wrap">
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination" aria-label="Previous page (small)">&laquo;</a></li>
+                        <li class="page-item active" aria-current="page"><a class="page-link" href="#rdm-pagination">1 <span class="visually-hidden">(current)</span></a></li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination" aria-label="Next page (small)">&raquo;</a></li>
+                    </ul>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Active and disabled states</h4>
+                <p>Use <code>.active</code> with <code>aria-current="page"</code> for the current page and <code>.disabled</code> with <code>aria-disabled="true"</code> plus <code>tabindex="-1"</code> for an unavailable control; the theme keeps the disabled background but mutes the label.</p>
+                <!--@example-->
+                <nav aria-label="Pagination states example">
+                    <ul class="pagination flex-wrap">
+                        <li class="page-item disabled"><a class="page-link" href="#rdm-pagination" tabindex="-1" aria-disabled="true">Previous</a></li>
+                        <li class="page-item active" aria-current="page"><a class="page-link" href="#rdm-pagination">1 <span class="visually-hidden">(current)</span></a></li>
+                        <li class="page-item"><a class="page-link" href="#rdm-pagination">2</a></li>
+                        <li class="page-item disabled"><a class="page-link" href="#rdm-pagination" tabindex="-1" aria-disabled="true">Next</a></li>
+                    </ul>
+                </nav>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

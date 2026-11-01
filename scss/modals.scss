@@ -4,10 +4,10 @@
 // Modals
 // --------------------------------------------------
 .modal {
-    --bs-modal-bg: #{$btn-default-bg-color};
+    --bs-modal-bg: var(--rdm-surface-translucent);
     --bs-modal-border-radius: 2px;
     --bs-modal-inner-border-radius: 2px;
-    --bs-modal-box-shadow: #{$shadow-depth-5};
+    --bs-modal-box-shadow: var(--rdm-shadow-depth-5);
     --bs-modal-header-border-width: 0;
     --bs-modal-footer-border-width: 0;
 }
@@ -18,12 +18,12 @@
 }
 
 .modal-content {
-    background-color: $btn-default-bg-color;
+    background-color: var(--rdm-surface-translucent);
 }
 
 @media (min-width: 768px) {
     .modal-content {
-        box-shadow: $shadow-depth-5;
+        box-shadow: var(--rdm-shadow-depth-5);
         border-radius: 2px;
         border: 0;
     }

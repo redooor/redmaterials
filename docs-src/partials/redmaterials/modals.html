@@ -1,0 +1,60 @@
+<!-- Redmaterials Modals
+================================================== -->
+<div id="modals" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Modals</h1>
+                <p>Redmaterials keeps Bootstrap's modal markup and restyles the dialog: a translucent Material surface, 2px corners, no border between the header, body and footer, and the deepest theme shadow on <code>.modal-content</code> from 768px up. Bootstrap's bundle JavaScript drives it through <code>data-bs-toggle="modal"</code> and <code>data-bs-target</code>; Redmaterials adds no script and no data attribute.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap's dialog uses an opaque <code>--bs-body-bg</code> surface, <code>0.5rem</code> corners and 1px header and footer borders, with its lighter default shadow; Redmaterials gives it a translucent Material surface, 2px corners, no border between the header, body and footer, and the deepest theme shadow on <code>.modal-content</code> from 768px up. The markup and every <code>data-bs-*</code> option are Bootstrap 5.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Header, footer and depth</h4>
+                <p>The preview is the same dialog laid out inline with <code>.position-static</code> and <code>.d-block</code>, so the borderless header and footer and the depth shadow are visible without opening anything; the footer here uses text so the preview has no dead controls.</p>
+                <!--@example-->
+                <div class="modal position-static d-block" tabindex="-1" aria-labelledby="modals-preview-title">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modals-preview-title">Modal title</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="mb-0">Modal footer content goes here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Live demo</h4>
+                <p>The launch button opens a real modal with a dismissible close button and footer actions; both footer buttons dismiss it, and <kbd>Esc</kbd> or a click on the backdrop closes it as in Bootstrap.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary" id="modals-live-button" data-bs-toggle="modal" data-bs-target="#modals-live">Launch demo modal</button>
+                <div class="modal fade" id="modals-live" tabindex="-1" aria-labelledby="modals-live-title" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modals-live-title">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Modal body text goes here. The header and footer sit on the same translucent surface with no divider lines.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-link" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

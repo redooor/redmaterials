@@ -7,12 +7,12 @@
         font-size: 1em;
         font-weight: normal;
         line-height: 1;
-        color: #666666;
+        color: var(--rdm-text-muted);
         text-align: center;
         background-color: transparent;
         border: 0;
         border-radius: 0;
-        box-shadow: inset 0 -1px 0 #ddd;
+        box-shadow: inset 0 -1px 0 var(--rdm-underline);
     }
     > .btn {
         padding: 7px 1.5em;

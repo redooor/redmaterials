@@ -1,0 +1,63 @@
+<!-- Redmaterials Ripples
+================================================== -->
+<div id="rdm-ripples" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Ripples</h1>
+                <p>The ripple is a Material ink animation that starts where the pointer clicks. Add <code>.ripple-effect</code> to a button, link or card and load <code>dist/js/redmaterials.min.js</code>; the script creates the <code>.ink</code> element at run time, so it never appears in your markup.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap has no ripple of its own and no <code>.ripple-effect</code> styling, so a click leaves no visible ink; Redmaterials adds both the <code>.ripple-effect</code> styling and the script that creates the <code>.ink</code> element at run time.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Buttons</h4>
+                <p>Add <code>.ripple-effect</code> to any <code>.btn</code>; the ink uses the button's own ink colour, so it stays visible on every contextual variant.</p>
+                <!--@example-->
+                <button type="button" class="btn btn-primary btn-raised ripple-effect mb-2 me-2">Primary</button>
+                <button type="button" class="btn btn-secondary btn-raised ripple-effect mb-2 me-2">Secondary</button>
+                <button type="button" class="btn btn-success btn-raised ripple-effect mb-2 me-2">Success</button>
+                <button type="button" class="btn btn-danger btn-raised ripple-effect mb-2 me-2">Danger</button>
+                <button type="button" class="btn btn-primary btn-flat ripple-effect mb-2 me-2">Flat</button>
+                <!--@end-->
+
+                <h4 class="mt-5">Links</h4>
+                <p>The same class works on a link button and on an inline text link; use a real <code>&lt;a href&gt;</code> or <code>&lt;button&gt;</code> so the control is keyboard operable.</p>
+                <!--@example-->
+                <a href="#rdm-ripples" class="btn btn-primary btn-raised ripple-effect mb-2 me-2">Link button</a>
+                <a href="#rdm-ripples" class="btn btn-outline-primary ripple-effect mb-2 me-2">Outline link</a>
+                <a href="#rdm-ripples" class="link-primary link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover ripple-effect">Inline ripple link</a>
+                <!--@end-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="mt-5">Cards</h4>
+                <p>Apply <code>.ripple-effect</code> to a card or any other positioned container to ripple across its whole area.</p>
+                <!--@example-->
+                <a href="#rdm-ripples" class="card ripple-effect text-decoration-none text-body mb-3" style="max-width: 22rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Ripple card</h5>
+                        <p class="card-text mb-0">Click anywhere on the card and the ink starts from that point.</p>
+                    </div>
+                </a>
+                <!--@end-->
+
+                <h4 class="mt-5">How the script works</h4>
+                <p>On every click a delegated listener finds the closest <code>.ripple-effect</code>, creates a <code>&lt;span class="ink"&gt;</code> if there is not one already, sizes it to the larger side of the element, places it at the pointer, forces a reflow and adds the <code>animate</code> class; removing and re-adding that class restarts the CSS keyframes on a rapid second click. The script has no dependencies and does not use jQuery.</p>
+                <p><strong>Keyboard activation.</strong> There is no separate key handler: pressing <kbd>Enter</kbd> on a link or button (or <kbd>Space</kbd> on a button) dispatches a click with <code>detail === 0</code> and no pointer coordinates, and the listener places the ink in the centre of the element for that case. A non-interactive element would need its own keyboard handling, so use a native <code>&lt;button&gt;</code> or <code>&lt;a href&gt;</code>.</p>
+                <p>Both behaviours auto-initialise: the file attaches its two document-level click listeners as soon as it runs, with no <code>init()</code> call to write. One listener handles <code>.ripple-effect</code> and the other handles <code>[data-toggle=nav-sidebar-toggle]</code> (with a <code>data-bs-target</code> fallback), so the ripple and the nav sidebar work as soon as the script is loaded.</p>
+
+                <h4 class="mt-5">Adding the script</h4>
+                <p>Load Redmaterials' JavaScript after Bootstrap's bundle, before the closing <code>&lt;/body&gt;</code>:</p>
+                <!--@code--><script src="dist/js/redmaterials.min.js"></script><!--@end-->
+                <p>No ink element is written by hand; a ripple control only needs the class:</p>
+                <!--@code--><button type="button" class="btn btn-primary btn-raised ripple-effect">Click me</button>
+<a href="#" class="btn btn-flat btn-primary ripple-effect">Or a link</a>
+<div class="card ripple-effect">…</div><!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

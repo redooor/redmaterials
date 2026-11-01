@@ -1,0 +1,118 @@
+<!-- Redmaterials Cards
+================================================== -->
+<div id="cards" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Cards</h1>
+                <p>Redmaterials keeps Bootstrap's card markup and changes the header and footer wash: <code>scss/cards.scss</code> points <code>--bs-card-cap-bg</code> at the theme token <code>--rdm-card-cap-bg</code> (<code>3%</code> of the body colour in light mode, <code>10%</code> black in dark mode), so a coloured card keeps its text contrast instead of being lightened. Cards can use the <code>.shadow-depth-*</code> scale and the <code>.card-action</code> / <code>.btn-action</code> pair. No data attribute or JavaScript is needed.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap's header and footer use its own translucent body-colour wash (which lightens coloured cards in dark mode), the six depth classes have no effect, and <code>.card-action</code> / <code>.btn-action</code> do not exist, so the action button sits in the normal flow; Redmaterials points <code>--bs-card-cap-bg</code> at <code>--rdm-card-cap-bg</code> and adds the depth scale and the action pair. The card, header, footer, image and list-group markup is Bootstrap 5 throughout.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Headers and footers</h4>
+                <p>The header and footer share the card surface with the theme wash; put <code>.text-bg-primary</code> (or a palette <code>.bg-*</code>) on the whole card to see the token keep the coloured header dark enough for white text in both modes.</p>
+                <!--@example-->
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="card h-100" id="cards-header-footer">
+                            <div class="card-header">Featured</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#cards" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                            <div class="card-footer text-body-secondary">Last updated 3 mins ago</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 text-bg-primary">
+                            <div class="card-header">Featured</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Coloured card</h5>
+                                <p class="card-text">The header and footer keep their colour wash instead of lightening the card surface.</p>
+                            </div>
+                            <div class="card-footer">Last updated 3 mins ago</div>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Card action</h4>
+                <p>Add <code>.card-action</code> to a positioned card header (or another relative container) and <code>.btn-action</code> to the button; the class lifts it <code>27px</code> below the header and <code>1.5em</code> from the right edge. Give the icon-only button an <code>aria-label</code> and hide the Material Icons glyph from assistive technology.</p>
+                <!--@example-->
+                <div class="card mb-5" id="cards-action" style="max-width: 24rem;">
+                    <div class="card-header card-action bg-indigo text-white">
+                        <h3 class="h5 mb-1">Card action</h3>
+                        <p class="mb-0">Description of the card</p>
+                        <button type="button" class="btn btn-circle btn-raised bg-pink text-white btn-action" aria-label="Add item">
+                            <i class="material-icons" aria-hidden="true">add</i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">The action button overlaps the boundary between the header and the body.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-raised bg-indigo text-white">Get started</button>
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Depth</h4>
+                <p>Apply <code>.shadow-depth-1</code> through <code>.shadow-depth-5</code> to a card; the shadow is a theme token that deepens in dark mode. The three cards use depths 1, 3 and 5.</p>
+                <!--@example-->
+                <div class="row g-3" id="cards-depth">
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-depth-1">
+                            <div class="card-body">
+                                <h5 class="card-title">Depth 1</h5>
+                                <p class="card-text mb-0"><code>.shadow-depth-1</code></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-depth-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Depth 3</h5>
+                                <p class="card-text mb-0"><code>.shadow-depth-3</code></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-depth-5">
+                            <div class="card-body">
+                                <h5 class="card-title">Depth 5</h5>
+                                <p class="card-text mb-0"><code>.shadow-depth-5</code></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Images</h4>
+                <p>Use Bootstrap's <code>.card-img-top</code> or <code>.card-img-bottom</code> for edge-to-edge images. The illustration here is an inline SVG painted with <code>currentColor</code>, so it follows the theme through <code>.text-body-secondary</code> and needs no external image.</p>
+                <!--@example-->
+                <div class="card" id="cards-image" style="max-width: 24rem;">
+                    <svg class="card-img-top d-block text-body-secondary" xmlns="http://www.w3.org/2000/svg" width="100%" height="180" viewBox="0 0 318 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract placeholder illustration">
+                        <rect width="318" height="180" fill="currentColor" opacity=".15"/>
+                        <circle cx="90" cy="90" r="52" fill="currentColor" opacity=".3"/>
+                        <circle cx="238" cy="90" r="52" fill="currentColor" opacity=".3"/>
+                    </svg>
+                    <div class="card-body">
+                        <h5 class="card-title">Card with an image</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#cards" class="card-link">Card link</a>
+                        <a href="#cards" class="card-link">Another link</a>
+                    </div>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

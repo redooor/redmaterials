@@ -1,0 +1,162 @@
+<!-- Redmaterials Navbar
+================================================== -->
+<div id="navbar" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Navbar</h1>
+                <p>Redmaterials keeps Bootstrap's navbar markup and adds the Material depth shadow, a CSS-drawn breadcrumb separator and the legacy <code>.navbar-toggle</code> helper. Colour a navbar with a palette <code>.bg-{colour}</code> utility and set <code>data-bs-theme="dark"</code> on the navbar for dark fills so its links, brand and toggler turn white. Do not use the removed <code>.navbar-{colour}</code>, <code>.navbar-dark</code> or <code>.navbar-light</code> classes. The collapse and dropdown need Bootstrap's bundle JavaScript.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap's navbar has no Redmaterials shadow, no breadcrumb separators and no styling for <code>.navbar-toggle</code>; Redmaterials adds the Material depth shadow, the CSS-drawn breadcrumb separators and the <code>.navbar-toggle</code> helper. The palette <code>.bg-{colour}</code> fills are absent as well, because those utilities are Redmaterials-only. All collapse, dropdown and <code>data-bs-*</code> markup is Bootstrap 5.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Default navbar</h4>
+                <p>A standard Bootstrap navbar with a brand, a collapsible menu, a dropdown and a search form; Redmaterials adds the shadow under the bar.</p>
+                <!--@example-->
+                <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar-rdm-basic">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#navbar">Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-rdm-basic-collapse" aria-controls="navbar-rdm-basic-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar-rdm-basic-collapse">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#navbar" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#navbar">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbar-rdm-basic-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                                    <ul class="dropdown-menu" id="navbar-rdm-basic-menu" aria-labelledby="navbar-rdm-basic-dropdown">
+                                        <li><a class="dropdown-item" href="#navbar">Action</a></li>
+                                        <li><a class="dropdown-item" href="#navbar">Another action</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#navbar">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="navbar-text">Navbar text</span>
+                                </li>
+                            </ul>
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search navbar">
+                                <button class="btn btn-outline-primary" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Breadcrumb navbar</h4>
+                <p>Add <code>.navbar-breadcrumb</code> to a <code>.navbar-nav</code> list; Redmaterials draws the chevron separators in CSS, so no icon font or Font Awesome is needed. The separators are hidden below 768px.</p>
+                <!--@example-->
+                <nav class="navbar navbar-expand bg-body-tertiary" aria-label="Breadcrumb example">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav navbar-breadcrumb">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#navbar" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar">Library</a>
+                            </li>
+                            <li class="nav-item">
+                                <span class="navbar-text">Data</span>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5" id="color-options">Palette colours</h4>
+                <p>Use a palette <code>.bg-{colour}</code> utility on the navbar and select its colour mode with <code>data-bs-theme</code>: dark fills use <code>data-bs-theme="dark"</code> for white links, while the very light yellow and lime fills use <code>data-bs-theme="light"</code> so their labels stay dark.</p>
+                <!--@example-->
+                <div class="d-flex flex-column gap-3">
+                    <nav class="navbar navbar-expand bg-red" data-bs-theme="dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#navbar">Red</a>
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link active" href="#navbar" aria-current="page">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#navbar">Link</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <nav class="navbar navbar-expand bg-indigo" data-bs-theme="dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#navbar">Indigo</a>
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link active" href="#navbar" aria-current="page">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#navbar">Link</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <nav class="navbar navbar-expand bg-blue-grey" data-bs-theme="dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#navbar">Blue grey</a>
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link active" href="#navbar" aria-current="page">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#navbar">Link</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <nav class="navbar navbar-expand bg-brown" data-bs-theme="dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#navbar">Brown</a>
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link active" href="#navbar" aria-current="page">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#navbar">Link</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <nav class="navbar navbar-expand bg-yellow" data-bs-theme="light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#navbar">Yellow</a>
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link active" href="#navbar" aria-current="page">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#navbar">Link</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <nav class="navbar navbar-expand bg-lime" data-bs-theme="light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#navbar">Lime</a>
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link active" href="#navbar" aria-current="page">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#navbar">Link</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">The navbar-toggle helper</h4>
+                <p><code>.navbar-toggle</code> is a legacy Redmaterials helper kept for plain buttons that act as a navbar toggler: it removes the margin, padding, border, radius and background and sets a pointer cursor. It does not add behaviour, so pair it with Bootstrap's <code>data-bs-toggle="collapse"</code> (as below) or your own handler and give the button an accessible name.</p>
+                <!--@example-->
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid d-flex flex-wrap align-items-center">
+                        <span class="navbar-brand mb-0">Navbar</span>
+                        <button class="navbar-toggle ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-rdm-toggle-menu" aria-controls="navbar-rdm-toggle-menu" aria-expanded="false" aria-label="Toggle helper menu">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse w-100" id="navbar-rdm-toggle-menu">
+                            <p class="navbar-text mb-0 pt-2">This panel is toggled by a button carrying <code>.navbar-toggle</code>.</p>
+                        </div>
+                    </div>
+                </nav>
+                <!--@end-->
+
+                <h4 class="mt-5">Legacy colour aliases</h4>
+                <p><strong>Documented as code only.</strong> <code>.navbar-light</code> and <code>.navbar-dark</code> are kept in <code>scss/navbar.scss</code> for backwards compatibility, but they are not used in the live examples above: Bootstrap 5.3 replaced them with <code>data-bs-theme</code>. <code>.navbar-light</code> forces dark text on a light bar, while <code>.navbar-dark</code> only fixes the search field colours inside a dark bar.</p>
+                <!--@code--><nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Light</a>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Dark</a>
+</nav><!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

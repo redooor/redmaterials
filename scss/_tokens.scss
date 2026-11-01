@@ -1,0 +1,161 @@
+@use "sass:color";
+@use "colors" as *;
+@use "variables" as *;
+
+// Select arrows are PNG data URLs in light; the dark variants are SVG chevrons.
+$select-arrow: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+$select-arrow-focus: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
+$select-arrow-dark: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+$select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+
+//
+// Colour tokens
+// --------------------------------------------------
+// Neutral colours (text, surfaces, dividers, interaction states, shadows) are
+// CSS custom properties so they can follow Bootstrap's `data-bs-theme`.  The
+// light values are exactly the values these properties had before dark mode
+// existed; the dark values only apply under `data-bs-theme="dark"`.
+//
+// Brand and palette identity colours ($brand-*, the colour loops) are not
+// tokens: they stay the same in both modes.  See COLOR-ROLES.md for the audit
+// of every colour declaration and the role it was given.
+
+:root,
+[data-bs-theme="light"] {
+    // Text
+    --rdm-text: #{$grey-800};
+    --rdm-text-strong: #333;
+    --rdm-text-disabled: rgba(0, 0, 0, 0.26);
+    --rdm-text-subtle: #ccc;
+    --rdm-text-muted: #666666;
+    --rdm-text-secondary: #6c757d;
+    --rdm-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+    --rdm-table-text: #{$default-text};
+    --rdm-table-header-color: #{$table-header-font-color};
+
+    // Neutral "default" button variant ($brand-default)
+    --rdm-default-bg: #{$brand-default};
+    --rdm-default-hover-bg: #{color.adjust($brand-default, $lightness: -10%)};
+    --rdm-default-active-bg: #{color.adjust($brand-default, $lightness: -10%)};
+    --rdm-default-focus-bg: #{color.adjust($brand-default, $lightness: -20%)};
+    --rdm-default-ink: #{color.adjust($brand-default, $lightness: -30%)};
+
+    // Navigation sidebar neutral "default" variant: this has always followed
+    // $default / $default-text, independently of $brand-default.
+    --rdm-sidebar-default-bg: #{$default};
+    --rdm-sidebar-default-text: #{$default-text};
+
+    // Flat buttons: the hover/active/focus wash and the ripple of every colour
+    --rdm-flat-hover-bg: #{color.adjust(#999, $lightness: 30%)};
+    --rdm-flat-active-bg: #{color.adjust(#999, $lightness: 20%)};
+    --rdm-flat-focus-bg: #{color.adjust(#999, $lightness: 20%)};
+    --rdm-flat-ink: #{color.adjust(#ccc, $lightness: -30%)};
+
+    // Ripple ink on a plain surface
+    --rdm-ink: #fff;
+
+    // Surfaces
+    --rdm-surface: #fff;
+    --rdm-surface-translucent: #{$btn-default-bg-color};
+    --rdm-disabled-bg: #eee;
+    --rdm-overlay: rgba(0, 0, 0, 0.4);
+
+    // Dividers
+    --rdm-underline: #ddd;
+    --rdm-divider: #eee;
+    --rdm-chevron: #ccc;
+    --rdm-popover-border: #{$popover-border-color};
+    --rdm-blockquote-border: rgba(0, 0, 0, 0.15);
+
+    --rdm-control-border: #{$form-primary};
+    --rdm-control-subtle: #{$form-secondary};
+    --rdm-focus-gap: #fff;
+    --rdm-select-arrow: #{$select-arrow};
+    --rdm-select-arrow-focus: #{$select-arrow-focus};
+
+    // Interaction surfaces
+    --rdm-hover-bg: #eee;
+    --rdm-table-striped-bg: #{$table-bg-accent};
+    --rdm-table-hover-bg: #{$table-bg-hover};
+    --rdm-table-active-bg: #{$table-bg-active};
+    --rdm-table-border: #{$table-border-color};
+
+    // Tooltip
+    --rdm-tooltip-bg: #{$tooltip-bg-color};
+    --rdm-tooltip-color: #{$brand-white};
+
+    // Shadows
+    --rdm-shadow-depth-1: #{$shadow-depth-1};
+    --rdm-shadow-depth-2: #{$shadow-depth-2};
+    --rdm-shadow-depth-3: #{$shadow-depth-3};
+    --rdm-shadow-depth-4: #{$shadow-depth-4};
+    --rdm-shadow-depth-5: #{$shadow-depth-5};
+    --rdm-shadow-navbar: 0 1px 2px rgba(0, 0, 0, .3);
+    --rdm-shadow-dropdown: 0 6px 12px rgba(0, 0, 0, .175);
+    --rdm-shadow-ribbon: 0 0 3px rgba(0, 0, 0, .3);
+}
+
+[data-bs-theme="dark"] {
+    --rdm-text: var(--bs-body-color);
+    --rdm-text-strong: var(--bs-body-color);
+    --rdm-text-disabled: rgba(255, 255, 255, 0.3);
+    --rdm-text-subtle: var(--bs-secondary-color);
+    --rdm-text-muted: var(--bs-secondary-color);
+    --rdm-text-secondary: #adb5bd;
+    --rdm-card-cap-bg: rgba(0, 0, 0, 0.1);
+    --rdm-table-text: var(--bs-body-color);
+    --rdm-table-header-color: var(--bs-secondary-color);
+
+    --rdm-default-bg: #333;
+    --rdm-default-hover-bg: #404040;
+    --rdm-default-active-bg: #404040;
+    --rdm-default-focus-bg: #4d4d4d;
+    --rdm-default-ink: rgba(255, 255, 255, 0.3);
+
+    --rdm-sidebar-default-bg: #333;
+    --rdm-sidebar-default-text: var(--bs-body-color);
+
+    --rdm-flat-hover-bg: rgba(255, 255, 255, 0.08);
+    --rdm-flat-active-bg: rgba(255, 255, 255, 0.16);
+    --rdm-flat-focus-bg: rgba(255, 255, 255, 0.16);
+    --rdm-flat-ink: rgba(255, 255, 255, 0.3);
+
+    --rdm-ink: rgba(255, 255, 255, 0.3);
+
+    --rdm-surface: var(--bs-tertiary-bg);
+    --rdm-surface-translucent: rgba(43, 48, 53, 0.87);
+    --rdm-disabled-bg: rgba(255, 255, 255, 0.08);
+    --rdm-overlay: rgba(0, 0, 0, 0.6);
+
+    --rdm-underline: #495057;
+    --rdm-divider: rgba(255, 255, 255, 0.12);
+    --rdm-chevron: #6c757d;
+    --rdm-control-border: #adb5bd;
+    --rdm-control-subtle: #495057;
+    --rdm-focus-gap: var(--bs-body-bg);
+    --rdm-select-arrow: #{$select-arrow-dark};
+    --rdm-select-arrow-focus: #{$select-arrow-dark-focus};
+    --rdm-popover-border: #343a40;
+    --rdm-blockquote-border: rgba(255, 255, 255, 0.15);
+
+    --rdm-hover-bg: rgba(255, 255, 255, 0.08);
+    --rdm-table-striped-bg: rgba(255, 255, 255, 0.05);
+    --rdm-table-hover-bg: rgba(255, 255, 255, 0.1);
+    --rdm-table-active-bg: rgba(255, 255, 255, 0.1);
+    --rdm-table-border: #495057;
+
+    // Material dark tooltips stay light, as Bootstrap's do
+    --rdm-tooltip-bg: #e0e0e0;
+    --rdm-tooltip-color: #212121;
+
+    // Shadows are barely visible on a dark surface: deepen them and add a
+    // faint top highlight, as Material's dark theme does for raised surfaces.
+    --rdm-shadow-depth-1: 0 1px 3px 0 rgba(0, 0, 0, .4), 0 1px 2px 0 rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .05);
+    --rdm-shadow-depth-2: 0 3px 6px rgba(0, 0, 0, .45), 0 3px 6px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .06);
+    --rdm-shadow-depth-3: 0 6px 12px rgba(0, 0, 0, .45), 0 8px 12px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .07);
+    --rdm-shadow-depth-4: 0 9px 15px -1px rgba(0, 0, 0, .45), 0 11px 24px -1px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .08);
+    --rdm-shadow-depth-5: 0 13px 25px -2px rgba(0, 0, 0, .45), 0 13px 28px -2px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .09);
+    --rdm-shadow-navbar: 0 1px 2px rgba(0, 0, 0, .6);
+    --rdm-shadow-dropdown: 0 6px 12px rgba(0, 0, 0, .5);
+    --rdm-shadow-ribbon: 0 0 3px rgba(0, 0, 0, .6);
+}

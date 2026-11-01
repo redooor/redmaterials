@@ -1,14 +1,27 @@
 @use "sass:color";
+@use "sass:list";
 @use "../variables" as *;
 
 // Text variations
 
 // For contexture text
+// The contextual colours that can be used as text follow the theme (lifted to
+// AA in dark mode); see the --rdm-text-* tokens in _bootstrap5-theme.scss.
+$text-token-names: "primary", "secondary", "success", "info", "warning", "danger";
+
 @each $context, $color in $brand-color-map {
     .text-#{$context} {
-        color: $color !important;
+        @if list.index($text-token-names, $context) {
+            color: rgba(var(--rdm-text-#{$context}-rgb), var(--bs-text-opacity, 1)) !important;
+        } @else {
+            color: $color !important;
+        }
     }
     a.text-#{$context}:hover {
-        color: color.adjust($color, $lightness: -10%) !important;
+        @if list.index($text-token-names, $context) {
+            color: rgb(var(--rdm-text-#{$context}-anchor-rgb)) !important;
+        } @else {
+            color: color.adjust($color, $lightness: -10%) !important;
+        }
     }
 }

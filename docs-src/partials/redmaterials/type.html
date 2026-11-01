@@ -1,0 +1,75 @@
+<!-- Redmaterials Typography
+================================================== -->
+<div id="rdm-type" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Typography</h1>
+                <p>Redmaterials sets Roboto as the document and component font, keeps Bootstrap's heading scale, and leaves code and blockquote typography to Bootstrap with a small Material adjustment. No JavaScript is required for any of it.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Bootstrap alone renders its system font stack at 16px; Redmaterials renders Roboto at 14px with a 1.4 line height, so the same text looks slightly smaller with Material's letterforms. The heading scale itself is Bootstrap's in both cases.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Roboto and body text</h4>
+                <p>Load the Roboto stylesheet before Redmaterials' stylesheet; the font is not bundled with the theme.</p>
+                <!--@code--><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"><!--@end-->
+                <p><code>scss/scaffolding.scss</code> sets the body to <code>"Roboto", 'Helvetica Neue', Helvetica, Arial, sans-serif</code> at <code>400</code> weight, <code>14px</code>, line height <code>1.4</code>, colour <code>var(--rdm-text)</code>, <code>.1px</code> letter spacing and antialiased smoothing. <code>scss/_bootstrap5-theme.scss</code> maps the same stack to <code>--bs-body-font-family</code>, so Bootstrap components inherit Roboto too. <code>scss/type.scss</code> contains only two rules: links use <code>var(--bs-link-color)</code> and <code>.blockquote-footer</code> uses <code>var(--rdm-text-secondary)</code>.</p>
+
+                <h4 class="mt-5">Body copy</h4>
+                <p>Body text renders at the 14px Roboto base; <code>.lead</code>, <code>.small</code>, <code>mark</code>, <code>strong</code> and <code>em</code> keep Bootstrap's styles.</p>
+                <!--@example-->
+                <p class="lead">A lead paragraph introduces a section with slightly larger, lighter text.</p>
+                <p>Regular body copy shows the 14px Roboto base and the 1.4 line height. It also shows <strong>bold text</strong>, <em>italic text</em>, <mark>highlighted text</mark> and a <a href="#">default link</a> inside a paragraph.</p>
+                <p class="small mb-0">Small text uses Bootstrap's <code>.small</code> size on top of the same Roboto stack.</p>
+                <!--@end-->
+
+                <h4 class="mt-5">Headings</h4>
+                <p>Redmaterials does not redefine the heading scale, so Bootstrap 5.3's responsive <code>h1</code>–<code>h6</code>, heading classes and display headings render unchanged on top of Roboto.</p>
+                <!--@example-->
+                <h1>h1. Redmaterials heading</h1>
+                <h2>h2. Redmaterials heading</h2>
+                <h3>h3. Redmaterials heading</h3>
+                <h4>h4. Redmaterials heading</h4>
+                <h5>h5. Redmaterials heading</h5>
+                <h6>h6. Redmaterials heading</h6>
+                <p class="h3">.h3 paragraph heading</p>
+                <p class="display-4 mb-0">Display 4</p>
+                <!--@end-->
+
+                <h4 class="mt-5">Links</h4>
+                <p>Links use the brand primary through <code>var(--bs-link-color)</code>, and Bootstrap's contextual link utilities (<code>.link-primary</code> … <code>.link-danger</code>) are restyled through the <code>--rdm-text-*</code> tokens so they stay readable in dark mode.</p>
+                <!--@example-->
+                <p><a href="#">Default link</a> uses the theme's link colour and hover colour.</p>
+                <p><a href="#" class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover">Body-emphasis link</a> is the link style used in this documentation's prose.</p>
+                <p class="mb-0"><a href="#" class="link-primary">Primary link</a>, <a href="#" class="link-secondary">secondary link</a>, <a href="#" class="link-success">success link</a>, <a href="#" class="link-info">info link</a>, <a href="#" class="link-warning">warning link</a> and <a href="#" class="link-danger">danger link</a> use the contextual link tokens.</p>
+                <!--@end-->
+
+                <h4 class="mt-5">Code and keyboard</h4>
+                <p><code>scss/code.scss</code> removes the border from <code>pre</code> and gives it a <code>2px</code> radius; inline <code>code</code>, <code>kbd</code> and <code>samp</code> keep Bootstrap's styling.</p>
+                <!--@example-->
+                <p>Use <code>var(--rdm-text)</code> for body text, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy, and read program output as <samp>docs built</samp>.</p>
+                <pre class="mb-3"><code>@use "redmaterials";
+
+.card {
+    border-radius: 2px;
+}</code></pre>
+                <pre class="mb-0"><samp>$ npm run build:docs:html
+docs built</samp></pre>
+                <!--@end-->
+
+                <h4 class="mt-5">Blockquotes</h4>
+                <p>Bootstrap's <code>.blockquote</code> is unchanged; Redmaterials sets <code>.blockquote-footer</code> to <code>var(--rdm-text-secondary)</code> so the attribution stays readable in dark mode, and a <code>.well</code> blockquote uses <code>var(--rdm-blockquote-border)</code> for its border.</p>
+                <!--@example-->
+                <figure class="mb-0">
+                    <blockquote class="blockquote">
+                        <p>Material design is a visual language that synthesises the classic principles of good design with the innovation and possibility of technology and science.</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">Material Design guidelines in <cite title="Material Design">Material Design</cite></figcaption>
+                </figure>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

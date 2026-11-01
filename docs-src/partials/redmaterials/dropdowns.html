@@ -1,0 +1,77 @@
+<!-- Redmaterials Dropdowns
+================================================== -->
+<div id="rdm-dropdowns" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Dropdowns</h1>
+                <p>Redmaterials keeps Bootstrap's dropdown markup and restyles the menu: square corners, no border, the Material depth shadow and roomier items. The menu is opened by Bootstrap's bundle JavaScript through <code>data-bs-toggle="dropdown"</code>; no Redmaterials script or extra data attribute is needed. Add <code>data-bs-theme="dark"</code> to a <code>.dropdown-menu</code> for a dark menu.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap's menu uses a 1px border, rounded corners, its lighter shadow and tighter item padding; Redmaterials removes the border, squares the corners, uses the Material depth shadow and roomier items. The markup, placement classes and <code>data-bs-*</code> options are Bootstrap 5 throughout.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Basic dropdown</h4>
+                <p>Put <code>.dropdown-toggle</code> and <code>data-bs-toggle="dropdown"</code> on the trigger and a <code>.dropdown-menu</code> next to it; Redmaterials supplies the square, borderless menu and depth shadow.</p>
+                <!--@example-->
+                <div class="dropdown" id="rdm-dropdowns-basic">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown button</button>
+                    <ul class="dropdown-menu" id="rdm-dropdowns-basic-menu">
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Action</a></li>
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Another action</a></li>
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Something else here</a></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Dark menu</h4>
+                <p>Add <code>data-bs-theme="dark"</code> to the <code>.dropdown-menu</code> only, so its items use the dark surface and light text while the surrounding page keeps its own colour mode.</p>
+                <!--@example-->
+                <div class="dropdown" id="rdm-dropdowns-dark">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dark dropdown</button>
+                    <ul class="dropdown-menu" data-bs-theme="dark" id="rdm-dropdowns-dark-menu">
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Action</a></li>
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Something else here</a></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Headers and states</h4>
+                <p>Use <code>.dropdown-header</code> for a non-interactive label, <code>.dropdown-divider</code> to separate groups, <code>.dropdown-item-text</code> for plain text, and <code>.active</code> or <code>.disabled</code> on an item to show its state.</p>
+                <!--@example-->
+                <div class="dropdown" id="rdm-dropdowns-items">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu items</button>
+                    <ul class="dropdown-menu">
+                        <li><h6 class="dropdown-header">Dropdown header</h6></li>
+                        <li><a class="dropdown-item active" href="#rdm-dropdowns" aria-current="true">Active item</a></li>
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Regular item</a></li>
+                        <li><a class="dropdown-item disabled" href="#rdm-dropdowns" aria-disabled="true" tabindex="-1">Disabled item</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><span class="dropdown-item-text">Plain text item</span></li>
+                    </ul>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Split button and alignment</h4>
+                <p>A split button keeps the main action separate from the menu trigger, and <code>.dropdown-menu-end</code> aligns the menu to the right edge of its trigger.</p>
+                <!--@example-->
+                <div class="btn-group" id="rdm-dropdowns-split">
+                    <button type="button" class="btn btn-primary">Split action</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle split dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Action</a></li>
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#rdm-dropdowns">Separated link</a></li>
+                    </ul>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

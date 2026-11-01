@@ -1,0 +1,174 @@
+<!-- Redmaterials Forms
+================================================== -->
+<div id="rdm-forms" class="container pt-5">
+    <div class="pt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Forms</h1>
+                <p>Redmaterials restyles Bootstrap's form controls instead of adding new classes: text inputs and textareas lose their box and get a 1px underline that thickens and turns primary on focus; selects keep an arrow; checks, radios, switches, the range and input-group addons all follow the Material treatment. No data attribute or JavaScript is needed, and validation uses Bootstrap's <code>.is-valid</code> and <code>.is-invalid</code> classes.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap gives every control its default styling: boxed inputs with rounded borders, the default blue focus ring and Bootstrap's own check, switch and range colours; Redmaterials removes the box for a 1px underline that thickens and turns primary on focus, keeps the select arrow, and restyles checks, radios, switches, the range and input-group addons. The markup and the <code>.form-label</code>, <code>.form-check</code>, <code>.form-switch</code>, <code>.form-range</code> and validation classes are Bootstrap 5 throughout.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Text inputs</h4>
+                <p>Use Bootstrap's <code>.form-control</code> with a <code>.form-label</code>; the theme removes the border and draws a single underline instead.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="rdm-forms-name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="rdm-forms-name" placeholder="Ada Lovelace">
+                </div>
+                <div class="mb-3">
+                    <label for="rdm-forms-email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="rdm-forms-email" placeholder="ada@example.com">
+                </div>
+                <div>
+                    <label for="rdm-forms-notes" class="form-label">Notes</label>
+                    <textarea class="form-control" id="rdm-forms-notes" rows="2" placeholder="A short note"></textarea>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Selects</h4>
+                <p><code>.form-select</code> keeps Bootstrap's arrow but drops its box for the same underline; a plain <code>&lt;select&gt;</code> gets the theme's own arrow from the stylesheet.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="rdm-forms-select" class="form-label">Form select</label>
+                    <select class="form-select" id="rdm-forms-select">
+                        <option selected>Choose a framework…</option>
+                        <option value="bootstrap">Bootstrap 5.3</option>
+                        <option value="redmaterials">Redmaterials</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="rdm-forms-native-select" class="form-label">Native select</label>
+                    <select id="rdm-forms-native-select" class="d-block w-100">
+                        <option selected>Choose a colour…</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                    </select>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Checks and radios</h4>
+                <p>Keep Bootstrap's <code>.form-check</code> markup: the theme squares the checkbox, rounds the radio and paints both with the Material primary when checked.</p>
+                <!--@example-->
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="rdm-forms-check">
+                    <label class="form-check-label" for="rdm-forms-check">Checkbox</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="rdm-forms-check-checked" checked>
+                    <label class="form-check-label" for="rdm-forms-check-checked">Checked checkbox</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rdm-forms-radio" id="rdm-forms-radio-1" checked>
+                    <label class="form-check-label" for="rdm-forms-radio-1">Radio one</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rdm-forms-radio" id="rdm-forms-radio-2">
+                    <label class="form-check-label" for="rdm-forms-radio-2">Radio two</label>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Switches</h4>
+                <p>A <code>.form-check.form-switch</code> keeps the native checkbox but restyles it as a track and thumb; give the input <code>role="switch"</code> for assistive technology.</p>
+                <!--@example-->
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="rdm-forms-switch">
+                    <label class="form-check-label" for="rdm-forms-switch">Enable notifications</label>
+                </div>
+                <div class="form-check form-switch mt-2">
+                    <input class="form-check-input" type="checkbox" role="switch" id="rdm-forms-switch-checked" checked>
+                    <label class="form-check-label" for="rdm-forms-switch-checked">Switch on by default</label>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Range</h4>
+                <p><code>.form-range</code> uses the theme primary for the thumb and a translucent primary for the track; label it like any other control.</p>
+                <!--@example-->
+                <label for="rdm-forms-range" class="form-label">Volume</label>
+                <input type="range" class="form-range" id="rdm-forms-range" min="0" max="10" value="5">
+                <!--@end-->
+
+                <h4 class="mt-5">File input</h4>
+                <p>Bootstrap's file input keeps its button, and the field underneath takes the theme's underline like a text input.</p>
+                <!--@example-->
+                <label for="rdm-forms-file" class="form-label">Upload a file</label>
+                <input class="form-control" type="file" id="rdm-forms-file">
+                <!--@end-->
+
+                <h4 class="mt-5">Input groups</h4>
+                <p>Add text or a button with <code>.input-group</code>; the theme gives the addon the same underline as the field instead of a separate box.</p>
+                <!--@example-->
+                <div class="mb-3">
+                    <label for="rdm-forms-url" class="form-label">Website</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="rdm-forms-url-addon">https://</span>
+                        <input type="text" class="form-control" id="rdm-forms-url" aria-describedby="rdm-forms-url-addon">
+                    </div>
+                </div>
+                <div>
+                    <label for="rdm-forms-search" class="form-label">Search</label>
+                    <div class="input-group">
+                        <input type="search" class="form-control" id="rdm-forms-search">
+                        <button class="btn btn-outline-primary" type="button">Go</button>
+                    </div>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Validation states</h4>
+                <p>Bootstrap's <code>.is-valid</code> and <code>.is-invalid</code> classes keep their feedback icons and text while the theme colours the underline green or red.</p>
+                <!--@example-->
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="rdm-forms-valid" class="form-label">Valid input</label>
+                        <input type="text" class="form-control is-valid" id="rdm-forms-valid" value="Redmaterials">
+                        <div class="valid-feedback">Looks good.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="rdm-forms-invalid" class="form-label">Invalid input</label>
+                        <input type="text" class="form-control is-invalid" id="rdm-forms-invalid" value="Bootstrap">
+                        <div class="invalid-feedback">Choose the themed value.</div>
+                    </div>
+                </div>
+                <!--@end-->
+                <p>The legacy <code>form-control-focus</code> mixin in <code>scss/mixins/forms.scss</code> is still defined but no current rule calls it; the live focus state is the 2px primary underline from <code>scss/forms.scss</code>.</p>
+
+                <h4 class="mt-5">Validated form</h4>
+                <p>Add <code>.was-validated</code> to a form to show Bootstrap's <code>:valid</code> and <code>:invalid</code> feedback on every control at once, without JavaScript; pair each control with <code>.valid-feedback</code> or <code>.invalid-feedback</code>. The first field below is empty and required, so it shows the invalid state, while the filled second field is valid.</p>
+                <!--@example-->
+                <form class="was-validated" novalidate>
+                    <div class="mb-3">
+                        <label for="rdm-forms-was-validated-name" class="form-label">Full name</label>
+                        <input type="text" class="form-control" id="rdm-forms-was-validated-name" required>
+                        <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                    <div class="mb-0">
+                        <label for="rdm-forms-was-validated-email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="rdm-forms-was-validated-email" value="ada@example.com" required>
+                        <div class="valid-feedback">Looks good.</div>
+                    </div>
+                </form>
+                <!--@end-->
+
+                <h4 class="mt-5">Floating labels</h4>
+                <p>Bootstrap's <code>.form-floating</code> wrapper still works: the label floats on focus and the field keeps the theme underline.</p>
+                <!--@example-->
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="rdm-forms-floating-email" placeholder=" ">
+                    <label for="rdm-forms-floating-email">Email address</label>
+                </div>
+                <div class="form-floating">
+                    <select class="form-select" id="rdm-forms-floating-select">
+                        <option selected>Choose a colour…</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                    </select>
+                    <label for="rdm-forms-floating-select">Favourite colour</label>
+                </div>
+                <!--@end-->
+            </div>
+        </div>
+    </div>
+</div>

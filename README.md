@@ -15,7 +15,7 @@ View demo at [https://redooor.github.io/redmaterials](https://redooor.github.io/
 
 # Note to users
 
-Version 0.2.0 is an incomplete release. We're constantly adding new features to Redmaterials. We appreciate your patience and welcome all contributions. Meanwhile, do expect that some things (specifically those elements that are not inherited from Bootstrap) are not confirmed and may be removed from future releases. We'll try as much as possible to retain the components inherited from Bootstrap.
+Components that Redmaterials inherits from Bootstrap are kept as close to Bootstrap as possible. The elements Redmaterials adds on top of Bootstrap (nav sidebar, corner ribbons, ripple effect, shadows, wells) are its own and may change in a future release. Contributions are welcome.
 
 ## Compatibility
 
@@ -29,15 +29,14 @@ Version 0.2.0 is an incomplete release. We're constantly adding new features to 
 
 Redmaterials 0.2.x requires **Bootstrap 5.3.x** CSS and JS. Use the Bootstrap **bundle** build, which includes Popper.
 
-jQuery 3.x is required only by Redmaterials' own JavaScript (the ripple effect and the nav-sidebar toggle). Bootstrap 5 itself does not need jQuery.
+Redmaterials' own JavaScript (the ripple effect and the nav-sidebar toggle) has no dependencies and does not need jQuery. Bootstrap 5 does not need jQuery either.
 
 Load the assets in this order:
 
 1. Bootstrap 5.3 CSS
 2. `redmaterials.css`
 3. Bootstrap 5.3 bundle JS
-4. jQuery 3.x
-5. `redmaterials.js`
+4. `redmaterials.js`
 
 ## Important Note
 
@@ -71,6 +70,33 @@ Web Font Loader example:
     * used together with Bootstrap's CSS and JS
     * declared after Bootstrap's CSS and JS
 
+## Customising
+
+The theme colours and sizes are Sass variables declared with `!default`. Load the variables module with your values first, then Redmaterials:
+
+```scss
+@use "variables" with ($brand-primary: #e91e63, $brand-secondary: #455a64);
+@use "redmaterials";
+```
+
+Compile with `sass --load-path=path/to/redmaterials/scss theme.scss theme.css`.
+
+## Dark mode
+
+Redmaterials follows Bootstrap 5.3's colour modes. Set the mode on the root element, or on any element to scope it:
+
+```html
+<html data-bs-theme="dark">
+```
+
+Text, surfaces, dividers, form underlines, shadows, tables, the navigation sidebar and the other neutral colours switch with it. Brand and palette fills (`btn-primary`, `bg-red`, ...) keep their colours in both modes. The neutral colours are CSS custom properties defined in `scss/_tokens.scss` (`--rdm-text`, `--rdm-surface-translucent`, `--rdm-underline`, ...), so you can override them for either mode:
+
+```css
+[data-bs-theme="dark"] { --rdm-underline: #6c757d; }
+```
+
+`.text-*` utilities are fixed colours, as in Bootstrap; use Bootstrap's `.text-body-secondary` and friends for text that follows the mode.
+
 ## CDN example
 
 ```html
@@ -82,9 +108,6 @@ Web Font Loader example:
 
 <!-- Bootstrap 5.3 bundle JS (includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- jQuery 3.x for Redmaterials' own JS only -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 
 <!-- Redmaterials JS (after Bootstrap) -->
 <script src="dist/js/redmaterials.min.js"></script>
