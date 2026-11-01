@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <h1>Utilities</h1>
                 <p>Redmaterials extends Bootstrap's colour utilities with the 19-colour Material palette and a neutral <code>default</code> and <code>muted</code> variant for backgrounds, text and borders. No data attribute or JavaScript is required: the utility classes work on their own.</p>
-                <p><strong>Bootstrap vs Redmaterials.</strong> In Bootstrap mode the <code>.bg-red</code> palette family, <code>.bg-default</code>, <code>.bg-muted</code>, <code>.border-default</code>, <code>.border-muted</code>, <code>.text-default</code> and the restyled <code>.text-muted</code> do not exist; the contextual <code>.text-*</code> and <code>.border-*</code> utilities fall back to Bootstrap's own colours.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap has no <code>.bg-red</code> palette family, <code>.bg-default</code>, <code>.bg-muted</code>, <code>.border-default</code>, <code>.border-muted</code> or <code>.text-default</code>, and does not restyle <code>.text-muted</code>; its contextual <code>.text-*</code> and <code>.border-*</code> utilities use Bootstrap's own colours, while Redmaterials adds the extra utilities and the Material palette.</p>
             </div>
         </div>
 
@@ -32,6 +32,28 @@
                 </div>
                 <!--@end-->
                 <p><code>.bg-default</code> is the palette neutral (<code>#f8f8f8</code>); <code>.bg-muted</code> is the contextual muted colour (<code>#9E9E9E</code>). They are fills, so they keep the same value in light and dark mode.</p>
+
+                <h4 class="mt-5">Contextual backgrounds</h4>
+                <p>Bootstrap's contextual background utilities are restyled with the Material palette. Pair each fill with a text utility that stays legible on it, and add <code>.border</code> to <code>.bg-white</code> so the box keeps an edge on a light surface.</p>
+                <!--@example-->
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="bg-primary text-white p-3 rounded"><code class="text-white">.bg-primary</code> with <code class="text-white">.text-white</code></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-secondary text-white p-3 rounded"><code class="text-white">.bg-secondary</code> with <code class="text-white">.text-white</code></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-dark text-white p-3 rounded"><code class="text-white">.bg-dark</code> with <code class="text-white">.text-white</code></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-light text-dark p-3 rounded"><code class="text-dark">.bg-light</code> with <code class="text-dark">.text-dark</code></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-white text-dark border p-3 rounded"><code class="text-dark">.bg-white</code> with <code class="text-dark">.text-dark</code> and <code class="text-dark">.border</code></div>
+                    </div>
+                </div>
+                <!--@end-->
 
                 <h4 class="mt-5">Contextual text colours</h4>
                 <p>The contextual text utilities are shown on <code>.bg-body</code>, the page surface, so you can compare them against the background they actually sit on.</p>

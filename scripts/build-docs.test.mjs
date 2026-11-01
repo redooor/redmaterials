@@ -59,28 +59,19 @@ test('expandColors: each-color+default also repeats the default colour first', (
   assert.equal((out.match(/<i class="bg-/g) || []).length, COLORS.length + 1);
   assert.ok(out.indexOf('bg-default') < out.indexOf('bg-red'));
 });
-test('renderSidebar: Bootstrap first on both pages, only the current page open and in the spy list', () => {
-  const sections = { bootstrap: [{ id: 'buttons', title: 'Buttons' }, { id: 'forms', title: 'Forms' }],
-                     redmaterials: [{ id: 'ribbons', title: 'Corner Ribbons' }, { id: 'buttons', title: 'Buttons' }] };
-  for (const page of ['bootstrap', 'redmaterials']) {
-    const html = renderSidebar(sections, page);
-    assert.ok(html.indexOf('id="nav-bootstrap"') < html.indexOf('id="nav-redmaterials"'), `${page}: Bootstrap above Redmaterials`);
-    assert.equal((html.match(/accordion-collapse collapse show/g) || []).length, 1);
-    assert.match(html, new RegExp(`id="nav-${page}" class="accordion-collapse collapse show"`));
-    const spy = html.slice(html.indexOf('id="nav_spy"'), html.indexOf('</ul>', html.indexOf('id="nav_spy"')));
-    assert.ok(spy.includes(`#${sections[page][0].id}"`) && !/\.html/.test(spy));
-    assert.match(html, /data-docs-first="redmaterials\.html#ribbons"/);
-    assert.match(html, /data-docs-first="index\.html#buttons"/);
-  }
-  assert.match(renderSidebar(sections, 'bootstrap'), /href="redmaterials\.html#ribbons"/);
-  assert.match(renderSidebar(sections, 'redmaterials'), /href="index\.html#forms"/);
+test('renderSidebar: one plain list in section order, the first link active, no accordion', () => {
+  const html = renderSidebar({ redmaterials: [{ id: 'ribbons', title: 'Corner Ribbons' }, { id: 'buttons', title: 'Buttons' }] });
+  assert.ok(html.startsWith('<ul class="nav flex-column" id="nav_spy">'));
+  assert.ok(html.indexOf('#ribbons"') < html.indexOf('#buttons"'));
+  assert.match(html, /href="#ribbons" aria-current="location"/);
+  assert.equal((html.match(/aria-current/g) || []).length, 1);
+  assert.ok(!/accordion|\.html/.test(html));
 });
 test('full build: every snippet decodes to its expanded example source, colours inside examples included, ids unique', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'docs-'));
   fs.mkdirSync(path.join(dir, 'src/pages'), { recursive: true }); fs.mkdirSync(path.join(dir, 'out'));
-  fs.writeFileSync(path.join(dir, 'src/sections.json'), JSON.stringify({ bootstrap: [{ id: 'a', title: 'A' }], redmaterials: [{ id: 'b', title: 'B' }] }));
+  fs.writeFileSync(path.join(dir, 'src/sections.json'), JSON.stringify({ redmaterials: [{ id: 'b', title: 'B' }] }));
   fs.writeFileSync(path.join(dir, 'src/pages/index.html'), '<!--@sidebar--><!--@example--><!--@each-color <button id="b-{color}" class="btn bg-{color}">v{{version}}</button>--><!--@end-->');
-  fs.writeFileSync(path.join(dir, 'src/pages/redmaterials.html'), '<!--@sidebar-->');
   build({ srcDir: path.join(dir, 'src'), outDir: path.join(dir, 'out'), pkg: { version: '9.9.9' } });
   const html = fs.readFileSync(path.join(dir, 'out/index.html'), 'utf8');
   const snippet = decode(html.match(/<code>([\s\S]*?)<\/code>/)[1].replace(/<[^>]*>/g, ''));
@@ -109,15 +100,15 @@ function tmpSite(files) {
   fs.mkdirSync(path.join(dir, 'out'));
   return { src: path.join(dir, 'src'), out: path.join(dir, 'out') };
 }
-const SECTIONS = JSON.stringify({ bootstrap: [{ id: 'a', title: 'A' }], redmaterials: [{ id: 'b', title: 'B' }] });
+const SECTIONS = JSON.stringify({ redmaterials: [{ id: 'b', title: 'B' }] });
 test('build: a missing page file, and a malformed marker in a page, fail the build', () => {
-  const miss = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': 'x' });
+  const miss = tmpSite({ 'sections.json': SECTIONS });
   assert.throws(() => build({ srcDir: miss.src, outDir: miss.out, pkg: { version: '1' } }), /missing page/);
-  const bad = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<!--@example--><b>x</b>', 'pages/redmaterials.html': 'ok' });
+  const bad = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<!--@example--><b>x</b>' });
   assert.throws(() => build({ srcDir: bad.src, outDir: bad.out, pkg: { version: '1' } }), /unconsumed directive/);
 });
 test('build: {{root}} is empty in pages and an inline file is wrapped in <script>', () => {
-  const site = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<link href="{{root}}dist/a.css"><!--@inline init.js-->', 'pages/redmaterials.html': 'r', 'init.js': 'var x=1;' });
+  const site = tmpSite({ 'sections.json': SECTIONS, 'pages/index.html': '<link href="{{root}}dist/a.css"><!--@inline init.js-->', 'init.js': 'var x=1;' });
   build({ srcDir: site.src, outDir: site.out, pkg: { version: '1' } });
   assert.equal(fs.readFileSync(path.join(site.out, 'index.html'), 'utf8'), '<link href="dist/a.css"><script>var x=1;</script>');
 });

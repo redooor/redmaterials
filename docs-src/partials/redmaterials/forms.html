@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <h1>Forms</h1>
                 <p>Redmaterials restyles Bootstrap's form controls instead of adding new classes: text inputs and textareas lose their box and get a 1px underline that thickens and turns primary on focus; selects keep an arrow; checks, radios, switches, the range and input-group addons all follow the Material treatment. No data attribute or JavaScript is needed, and validation uses Bootstrap's <code>.is-valid</code> and <code>.is-invalid</code> classes.</p>
-                <p><strong>Bootstrap vs Redmaterials.</strong> In Bootstrap mode the underline disappears and every control returns to stock Bootstrap: boxed inputs with rounded borders, the default blue focus ring and Bootstrap's own check, switch and range colours. The markup and the <code>.form-label</code>, <code>.form-check</code>, <code>.form-switch</code>, <code>.form-range</code> and validation classes are Bootstrap 5 throughout.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap gives every control its default styling: boxed inputs with rounded borders, the default blue focus ring and Bootstrap's own check, switch and range colours; Redmaterials removes the box for a 1px underline that thickens and turns primary on focus, keeps the select arrow, and restyles checks, radios, switches, the range and input-group addons. The markup and the <code>.form-label</code>, <code>.form-check</code>, <code>.form-switch</code>, <code>.form-range</code> and validation classes are Bootstrap 5 throughout.</p>
             </div>
         </div>
 
@@ -134,6 +134,23 @@
                 </div>
                 <!--@end-->
                 <p>The legacy <code>form-control-focus</code> mixin in <code>scss/mixins/forms.scss</code> is still defined but no current rule calls it; the live focus state is the 2px primary underline from <code>scss/forms.scss</code>.</p>
+
+                <h4 class="mt-5">Validated form</h4>
+                <p>Add <code>.was-validated</code> to a form to show Bootstrap's <code>:valid</code> and <code>:invalid</code> feedback on every control at once, without JavaScript; pair each control with <code>.valid-feedback</code> or <code>.invalid-feedback</code>. The first field below is empty and required, so it shows the invalid state, while the filled second field is valid.</p>
+                <!--@example-->
+                <form class="was-validated" novalidate>
+                    <div class="mb-3">
+                        <label for="rdm-forms-was-validated-name" class="form-label">Full name</label>
+                        <input type="text" class="form-control" id="rdm-forms-was-validated-name" required>
+                        <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                    <div class="mb-0">
+                        <label for="rdm-forms-was-validated-email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="rdm-forms-was-validated-email" value="ada@example.com" required>
+                        <div class="valid-feedback">Looks good.</div>
+                    </div>
+                </form>
+                <!--@end-->
 
                 <h4 class="mt-5">Floating labels</h4>
                 <p>Bootstrap's <code>.form-floating</code> wrapper still works: the label floats on focus and the field keeps the theme underline.</p>

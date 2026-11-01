@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const docs = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'docs');
-const pages = ['index.html', 'redmaterials.html'].map(f => [f, fs.readFileSync(path.join(docs, f), 'utf8')]);
+const pages = ['index.html'].map(f => [f, fs.readFileSync(path.join(docs, f), 'utf8')]);
 // Strip snippets so documentation *about* old classes is not flagged.
 const live = h => h.replace(/<pre[^>]*><code[\s\S]*?<\/code><\/pre>/g, '');
 const LEGACY = [/\bglyphicon/, /\bpanel-(?:heading|body|footer|title|progress)\b/, /\bcol-xs-\d/, /\bpull-(?:left|right)\b/, /\bhidden-xs\b/,

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Browser checks for the generated docs (docs/index.html and docs/redmaterials.html).
+// Browser checks for the generated docs (docs/index.html).
 //
 //   node scripts/browser/docs-check.mjs <file|http|URL>
 //
@@ -21,7 +21,7 @@ const mode = process.argv[2];
 if (!mode) { console.error('usage: docs-check.mjs <file|http|URL>'); process.exit(2); }
 const sections = JSON.parse(fs.readFileSync(path.join(root, 'docs-src', 'sections.json'), 'utf8'));
 const manifestErrors = validateManifest(sections);
-const PAGES = [['index.html', sections.bootstrap], ['redmaterials.html', sections.redmaterials]];
+const PAGES = [['index.html', sections.redmaterials]];
 const chrome = process.env.CHROME || (process.platform === 'darwin' ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' : 'google-chrome');
 
 const { base, close: closeServer } = await resolveBase(mode, docsDir);
@@ -97,32 +97,20 @@ try {
       await page.close();
     }
 
-    // 13: sidebar accordion (Bootstrap always above Redmaterials, only this page's group open, indented links),
-    // instant section jumps, highlighted snippets in the active colour mode
+    // 13: instant section jumps, highlighted snippets in the active colour mode
     {
       const { page } = await open(file);
       const r = await page.evaluate(() => {
-        const b = document.getElementById('nav-bootstrap'), m = document.getElementById('nav-redmaterials');
-        const open = [b, m].filter(e => e.classList.contains('show')).map(e => e.id);
-        const link = document.querySelector('#docs-sidebar .accordion-collapse a.nav-link');
-        const head = document.querySelector('#docs-sidebar .accordion-button');
         const tok = document.querySelector('pre.docs-snippet .hljs-name, pre.docs-snippet .hljs-attr, pre.docs-snippet .hljs-string');
         const sheets = ['hljs-light', 'hljs-dark'].map(id => document.getElementById(id).disabled);
-        return { bFirst: !!(b.compareDocumentPosition(m) & Node.DOCUMENT_POSITION_FOLLOWING), open,
-                 indented: parseFloat(getComputedStyle(link).paddingLeft) - parseFloat(getComputedStyle(head).paddingLeft) >= 16,
-                 behaviour: getComputedStyle(document.documentElement).scrollBehavior, smooth: document.querySelector('main').hasAttribute('data-bs-smooth-scroll'),
+        return { behaviour: getComputedStyle(document.documentElement).scrollBehavior, smooth: document.querySelector('main').hasAttribute('data-bs-smooth-scroll'),
                  tokenColor: tok && getComputedStyle(tok).color, bodyColor: getComputedStyle(document.body).color, sheets,
-                 dark: document.documentElement.getAttribute('data-bs-theme') === 'dark' };
+                 dark: document.documentElement.getAttribute('data-bs-theme') === 'dark',
+                 links: [...document.querySelectorAll('#docs-sidebar #nav_spy a')].map(a => a.getAttribute('href')) };
       });
-      const want = file === 'index.html' ? 'nav-bootstrap' : 'nav-redmaterials';
-      check('13a sidebar: Bootstrap above Redmaterials, only this page\'s group open, links indented under their header', r.bFirst && r.open.length === 1 && r.open[0] === want && r.indented, JSON.stringify(r));
+      check('13a the sidebar lists every section in order, in one list', JSON.stringify(r.links) === JSON.stringify(list.map(x => '#' + x.id)), JSON.stringify(r.links));
       check('13b section jumps are instant (no smooth scrolling)', r.behaviour === 'auto' && !r.smooth, JSON.stringify(r));
       check('13c snippets are syntax highlighted and the matching highlight theme is enabled', !!r.tokenColor && r.tokenColor !== r.bodyColor && r.sheets[r.dark ? 0 : 1] === true && r.sheets[r.dark ? 1 : 0] === false, JSON.stringify(r));
-      const other = file === 'index.html' ? 'redmaterials.html' : 'index.html';
-      await page.evaluate(() => document.querySelector('#docs-sidebar .accordion-button.collapsed').click());
-      await new Promise(res => setTimeout(res, 1500));
-      const landed = await page.evaluate(() => ({ url: location.pathname + location.hash, groups: ['nav-bootstrap', 'nav-redmaterials'].map(id => document.getElementById(id).classList.contains('show')) }));
-      check('13d opening the other group goes to that page\'s first component, with that group open', landed.url.endsWith(other + '#' + sections[other === 'index.html' ? 'bootstrap' : 'redmaterials'][0].id) && landed.groups.filter(Boolean).length === 1, JSON.stringify(landed));
       await page.close();
     }
 
@@ -183,22 +171,6 @@ try {
       await page.close();
     }
 
-    // 7. theme control
-    {
-      const { page } = await open(file);
-      await page.click('label[for=theme-bs]'); await sleep(200);
-      const bs = await page.evaluate(() => ({ disabled: document.getElementById('redmaterials-css').disabled, primary: (() => { const b = document.querySelector('.btn-primary'); return b && getComputedStyle(b).backgroundColor; })() }));
-      check('7a "Bootstrap" disables redmaterials.css and shows stock Bootstrap blue', bs.disabled && (!bs.primary || bs.primary === 'rgb(13, 110, 253)'), JSON.stringify(bs));
-      await page.click('label[for=theme-rdm]');
-      const rdm = await poll(() => page.evaluate(() => ({ disabled: document.getElementById('redmaterials-css').disabled, primary: (() => { const b = document.querySelector('.btn-primary'); return b && getComputedStyle(b).backgroundColor; })() })), v => v.primary === 'rgb(25, 118, 210)');
-      check('7b "Redmaterials" re-enables it (Redmaterials primary colour is back)', !rdm.disabled && rdm.primary === 'rgb(25, 118, 210)', JSON.stringify(rdm));
-      await page.close();
-      const inv = await open(file, { init: () => { try { localStorage.setItem('docs-theme', 'banana'); localStorage.setItem('docs-color-mode', 'banana'); } catch (e) { /* ignore */ } } });
-      const st = await inv.page.evaluate(() => ({ theme: document.documentElement.getAttribute('data-docs-theme'), disabled: document.getElementById('redmaterials-css').disabled }));
-      check('7c an invalid stored theme falls back to redmaterials', st.theme === 'redmaterials' && !st.disabled, JSON.stringify(st));
-      await inv.page.close();
-    }
-
     // 8. colour mode
     {
       const { page } = await open(file, { scheme: 'light' });
@@ -212,35 +184,34 @@ try {
       await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]); await sleep(300);
       const autoDark = await theme();
       check('8a dark / light / auto set data-bs-theme and Auto follows the OS live', dark === 'dark' && light === 'light' && autoLight === 'light' && autoDark === 'dark', JSON.stringify({ dark, light, autoLight, autoDark }));
-      // persistence of both controls, neither resets the other
-      await page.click('label[for=mode-dark]'); await page.click('label[for=theme-bs]'); await sleep(150);
+      await page.click('label[for=mode-dark]'); await sleep(150);
       await page.reload({ waitUntil: 'networkidle0' });
-      const after = await page.evaluate(() => ({ mode: document.documentElement.getAttribute('data-bs-theme'), theme: document.documentElement.getAttribute('data-docs-theme'), modeRadio: document.querySelector('input[name=color-mode]:checked').value, themeRadio: document.querySelector('input[name=theme]:checked').value }));
-      check('8b both choices persist across reload and neither resets the other', after.mode === 'dark' && after.theme === 'bootstrap' && after.modeRadio === 'dark' && after.themeRadio === 'bootstrap', JSON.stringify(after));
+      const after = await page.evaluate(() => ({ mode: document.documentElement.getAttribute('data-bs-theme'), modeRadio: document.querySelector('input[name=color-mode]:checked').value }));
+      check('8b the colour mode persists across reload', after.mode === 'dark' && after.modeRadio === 'dark', JSON.stringify(after));
       await page.close();
       const thrown = await open(file, { init: () => { Object.defineProperty(window, 'localStorage', { get() { throw new Error('denied'); } }); } });
-      const t = await thrown.page.evaluate(() => ({ theme: document.documentElement.getAttribute('data-bs-theme'), disabled: document.getElementById('redmaterials-css').disabled }));
-      check('8c the page works when localStorage throws', ['light', 'dark'].includes(t.theme) && !t.disabled && !thrown.issues.filter(i => i.startsWith('pageerror')).length, JSON.stringify(t) + ' ' + thrown.issues.join('|').slice(0, 100));
+      const t = await thrown.page.evaluate(() => ({ theme: document.documentElement.getAttribute('data-bs-theme') }));
+      check('8c the page works when localStorage throws', ['light', 'dark'].includes(t.theme) && !thrown.issues.filter(i => i.startsWith('pageerror')).length, JSON.stringify(t) + ' ' + thrown.issues.join('|').slice(0, 100));
       await thrown.page.close();
     }
 
-    // 9. no flash: first state in which <body> exists, with delayed stylesheets and stored dark + bootstrap
+    // 9. no flash: first state in which <body> exists, with delayed stylesheets and stored dark
     {
       const page = await browser.newPage();
       await page.setRequestInterception(true);
       page.on('request', async r => { if (/\.css(\?|$)/.test(r.url()) && !r.url().includes('googleapis')) { await sleep(1200); } r.continue().catch(() => {}); });
       await page.evaluateOnNewDocument(() => {
-        try { localStorage.setItem('docs-color-mode', 'dark'); localStorage.setItem('docs-theme', 'bootstrap'); } catch (e) { /* ignore */ }
-        new MutationObserver((_, obs) => { if (document.body) { const l = document.getElementById('redmaterials-css'); window.__firstBody = { theme: document.documentElement.getAttribute('data-bs-theme'), rdmDisabled: !!(l && l.disabled) }; obs.disconnect(); } }).observe(document, { childList: true, subtree: true });
+        try { localStorage.setItem('docs-color-mode', 'dark'); } catch (e) { /* ignore */ }
+        new MutationObserver((_, obs) => { if (document.body) { window.__firstBody = { theme: document.documentElement.getAttribute('data-bs-theme') }; obs.disconnect(); } }).observe(document, { childList: true, subtree: true });
       });
       await page.goto(base + file, { waitUntil: 'domcontentloaded' });
       const first = await page.evaluate(() => window.__firstBody);
-      check('9a first state with a body: dark mode applied and redmaterials.css already disabled (no flash)', first && first.theme === 'dark' && first.rdmDisabled, JSON.stringify(first));
+      check('9a first state with a body: dark mode already applied (no flash)', first && first.theme === 'dark', JSON.stringify(first));
       await page.close();
       const nojs = await browser.newPage();
       await nojs.setJavaScriptEnabled(false);
       await nojs.goto(base + file, { waitUntil: 'load' });
-      const enabled = await nojs.evaluate(() => { const l = document.getElementById('redmaterials-css'); return !!l && !l.disabled && !!l.sheet; });
+      const enabled = await nojs.evaluate(() => { const l = [...document.querySelectorAll('link[rel=stylesheet]')].find(x => /redmaterials\.min\.css$/.test(x.href)); return !!l && !l.disabled && !!l.sheet; });
       check('9b with JavaScript disabled Redmaterials CSS is still applied', enabled);
       await nojs.close();
     }
@@ -272,12 +243,12 @@ try {
       const pos = await wide.page.evaluate(() => { const s = document.getElementById('docs-sidebar'); return { position: getComputedStyle(s).position, visible: s.getBoundingClientRect().width > 100 }; });
       check('10d at 1280px the sidebar is inline and sticky', pos.position === 'sticky' && pos.visible, JSON.stringify(pos));
       await wide.page.close();
-      // the same heading offset with Bootstrap's (shorter) header, and with Redmaterials' (taller) one
-      for (const theme of ['redmaterials', 'bootstrap']) {
-        const t = await open(file, { width: 360, height: 740, init: new Function(`try { localStorage.setItem('docs-theme', '${theme}'); } catch (e) { /* ignore */ }`), prefs: { hash: '#' + list[1].id } });
+      // a deep link clears the sticky header too
+      {
+        const t = await open(file, { width: 360, height: 740, prefs: { hash: '#' + list[1].id } });
         await settle(t.page); await sleep(400);
         const off = await t.page.evaluate(id => ({ top: Math.round(document.getElementById(id).querySelector('h1,h2').getBoundingClientRect().top), bar: Math.round(document.querySelector('nav.sticky-top').getBoundingClientRect().bottom) }), list[1].id);
-        check(`10e at 360px the section heading clears the sticky header (${theme} theme)`, off.top >= off.bar, JSON.stringify(off));
+        check('10e at 360px the section heading clears the sticky header', off.top >= off.bar, JSON.stringify(off));
         await t.page.close();
       }
     }

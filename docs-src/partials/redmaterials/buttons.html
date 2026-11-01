@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <h1>Buttons</h1>
                 <p>Redmaterials keeps Bootstrap's button markup and adds Material variants: raised, flat, circle and a card action button. The base buttons need no data attribute or JavaScript; the optional ripple needs the Redmaterials script, described in the <a class="link-body-emphasis link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" href="#rdm-ripples">Ripples</a> section.</p>
-                <p><strong>Bootstrap vs Redmaterials.</strong> In Bootstrap mode every button below falls back to stock Bootstrap: no shadow on <code>.btn-raised</code>, no colour change on <code>.btn-flat</code>, square corners instead of <code>.btn-circle</code>, and the contextual variants use Bootstrap's blue, grey and green rather than the Material palette. The palette composition loses its fill as well, because the <code>.bg-{colour}</code> utilities are Redmaterials-only. The markup and the size, outline and disabled classes are Bootstrap 5 throughout.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap has no shadow on <code>.btn-raised</code>, no colour change on <code>.btn-flat</code> and square corners instead of <code>.btn-circle</code>, and its contextual variants use Bootstrap's blue, grey and green rather than the Material palette; Redmaterials adds the raised shadow, the flat colour change and the circular shape, and uses the Material palette. The palette composition has no fill in stock Bootstrap because the <code>.bg-{colour}</code> utilities are Redmaterials-only. The markup and the size, outline and disabled classes are Bootstrap 5 throughout.</p>
             </div>
         </div>
 
@@ -106,6 +106,26 @@
                 <button type="button" class="btn btn-primary btn-sm btn-raised mb-2 me-2">Small button</button>
                 <button type="button" class="btn btn-circle btn-lg btn-raised btn-primary mb-2 me-2" aria-label="Add (large)"><i class="material-icons" aria-hidden="true">&#xE145;</i></button>
                 <button type="button" class="btn btn-circle btn-sm btn-raised btn-primary mb-2 me-2" aria-label="Add (small)"><i class="material-icons" aria-hidden="true">&#xE145;</i></button>
+                <!--@end-->
+
+                <h4 class="mt-5">Button groups</h4>
+                <p>Wrap a row of buttons in <code>.btn-group</code>; add <code>.btn-group-lg</code> or <code>.btn-group-sm</code> to size the whole group, and use <code>.btn-group-vertical</code> to stack it. Give every group <code>role="group"</code> and an <code>aria-label</code> that names it.</p>
+                <!--@example-->
+                <div class="btn-group btn-group-lg mb-3" role="group" aria-label="Large button group">
+                    <button type="button" class="btn btn-primary">Left</button>
+                    <button type="button" class="btn btn-primary">Middle</button>
+                    <button type="button" class="btn btn-primary">Right</button>
+                </div>
+                <div class="btn-group btn-group-sm mb-3" role="group" aria-label="Small button group">
+                    <button type="button" class="btn btn-primary">Left</button>
+                    <button type="button" class="btn btn-primary">Middle</button>
+                    <button type="button" class="btn btn-primary">Right</button>
+                </div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-primary">Top</button>
+                    <button type="button" class="btn btn-primary">Middle</button>
+                    <button type="button" class="btn btn-primary">Bottom</button>
+                </div>
                 <!--@end-->
 
                 <h4 class="mt-5">Disabled state</h4>

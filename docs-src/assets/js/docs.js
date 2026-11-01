@@ -3,20 +3,9 @@
     'use strict';
     document.addEventListener('DOMContentLoaded', function () {
         var st = docsState.get(), side = document.getElementById('docs-sidebar');
-        document.querySelectorAll('input[name=theme]').forEach(function (r) {
-            r.checked = r.value === st.theme;
-            r.addEventListener('change', function () { docsState.set({ theme: r.value }); });
-        });
         document.querySelectorAll('input[name=color-mode]').forEach(function (r) {
             r.checked = r.value === st.mode;
             r.addEventListener('change', function () { docsState.set({ mode: r.value }); });
-        });
-        // accordion: opening the other page's group goes to that page's first component
-        side.querySelectorAll('[data-docs-first]').forEach(function (btn) {
-            var pane = document.querySelector(btn.getAttribute('data-bs-target'));
-            pane.addEventListener('show.bs.collapse', function () {
-                if (!pane.querySelector('#nav_spy')) { window.location.href = btn.getAttribute('data-docs-first'); }
-            });
         });
         // anchor navigation does not close an offcanvas by itself: close it after a section is chosen
         side.addEventListener('click', function (e) {

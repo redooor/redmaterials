@@ -7,7 +7,7 @@
                 <h1>Tables</h1>
                 <p><code>scss/tables.scss</code> builds on Bootstrap 5.3's variable-driven <code>.table</code>: transparent base, theme-aware borders, token-based striped, hover and active rows, and roomier <code>1.6rem</code> cell padding. The palette tables add a <code>.table-{colour}</code> class that tints the striped and hover rows and keeps the theme's table text colour, so they stay readable in light and dark mode. No data attribute or JavaScript is needed.</p>
                 <p>The table palette covers 17 of the 19 Material colours. There is no <code>.table-grey</code> or <code>.table-blue-grey</code>: <code>scss/tables.scss</code> stops at <code>.table-brown</code>, so those two classes are not documented as if they existed.</p>
-                <p><strong>Bootstrap vs Redmaterials.</strong> In Bootstrap mode the palette <code>.table-red</code> … <code>.table-brown</code> classes do not exist, so the tables below fall back to stock Bootstrap stripes and hover, and the <code>1.6rem</code> cell padding returns to Bootstrap's tighter default. <code>.table-sm</code> is Bootstrap 5; <code>.table-condensed</code>, <code>.table-no-border</code> and <code>.table-responsive-vertical</code> are Redmaterials additions.</p>
+                <p><strong>Compared with stock Bootstrap.</strong> Stock Bootstrap has no <code>.table-red</code> … <code>.table-brown</code> palette classes, so its stripes and hover use its own colours, and its cell padding is tighter than the <code>1.6rem</code> Redmaterials uses; Redmaterials adds the palette classes that tint the striped and hover rows. <code>.table-sm</code> is Bootstrap 5; <code>.table-condensed</code>, <code>.table-no-border</code> and <code>.table-responsive-vertical</code> are Redmaterials additions.</p>
             </div>
         </div>
 
@@ -203,6 +203,47 @@
                         <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
                     </tbody>
                 </table>
+                <!--@end-->
+
+                <h4 class="mt-5">Bordered table</h4>
+                <p><code>.table-bordered</code> adds a border to every cell and around the table; the borders use the theme's token-based border colour and the table keeps the roomier cell padding.</p>
+                <!--@example-->
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <caption class="text-body-secondary"><code>.table-bordered</code></caption>
+                        <thead>
+                            <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                            <tr><td>2</td><td>Grace Hopper</td><td>Admiral</td></tr>
+                            <tr><td>3</td><td>Alan Turing</td><td>Mathematician</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--@end-->
+
+                <h4 class="mt-5">Contextual rows</h4>
+                <p>Bootstrap's eight contextual table classes tint a whole row (or cell) from the theme's status tokens, and the theme keeps the text colour readable in both colour modes.</p>
+                <!--@example-->
+                <div class="table-responsive">
+                    <table class="table">
+                        <caption class="text-body-secondary">One row per contextual class</caption>
+                        <thead>
+                            <tr><th scope="col">Class</th><th scope="col">Name</th><th scope="col">Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-primary"><td><code>.table-primary</code></td><td>Ada Lovelace</td><td>Engineer</td></tr>
+                            <tr class="table-secondary"><td><code>.table-secondary</code></td><td>Grace Hopper</td><td>Admiral</td></tr>
+                            <tr class="table-success"><td><code>.table-success</code></td><td>Alan Turing</td><td>Mathematician</td></tr>
+                            <tr class="table-danger"><td><code>.table-danger</code></td><td>Katherine Johnson</td><td>Computer</td></tr>
+                            <tr class="table-warning"><td><code>.table-warning</code></td><td>Margaret Hamilton</td><td>Software engineer</td></tr>
+                            <tr class="table-info"><td><code>.table-info</code></td><td>Barbara Liskov</td><td>Computer scientist</td></tr>
+                            <tr class="table-light"><td><code>.table-light</code></td><td>Edsger Dijkstra</td><td>Computer scientist</td></tr>
+                            <tr class="table-dark"><td><code>.table-dark</code></td><td>Donald Knuth</td><td>Computer scientist</td></tr>
+                        </tbody>
+                    </table>
+                </div>
                 <!--@end-->
 
                 <h4 class="mt-5">Striped and hover</h4>

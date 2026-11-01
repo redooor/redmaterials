@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// Contrast and light-surface audit of the docs in a given {theme} x {colour mode}.
+// Contrast and light-surface audit of the docs in a given colour mode.
 //
-//   node scripts/browser/contrast-audit.mjs <file|http|URL> --theme <bootstrap|redmaterials> --mode <light|dark> [--json out.json] [--show N] [--strict-unverified]
+//   node scripts/browser/contrast-audit.mjs <file|http|URL> --mode <light|dark> [--json out.json] [--show N] [--strict-unverified]
 //   node scripts/browser/contrast-audit.mjs --selftest
 //
 // Rules (a regression gate, not a redesign):
@@ -20,9 +20,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
 const argv = process.argv.slice(2);
 const flag = n => { const i = argv.indexOf('--' + n); return i < 0 ? undefined : argv[i + 1]; };
 const selftest = argv.includes('--selftest');
-const mode0 = argv.find(a => !a.startsWith('--') && a !== flag('theme') && a !== flag('mode') && a !== flag('json'));
-const theme = flag('theme') || 'redmaterials', colorMode = flag('mode') || 'dark';
-if (!['bootstrap', 'redmaterials'].includes(theme) || !['light', 'dark'].includes(colorMode)) { console.error(`invalid --theme (${theme}) or --mode (${colorMode}); use bootstrap|redmaterials and light|dark`); process.exit(2); }
+const mode0 = argv.find(a => !a.startsWith('--') && a !== flag('mode') && a !== flag('json'));
+const colorMode = flag('mode') || 'dark';
+if (!['light', 'dark'].includes(colorMode)) { console.error(`invalid --mode (${colorMode}); use light|dark`); process.exit(2); }
 const docsDir = process.env.DOCS_DIR ? path.resolve(process.env.DOCS_DIR) : path.join(root, 'docs');
 const engine = fs.readFileSync(path.join(root, 'scripts/browser/lib/contrast-page.js'), 'utf8');
 // Chrome = the docs shell plus authored prose that is not itself (or inside) a component
@@ -52,19 +52,19 @@ if (selftest) {
 }
 
 // ---------------------------------------------------------------- audit of the docs
-if (!mode0) { console.error('usage: contrast-audit.mjs <file|http|URL> --theme <bootstrap|redmaterials> --mode <light|dark> | --selftest'); process.exit(2); }
+if (!mode0) { console.error('usage: contrast-audit.mjs <file|http|URL> --mode <light|dark> | --selftest'); process.exit(2); }
 const { base, close: closeServer } = await resolveBase(mode0, docsDir);
 const allow = JSON.parse(fs.readFileSync(path.join(root, 'docs-src/audit-allowlist.json'), 'utf8'));
 for (const e of allow.lightSurfaces) if (!e.reason) { console.error('allowlist entry without a reason:', e.selector); process.exit(2); }
 const allowSelectors = allow.lightSurfaces.map(e => e.selector);
 const OPTS = { chromeBase: 'nav.sticky-top, #docs-sidebar, footer:not(.blockquote-footer), pre.docs-snippet', prose: PROSE, exclude: EXCLUDE };
-const PAGES = ['index.html', 'redmaterials.html'];
+const PAGES = ['index.html'];
 const WIDTHS = (flag('widths') || '1280,360').split(',').map(Number);
 
 // Collects every audited record for one colour mode: default state, open dropdown menus, open tooltips and popovers, and every
 // distinct variant of the interactive components under forced :hover, :focus, :active and :focus-visible.
 async function collect(page, cdp, mode) {
-  await setDocsState(page, theme, mode);
+  await setDocsState(page, mode);
   await sleep(300);
   const results = [], stray = [];
   const add = (arr, state) => arr.forEach(r => results.push({ ...r, key: r.key + (state ? '|' + state : ''), state: state || 'default' }));
@@ -136,17 +136,14 @@ function pick(r) { return { comp: r.comp, kind: r.kind, text: r.text, tag: r.tag
 
 if (flag('json')) fs.writeFileSync(flag('json'), JSON.stringify(summary, null, 1));
 const byComp = list => { const g = {}; for (const x of list) g[x.comp || '?'] = (g[x.comp || '?'] || 0) + 1; return Object.fromEntries(Object.entries(g).sort((a, b) => b[1] - a[1])); };
-// Only the Redmaterials theme is ours to fix: in "bootstrap" mode rules 1 and 2 describe Bootstrap's own dark palette and are
-// informational; rule 3 (the docs chrome, which we author) gates in both themes.
-const gating = theme === 'redmaterials';
 const strict = argv.includes('--strict-unverified');
-console.log(`audit ${theme} x ${colorMode} (widths ${WIDTHS.join(', ')}): ${summary.checked} text, value, placeholder and generated-text checks; ${summary.unverified.length} UNVERIFIED (need visual review${strict ? '; failing: --strict-unverified' : ''})`);
-console.log(`rule 1 (dark worse than light)${gating ? '' : ' [informational]'}: ${summary.worse.length}  ${JSON.stringify(byComp(summary.worse))}`);
-console.log(`rule 2 (stray light surfaces)${gating ? '' : ' [informational]'}:  ${summary.stray.length}  ${JSON.stringify(byComp(summary.stray))}`);
+console.log(`audit ${colorMode} mode (widths ${WIDTHS.join(', ')}): ${summary.checked} text, value, placeholder and generated-text checks; ${summary.unverified.length} UNVERIFIED (need visual review${strict ? '; failing: --strict-unverified' : ''})`);
+console.log(`rule 1 (dark worse than light): ${summary.worse.length}  ${JSON.stringify(byComp(summary.worse))}`);
+console.log(`rule 2 (stray light surfaces):  ${summary.stray.length}  ${JSON.stringify(byComp(summary.stray))}`);
 console.log(`rule 3 (chrome below AA):       ${summary.low.length}  ${JSON.stringify(byComp(summary.low))}`);
 const reasons = {}; for (const u of summary.unverified) reasons[u.reason] = (reasons[u.reason] || 0) + 1;
 if (summary.unverified.length) console.log(`unverified by reason: ${JSON.stringify(reasons)}`);
 for (const x of [...summary.low, ...summary.worse, ...summary.stray].slice(0, +(flag('show') || 12))) console.log('  -', JSON.stringify(x).slice(0, 230));
 await browser.close();
 closeServer();
-process.exit(summary.low.length + (gating ? summary.worse.length + summary.stray.length : 0) + (strict ? summary.unverified.length : 0) ? 1 : 0);
+process.exit(summary.low.length + summary.worse.length + summary.stray.length + (strict ? summary.unverified.length : 0) ? 1 : 0);

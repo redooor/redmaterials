@@ -70,49 +70,31 @@ export function expandExamples(html) {
     .replace(/<!--@code\s*-->([\s\S]*?)<!--@end-->/g, (_, inner) => snippet(inner));
 }
 
-export function renderSidebar(sections, page) {
-  const href = (name, id) => `${name === 'bootstrap' ? 'index.html' : 'redmaterials.html'}#${id}`;
-  const label = n => n === 'bootstrap' ? 'Bootstrap' : 'Redmaterials';
-  // The current page starts at its first section, so that link is the static active default. docs.js keeps the
-  // active styling (bold + aria-current) in step with scrollspy as the reader scrolls.
-  const links = name => sections[name].map((s, i) => {
-    const active = name === page && i === 0;
-    return `<li class="nav-item"><a class="nav-link link-body-emphasis ps-5${active ? ' active fw-bold' : ''}" href="${name === page ? '#' + s.id : href(name, s.id)}"${active ? ' aria-current="location"' : ''}>${s.title}</a></li>`;
+// The sidebar is Bootstrap's own `nav`, themed by Redmaterials: no docs CSS. The first section starts as the static
+// active default; docs.js keeps the active styling (bold + aria-current) in step with scrollspy as the reader scrolls.
+export function renderSidebar(sections) {
+  const links = sections.redmaterials.map((s, i) => {
+    const active = i === 0;
+    return `<li class="nav-item"><a class="nav-link link-body-emphasis${active ? ' active fw-bold' : ''}" href="#${s.id}"${active ? ' aria-current="location"' : ''}>${s.title}</a></li>`;
   }).join('\n');
-  // Bootstrap is always first. One accordion item is open: the current page's. Opening the other item (docs.js)
-  // goes to that page's first section. Only the current page's list is #nav_spy (the Bootstrap scrollspy target), so
-  // scrollspy can never match a same-named hash on the other page. Markup is Bootstrap's own: no docs CSS.
-  const item = name => {
-    const open = name === page;
-    return `<div class="accordion-item border-0 bg-transparent">
-<h2 class="accordion-header"><button class="accordion-button${open ? '' : ' collapsed'} text-uppercase fw-bold small" type="button" data-bs-toggle="collapse" data-bs-target="#nav-${name}" aria-expanded="${open}" aria-controls="nav-${name}" data-docs-first="${href(name, sections[name][0].id)}">${label(name)}</button></h2>
-<div id="nav-${name}" class="accordion-collapse collapse${open ? ' show' : ''}" data-bs-parent="#nav_accordion">
-<ul class="nav flex-column pb-2"${open ? ' id="nav_spy"' : ''}>
-${links(name)}
-</ul>
-</div>
-</div>`;
-  };
-  return `<div class="accordion accordion-flush" id="nav_accordion">\n${item('bootstrap')}\n${item('redmaterials')}\n</div>`;
+  return `<ul class="nav flex-column" id="nav_spy">\n${links}\n</ul>`;
 }
 
 // {{root}} is '' (pages live next to dist/ and assets/), so every asset URL is relative and works from file://.
 export function build({ srcDir, outDir, pkg }) {
   const read = f => { try { return fs.readFileSync(path.join(srcDir, f), 'utf8').replace(/\r\n/g, '\n'); } catch { return undefined; } };
   const sections = JSON.parse(read('sections.json'));
-  const render = (file, root, page) => {
+  const render = (file, root) => {
     const src = read(file);
     if (src === undefined) throw new Error(`missing page: ${file}`);
     let html = expandIncludes(src, read);
     html = expandVersion(expandColors(html), pkg.version).replace(/\{\{root\}\}/g, root);
     html = expandExamples(expandInline(html, read));
-    if (page) html = html.replace(/<!--@sidebar\s*-->/g, renderSidebar(sections, page));
+    html = html.replace(/<!--@sidebar\s*-->/g, renderSidebar(sections));
     assertNoDirectives(html, file);
     return html;
   };
-  for (const page of ['index', 'redmaterials']) {
-    fs.writeFileSync(path.join(outDir, `${page}.html`), render(`pages/${page}.html`, '', page === 'index' ? 'bootstrap' : 'redmaterials'));
-  }
+  fs.writeFileSync(path.join(outDir, 'index.html'), render('pages/index.html', ''));
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

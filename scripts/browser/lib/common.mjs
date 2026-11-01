@@ -89,16 +89,14 @@ export async function withOverlaysOpen(page, fn) {
   }
 }
 
-// Validates the docs' state controls and forces a theme and colour mode; throws if the page did not end up in that state.
-export async function setDocsState(page, theme, mode) {
-  const ok = await page.evaluate((t, m) => {
+// Validates the docs' colour-mode control and forces a colour mode; throws if the page did not end up in that state.
+export async function setDocsState(page, mode) {
+  const ok = await page.evaluate(m => {
     if (typeof docsState === 'undefined') return 'docsState is not defined on this page';
-    docsState.set({ theme: t, mode: m });
-    const r = document.documentElement, link = document.getElementById('redmaterials-css');
-    if (r.getAttribute('data-docs-theme') !== t) return 'data-docs-theme is ' + r.getAttribute('data-docs-theme');
+    docsState.set({ mode: m });
+    const r = document.documentElement;
     if (r.getAttribute('data-bs-theme') !== m) return 'data-bs-theme is ' + r.getAttribute('data-bs-theme');
-    if (!!link.disabled !== (t === 'bootstrap')) return 'redmaterials.css disabled=' + link.disabled;
     return '';
-  }, theme, mode);
-  if (ok) throw new Error('could not set the docs to ' + theme + ' x ' + mode + ': ' + ok);
+  }, mode);
+  if (ok) throw new Error('could not set the docs to ' + mode + ' mode: ' + ok);
 }

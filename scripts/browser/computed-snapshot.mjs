@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // Computed-style snapshot of the docs, to prove a refactor did not change what the library renders.
 //
-//   node scripts/browser/computed-snapshot.mjs <file|http|URL> --out snapshot.json [--theme redmaterials|bootstrap] [--mode light|dark] [--widths 1280,360]
+//   node scripts/browser/computed-snapshot.mjs <file|http|URL> --out snapshot.json [--mode light|dark] [--widths 1280,360]
 //   node scripts/browser/computed-snapshot.mjs --diff before.json after.json [--show N]
 //
-// Records, for every element of both docs pages (code snippets included): the colour, border, outline, shadow, filter, text-fill,
+// Records, for every element of the docs page (code snippets included): the colour, border, outline, shadow, filter, text-fill,
 // background and accent computed properties, the same for the pseudo-elements the library styles (::before, ::after,
 // ::placeholder, slider parts, ::marker, ::file-selector-button), in the default state, with dropdown menus, tooltips and popovers
 // open, and under forced :hover, :focus, :active and :focus-visible for every distinct variant of the interactive components,
@@ -15,7 +15,7 @@
 // progress and meter) are covered by PROBES: a hash of an element screenshot, in the default state and focused.
 //
 // NOT seen by this snapshot (compare screenshots for these): layout and geometry, fonts, animations/keyframes (frozen here),
-// :checked/:disabled/:invalid element states other than those present in the docs markup, and anything outside the two pages.
+// :checked/:disabled/:invalid element states other than those present in the docs markup, and anything outside the docs page.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -42,10 +42,10 @@ if (argv.includes('--diff')) {
   process.exit(diffs.length ? 1 : 0);
 }
 
-const mode0 = argv.find(a => !a.startsWith('--') && a !== flag('out') && a !== flag('theme') && a !== flag('mode') && a !== flag('widths') && a !== flag('show'));
+const mode0 = argv.find(a => !a.startsWith('--') && a !== flag('out') && a !== flag('mode') && a !== flag('widths') && a !== flag('show'));
 if (!mode0 || !flag('out')) { console.error('usage: computed-snapshot.mjs <file|http|URL> --out file.json | --diff a.json b.json'); process.exit(2); }
-const theme = flag('theme') || 'redmaterials', colorMode = flag('mode') || 'light';
-if (!['bootstrap', 'redmaterials'].includes(theme) || !['light', 'dark'].includes(colorMode)) { console.error('invalid --theme or --mode'); process.exit(2); }
+const colorMode = flag('mode') || 'light';
+if (!['light', 'dark'].includes(colorMode)) { console.error('invalid --mode'); process.exit(2); }
 const WIDTHS = (flag('widths') || '1280,360').split(',').map(Number);
 const docsDir = process.env.DOCS_DIR ? path.resolve(process.env.DOCS_DIR) : path.join(root, 'docs');
 const { base, close } = await resolveBase(mode0, docsDir);
@@ -69,7 +69,7 @@ const dict = [], dictIndex = new Map();
 const idx = v => { let i = dictIndex.get(v); if (i === undefined) { i = dict.length; dict.push(v); dictIndex.set(v, i); } return i; };
 const put = (tag, state, list) => { for (const r of list) { const v = r.v.map(idx); records[`${tag}|${r.key}|${state}`] = { tag: r.tag, cls: r.cls, v, sig: v.join(',') }; } };
 for (const width of WIDTHS) {
-  for (const file of ['index.html', 'redmaterials.html']) {
+  for (const file of ['index.html']) {
     const tag = `${file}@${width}`;
     const page = await browser.newPage();
     await page.setViewport({ width, height: 900 });
@@ -81,7 +81,7 @@ for (const width of WIDTHS) {
     // freeze animations and transitions so computed values are final and repeatable (test harness only)
     await page.addStyleTag({ content: '*, *::before, *::after, *::file-selector-button, *::-webkit-slider-thumb { animation: none !important; transition: none !important; }' });
     await page.evaluate(recorder(PROPS, PSEUDOS));
-    await setDocsState(page, theme, colorMode);
+    await setDocsState(page, colorMode);
     await sleep(400);
     put(tag, 'default', await page.evaluate(() => window.__snap.tree(document.body)));
     // screenshot probes for native control parts that getComputedStyle cannot see
@@ -113,5 +113,5 @@ for (const width of WIDTHS) {
   }
 }
 await browser.close(); close();
-fs.writeFileSync(flag('out'), JSON.stringify({ theme, mode: colorMode, widths: WIDTHS, props: PROPS, pseudos: PSEUDOS, dict, records }));
-console.log(`snapshot ${theme} x ${colorMode} @ ${WIDTHS.join(',')}: ${Object.keys(records).length} records -> ${flag('out')} (${(fs.statSync(flag('out')).size / 1e6).toFixed(1)} MB)`);
+fs.writeFileSync(flag('out'), JSON.stringify({ mode: colorMode, widths: WIDTHS, props: PROPS, pseudos: PSEUDOS, dict, records }));
+console.log(`snapshot ${colorMode} @ ${WIDTHS.join(',')}: ${Object.keys(records).length} records -> ${flag('out')} (${(fs.statSync(flag('out')).size / 1e6).toFixed(1)} MB)`);

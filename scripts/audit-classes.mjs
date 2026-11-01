@@ -16,7 +16,7 @@ const CSS_FILE = path.join(root, 'dist/css/redmaterials.css');
 const BOOTSTRAP_DIR = path.join(root, 'docs/dist/vendor/bootstrap');
 const EXCLUSIONS_FILE = path.join(root, 'docs-src/audit-exclusions.json');
 const REPORT_FILE = path.join(root, 'audit-report.txt');
-const DOCS_PAGES = ['index.html', 'redmaterials.html'].map(file => path.join(root, 'docs', file));
+const DOCS_PAGES = ['index.html'].map(file => path.join(root, 'docs', file));
 
 // Remove :not(...) arguments first: `.a:not(.b)` defines only `a`. Repeated passes handle nested :not().
 function stripNotArguments(selector) {
