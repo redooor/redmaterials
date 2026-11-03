@@ -4,12 +4,12 @@
 // Pagination
 // --------------------------------------------------
 .pagination {
-    --bs-pagination-color: #{$brand-primary};
+    --bs-pagination-color: var(--bs-link-color);
     --bs-pagination-bg: var(--rdm-surface-translucent);
     --bs-pagination-border-width: 0;
     --bs-pagination-border-color: transparent;
     --bs-pagination-border-radius: 2px;
-    --bs-pagination-hover-color: #{$brand-primary};
+    --bs-pagination-hover-color: var(--bs-link-hover-color);
     --bs-pagination-hover-bg: var(--rdm-flat-hover-bg);
     --bs-pagination-hover-border-color: transparent;
     --bs-pagination-focus-color: #fff;

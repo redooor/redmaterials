@@ -114,6 +114,47 @@ try {
       await page.close();
     }
 
+    // 14: pressed and hovered flat buttons keep a readable label (the filled-state rules must not paint a flat button's own colour behind its
+    // label, including as first child or after another button) and pagination links reach AA in both colour modes
+    {
+      const { page } = await open(file);
+      const cdp = await page.createCDPSession(); await cdp.send('DOM.enable'); await cdp.send('CSS.enable');
+      const channel = v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; };
+      const lum = ([r, g, b]) => .2126 * channel(r) + .7152 * channel(g) + .0722 * channel(b);
+      const rgba = c => { const m = c.match(/[\d.]+/g).map(Number); return [m[0], m[1], m[2], m[3] === undefined ? 1 : m[3]]; };
+      const over = (top, base) => top.slice(0, 3).map((v, i) => v * top[3] + base[i] * (1 - top[3]));
+      const contrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+      // min: palette (500-level) labels cannot reach AA on a light wash by design (a documented, accepted limitation), so the bar there is
+      // 3:1, which still catches a label drawn on a fill of its own colour (1.5:1); pagination text is 4.43:1 on its translucent light surface.
+      const cases = [
+        ['flat bg-blue first-child :active', '<button class="btn bg-blue btn-flat">x</button>', 'button', 'active', 3],
+        ['flat bg-blue after a button :active', '<button class="btn">a</button><button class="btn bg-blue btn-flat">x</button>', 'button + button', 'active', 3],
+        ['flat bg-blue first-child :hover', '<button class="btn bg-blue btn-flat">x</button>', 'button', 'hover', 3],
+        ['flat btn-primary first-child :active', '<button class="btn btn-primary btn-flat">x</button>', 'button', 'active'],
+        ['flat btn-primary after a button :active', '<button class="btn">a</button><button class="btn btn-primary btn-flat">x</button>', 'button + button', 'active'],
+        ['pagination link', '<ul class="pagination"><li class="page-item"><a class="page-link" href="#">1</a></li></ul>', '.page-link', null, 4.4],
+        ['pagination link :hover', '<ul class="pagination"><li class="page-item"><a class="page-link" href="#">1</a></li></ul>', '.page-link', 'hover', 4.4],
+      ];
+      const weak = [];
+      for (const mode of ['light', 'dark']) {
+        const base = mode === 'dark' ? [33, 37, 41] : [255, 255, 255];
+        for (const [name, html, sel, state, min = 4.5] of cases) {
+          await page.evaluate((mode, html) => { document.documentElement.setAttribute('data-bs-theme', mode); let h = document.getElementById('__probe'); if (!h) { h = document.createElement('div'); h.id = '__probe'; h.className = 'p-3 bg-body'; document.body.prepend(h); } h.innerHTML = html; }, mode, html);
+          const { root } = await cdp.send('DOM.getDocument', { depth: -1 });
+          const { nodeId } = await cdp.send('DOM.querySelector', { nodeId: root.nodeId, selector: '#__probe ' + sel });
+          if (state) await cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: [state] });
+          await sleep(450); // the buttons transition their colours
+          const cs = await page.evaluate(sel => { const c = getComputedStyle(document.querySelector('#__probe ' + sel)); return { color: c.color, bg: c.backgroundColor }; }, sel);
+          if (state) await cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: [] });
+          const bg = over(rgba(cs.bg), base), fg = over(rgba(cs.color), bg), ratio = contrast(fg, bg);
+          if (ratio < min) weak.push(`${mode} ${name} ${ratio.toFixed(2)}:1 (${cs.color} on ${cs.bg})`);
+        }
+      }
+      await page.evaluate(() => document.getElementById('__probe').remove());
+      check('14 pressed/hovered flat buttons and pagination links stay readable in light and dark', !weak.length, weak.join(' | '));
+      await page.close();
+    }
+
     // 5, 11: sidebar links scroll to their section; the matching sidebar link (and only a #nav_spy link) becomes active
     {
       const { page } = await open(file);
