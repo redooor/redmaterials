@@ -19,10 +19,10 @@ Dark mode is built from this inventory: every neutral colour is a CSS custom pro
 | `overlay` | Scrims (nav-sidebar overlay) | token |
 | `image` | Data-URL icons (select arrows) | dark variant of the image |
 
-## Summary (670 source declarations)
+## Summary (668 source declarations)
 
 * `token`: 487
-* `fixed`: 157
+* `fixed`: 155
 * `light-only`: 26
 
 ## Tokens
@@ -61,9 +61,9 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/forms.scss:178` | `background-color` | Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes. |
 | `scss/loops/background.scss:10` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/background.scss:19` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
-| `scss/loops/background.scss:24` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
-| `scss/loops/background.scss:30` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
+| `scss/loops/background.scss:27` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/background.scss:33` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
+| `scss/loops/background.scss:36` | `background-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/border.scss:8` | `border-color` | Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap. |
 | `scss/loops/nav-sidebar.scss:16` | `color` | White text on a palette or brand fill; paired with the fill, identical in both modes. |
 | `scss/loops/nav-sidebar.scss:23` | `color` | White text on a palette or brand fill; paired with the fill, identical in both modes. |
@@ -537,10 +537,10 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/list-group.scss:24` | `border-color` | `#2196F3` | `.list-group-item.active, .list-group-item.active` | fixed |
 | `scss/loops/background.scss:10` | `background-color` | `#f8f8f8` (+10) | `.bg-default`, `.bg-primary` | fixed |
 | `scss/loops/background.scss:19` | `background-color` | `#f8f8f8` (+19) | `.bg-default`, `.bg-red` | fixed |
-| `scss/loops/background.scss:24` | `background-color` | `#dfdfdf` (+19) | `.bg-default.btn:hover`, `.bg-red.btn:hover` | fixed |
-| `scss/loops/background.scss:30` | `background-color` | `#dfdfdf` (+19) | `.bg-default.btn:active, .bg-default.btn.active, `, `.bg-red.btn:active, .bg-red.btn.active, .bg-red.` | fixed |
-| `scss/loops/background.scss:33` | `background-color` | `#c5c5c5` (+19) | `.bg-default.btn:focus-visible`, `.bg-red.btn:focus-visible` | fixed |
-| `scss/loops/background.scss:38` | `background-color` | `transparent` | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
+| `scss/loops/background.scss:27` | `background-color` | `#dfdfdf` (+19) | `.bg-default.btn:not(.btn-flat):hover`, `.bg-red.btn:not(.btn-flat):hover` | fixed |
+| `scss/loops/background.scss:33` | `background-color` | `#dfdfdf` (+19) | `.bg-default.btn:not(.btn-flat):active, .bg-defau`, `.bg-red.btn:not(.btn-flat):active, .bg-red.btn:n` | fixed |
+| `scss/loops/background.scss:36` | `background-color` | `#c5c5c5` (+19) | `.bg-default.btn:not(.btn-flat):focus-visible`, `.bg-red.btn:not(.btn-flat):focus-visible` | fixed |
+| `scss/loops/background.scss:41` | `background-color` | `transparent` | `.bg-default.btn-flat`, `.bg-red.btn-flat` | fixed |
 | `scss/loops/border.scss:8` | `border-color` | `#f8f8f8` (+10) | `.border-default`, `.border-primary` | fixed |
 | `scss/loops/buttons.scss:18` | `background-color` | `#1976D2` (+9) | `.btn-primary`, `.btn-secondary` | fixed |
 | `scss/loops/buttons.scss:20` | `background-color` | `#145ca4` (+9) | `.btn-primary:hover`, `.btn-secondary:hover` | fixed |
@@ -740,9 +740,7 @@ Where values differed they got separate tokens; nothing was forced into a shared
 | `scss/navs.scss:57` | `--bs-nav-pills-link-active-bg` | `#1976D2` | `.nav-pills` | fixed |
 | `scss/navs.scss:66` | `color` | `#fff` | `.nav-pills .nav-link.active, .nav-pills .show > ` | fixed |
 | `scss/navs.scss:67` | `background-color` | `#1976D2` | `.nav-pills .nav-link.active, .nav-pills .show > ` | fixed |
-| `scss/pagination.scss:7` | `--bs-pagination-color` | `#1976D2` | `.pagination` | fixed |
 | `scss/pagination.scss:10` | `--bs-pagination-border-color` | `transparent` | `.pagination` | fixed |
-| `scss/pagination.scss:12` | `--bs-pagination-hover-color` | `#1976D2` | `.pagination` | fixed |
 | `scss/pagination.scss:14` | `--bs-pagination-hover-border-color` | `transparent` | `.pagination` | fixed |
 | `scss/pagination.scss:15` | `--bs-pagination-focus-color` | `#fff` | `.pagination` | fixed |
 | `scss/pagination.scss:18` | `--bs-pagination-active-color` | `#fff` | `.pagination` | fixed |

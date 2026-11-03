@@ -1806,12 +1806,12 @@ select[size]:not([size="1"]):focus,
 }
 
 .pagination {
-  --bs-pagination-color: #1976D2;
+  --bs-pagination-color: var(--bs-link-color);
   --bs-pagination-bg: var(--rdm-surface-translucent);
   --bs-pagination-border-width: 0;
   --bs-pagination-border-color: transparent;
   --bs-pagination-border-radius: 2px;
-  --bs-pagination-hover-color: #1976D2;
+  --bs-pagination-hover-color: var(--bs-link-hover-color);
   --bs-pagination-hover-bg: var(--rdm-flat-hover-bg);
   --bs-pagination-hover-border-color: transparent;
   --bs-pagination-focus-color: #fff;
@@ -3125,13 +3125,13 @@ select[size]:not([size="1"]):focus,
 .bg-default {
   background-color: #f8f8f8;
 }
-.bg-default.btn:hover {
+.bg-default.btn:not(.btn-flat):hover {
   background-color: #dfdfdf;
 }
-.bg-default.btn:active, .bg-default.btn.active, .bg-default.btn:first-child:active, :not(.btn-check) + .bg-default.btn:active {
+.bg-default.btn:not(.btn-flat):active, .bg-default.btn:not(.btn-flat).active, .bg-default.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-default.btn:not(.btn-flat):active {
   background-color: #dfdfdf;
 }
-.bg-default.btn:focus-visible {
+.bg-default.btn:not(.btn-flat):focus-visible {
   background-color: #c5c5c5;
 }
 .bg-default.btn-flat {
@@ -3157,13 +3157,13 @@ select[size]:not([size="1"]):focus,
 .bg-red {
   background-color: #F44336;
 }
-.bg-red.btn:hover {
+.bg-red.btn:not(.btn-flat):hover {
   background-color: #ea1c0d;
 }
-.bg-red.btn:active, .bg-red.btn.active, .bg-red.btn:first-child:active, :not(.btn-check) + .bg-red.btn:active {
+.bg-red.btn:not(.btn-flat):active, .bg-red.btn:not(.btn-flat).active, .bg-red.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-red.btn:not(.btn-flat):active {
   background-color: #ea1c0d;
 }
-.bg-red.btn:focus-visible {
+.bg-red.btn:not(.btn-flat):focus-visible {
   background-color: #ba160a;
 }
 .bg-red.btn-flat {
@@ -3189,13 +3189,13 @@ select[size]:not([size="1"]):focus,
 .bg-pink {
   background-color: #E91E63;
 }
-.bg-pink.btn:hover {
+.bg-pink.btn:not(.btn-flat):hover {
   background-color: #c1134e;
 }
-.bg-pink.btn:active, .bg-pink.btn.active, .bg-pink.btn:first-child:active, :not(.btn-check) + .bg-pink.btn:active {
+.bg-pink.btn:not(.btn-flat):active, .bg-pink.btn:not(.btn-flat).active, .bg-pink.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-pink.btn:not(.btn-flat):active {
   background-color: #c1134e;
 }
-.bg-pink.btn:focus-visible {
+.bg-pink.btn:not(.btn-flat):focus-visible {
   background-color: #930e3b;
 }
 .bg-pink.btn-flat {
@@ -3221,13 +3221,13 @@ select[size]:not([size="1"]):focus,
 .bg-purple {
   background-color: #9C27B0;
 }
-.bg-purple.btn:hover {
+.bg-purple.btn:not(.btn-flat):hover {
   background-color: #771e86;
 }
-.bg-purple.btn:active, .bg-purple.btn.active, .bg-purple.btn:first-child:active, :not(.btn-check) + .bg-purple.btn:active {
+.bg-purple.btn:not(.btn-flat):active, .bg-purple.btn:not(.btn-flat).active, .bg-purple.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-purple.btn:not(.btn-flat):active {
   background-color: #771e86;
 }
-.bg-purple.btn:focus-visible {
+.bg-purple.btn:not(.btn-flat):focus-visible {
   background-color: #52145d;
 }
 .bg-purple.btn-flat {
@@ -3253,13 +3253,13 @@ select[size]:not([size="1"]):focus,
 .bg-deep-purple {
   background-color: #673AB7;
 }
-.bg-deep-purple.btn:hover {
+.bg-deep-purple.btn:not(.btn-flat):hover {
   background-color: #512e90;
 }
-.bg-deep-purple.btn:active, .bg-deep-purple.btn.active, .bg-deep-purple.btn:first-child:active, :not(.btn-check) + .bg-deep-purple.btn:active {
+.bg-deep-purple.btn:not(.btn-flat):active, .bg-deep-purple.btn:not(.btn-flat).active, .bg-deep-purple.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-deep-purple.btn:not(.btn-flat):active {
   background-color: #512e90;
 }
-.bg-deep-purple.btn:focus-visible {
+.bg-deep-purple.btn:not(.btn-flat):focus-visible {
   background-color: #3b216a;
 }
 .bg-deep-purple.btn-flat {
@@ -3285,13 +3285,13 @@ select[size]:not([size="1"]):focus,
 .bg-indigo {
   background-color: #3F51B5;
 }
-.bg-indigo.btn:hover {
+.bg-indigo.btn:not(.btn-flat):hover {
   background-color: #32408f;
 }
-.bg-indigo.btn:active, .bg-indigo.btn.active, .bg-indigo.btn:first-child:active, :not(.btn-check) + .bg-indigo.btn:active {
+.bg-indigo.btn:not(.btn-flat):active, .bg-indigo.btn:not(.btn-flat).active, .bg-indigo.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-indigo.btn:not(.btn-flat):active {
   background-color: #32408f;
 }
-.bg-indigo.btn:focus-visible {
+.bg-indigo.btn:not(.btn-flat):focus-visible {
   background-color: #252f69;
 }
 .bg-indigo.btn-flat {
@@ -3317,13 +3317,13 @@ select[size]:not([size="1"]):focus,
 .bg-blue {
   background-color: #2196F3;
 }
-.bg-blue.btn:hover {
+.bg-blue.btn:not(.btn-flat):hover {
   background-color: #0c7cd5;
 }
-.bg-blue.btn:active, .bg-blue.btn.active, .bg-blue.btn:first-child:active, :not(.btn-check) + .bg-blue.btn:active {
+.bg-blue.btn:not(.btn-flat):active, .bg-blue.btn:not(.btn-flat).active, .bg-blue.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-blue.btn:not(.btn-flat):active {
   background-color: #0c7cd5;
 }
-.bg-blue.btn:focus-visible {
+.bg-blue.btn:not(.btn-flat):focus-visible {
   background-color: #0960a5;
 }
 .bg-blue.btn-flat {
@@ -3349,13 +3349,13 @@ select[size]:not([size="1"]):focus,
 .bg-light-blue {
   background-color: #03A9F4;
 }
-.bg-light-blue.btn:hover {
+.bg-light-blue.btn:not(.btn-flat):hover {
   background-color: #0286c2;
 }
-.bg-light-blue.btn:active, .bg-light-blue.btn.active, .bg-light-blue.btn:first-child:active, :not(.btn-check) + .bg-light-blue.btn:active {
+.bg-light-blue.btn:not(.btn-flat):active, .bg-light-blue.btn:not(.btn-flat).active, .bg-light-blue.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-light-blue.btn:not(.btn-flat):active {
   background-color: #0286c2;
 }
-.bg-light-blue.btn:focus-visible {
+.bg-light-blue.btn:not(.btn-flat):focus-visible {
   background-color: #02638f;
 }
 .bg-light-blue.btn-flat {
@@ -3381,13 +3381,13 @@ select[size]:not([size="1"]):focus,
 .bg-cyan {
   background-color: #00BCD4;
 }
-.bg-cyan.btn:hover {
+.bg-cyan.btn:not(.btn-flat):hover {
   background-color: #008fa1;
 }
-.bg-cyan.btn:active, .bg-cyan.btn.active, .bg-cyan.btn:first-child:active, :not(.btn-check) + .bg-cyan.btn:active {
+.bg-cyan.btn:not(.btn-flat):active, .bg-cyan.btn:not(.btn-flat).active, .bg-cyan.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-cyan.btn:not(.btn-flat):active {
   background-color: #008fa1;
 }
-.bg-cyan.btn:focus-visible {
+.bg-cyan.btn:not(.btn-flat):focus-visible {
   background-color: #00626e;
 }
 .bg-cyan.btn-flat {
@@ -3413,13 +3413,13 @@ select[size]:not([size="1"]):focus,
 .bg-teal {
   background-color: #009688;
 }
-.bg-teal.btn:hover {
+.bg-teal.btn:not(.btn-flat):hover {
   background-color: #00635a;
 }
-.bg-teal.btn:active, .bg-teal.btn.active, .bg-teal.btn:first-child:active, :not(.btn-check) + .bg-teal.btn:active {
+.bg-teal.btn:not(.btn-flat):active, .bg-teal.btn:not(.btn-flat).active, .bg-teal.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-teal.btn:not(.btn-flat):active {
   background-color: #00635a;
 }
-.bg-teal.btn:focus-visible {
+.bg-teal.btn:not(.btn-flat):focus-visible {
   background-color: #00302c;
 }
 .bg-teal.btn-flat {
@@ -3445,13 +3445,13 @@ select[size]:not([size="1"]):focus,
 .bg-green {
   background-color: #4CAF50;
 }
-.bg-green.btn:hover {
+.bg-green.btn:not(.btn-flat):hover {
   background-color: #3d8b40;
 }
-.bg-green.btn:active, .bg-green.btn.active, .bg-green.btn:first-child:active, :not(.btn-check) + .bg-green.btn:active {
+.bg-green.btn:not(.btn-flat):active, .bg-green.btn:not(.btn-flat).active, .bg-green.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-green.btn:not(.btn-flat):active {
   background-color: #3d8b40;
 }
-.bg-green.btn:focus-visible {
+.bg-green.btn:not(.btn-flat):focus-visible {
   background-color: #2d682f;
 }
 .bg-green.btn-flat {
@@ -3477,13 +3477,13 @@ select[size]:not([size="1"]):focus,
 .bg-light-green {
   background-color: #8BC34A;
 }
-.bg-light-green.btn:hover {
+.bg-light-green.btn:not(.btn-flat):hover {
   background-color: #71a436;
 }
-.bg-light-green.btn:active, .bg-light-green.btn.active, .bg-light-green.btn:first-child:active, :not(.btn-check) + .bg-light-green.btn:active {
+.bg-light-green.btn:not(.btn-flat):active, .bg-light-green.btn:not(.btn-flat).active, .bg-light-green.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-light-green.btn:not(.btn-flat):active {
   background-color: #71a436;
 }
-.bg-light-green.btn:focus-visible {
+.bg-light-green.btn:not(.btn-flat):focus-visible {
   background-color: #577d2a;
 }
 .bg-light-green.btn-flat {
@@ -3509,13 +3509,13 @@ select[size]:not([size="1"]):focus,
 .bg-lime {
   background-color: #CDDC39;
 }
-.bg-lime.btn:hover {
+.bg-lime.btn:not(.btn-flat):hover {
   background-color: #b2c022;
 }
-.bg-lime.btn:active, .bg-lime.btn.active, .bg-lime.btn:first-child:active, :not(.btn-check) + .bg-lime.btn:active {
+.bg-lime.btn:not(.btn-flat):active, .bg-lime.btn:not(.btn-flat).active, .bg-lime.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-lime.btn:not(.btn-flat):active {
   background-color: #b2c022;
 }
-.bg-lime.btn:focus-visible {
+.bg-lime.btn:not(.btn-flat):focus-visible {
   background-color: #89951a;
 }
 .bg-lime.btn-flat {
@@ -3541,13 +3541,13 @@ select[size]:not([size="1"]):focus,
 .bg-yellow {
   background-color: #FFEB3B;
 }
-.bg-yellow.btn:hover {
+.bg-yellow.btn:not(.btn-flat):hover {
   background-color: #ffe608;
 }
-.bg-yellow.btn:active, .bg-yellow.btn.active, .bg-yellow.btn:first-child:active, :not(.btn-check) + .bg-yellow.btn:active {
+.bg-yellow.btn:not(.btn-flat):active, .bg-yellow.btn:not(.btn-flat).active, .bg-yellow.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-yellow.btn:not(.btn-flat):active {
   background-color: #ffe608;
 }
-.bg-yellow.btn:focus-visible {
+.bg-yellow.btn:not(.btn-flat):focus-visible {
   background-color: #d4be00;
 }
 .bg-yellow.btn-flat {
@@ -3573,13 +3573,13 @@ select[size]:not([size="1"]):focus,
 .bg-amber {
   background-color: #FFC107;
 }
-.bg-amber.btn:hover {
+.bg-amber.btn:not(.btn-flat):hover {
   background-color: #d39e00;
 }
-.bg-amber.btn:active, .bg-amber.btn.active, .bg-amber.btn:first-child:active, :not(.btn-check) + .bg-amber.btn:active {
+.bg-amber.btn:not(.btn-flat):active, .bg-amber.btn:not(.btn-flat).active, .bg-amber.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-amber.btn:not(.btn-flat):active {
   background-color: #d39e00;
 }
-.bg-amber.btn:focus-visible {
+.bg-amber.btn:not(.btn-flat):focus-visible {
   background-color: #a07800;
 }
 .bg-amber.btn-flat {
@@ -3605,13 +3605,13 @@ select[size]:not([size="1"]):focus,
 .bg-orange {
   background-color: #FF9800;
 }
-.bg-orange.btn:hover {
+.bg-orange.btn:not(.btn-flat):hover {
   background-color: #cc7a00;
 }
-.bg-orange.btn:active, .bg-orange.btn.active, .bg-orange.btn:first-child:active, :not(.btn-check) + .bg-orange.btn:active {
+.bg-orange.btn:not(.btn-flat):active, .bg-orange.btn:not(.btn-flat).active, .bg-orange.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-orange.btn:not(.btn-flat):active {
   background-color: #cc7a00;
 }
-.bg-orange.btn:focus-visible {
+.bg-orange.btn:not(.btn-flat):focus-visible {
   background-color: #995b00;
 }
 .bg-orange.btn-flat {
@@ -3637,13 +3637,13 @@ select[size]:not([size="1"]):focus,
 .bg-deep-orange {
   background-color: #FF5722;
 }
-.bg-deep-orange.btn:hover {
+.bg-deep-orange.btn:not(.btn-flat):hover {
   background-color: #ee3900;
 }
-.bg-deep-orange.btn:active, .bg-deep-orange.btn.active, .bg-deep-orange.btn:first-child:active, :not(.btn-check) + .bg-deep-orange.btn:active {
+.bg-deep-orange.btn:not(.btn-flat):active, .bg-deep-orange.btn:not(.btn-flat).active, .bg-deep-orange.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-deep-orange.btn:not(.btn-flat):active {
   background-color: #ee3900;
 }
-.bg-deep-orange.btn:focus-visible {
+.bg-deep-orange.btn:not(.btn-flat):focus-visible {
   background-color: #bb2d00;
 }
 .bg-deep-orange.btn-flat {
@@ -3669,13 +3669,13 @@ select[size]:not([size="1"]):focus,
 .bg-brown {
   background-color: #795548;
 }
-.bg-brown.btn:hover {
+.bg-brown.btn:not(.btn-flat):hover {
   background-color: #593f35;
 }
-.bg-brown.btn:active, .bg-brown.btn.active, .bg-brown.btn:first-child:active, :not(.btn-check) + .bg-brown.btn:active {
+.bg-brown.btn:not(.btn-flat):active, .bg-brown.btn:not(.btn-flat).active, .bg-brown.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-brown.btn:not(.btn-flat):active {
   background-color: #593f35;
 }
-.bg-brown.btn:focus-visible {
+.bg-brown.btn:not(.btn-flat):focus-visible {
   background-color: #392822;
 }
 .bg-brown.btn-flat {
@@ -3701,13 +3701,13 @@ select[size]:not([size="1"]):focus,
 .bg-grey {
   background-color: #9E9E9E;
 }
-.bg-grey.btn:hover {
+.bg-grey.btn:not(.btn-flat):hover {
   background-color: #858585;
 }
-.bg-grey.btn:active, .bg-grey.btn.active, .bg-grey.btn:first-child:active, :not(.btn-check) + .bg-grey.btn:active {
+.bg-grey.btn:not(.btn-flat):active, .bg-grey.btn:not(.btn-flat).active, .bg-grey.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-grey.btn:not(.btn-flat):active {
   background-color: #858585;
 }
-.bg-grey.btn:focus-visible {
+.bg-grey.btn:not(.btn-flat):focus-visible {
   background-color: #6b6b6b;
 }
 .bg-grey.btn-flat {
@@ -3733,13 +3733,13 @@ select[size]:not([size="1"]):focus,
 .bg-blue-grey {
   background-color: #607D8B;
 }
-.bg-blue-grey.btn:hover {
+.bg-blue-grey.btn:not(.btn-flat):hover {
   background-color: #4b626d;
 }
-.bg-blue-grey.btn:active, .bg-blue-grey.btn.active, .bg-blue-grey.btn:first-child:active, :not(.btn-check) + .bg-blue-grey.btn:active {
+.bg-blue-grey.btn:not(.btn-flat):active, .bg-blue-grey.btn:not(.btn-flat).active, .bg-blue-grey.btn:not(.btn-flat):first-child:active, :not(.btn-check) + .bg-blue-grey.btn:not(.btn-flat):active {
   background-color: #4b626d;
 }
-.bg-blue-grey.btn:focus-visible {
+.bg-blue-grey.btn:not(.btn-flat):focus-visible {
   background-color: #36474f;
 }
 .bg-blue-grey.btn-flat {

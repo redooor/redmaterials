@@ -19,17 +19,20 @@
         background-color: $color;
         // Support btn hover and pressed/focused states: .btn:active and
         // .btn:focus-visible would otherwise repaint the fill with Bootstrap's
-        // (unset, so transparent) --bs-btn-*-bg
-        &.btn:hover {
+        // (unset, so transparent) --bs-btn-*-bg.  Flat buttons are excluded: the
+        // structural selectors below (:first-child, adjacent sibling) are more
+        // specific than the flat overrides and would paint the colour as a fill
+        // behind a label of the same colour.
+        &.btn:not(.btn-flat):hover {
             background-color: color.adjust($color, $lightness: -10%);
         }
-        &.btn:active,
-        &.btn.active,
-        &.btn:first-child:active,
-        :not(.btn-check) + &.btn:active {
+        &.btn:not(.btn-flat):active,
+        &.btn:not(.btn-flat).active,
+        &.btn:not(.btn-flat):first-child:active,
+        :not(.btn-check) + &.btn:not(.btn-flat):active {
             background-color: color.adjust($color, $lightness: -10%);
         }
-        &.btn:focus-visible {
+        &.btn:not(.btn-flat):focus-visible {
             background-color: color.adjust($color, $lightness: -20%);
         }
         // Support flat btn
