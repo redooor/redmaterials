@@ -68,6 +68,46 @@ $dark-active-surface: #4c5054; // rgba(255, 255, 255, .16) over $dark-surface
     @return #fff;
 }
 
+// The light-mode mirror of lift(): flat button labels sit on the page (white) or on the flat hover/press wash, so a
+// colour below $min against that surface is darkened in 5% steps until it passes.  Passing colours are untouched.
+$light-surface: #fff;
+$light-hover-surface: color.adjust(#999, $lightness: 30%); // --rdm-flat-hover-bg
+$light-active-surface: color.adjust(#999, $lightness: 20%); // --rdm-flat-active-bg and -focus-bg
+
+@function deepen($c, $surface: $light-surface, $min: 4.5) {
+    @for $i from 0 through 20 {
+        $m: color.mix(#000, $c, $i * 5%);
+        @if contrast($m, $surface) >= $min {
+            @return $m;
+        }
+    }
+    @return #000;
+}
+
+// Flat button label colours: base, hover, active and focus per brand colour.  default, light and white are near-white
+// labels meant for dark surfaces, so they are not deepened.
+@mixin palette-flat-light($name, $color) {
+    @if $name == "default" or $name == "light" or $name == "white" {
+        --rdm-flat-#{$name}: var(--rdm-ctx-#{$name});
+        --rdm-flat-#{$name}-hover: var(--rdm-ctx-#{$name}-hover);
+        --rdm-flat-#{$name}-active: var(--rdm-ctx-#{$name}-active);
+        --rdm-flat-#{$name}-focus: var(--rdm-ctx-#{$name}-focus);
+    } @else {
+        --rdm-flat-#{$name}: #{deepen($color)};
+        --rdm-flat-#{$name}-hover: #{deepen(color.adjust($color, $lightness: -10%), $light-hover-surface)};
+        --rdm-flat-#{$name}-active: #{deepen(color.adjust($color, $lightness: -20%), $light-active-surface)};
+        --rdm-flat-#{$name}-focus: #{deepen(color.adjust($color, $lightness: -30%), $light-active-surface)};
+    }
+}
+
+// In dark mode the (already lifted) ctx tokens are the flat label colours.
+@mixin palette-flat-dark($name) {
+    --rdm-flat-#{$name}: var(--rdm-ctx-#{$name});
+    --rdm-flat-#{$name}-hover: var(--rdm-ctx-#{$name}-hover);
+    --rdm-flat-#{$name}-active: var(--rdm-ctx-#{$name}-active);
+    --rdm-flat-#{$name}-focus: var(--rdm-ctx-#{$name}-focus);
+}
+
 @mixin palette-light($prefix, $name, $color) {
     --rdm-#{$prefix}-#{$name}: #{$color};
     --rdm-#{$prefix}-#{$name}-hover: #{color.adjust($color, $lightness: -10%)};
@@ -104,6 +144,7 @@ $dark-active-surface: #4c5054; // rgba(255, 255, 255, .16) over $dark-surface
 [data-bs-theme="light"] {
     @each $name, $color in $brand-color-map {
         @include palette-light("ctx", $name, $color);
+        @include palette-flat-light($name, $color);
     }
     @each $name, $pair in $color-name-text-map {
         @include palette-light("pal", $name, list.nth($pair, 1));
@@ -113,6 +154,7 @@ $dark-active-surface: #4c5054; // rgba(255, 255, 255, .16) over $dark-surface
 [data-bs-theme="dark"] {
     @each $name, $color in $brand-color-map {
         @include palette-dark("ctx", $name, $color);
+        @include palette-flat-dark($name);
     }
     @each $name, $pair in $color-name-text-map {
         @include palette-dark("pal", $name, list.nth($pair, 1));

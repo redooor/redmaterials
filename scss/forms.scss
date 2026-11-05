@@ -39,6 +39,13 @@ input[type=number],
     }
 }
 
+// File input: Bootstrap draws a 1px divider on the button's inline end, in the
+// input's border colour (blue when focused).  The theme has no input borders,
+// so drop it and let the underline alone mark the field.
+input.form-control[type=file]::file-selector-button {
+    border-inline-end-width: 0;
+}
+
 // Plain selects and selects using .form-control.  .form-select keeps the
 // Bootstrap 5 arrow (and its valid/invalid icon) from --bs-form-select-bg-img.
 select:not(.form-select) {

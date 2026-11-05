@@ -4,12 +4,12 @@
     "reason": "Dark-only override derived from the brand colour (the light value is Bootstrap's own).",
     "match": "rgb(128, 97, 4)"
   },
-  "scss/forms.scss:172|background-color": {
+  "scss/forms.scss:179|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes.",
     "match": "#92c2f2"
   },
-  "scss/forms.scss:178|background-color": {
+  "scss/forms.scss:185|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes.",
     "match": "#92c2f2"

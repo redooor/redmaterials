@@ -42,7 +42,7 @@ $select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.or
 
     // Navigation sidebar neutral "default" variant: this has always followed
     // $default / $default-text, independently of $brand-default.
-    --rdm-sidebar-default-bg: #{$default};
+    --rdm-sidebar-default-bg: #e0e0e0;
     --rdm-sidebar-default-text: #{$default-text};
 
     // Flat buttons: the hover/active/focus wash and the ripple of every colour
@@ -112,7 +112,7 @@ $select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.or
     --rdm-default-focus-bg: #4d4d4d;
     --rdm-default-ink: rgba(255, 255, 255, 0.3);
 
-    --rdm-sidebar-default-bg: #333;
+    --rdm-sidebar-default-bg: #495057;
     --rdm-sidebar-default-text: var(--bs-body-color);
 
     --rdm-flat-hover-bg: rgba(255, 255, 255, 0.08);
