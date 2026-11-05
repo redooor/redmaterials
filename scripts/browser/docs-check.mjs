@@ -88,10 +88,12 @@ try {
         const chrome = [...document.querySelectorAll('nav.sticky-top [style], #docs-sidebar [style], footer [style]')].map(e => e.tagName + '#' + e.id);
         // example content may size things inline, as Bootstrap's own examples do, but only with sizing properties
         const SIZING = /^(width|max-width|min-width|height|max-height|min-height|display|aspect-ratio|--bs-[\w-]+)$/;
-        const examples = [...document.querySelectorAll('main [style]')].flatMap(e => e.getAttribute('style').split(';').map(x => x.split(':')[0].trim()).filter(Boolean).filter(p => !SIZING.test(p)).map(p => p + ' on ' + e.tagName));
+        // the one exception is a palette swatch cell (td[data-swatch]), which paints the hex it names
+        const SWATCH = /^(background-color|color)$/;
+        const examples = [...document.querySelectorAll('main [style]')].flatMap(e => e.getAttribute('style').split(';').map(x => x.split(':')[0].trim()).filter(Boolean).filter(p => !SIZING.test(p) && !(e.matches('td[data-swatch]') && SWATCH.test(p))).map(p => p + ' on ' + e.tagName));
         return { sheets, styles, chrome, examples: [...new Set(examples)] };
       });
-      check('3b the docs define no styles (allowed stylesheets only, no <style>, style-free chrome, only sizing in example inline styles)', !styling.sheets.length && !styling.styles && !styling.chrome.length && !styling.examples.length, JSON.stringify(styling));
+      check('3b the docs define no styles (allowed stylesheets only, no <style>, style-free chrome, only sizing in example inline styles, except palette swatch cells)', !styling.sheets.length && !styling.styles && !styling.chrome.length && !styling.examples.length, JSON.stringify(styling));
       const dupes = await page.evaluate(() => { const seen = {}, d = []; document.querySelectorAll('[id]').forEach(e => { if (seen[e.id]) d.push(e.id); seen[e.id] = 1; }); return [...new Set(d)]; });
       check('4 no duplicate ids', !dupes.length, dupes.slice(0, 8).join(','));
       await page.close();
@@ -155,12 +157,42 @@ try {
       await page.close();
     }
 
+    // 15: a link inside a live example is a demo, so clicking it must not navigate, and a .ripple-effect link must show its ink
+    {
+      const { page } = await open(file);
+      const sel = '.bs-component a.ripple-effect[href^="#"]';
+      const link = await page.$(sel);
+      if (!link) { check('15 an example link does not navigate and still ripples', false, `no ${sel} in the docs`); } else {
+        await page.evaluate(s => document.querySelector(s).scrollIntoView({ block: 'center' }), sel);
+        await sleep(200);
+        const before = await page.evaluate(() => ({ y: Math.round(scrollY), hash: location.hash }));
+        await link.click(); await sleep(250);
+        const after = await page.evaluate(s => ({ y: Math.round(scrollY), hash: location.hash, ink: !!document.querySelector(s + ' .ink.animate') }), sel);
+        check('15 an example link does not navigate and still ripples', after.y === before.y && after.hash === before.hash && after.ink, JSON.stringify({ before, after }));
+      }
+      await page.close();
+    }
+
+    // 16: clicking sidebar links from the bottom upwards activates the clicked link, not its upper neighbour
+    {
+      const { page } = await open(file);
+      const hrefs = await page.$$eval('#nav_spy a', as => as.map(a => a.getAttribute('href')));
+      const wrong = [];
+      for (const h of hrefs.slice().reverse()) {
+        await page.click(`#nav_spy a[href="${h}"]`); await sleep(350);
+        const got = await page.evaluate(() => document.querySelector('#nav_spy li.active a')?.getAttribute('href'));
+        if (got !== h) wrong.push(`${h} -> ${got}`);
+      }
+      check('16 sidebar links clicked from the bottom up activate the clicked link', wrong.length === 0, wrong.join('; '));
+      await page.close();
+    }
+
     // 5, 11: sidebar links scroll to their section; the matching sidebar link (and only a #nav_spy link) becomes active
     {
       const { page } = await open(file);
       const probe = id => page.evaluate(id => {
         const sec = document.getElementById(id).getBoundingClientRect();
-        const active = [...document.querySelectorAll('#docs-sidebar .nav-link.active')];
+        const active = [...document.querySelectorAll('#nav_spy li.active a')];
         return { top: Math.round(sec.top), active: active.map(a => a.getAttribute('href')), outside: active.filter(a => !a.closest('#nav_spy')).length,
           atBottom: window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60 };
       }, id);
@@ -195,7 +227,7 @@ try {
         await settle(d.page); await sleep(500);
         const v = verdict(s.id, await d.page.evaluate(id => {
           const sec = document.getElementById(id).getBoundingClientRect();
-          const active = [...document.querySelectorAll('#docs-sidebar .nav-link.active')];
+          const active = [...document.querySelectorAll('#nav_spy li.active a')];
           return { top: Math.round(sec.top), active: active.map(a => a.getAttribute('href')), outside: active.filter(a => !a.closest('#nav_spy')).length, atBottom: window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60 };
         }, s.id));
         if (v) badHash.push('#' + s.id + ' ' + v);

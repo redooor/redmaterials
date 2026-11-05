@@ -27,17 +27,19 @@
                 <!--@end-->
 
                 <h4 class="mt-5">Flat buttons</h4>
-                <p>Add <code>.btn-flat</code> for a borderless, background-free button whose label takes the contextual colour and whose hover adds a subtle fill.</p>
+                <p>Add <code>.btn-flat</code> for a borderless, background-free button whose label takes the contextual colour and whose hover adds a subtle fill. The <code>default</code> and <code>light</code> labels are near-white, so use those two on a dark surface.</p>
                 <!--@example-->
-                <button type="button" class="btn btn-default btn-flat mb-2 me-2">Default</button>
                 <button type="button" class="btn btn-primary btn-flat mb-2 me-2">Primary</button>
                 <button type="button" class="btn btn-secondary btn-flat mb-2 me-2">Secondary</button>
                 <button type="button" class="btn btn-success btn-flat mb-2 me-2">Success</button>
                 <button type="button" class="btn btn-info btn-flat mb-2 me-2">Info</button>
                 <button type="button" class="btn btn-warning btn-flat mb-2 me-2">Warning</button>
                 <button type="button" class="btn btn-danger btn-flat mb-2 me-2">Danger</button>
-                <button type="button" class="btn btn-light btn-flat mb-2 me-2">Light</button>
                 <button type="button" class="btn btn-dark btn-flat mb-2 me-2">Dark</button>
+                <div class="bg-dark rounded px-2 pt-2 d-inline-block">
+                    <button type="button" class="btn btn-default btn-flat mb-2 me-2">Default</button>
+                    <button type="button" class="btn btn-light btn-flat mb-2 me-2">Light</button>
+                </div>
                 <!--@end-->
 
                 <h4 class="mt-5">Circle buttons</h4>
@@ -86,7 +88,7 @@
                 <!--@end-->
 
                 <h4 class="mt-5">Outline buttons</h4>
-                <p>Bootstrap's outline buttons keep a 1px border (the theme removes it from filled buttons) and fill with the contextual colour on hover.</p>
+                <p>Bootstrap's outline buttons keep a 1px border (the theme removes it from filled buttons) and fill with the contextual colour on hover. The <code>light</code> outline is near-white, so use it on a dark surface.</p>
                 <!--@example-->
                 <button type="button" class="btn btn-outline-primary mb-2 me-2">Primary</button>
                 <button type="button" class="btn btn-outline-secondary mb-2 me-2">Secondary</button>
@@ -94,8 +96,10 @@
                 <button type="button" class="btn btn-outline-info mb-2 me-2">Info</button>
                 <button type="button" class="btn btn-outline-warning mb-2 me-2">Warning</button>
                 <button type="button" class="btn btn-outline-danger mb-2 me-2">Danger</button>
-                <button type="button" class="btn btn-outline-light mb-2 me-2">Light</button>
                 <button type="button" class="btn btn-outline-dark mb-2 me-2">Dark</button>
+                <div class="bg-dark rounded px-2 pt-2 d-inline-block">
+                    <button type="button" class="btn btn-outline-light mb-2 me-2">Light</button>
+                </div>
                 <!--@end-->
 
                 <h4 class="mt-5">Sizes</h4>

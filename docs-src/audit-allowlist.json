@@ -63,6 +63,10 @@
     {
       "selector": "[data-bs-theme=\"light\"] .dropdown-menu",
       "reason": "A menu inside a scope declared light is light by intent"
+    },
+    {
+      "selector": "td[data-swatch]",
+      "reason": "Shade-scale swatch: each cell shows one fixed Material hex (with a legible text colour), identical in both colour modes by design"
     }
   ]
 }
