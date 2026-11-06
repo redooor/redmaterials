@@ -216,7 +216,15 @@ select[size]:not([size="1"]),
 }
 
 // Keep Bootstrap 5's valid/invalid icons while matching their underline to
-// the theme's status colours.
+// the theme's status colours.  The base control rule shrinks the padding to
+// 2px, so reserve the room for the icon again or the value runs underneath it.
+.form-control.is-valid,
+.was-validated .form-control:valid,
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+    padding-right: calc(1.5em + 0.75rem);
+}
+
 .form-control.is-valid,
 .was-validated .form-control:valid,
 .form-select.is-valid,

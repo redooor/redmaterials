@@ -35,6 +35,11 @@
                 box-shadow: inset 0 -2px 0 $brand-primary;
             }
         }
+        // the underline already marks the active tab, so keyboard focus needs its own outline
+        &:focus-visible {
+            outline: 2px solid var(--bs-link-color);
+            outline-offset: -2px;
+        }
         &.disabled {
             box-shadow: inset 0 -1px 0 var(--rdm-underline);
             &:hover,

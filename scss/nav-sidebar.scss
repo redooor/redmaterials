@@ -21,9 +21,9 @@
     padding-bottom: 2em;
     transform: translateZ(0);
     transform-style: preserve-3d;
-    transition-delay: 0.1s;
-    transition-duration: 0.2s;
-    transition-property: transform, left;
+    transition-duration: 0.2s, 0.2s, 0s;
+    transition-delay: 0.1s, 0.1s, 0.3s; // visibility waits for the slide-out to finish
+    transition-property: transform, left, visibility;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -58,7 +58,18 @@
     transition: .3s ease all;
 }
 
+// A closed drawer is offscreen, so keep its links out of the tab order and the
+// accessibility tree.  visibility switches at the end of the slide-out and at
+// the start of the slide-in.
+.nav-sidebar-wrapper > .nav-sidebar {
+    visibility: hidden;
+}
+
 .nav-sidebar-wrapper.active {
+    > .nav-sidebar {
+        visibility: visible;
+        transition-delay: 0.1s, 0.1s, 0s; // ...but shows at once, so focus can move in
+    }
     .nav-sidebar {
         left: 0px;
     }
@@ -116,7 +127,7 @@
 .nav-sidebar-right {
     left: auto;
     right: -240px;
-    transition-property: transform, right;
+    transition-property: transform, right, visibility;
 }
 
 .nav-sidebar-wrapper.active {

@@ -187,6 +187,88 @@ try {
       await page.close();
     }
 
+    // 17: the validated inputs keep room for their icon, so a long value does not run underneath it
+    {
+      const { page } = await open(file);
+      const pads = await page.evaluate(() => ['rdm-forms-valid', 'rdm-forms-invalid'].map(id => parseFloat(getComputedStyle(document.getElementById(id)).paddingRight)));
+      check('17 .is-valid and .is-invalid inputs reserve at least 24px for their icon', pads.every(p => p >= 24), JSON.stringify(pads));
+      const aria = await page.evaluate(() => { const i = document.getElementById('rdm-forms-invalid'); const d = document.getElementById(i.getAttribute('aria-describedby') || '-'); return { invalid: i.getAttribute('aria-invalid'), described: !!d && d.classList.contains('invalid-feedback') }; });
+      check('17b the invalid example exposes aria-invalid and its feedback', aria.invalid === 'true' && aria.described, JSON.stringify(aria));
+      await page.close();
+    }
+
+    // 18: keyboard focus is visible on a link button, an active tab and a pagination link, and the pagination label stays readable
+    {
+      const { page } = await open(file);
+      const probe = async sel => { // focus, let the .15s colour transition finish, then read
+        const has = await page.evaluate(sel => { const el = document.querySelector(sel); if (el) el.focus({ focusVisible: true }); return !!el; }, sel);
+        if (!has) return null;
+        await sleep(300);
+        return page.evaluate(sel => { const el = document.querySelector(sel); const cs = getComputedStyle(el);
+        return { outline: cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0, shadow: cs.boxShadow !== 'none', color: cs.color, bg: cs.backgroundColor }; }, sel);
+      };
+      await page.keyboard.press('Tab'); // make the page show :focus-visible
+      const lum = c => { const m = c.match(/[\d.]+/g).map(Number).slice(0, 3).map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; }); return .2126 * m[0] + .7152 * m[1] + .0722 * m[2]; };
+      const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+      const link = await probe('.bs-component .btn.btn-flat, .bs-component .btn');
+      check('18 a focused flat button shows a focus indicator', !!link && (link.outline || link.shadow), JSON.stringify(link));
+      const tab = await probe('.nav-tabs .nav-link.active');
+      check('18b a focused active tab shows a focus indicator', !!tab && (tab.outline || tab.shadow), JSON.stringify(tab));
+      const pg = await probe('.pagination .page-item:not(.active):not(.disabled) .page-link');
+      check('18c a focused pagination link is at least 4.5:1', !!pg && ratio(pg.color, pg.bg) >= 4.5, JSON.stringify(pg));
+      await page.close();
+    }
+
+    // 19: the palette tables sit in a scroll wrapper, so they cannot clip at a phone width
+    {
+      const { page } = await open(file);
+      const bad = await page.evaluate(() => [...document.querySelectorAll('table[class*="table-"]')].filter(t => !t.closest('.table-responsive, .table-responsive-vertical')).map(t => t.className));
+      check('19 every table in the docs is inside a .table-responsive (or .table-responsive-vertical) wrapper', bad.length === 0, bad.slice(0, 3).join(' | '));
+      await page.close();
+    }
+
+    // 20: the off-canvas drawer keeps closed links out of the tab order, moves focus in, closes on Escape and returns focus
+    {
+      const { page } = await open(file);
+      const id = '#nav-sidebar-live', btn = '#nav-sidebar-live-toggle';
+      const state = () => page.evaluate((id, btn) => ({ active: document.querySelector(id).classList.contains('active'), locked: document.body.classList.contains('rdm-ui-disable-scroll'),
+        inside: !!document.activeElement && document.querySelector(id + ' .nav-sidebar').contains(document.activeElement), onTrigger: document.activeElement === document.querySelector(btn),
+        expanded: document.querySelector(btn).getAttribute('aria-expanded'), vis: getComputedStyle(document.querySelector(id + ' .nav-sidebar')).visibility }), id, btn);
+      await page.evaluate(btn => document.querySelector(btn).scrollIntoView({ block: 'center' }), btn);
+      const closed = await state();
+      await page.click(btn); await sleep(400);
+      const opened = await state();
+      await page.keyboard.press('Escape'); await sleep(450);
+      const after = await state();
+      check('20 a closed drawer is hidden from the tab order and the accessibility tree', closed.vis === 'hidden', JSON.stringify(closed));
+      check('20b opening the drawer moves focus into it, locks scrolling and sets aria-expanded', opened.active && opened.locked && opened.inside && opened.expanded === 'true' && opened.vis === 'visible', JSON.stringify(opened));
+      check('20c Escape closes the drawer, unlocks scrolling and returns focus to its trigger', !after.active && !after.locked && after.onTrigger && after.expanded === 'false', JSON.stringify(after));
+      // two drawers open at once keep the body locked until the last one closes
+      const two = await page.evaluate(async () => {
+        const wait = ms => new Promise(r => setTimeout(r, ms));
+        const a = document.querySelector('#nav-sidebar-live'), b = a.cloneNode(true); b.id = 'nav-sidebar-live-2';
+        b.querySelectorAll('[data-target]').forEach(n => n.setAttribute('data-target', '#nav-sidebar-live-2')); a.after(b);
+        const mk = t => { const x = document.createElement('button'); x.type = 'button'; x.setAttribute('data-toggle', 'nav-sidebar-toggle'); x.setAttribute('data-target', t); document.body.appendChild(x); return x; };
+        const ta = mk('#nav-sidebar-live'), tb = mk('#nav-sidebar-live-2'), out = {};
+        ta.click(); tb.click(); await wait(50); out.both = document.body.classList.contains('rdm-ui-disable-scroll');
+        ta.click(); await wait(50); out.afterOne = document.body.classList.contains('rdm-ui-disable-scroll');
+        tb.click(); await wait(50); out.afterAll = document.body.classList.contains('rdm-ui-disable-scroll');
+        return out;
+      });
+      check('20d the scroll lock holds while any drawer is open and clears with the last', two.both && two.afterOne && !two.afterAll, JSON.stringify(two));
+      await page.close();
+    }
+
+    // 21: a ripple on a plain light surface (the card) is a visible ink, not white on white
+    {
+      const { page } = await open(file);
+      const ink = await page.evaluate(() => { const c = document.querySelector('.card.ripple-effect, .ripple-effect.card'); if (!c) return null;
+        let i = c.querySelector('.ink'); if (!i) { i = document.createElement('span'); i.className = 'ink'; c.appendChild(i); }
+        return getComputedStyle(i).backgroundColor; });
+      check('21 the ink on a ripple card is not white in light mode', !!ink && !/^rgb\(255, 255, 255\)$/.test(ink), String(ink));
+      await page.close();
+    }
+
     // 5, 11: sidebar links scroll to their section; the matching sidebar link (and only a #nav_spy link) becomes active
     {
       const { page } = await open(file);

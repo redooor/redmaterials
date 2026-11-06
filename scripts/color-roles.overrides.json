@@ -59,7 +59,7 @@
     "reason": "Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes).",
     "match": "#333"
   },
-  "scss/nav-sidebar.scss:111|background-color": {
+  "scss/nav-sidebar.scss:122|background-color": {
     "role": "fixed",
     "reason": "Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes).",
     "match": "#666"

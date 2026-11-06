@@ -12,7 +12,7 @@
     --bs-pagination-hover-color: var(--bs-link-hover-color);
     --bs-pagination-hover-bg: var(--rdm-flat-hover-bg);
     --bs-pagination-hover-border-color: transparent;
-    --bs-pagination-focus-color: #fff;
+    --bs-pagination-focus-color: var(--rdm-text-strong);
     --bs-pagination-focus-bg: var(--rdm-flat-focus-bg);
     --bs-pagination-focus-box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .35);
     --bs-pagination-active-color: #fff;

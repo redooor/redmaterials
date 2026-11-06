@@ -21,6 +21,11 @@
     opacity: 1;
 }
 
+// Buttons keep the light ink; anything else sits on a plain surface
+.ripple-effect:not(.btn) > .ink {
+    background: var(--rdm-ink-surface);
+}
+
 // animation effect
 .ink.animate {
     -webkit-animation: ripple .5s linear;
