@@ -43,6 +43,30 @@ async function settle(page, max = 4000) {
 }
 const poll = async (fn, ok, max = 3000) => { let v; for (let t = 0; t < max; t += 150) { v = await fn(); if (ok(v)) return v; await sleep(150); } return v; };
 
+// Drive the [data-probe] button through rest, hover, focus and pressed; push "<label> <state> <ratio>" for each state under 4.5:1.
+async function probeStates(page, label, bad) {
+  for (const state of ['rest', 'hover', 'focus', 'active']) {
+    const el = await page.$('[data-probe="1"]');
+    if (state === 'hover') await el.hover();
+    else if (state === 'active') { await el.hover(); await page.mouse.down(); }
+    else { await page.mouse.move(0, 0); await page.evaluate(s => { const e = document.querySelector('[data-probe="1"]'); if (s === 'focus') e.focus({ focusVisible: true }); else document.activeElement && document.activeElement.blur(); }, state); }
+    await sleep(260);
+    const r = await page.evaluate(() => {
+      const el = document.querySelector('[data-probe="1"]'), parse = c => { const m = c.match(/[\d.]+/g).map(Number); return { r: m[0], g: m[1], b: m[2], a: m.length > 3 ? m[3] : 1 }; };
+      const over = (f, b) => ({ r: f.r * f.a + b.r * (1 - f.a), g: f.g * f.a + b.g * (1 - f.a), b: f.b * f.a + b.b * (1 - f.a), a: 1 });
+      const lum = c => { const v = [c.r, c.g, c.b].map(x => { x /= 255; return x <= .03928 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4; }); return .2126 * v[0] + .7152 * v[1] + .0722 * v[2]; };
+      // composite the button's own (possibly translucent) background over its ancestors
+      const chain = []; for (let e = el; e; e = e.parentElement) { const c = parse(getComputedStyle(e).backgroundColor); chain.push(c); if (c.a >= 1) break; }
+      const dark = document.documentElement.getAttribute('data-bs-theme') === 'dark'; let bg = chain[chain.length - 1].a >= 1 ? chain.pop() : { r: dark ? 33 : 255, g: dark ? 37 : 255, b: dark ? 41 : 255, a: 1 };
+      for (const c of chain.reverse()) bg = over(c, bg);
+      const f = parse(getComputedStyle(el).color), fg = f.a < 1 ? over(f, bg) : f, a = lum(fg), b = lum(bg);
+      return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
+    });
+    if (state === 'active') await page.mouse.up();
+    if (r < 4.5) bad.push(`${label} ${state} ${r.toFixed(2)}`);
+  }
+}
+
 async function open(file, { width = 1280, height = 800, scheme = 'light', init, prefs = {} } = {}) {
   const page = await browser.newPage();
   const issues = [];
@@ -266,6 +290,130 @@ try {
         let i = c.querySelector('.ink'); if (!i) { i = document.createElement('span'); i.className = 'ink'; c.appendChild(i); }
         return getComputedStyle(i).backgroundColor; });
       check('21 the ink on a ripple card is not white in light mode', !!ink && !/^rgb\(255, 255, 255\)$/.test(ink), String(ink));
+      await page.close();
+    }
+
+    // 22: no live-example text falls below AA (4.5:1, or 3:1 for large text) in either colour mode
+    {
+      const { page } = await open(file);
+      for (const mode of ['light', 'dark']) {
+        await page.evaluate(m => document.documentElement.setAttribute('data-bs-theme', m), mode);
+        await sleep(400);
+        const res = await page.evaluate(() => {
+          const parse=c=>{const m=c.match(/[\d.]+/g).map(Number);return {r:m[0],g:m[1],b:m[2],a:m.length>3?m[3]:1}};
+          const over=(f,b)=>({r:f.r*f.a+b.r*(1-f.a),g:f.g*f.a+b.g*(1-f.a),b:f.b*f.a+b.b*(1-f.a),a:1});
+          const lum=c=>{const v=[c.r,c.g,c.b].map(x=>{x/=255;return x<=.03928?x/12.92:((x+.055)/1.055)**2.4});return .2126*v[0]+.7152*v[1]+.0722*v[2]};
+          const cr=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+          const bgOf=el=>{let chain=[];for(let e=el;e;e=e.parentElement){const cs=getComputedStyle(e);if(cs.backgroundImage!=='none')return null;chain.push(parse(cs.backgroundColor));if(chain[chain.length-1].a>=1)break;}
+            let base=chain.length&&chain[chain.length-1].a>=1?chain.pop():{r:255,g:255,b:255,a:1};
+            const dark=document.documentElement.getAttribute('data-bs-theme')==='dark'; if(!(chain.length===0&&base.a>=1)&&base.a<1) base={r:dark?33:255,g:dark?37:255,b:dark?41:255,a:1};
+            for(const c of chain.reverse()) base=over(c,base); return base;};
+          const out={};
+          const walker=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT);
+          let n; while(n=walker.nextNode()){
+           const t=n.textContent.trim(); if(!t) continue; const el=n.parentElement;
+           if(el.closest('pre,code,.hljs,[aria-hidden=true],.visually-hidden,.opacity-25,.opacity-50,.opacity-75,[class*=opacity],.disabled,[disabled],.modal:not(.show)')) continue;
+           const cs=getComputedStyle(el); if(cs.visibility==='hidden'||cs.display==='none'||el.getClientRects().length===0) continue;
+           const bg=bgOf(el); if(!bg) continue;
+           const f=parse(cs.color); const fg=f.a<1?over(f,bg):f; const r=cr(fg,bg);
+           const size=parseFloat(cs.fontSize), bold=parseInt(cs.fontWeight)>=700; const large=size>=24||(bold&&size>=18.66);
+           if(r<(large?3:4.5)){const key=(el.closest('[class]')||el).tagName.toLowerCase()+'.'+[...el.classList].join('.')+' <'+([...(el.closest('.bs-component')?.parentElement?.id?[el.closest('section,div[id]')?.id]:[])][0]||'')+'>';
+            (out[key]??={n:0,min:99,sample:t.slice(0,24)}); out[key].n++; out[key].min=Math.min(out[key].min,+r.toFixed(2));}
+          }
+          return out; });
+        const groups = Object.entries(res).sort((a, b) => a[1].min - b[1].min).map(([k, v]) => `${v.min} ${k} "${v.sample}"`);
+        check(`22 no example text is below AA in ${mode} mode`, groups.length === 0, groups.slice(0, 4).join(' | '));
+      }
+      await page.close();
+    }
+
+    // 23: every distinct button variant in the examples (filled, flat, outline, palette) keeps 4.5:1 at rest, on hover, on focus and while pressed
+    {
+      const { page } = await open(file);
+      const bad = []; let variants = 0;
+      // the pressed-state probe clicks: keep anchors and submit buttons from navigating away
+      await page.evaluate(() => document.addEventListener('click', e => e.preventDefault(), true));
+      for (const mode of ['light', 'dark']) {
+        await page.evaluate(m => document.documentElement.setAttribute('data-bs-theme', m), mode);
+        const keys = await page.evaluate(() => {
+          const seen = new Map();
+          for (const el of document.querySelectorAll('.bs-component .btn')) {
+            if (el.disabled || el.classList.contains('disabled') || !el.getClientRects().length || el.closest('.modal:not(.show), [aria-hidden=true], [class*=opacity]')) continue;
+            const key = [...el.classList].filter(c => c !== 'ripple-effect' && c !== 'active').sort().join('.');
+            if (!seen.has(key)) { seen.set(key, 1); el.setAttribute('data-variant', key); }
+          }
+          return [...seen.keys()];
+        });
+        variants = Math.max(variants, keys.length);
+        for (const key of keys) {
+          await page.evaluate(k => { const el = document.querySelector(`[data-variant="${k}"]`); el.setAttribute('data-probe', '1'); el.scrollIntoView({ block: 'center' }); }, key);
+          await probeStates(page, `${mode} ${key.replace(/btn\./g, '')}`, bad);
+          await page.evaluate(() => { document.querySelector('[data-probe="1"]').removeAttribute('data-probe'); });
+        }
+        await page.evaluate(() => document.querySelectorAll('[data-variant]').forEach(e => e.removeAttribute('data-variant')));
+      }
+      check(`23 all ${variants} button variants keep 4.5:1 in every state, both modes`, bad.length === 0, bad.slice(0, 6).join(' | '));
+      await page.close();
+    }
+
+    // 24: flat and outline buttons in every brand and palette colour keep 4.5:1 on the surfaces they are placed on (page, tertiary, card)
+    {
+      const { page } = await open(file);
+      const bad = []; let n = 0;
+      await page.evaluate(() => document.addEventListener('click', e => e.preventDefault(), true));
+      const names = await page.evaluate(() => {
+        const bg = new Set(), brand = new Set();
+        for (const el of document.querySelectorAll('.bs-component .btn')) {
+          for (const c of el.classList) { if (/^bg-/.test(c) && !/^bg-(body|transparent|opacity|gradient)/.test(c)) bg.add(c); const m = c.match(/^btn-(primary|secondary|success|danger|warning|info|light|dark)$/); if (m) brand.add(m[1]); }
+        }
+        return { bg: [...bg], brand: [...brand] };
+      });
+      const variants = [...names.bg.map(c => `btn btn-flat ${c}`), ...names.brand.map(c => `btn btn-flat btn-${c}`), ...names.brand.map(c => `btn btn-outline-${c}`)];
+      for (const mode of ['light', 'dark']) {
+        await page.evaluate(m => document.documentElement.setAttribute('data-bs-theme', m), mode);
+        for (const surface of ['', 'bg-body-tertiary', 'card']) {
+          await page.evaluate(({ variants, surface }) => {
+            document.getElementById('probe-fixture')?.remove();
+            const box = document.createElement('div'); box.id = 'probe-fixture'; box.className = `p-3 ${surface}`; box.style.cssText = 'position:fixed;top:70px;left:70px;z-index:9999;width:760px;max-height:calc(100vh - 140px);overflow:auto';
+            box.innerHTML = variants.map((c, i) => `<button type="button" class="${c}" data-v="${i}">Button</button>`).join('');
+            document.body.appendChild(box);
+          }, { variants, surface });
+          for (let i = 0; i < variants.length; i++) {
+            // .btn-light is a near-white label made for dark surfaces; it is not meant to read on a light page
+            if (mode === 'light' && /btn-(flat btn-|outline-)?light$/.test(variants[i])) continue;
+            await page.evaluate(i => { const b = document.querySelector(`#probe-fixture [data-v="${i}"]`); b.setAttribute('data-probe', '1'); b.scrollIntoView({ block: 'center' }); }, i);
+            await probeStates(page, `${mode} ${surface || 'page'} ${variants[i].replace(/^btn /, '')}`, bad); n++;
+            await page.evaluate(() => document.querySelector('[data-probe="1"]').removeAttribute('data-probe'));
+          }
+        }
+      }
+      check(`24 ${variants.length} flat/outline colours keep 4.5:1 in every state on page, tertiary and card surfaces (${n} probes)`, bad.length === 0 && variants.length > 20, [...new Set(bad.map(b => b.replace(/ (rest|hover|focus|active) [\d.]+$/, '')))].slice(0, 40).join(' | '));
+      await page.close();
+    }
+
+    // 25: pieces the examples do not show still read: an info badge, and coloured navbars under an inherited dark theme
+    {
+      const { page } = await open(file);
+      const bad = [];
+      for (const mode of ['light', 'dark']) {
+        await page.evaluate(m => document.documentElement.setAttribute('data-bs-theme', m), mode);
+        // a coloured navbar needs a dark theme to read; on a light page that is up to the markup (.navbar-dark), so only the inherited dark theme is probed
+        const rows = await page.evaluate(withNavbars => {
+          const parse = c => { const m = c.match(/[\d.]+/g).map(Number); return { r: m[0], g: m[1], b: m[2], a: m.length > 3 ? m[3] : 1 }; };
+          const over = (f, b) => ({ r: f.r * f.a + b.r * (1 - f.a), g: f.g * f.a + b.g * (1 - f.a), b: f.b * f.a + b.b * (1 - f.a), a: 1 });
+          const lum = c => { const v = [c.r, c.g, c.b].map(x => { x /= 255; return x <= .03928 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4; }); return .2126 * v[0] + .7152 * v[1] + .0722 * v[2]; };
+          const ratio = (el, bgEl) => { const bg = parse(getComputedStyle(bgEl).backgroundColor), f = parse(getComputedStyle(el).color), fg = f.a < 1 ? over(f, bg) : f, a = lum(fg), b = lum(bg); return (Math.max(a, b) + .05) / (Math.min(a, b) + .05); };
+          const box = document.createElement('div'); box.id = 'probe25';
+          const names = ['primary', 'secondary', 'success', 'danger', 'info', 'warning'];
+          box.innerHTML = names.map(n => `<span class="badge bg-${n}" data-k="badge ${n}">Badge</span>${withNavbars ? `<nav class="navbar bg-${n}"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" data-k="navbar ${n} link" href="#">Link</a></li></ul><span class="navbar-text" data-k="navbar ${n} text">Text</span></nav>` : ''}`).join('');
+          document.body.appendChild(box);
+          const out = [];
+          for (const el of box.querySelectorAll('[data-k]')) out.push([el.dataset.k, ratio(el, el.closest('.navbar') || el)]);
+          box.remove(); return out;
+        }, mode === 'dark');
+        for (const [k, r] of rows) if (r < 4.5) bad.push(`${mode} ${k} ${r.toFixed(2)}`);
+      }
+      check('25 badges and coloured navbars (inherited theme) keep 4.5:1 in both modes', bad.length === 0, bad.slice(0, 6).join(' | '));
       await page.close();
     }
 

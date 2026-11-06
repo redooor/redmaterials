@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "sass:list";
 @use "../variables" as *;
+@use "../contrast";
 
 // Background variations
 
@@ -11,10 +12,22 @@
     }
 }
 
+// -1 steps a fill darker (white label), +1 lighter (dark label)
+// (A near-white fill such as .bg-default has nowhere lighter to go and keeps plenty of contrast, so it still darkens.)
+@function if-dark-label($textcolor, $fill) {
+    @if contrast.luminance($textcolor) < 0.5 and contrast.luminance($fill) < 0.8 {
+        @return 1;
+    }
+    @return -1;
+}
+
 // For color palette
 @each $name, $pair in $color-name-text-map {
     $color: list.nth($pair, 1);
-    $textcolor: list.nth($pair, 2); // stylelint-disable-line no-unused-variable
+    $textcolor: list.nth($pair, 2);
+    // A dark label (lime, yellow, amber, orange) loses contrast as its fill darkens, so those fills step lighter on
+    // hover, press and focus; white-label fills step darker.
+    $sign: if-dark-label($textcolor, $color);
     .bg-#{$name} {
         background-color: $color;
         // Support btn hover and pressed/focused states: .btn:active and
@@ -24,16 +37,16 @@
         // specific than the flat overrides and would paint the colour as a fill
         // behind a label of the same colour.
         &.btn:not(.btn-flat):hover {
-            background-color: color.adjust($color, $lightness: -10%);
+            background-color: color.adjust($color, $lightness: $sign * 10%);
         }
         &.btn:not(.btn-flat):active,
         &.btn:not(.btn-flat).active,
         &.btn:not(.btn-flat):first-child:active,
         :not(.btn-check) + &.btn:not(.btn-flat):active {
-            background-color: color.adjust($color, $lightness: -10%);
+            background-color: color.adjust($color, $lightness: $sign * 10%);
         }
         &.btn:not(.btn-flat):focus-visible {
-            background-color: color.adjust($color, $lightness: -20%);
+            background-color: color.adjust($color, $lightness: $sign * 20%);
         }
         // Support flat btn
         &.btn-flat {

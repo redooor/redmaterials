@@ -49,6 +49,9 @@ $select-arrow-dark-focus: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.or
     --rdm-flat-hover-bg: #{color.adjust(#999, $lightness: 30%)};
     --rdm-flat-active-bg: #{color.adjust(#999, $lightness: 20%)};
     --rdm-flat-focus-bg: #{color.adjust(#999, $lightness: 20%)};
+    // Washes for the near-white flat labels (default, light, white), which only make sense on a dark surface, in either mode
+    --rdm-flat-onDark-hover-bg: rgba(255, 255, 255, 0.08);
+    --rdm-flat-onDark-active-bg: rgba(255, 255, 255, 0.16);
     --rdm-flat-ink: #{color.adjust(#ccc, $lightness: -30%)};
 
     // Ripple ink on a plain surface

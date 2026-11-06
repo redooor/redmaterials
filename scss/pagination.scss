@@ -31,7 +31,9 @@
         padding: 0.8em 1.5em;
         border: 0;
         transition: all .15s ease-in-out;
+        // A press without a hover (touch) must still read on the wash, so it takes the hover colour
         &:active {
+            color: var(--bs-pagination-hover-color);
             background-color: var(--rdm-flat-hover-bg);
         }
         // Keep the keyboard focus ring, including on the active page.

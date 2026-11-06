@@ -175,7 +175,7 @@
                 </div>
 
                 <h4 class="mt-5">Brand variables</h4>
-                <p>The brand colours are Sass variables declared with <code>!default</code> in <code>scss/variables.scss</code>; they feed both the contextual utilities and Bootstrap's <code>--bs-*</code> theme variables. <code>$brand-primary</code> defaults to the 700 shade of blue so that links and buttons reach 4.6:1 on white.</p>
+                <p>The brand colours are Sass variables declared with <code>!default</code> in <code>scss/variables.scss</code>; they feed both the contextual utilities and Bootstrap's <code>--bs-*</code> theme variables. Each default is the shade of its palette colour nearest 500 that reaches AA with its label: <code>$brand-primary</code> is blue 700, <code>$brand-danger</code> red 700 and <code>$brand-success</code> green 800 under white labels, while <code>$brand-info</code> (cyan) and <code>$brand-warning</code> (amber) stay at 500 under black labels. Text and link colours walk the same scale: darker on a light page, lighter on a dark one.</p>
                 <div class="table-responsive">
                     <table class="table table-sm">
                         <caption class="small">Brand defaults from <code>scss/variables.scss</code>.</caption>
@@ -187,13 +187,13 @@
                             <tr><td><code>$brand-primary</code></td><td><code>$blue-700</code></td><td class="font-monospace small" data-swatch style="background-color: #1976D2; color: #FFFFFF;">#1976D2</td></tr>
                             <tr><td><code>$brand-secondary</code></td><td><code>$grey-600</code></td><td class="font-monospace small" data-swatch style="background-color: #757575; color: #FFFFFF;">#757575</td></tr>
                             <tr><td><code>$brand-warning</code></td><td><code>$amber</code></td><td class="font-monospace small" data-swatch style="background-color: #FFC107; color: #212121;">#FFC107</td></tr>
-                            <tr><td><code>$brand-danger</code></td><td><code>$red</code></td><td class="font-monospace small" data-swatch style="background-color: #F44336; color: #000000;">#F44336</td></tr>
-                            <tr><td><code>$brand-success</code></td><td><code>$green</code></td><td class="font-monospace small" data-swatch style="background-color: #4CAF50; color: #212121;">#4CAF50</td></tr>
+                            <tr><td><code>$brand-danger</code></td><td><code>$red-700</code></td><td class="font-monospace small" data-swatch style="background-color: #D32F2F; color: #FFFFFF;">#D32F2F</td></tr>
+                            <tr><td><code>$brand-success</code></td><td><code>$green-800</code></td><td class="font-monospace small" data-swatch style="background-color: #2E7D32; color: #FFFFFF;">#2E7D32</td></tr>
                             <tr><td><code>$brand-info</code></td><td><code>$cyan</code></td><td class="font-monospace small" data-swatch style="background-color: #00BCD4; color: #212121;">#00BCD4</td></tr>
                             <tr><td><code>$brand-light</code></td><td><code>#f8f9fa</code></td><td class="font-monospace small" data-swatch style="background-color: #F8F9FA; color: #212121;">#f8f9fa</td></tr>
                             <tr><td><code>$brand-dark</code></td><td><code>#343a40</code></td><td class="font-monospace small" data-swatch style="background-color: #343A40; color: #FFFFFF;">#343a40</td></tr>
                             <tr><td><code>$brand-white</code></td><td><code>#fff</code></td><td class="font-monospace small" data-swatch style="background-color: #FFFFFF; color: #212121;">#fff</td></tr>
-                            <tr><td><code>$brand-muted</code></td><td><code>$grey-500</code></td><td class="font-monospace small" data-swatch style="background-color: #9E9E9E; color: #212121;">#9E9E9E</td></tr>
+                            <tr><td><code>$brand-muted</code></td><td><code>$grey-600</code></td><td class="font-monospace small" data-swatch style="background-color: #757575; color: #FFFFFF;">#757575</td></tr>
                         </tbody>
                     </table>
                 </div>

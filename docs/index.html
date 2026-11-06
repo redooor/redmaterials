@@ -561,7 +561,7 @@
                 </div>
 
                 <h4 class="mt-5">Brand variables</h4>
-                <p>The brand colours are Sass variables declared with <code>!default</code> in <code>scss/variables.scss</code>; they feed both the contextual utilities and Bootstrap's <code>--bs-*</code> theme variables. <code>$brand-primary</code> defaults to the 700 shade of blue so that links and buttons reach 4.6:1 on white.</p>
+                <p>The brand colours are Sass variables declared with <code>!default</code> in <code>scss/variables.scss</code>; they feed both the contextual utilities and Bootstrap's <code>--bs-*</code> theme variables. Each default is the shade of its palette colour nearest 500 that reaches AA with its label: <code>$brand-primary</code> is blue 700, <code>$brand-danger</code> red 700 and <code>$brand-success</code> green 800 under white labels, while <code>$brand-info</code> (cyan) and <code>$brand-warning</code> (amber) stay at 500 under black labels. Text and link colours walk the same scale: darker on a light page, lighter on a dark one.</p>
                 <div class="table-responsive">
                     <table class="table table-sm">
                         <caption class="small">Brand defaults from <code>scss/variables.scss</code>.</caption>
@@ -573,13 +573,13 @@
                             <tr><td><code>$brand-primary</code></td><td><code>$blue-700</code></td><td class="font-monospace small" data-swatch style="background-color: #1976D2; color: #FFFFFF;">#1976D2</td></tr>
                             <tr><td><code>$brand-secondary</code></td><td><code>$grey-600</code></td><td class="font-monospace small" data-swatch style="background-color: #757575; color: #FFFFFF;">#757575</td></tr>
                             <tr><td><code>$brand-warning</code></td><td><code>$amber</code></td><td class="font-monospace small" data-swatch style="background-color: #FFC107; color: #212121;">#FFC107</td></tr>
-                            <tr><td><code>$brand-danger</code></td><td><code>$red</code></td><td class="font-monospace small" data-swatch style="background-color: #F44336; color: #000000;">#F44336</td></tr>
-                            <tr><td><code>$brand-success</code></td><td><code>$green</code></td><td class="font-monospace small" data-swatch style="background-color: #4CAF50; color: #212121;">#4CAF50</td></tr>
+                            <tr><td><code>$brand-danger</code></td><td><code>$red-700</code></td><td class="font-monospace small" data-swatch style="background-color: #D32F2F; color: #FFFFFF;">#D32F2F</td></tr>
+                            <tr><td><code>$brand-success</code></td><td><code>$green-800</code></td><td class="font-monospace small" data-swatch style="background-color: #2E7D32; color: #FFFFFF;">#2E7D32</td></tr>
                             <tr><td><code>$brand-info</code></td><td><code>$cyan</code></td><td class="font-monospace small" data-swatch style="background-color: #00BCD4; color: #212121;">#00BCD4</td></tr>
                             <tr><td><code>$brand-light</code></td><td><code>#f8f9fa</code></td><td class="font-monospace small" data-swatch style="background-color: #F8F9FA; color: #212121;">#f8f9fa</td></tr>
                             <tr><td><code>$brand-dark</code></td><td><code>#343a40</code></td><td class="font-monospace small" data-swatch style="background-color: #343A40; color: #FFFFFF;">#343a40</td></tr>
                             <tr><td><code>$brand-white</code></td><td><code>#fff</code></td><td class="font-monospace small" data-swatch style="background-color: #FFFFFF; color: #212121;">#fff</td></tr>
-                            <tr><td><code>$brand-muted</code></td><td><code>$grey-500</code></td><td class="font-monospace small" data-swatch style="background-color: #9E9E9E; color: #212121;">#9E9E9E</td></tr>
+                            <tr><td><code>$brand-muted</code></td><td><code>$grey-600</code></td><td class="font-monospace small" data-swatch style="background-color: #757575; color: #FFFFFF;">#757575</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -918,7 +918,7 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-                <p><code>.bg-default</code> is the palette neutral (<code>#f8f8f8</code>); <code>.bg-muted</code> is the contextual muted colour (<code>#9E9E9E</code>). They are fills, so they keep the same value in light and dark mode.</p>
+                <p><code>.bg-default</code> is the palette neutral (<code>#f8f8f8</code>); <code>.bg-muted</code> is the contextual muted colour (<code>#757575</code>). They are fills, so they keep the same value in light and dark mode.</p>
 
                 <h4 class="mt-5">Contextual backgrounds</h4>
                 <p>Bootstrap's contextual background utilities are restyled with the Material palette. Pair each fill with a text utility that stays legible on it, and add <code>.border</code> to <code>.bg-white</code> so the box keeps an edge on a light surface.</p>
@@ -1308,11 +1308,11 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                 <div class="bs-component border rounded p-3 mb-3">
                 <button type="button" class="btn btn-default mb-2 me-2">Default</button>
                 <button type="button" class="btn btn-white text-dark mb-2 me-2">White</button>
-                <button type="button" class="btn btn-muted text-dark mb-2 me-2">Muted</button>
+                <button type="button" class="btn btn-muted text-white mb-2 me-2">Muted</button>
                 </div>
 <pre class="docs-snippet border rounded p-3 mb-3 bg-body overflow-auto"><code><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default mb-2 me-2&quot;</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-white text-dark mb-2 me-2&quot;</span>&gt;</span>White<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-muted text-dark mb-2 me-2&quot;</span>&gt;</span>Muted<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-muted text-white mb-2 me-2&quot;</span>&gt;</span>Muted<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 
                 <h4 class="mt-5">Contextual variants</h4>
                 <p>Use Bootstrap's eight contextual classes with the theme's Material colours; <code>.btn-light</code>, <code>.btn-info</code> and <code>.btn-warning</code> keep Bootstrap's dark label.</p>
@@ -1437,44 +1437,44 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                 <h4 class="mt-5">Palette colours</h4>
                 <p>There is no <code>.btn-{colour}</code> class for the 19 Material palette colours: compose <code>.bg-{colour}</code> with <code>.btn-raised</code> instead, and choose <code>.text-dark</code> or <code>.text-white</code> for the label because the fixed palette fill is the same in both colour modes.</p>
                 <div class="bs-component border rounded p-3 mb-3">
-                <button type="button" class="btn bg-red btn-raised text-dark mb-2 me-2">Red</button>
-                <button type="button" class="btn bg-pink btn-raised text-dark mb-2 me-2">Pink</button>
+                <button type="button" class="btn bg-red btn-raised text-white mb-2 me-2">Red</button>
+                <button type="button" class="btn bg-pink btn-raised text-white mb-2 me-2">Pink</button>
                 <button type="button" class="btn bg-purple btn-raised text-white mb-2 me-2">Purple</button>
                 <button type="button" class="btn bg-deep-purple btn-raised text-white mb-2 me-2">Deep purple</button>
                 <button type="button" class="btn bg-indigo btn-raised text-white mb-2 me-2">Indigo</button>
-                <button type="button" class="btn bg-blue btn-raised text-dark mb-2 me-2">Blue</button>
-                <button type="button" class="btn bg-light-blue btn-raised text-dark mb-2 me-2">Light blue</button>
-                <button type="button" class="btn bg-cyan btn-raised text-dark mb-2 me-2">Cyan</button>
-                <button type="button" class="btn bg-teal btn-raised text-dark mb-2 me-2">Teal</button>
-                <button type="button" class="btn bg-green btn-raised text-dark mb-2 me-2">Green</button>
-                <button type="button" class="btn bg-light-green btn-raised text-dark mb-2 me-2">Light green</button>
+                <button type="button" class="btn bg-blue btn-raised text-white mb-2 me-2">Blue</button>
+                <button type="button" class="btn bg-light-blue btn-raised text-white mb-2 me-2">Light blue</button>
+                <button type="button" class="btn bg-cyan btn-raised text-white mb-2 me-2">Cyan</button>
+                <button type="button" class="btn bg-teal btn-raised text-white mb-2 me-2">Teal</button>
+                <button type="button" class="btn bg-green btn-raised text-white mb-2 me-2">Green</button>
+                <button type="button" class="btn bg-light-green btn-raised text-white mb-2 me-2">Light green</button>
                 <button type="button" class="btn bg-lime btn-raised text-dark mb-2 me-2">Lime</button>
                 <button type="button" class="btn bg-yellow btn-raised text-dark mb-2 me-2">Yellow</button>
                 <button type="button" class="btn bg-amber btn-raised text-dark mb-2 me-2">Amber</button>
                 <button type="button" class="btn bg-orange btn-raised text-dark mb-2 me-2">Orange</button>
-                <button type="button" class="btn bg-deep-orange btn-raised text-dark mb-2 me-2">Deep orange</button>
+                <button type="button" class="btn bg-deep-orange btn-raised text-white mb-2 me-2">Deep orange</button>
                 <button type="button" class="btn bg-brown btn-raised text-white mb-2 me-2">Brown</button>
-                <button type="button" class="btn bg-grey btn-raised text-dark mb-2 me-2">Grey</button>
+                <button type="button" class="btn bg-grey btn-raised text-white mb-2 me-2">Grey</button>
                 <button type="button" class="btn bg-blue-grey btn-raised text-white mb-2 me-2">Blue grey</button>
                 </div>
-<pre class="docs-snippet border rounded p-3 mb-3 bg-body overflow-auto"><code><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-red btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Red<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-pink btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Pink<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body overflow-auto"><code><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-red btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Red<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-pink btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Pink<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-purple btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Purple<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-deep-purple btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Deep purple<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-indigo btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Indigo<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-blue btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Blue<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-light-blue btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Light blue<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-cyan btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Cyan<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-teal btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Teal<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-green btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Green<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-light-green btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Light green<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-blue btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Blue<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-light-blue btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Light blue<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-cyan btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Cyan<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-teal btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Teal<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-green btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Green<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-light-green btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Light green<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-lime btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Lime<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-yellow btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Yellow<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-amber btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Amber<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-orange btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Orange<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-deep-orange btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Deep orange<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-deep-orange btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Deep orange<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-brown btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Brown<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-grey btn-raised text-dark mb-2 me-2&quot;</span>&gt;</span>Grey<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-grey btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Grey<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn bg-blue-grey btn-raised text-white mb-2 me-2&quot;</span>&gt;</span>Blue grey<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
             </div>
         </div>
@@ -1916,9 +1916,9 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
         <div class="row">
             <div class="col-lg-12">
                 <h4 class="mt-5">Badges</h4>
-                <p><code>.badge-default</code> paints the Material grey and needs <code>.text-dark</code> for its label; contextual badges use Bootstrap's <code>.text-bg-*</code>, palette badges use <code>.bg-*</code>, and <code>.rounded-pill</code> makes a pill.</p>
+                <p><code>.badge-default</code> paints the Material grey (<code>$grey-600</code>) and needs <code>.text-white</code> for its label; contextual badges use Bootstrap's <code>.text-bg-*</code>, palette badges use <code>.bg-*</code>, and <code>.rounded-pill</code> makes a pill.</p>
                 <div class="bs-component border rounded p-3 mb-3">
-                <span class="badge badge-default text-dark me-1">Default</span>
+                <span class="badge badge-default text-white me-1">Default</span>
                 <span class="badge text-bg-primary me-1">Primary</span>
                 <span class="badge text-bg-success me-1">Success</span>
                 <span class="badge text-bg-danger me-1">Danger</span>
@@ -1927,7 +1927,7 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                 <span class="badge bg-blue me-1">Blue</span>
                 <span class="badge rounded-pill text-bg-primary">Pill</span>
                 </div>
-<pre class="docs-snippet border rounded p-3 mb-3 bg-body overflow-auto"><code><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;badge badge-default text-dark me-1&quot;</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<pre class="docs-snippet border rounded p-3 mb-3 bg-body overflow-auto"><code><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;badge badge-default text-white me-1&quot;</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;badge text-bg-primary me-1&quot;</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;badge text-bg-success me-1&quot;</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;badge text-bg-danger me-1&quot;</span>&gt;</span>Danger<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -4600,7 +4600,7 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                 <div class="row g-4">
                     <div class="col-sm-6">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 200px;">
-                            <div class="corner-ribbon top-left bg-red text-dark shadow">top-left</div>
+                            <div class="corner-ribbon top-left bg-red text-white shadow">top-left</div>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -4610,12 +4610,12 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                     </div>
                     <div class="col-sm-6">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 200px;">
-                            <div class="corner-ribbon bottom-left bg-teal text-dark shadow">bottom-left</div>
+                            <div class="corner-ribbon bottom-left bg-teal text-white shadow">bottom-left</div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 200px;">
-                            <div class="corner-ribbon bottom-right bg-pink text-dark shadow">bottom-right</div>
+                            <div class="corner-ribbon bottom-right bg-pink text-white shadow">bottom-right</div>
                         </div>
                     </div>
                 </div>
@@ -4623,7 +4623,7 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
 <pre class="docs-snippet border rounded p-3 mb-3 bg-body overflow-auto"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row g-4&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-6&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 200px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-red text-dark shadow&quot;</span>&gt;</span>top-left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-red text-white shadow&quot;</span>&gt;</span>top-left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-6&quot;</span>&gt;</span>
@@ -4633,12 +4633,12 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-6&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 200px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon bottom-left bg-teal text-dark shadow&quot;</span>&gt;</span>bottom-left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon bottom-left bg-teal text-white shadow&quot;</span>&gt;</span>bottom-left<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-6&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 200px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon bottom-right bg-pink text-dark shadow&quot;</span>&gt;</span>bottom-right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon bottom-right bg-pink text-white shadow&quot;</span>&gt;</span>bottom-right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
@@ -4649,12 +4649,12 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                 <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-5 g-3">
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-red text-dark shadow">red</div>
+                            <div class="corner-ribbon top-left bg-red text-white shadow">red</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-pink text-dark shadow">pink</div>
+                            <div class="corner-ribbon top-left bg-pink text-white shadow">pink</div>
                         </div>
                     </div>
                     <div class="col">
@@ -4674,32 +4674,32 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-blue text-dark shadow">blue</div>
+                            <div class="corner-ribbon top-left bg-blue text-white shadow">blue</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-light-blue text-dark shadow">light-blue</div>
+                            <div class="corner-ribbon top-left bg-light-blue text-white shadow">light-blue</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-cyan text-dark shadow">cyan</div>
+                            <div class="corner-ribbon top-left bg-cyan text-white shadow">cyan</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-teal text-dark shadow">teal</div>
+                            <div class="corner-ribbon top-left bg-teal text-white shadow">teal</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-green text-dark shadow">green</div>
+                            <div class="corner-ribbon top-left bg-green text-white shadow">green</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-light-green text-dark shadow">light-green</div>
+                            <div class="corner-ribbon top-left bg-light-green text-white shadow">light-green</div>
                         </div>
                     </div>
                     <div class="col">
@@ -4724,7 +4724,7 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-deep-orange text-dark shadow">deep-orange</div>
+                            <div class="corner-ribbon top-left bg-deep-orange text-white shadow">deep-orange</div>
                         </div>
                     </div>
                     <div class="col">
@@ -4734,7 +4734,7 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
                     </div>
                     <div class="col">
                         <div class="corner-ribbon-wrapper position-relative bg-body-tertiary border rounded" style="height: 140px;">
-                            <div class="corner-ribbon top-left bg-grey text-dark shadow">grey</div>
+                            <div class="corner-ribbon top-left bg-grey text-white shadow">grey</div>
                         </div>
                     </div>
                     <div class="col">
@@ -4747,12 +4747,12 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
 <pre class="docs-snippet border rounded p-3 mb-3 bg-body overflow-auto"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-5 g-3&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-red text-dark shadow&quot;</span>&gt;</span>red<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-red text-white shadow&quot;</span>&gt;</span>red<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-pink text-dark shadow&quot;</span>&gt;</span>pink<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-pink text-white shadow&quot;</span>&gt;</span>pink<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
@@ -4772,32 +4772,32 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-blue text-dark shadow&quot;</span>&gt;</span>blue<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-blue text-white shadow&quot;</span>&gt;</span>blue<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-light-blue text-dark shadow&quot;</span>&gt;</span>light-blue<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-light-blue text-white shadow&quot;</span>&gt;</span>light-blue<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-cyan text-dark shadow&quot;</span>&gt;</span>cyan<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-cyan text-white shadow&quot;</span>&gt;</span>cyan<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-teal text-dark shadow&quot;</span>&gt;</span>teal<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-teal text-white shadow&quot;</span>&gt;</span>teal<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-green text-dark shadow&quot;</span>&gt;</span>green<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-green text-white shadow&quot;</span>&gt;</span>green<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-light-green text-dark shadow&quot;</span>&gt;</span>light-green<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-light-green text-white shadow&quot;</span>&gt;</span>light-green<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
@@ -4822,7 +4822,7 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-deep-orange text-dark shadow&quot;</span>&gt;</span>deep-orange<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-deep-orange text-white shadow&quot;</span>&gt;</span>deep-orange<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
@@ -4832,7 +4832,7 @@ docs built<span class="hljs-tag">&lt;/<span class="hljs-name">samp</span>&gt;</s
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon-wrapper position-relative bg-body-tertiary border rounded&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 140px;&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-grey text-dark shadow&quot;</span>&gt;</span>grey<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;corner-ribbon top-left bg-grey text-white shadow&quot;</span>&gt;</span>grey<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>

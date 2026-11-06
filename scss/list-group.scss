@@ -1,4 +1,4 @@
-@use "colors" as *;
+@use "variables" as *;
 
 //
 // List groups
@@ -20,8 +20,8 @@
 .list-group-item.active,
 .list-group-item.active:focus,
 .list-group-item.active:hover {
-    background-color: $blue;
-    border-color: $blue;
+    background-color: $brand-primary;
+    border-color: $brand-primary;
 }
 
 .list-group-item .list-group-item-heading {

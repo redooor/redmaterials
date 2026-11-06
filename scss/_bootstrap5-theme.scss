@@ -2,7 +2,7 @@
 @use "sass:map";
 @use "sass:math";
 @use "variables" as *;
-@use "tokens-palette" as palette;
+@use "contrast";
 
 //
 // Bootstrap 5.3 theme bridge
@@ -57,7 +57,10 @@ $bs-theme-colors: (
     "dark": $brand-dark,
 );
 
-$bs-link-hover: color.adjust($brand-primary, $lightness: -10%);
+// Links sit on white and on light tints, so the link colour is the primary's family shade that reaches 4.5:1 on #f8f9fa
+// (blue 700 is 4.4:1 there; blue 800 passes).  Buttons keep the brand fill.
+$bs-link-light: contrast.shade-or(map.get($brand-families, "primary"), contrast.shade-index(map.get($brand-families, "primary"), #f8f9fa, contrast.$shade-base, 1), contrast.deepen($brand-primary, #f8f9fa));
+$bs-link-hover: color.adjust($bs-link-light, $lightness: -10%);
 
 :root {
     @each $name, $color in $bs-theme-colors {
@@ -78,15 +81,15 @@ $bs-link-hover: color.adjust($brand-primary, $lightness: -10%);
 // Bootstrap's default blue.  Declare the Material values for both selectors.
 :root,
 [data-bs-theme="light"] {
-    --bs-link-color: #{$brand-primary};
-    --bs-link-color-rgb: #{rgb-triplet($brand-primary)};
+    --bs-link-color: #{$bs-link-light};
+    --bs-link-color-rgb: #{rgb-triplet($bs-link-light)};
     --bs-link-hover-color: #{round-color($bs-link-hover)};
     --bs-link-hover-color-rgb: #{rgb-triplet(round-color($bs-link-hover))};
 }
 
 // Links must stay readable on the raised dark surfaces (wells, modals, popovers).
 // The brand colour is lifted towards white only as far as needed.
-$bs-link-dark: palette.lift($brand-primary, #2b3035, 4.6);
+$bs-link-dark: contrast.lift($brand-primary, #2b3035, 4.6);
 $bs-link-dark-hover: color.adjust($bs-link-dark, $lightness: 8%);
 
 [data-bs-theme="dark"] {
@@ -109,14 +112,30 @@ $bs-text-surface: #2b3035;
 $bs-text-min-contrast: 4.5;
 $bs-text-hover-lightness: 8%;
 
+// The colour each contextual text/link utility shows on a light page: the brand colour where it already reaches 4.5:1
+// (primary, secondary, success, danger), otherwise the nearest shade of its family that does.  Amber has no shade that
+// passes on white, so warning text is the amber mixed towards black.
+@function text-on-light-of($color, $family) {
+    // 4.5:1 on #f8f9fa, the lightest tint text sits on (cards, footers, pagination), not only on white
+    @if contrast.contrast($color, #f8f9fa) >= 4.5 {
+        @return $color;
+    }
+    $i: contrast.shade-index($family, #f8f9fa, contrast.$shade-base, 1);
+    @return contrast.shade-or($family, $i, contrast.deepen($color, #f8f9fa));
+}
+
+@function text-on-light($name) {
+    @return text-on-light-of(map.get($bs-theme-colors, $name), map.get($brand-families, $name));
+}
+
 // Bootstrap's compiled light link-hover colours (the base colours are the
-// theme colours themselves).
+// theme colours themselves).  Info and warning hovered to pale tints that fail on white, so they follow the text colour.
 $bs-link-light-hover: (
     "primary": #0a58ca,
     "secondary": #565e64,
     "success": #146c43,
-    "info": #3dd5f3,
-    "warning": #ffcd39,
+    "info": color.adjust(text-on-light("info"), $lightness: -8%),
+    "warning": color.adjust(text-on-light("warning"), $lightness: -8%),
     "danger": #b02a37,
 );
 
@@ -125,20 +144,37 @@ $bs-text-names: ("primary", "secondary", "success", "info", "warning", "danger")
 :root,
 [data-bs-theme="light"] {
     @each $name in $bs-text-names {
-        --rdm-text-#{$name}-rgb: #{rgb-triplet(map.get($bs-theme-colors, $name))};
+        $text: text-on-light($name);
+        --rdm-text-#{$name}-rgb: #{rgb-triplet($text)};
         --rdm-text-#{$name}-hover-rgb: #{rgb-triplet(map.get($bs-link-light-hover, $name))};
         // a.text-<name>:hover (loops/text.scss) has always been the colour 10% darker
-        --rdm-text-#{$name}-anchor-rgb: #{rgb-triplet(color.adjust(map.get($bs-theme-colors, $name), $lightness: -10%))};
+        --rdm-text-#{$name}-anchor-rgb: #{rgb-triplet(color.adjust($text, $lightness: -10%))};
     }
 }
 
 [data-bs-theme="dark"] {
     @each $name in $bs-text-names {
-        $base: round-color(palette.lift(map.get($bs-theme-colors, $name), $bs-text-surface, $bs-text-min-contrast));
+        $family: map.get($brand-families, $name);
+        $i: contrast.shade-index($family, $bs-text-surface, contrast.$shade-base, -1, $bs-text-min-contrast);
+        $base: round-color(contrast.shade-or($family, $i, contrast.lift(map.get($bs-theme-colors, $name), $bs-text-surface, $bs-text-min-contrast)));
         --rdm-text-#{$name}-rgb: #{rgb-triplet($base)};
         --rdm-text-#{$name}-hover-rgb: #{rgb-triplet(round-color(color.adjust($base, $lightness: $bs-text-hover-lightness)))};
         --rdm-text-#{$name}-anchor-rgb: #{rgb-triplet(round-color(color.adjust($base, $lightness: $bs-text-hover-lightness)))};
     }
+}
+
+// .text-muted follows the same rule (grey 600 is 4.4:1 on the lightest tint, so it walks to grey 700; on a dark page grey 500 passes).
+:root,
+[data-bs-theme="light"] {
+    $muted: text-on-light-of($brand-muted, "grey");
+    --rdm-text-muted-rgb: #{rgb-triplet($muted)};
+    --rdm-text-muted-anchor-rgb: #{rgb-triplet(color.adjust($muted, $lightness: -10%))};
+}
+
+[data-bs-theme="dark"] {
+    $muted: round-color(contrast.shade-or("grey", contrast.shade-index("grey", $bs-text-surface, contrast.$shade-base, -1, $bs-text-min-contrast), $brand-muted));
+    --rdm-text-muted-rgb: #{rgb-triplet($muted)};
+    --rdm-text-muted-anchor-rgb: #{rgb-triplet(round-color(color.adjust($muted, $lightness: $bs-text-hover-lightness)))};
 }
 
 @each $name in $bs-text-names {
@@ -174,6 +210,13 @@ $bs-text-names: ("primary", "secondary", "success", "info", "warning", "danger")
     @return $brand-white;
 }
 
+@function outline-active-fill($name, $color) {
+    @if $name == "info" or $name == "warning" or $name == "light" {
+        @return tint-color($color, 10%);
+    }
+    @return shade-color($color, 10%);
+}
+
 // Bootstrap 5.3 hard-codes the outline button variables per class, so expose
 // the same Material colours there as CSS variables.  The label and border use the
 // --rdm-flat-* tokens (the colour deepened to 4.5:1 on a light page; see _tokens-palette.scss).
@@ -187,8 +230,9 @@ $bs-text-names: ("primary", "secondary", "success", "info", "warning", "danger")
         --bs-btn-hover-border-color: #{$color};
         --bs-btn-focus-shadow-rgb: #{rgb-triplet($color)};
         --bs-btn-active-color: #{$text-color};
-        --bs-btn-active-bg: #{round-color(shade-color($color, 10%))};
-        --bs-btn-active-border-color: #{round-color(shade-color($color, 10%))};
+        // a dark label loses contrast on a darker fill, so those states step lighter
+        --bs-btn-active-bg: #{round-color(outline-active-fill($name, $color))};
+        --bs-btn-active-border-color: #{round-color(outline-active-fill($name, $color))};
         --bs-btn-disabled-color: var(--rdm-flat-#{$name});
         --bs-btn-disabled-bg: transparent;
         --bs-btn-disabled-border-color: var(--rdm-flat-#{$name});

@@ -13,7 +13,7 @@
 // Bootstrap 5's pill modifier is .rounded-pill.  Keep only the theme-owned
 // .badge-default variant; contextual badges use .text-bg-* / .bg-*.
 .badge-default {
-    @include badge-variant($grey);
+    @include badge-variant($grey-600);
 }
 
 // Bootstrap paints .text-bg-light and .text-bg-warning with a dark text
@@ -21,6 +21,7 @@
 // Material backgrounds readable.
 .badge.bg-light,
 .badge.bg-warning,
+.badge.bg-info,
 .badge.bg-yellow,
 .badge.bg-lime,
 .badge.bg-amber,
