@@ -31,6 +31,11 @@ test('expandExamples is safe for nested divs, comments with <div>, quoted ">" an
   const out = expandExamples(src);
   assert.equal((out.match(/class="bs-component/g) || []).length, 2);
 });
+test('expandExamples dedents around a <pre> without touching its content', () => {
+  const out = expandExamples('<!--@example-->\n    <p>x</p>\n    <pre><code>a\n  b</code></pre>\n    <p>y</p>\n<!--@end-->');
+  const code = decode(out.match(/<pre class="docs-snippet [^"]*"><code>([\s\S]*?)<\/code><\/pre>/)[1].replace(/<[^>]+>/g, ''));
+  assert.equal(code, '<p>x</p>\n<pre><code>a\n  b</code></pre>\n<p>y</p>');
+});
 test('expandExamples dedents the snippet but not the preview', () => {
   const out = expandExamples('<!--@example-->\n    <p>\n      x\n    </p>\n<!--@end-->');
   const code = out.match(/<code>([\s\S]*?)<\/code>/)[1].replace(/<[^>]*>/g, '');
@@ -61,7 +66,7 @@ test('expandColors: each-color+default also repeats the default colour first', (
 });
 test('renderSidebar: one plain list in section order, the first link active, no accordion', () => {
   const html = renderSidebar({ redmaterials: [{ id: 'ribbons', title: 'Corner Ribbons' }, { id: 'buttons', title: 'Buttons' }] });
-  assert.ok(html.startsWith('<ul class="nav flex-column" id="nav_spy">'));
+  assert.ok(html.includes('<ul class="nav flex-column nav-sidebar-menu" id="nav_spy">'));
   assert.ok(html.indexOf('#ribbons"') < html.indexOf('#buttons"'));
   assert.match(html, /href="#ribbons" aria-current="location"/);
   assert.equal((html.match(/aria-current/g) || []).length, 1);

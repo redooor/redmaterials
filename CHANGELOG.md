@@ -25,6 +25,12 @@ Bootstrap 5.3 support (tested with Bootstrap 5.3.8).
 13. Contextual text and link utilities (`.text-primary`, `.link-success` and the other four, including hover) are lifted to AA on dark surfaces. Fixed: `.bg-<colour>.btn` and the `.btn-<variant>` buttons lost their fill when pressed or keyboard-focused (`:active`, `.active`, `:focus-visible`), and nav sidebar links were underlined at rest because Bootstrap 5 underlines links.
 14. The documentation site now shows only what Redmaterials restyles or adds (one page, light/dark/auto toggle) with highlighted snippets; it no longer duplicates Bootstrap's own documentation.
 15. The unreleased intermediate Bootstrap 4.6 / Sass migration work also ships in this release. Since 0.1.0 the build uses Dart Sass and npm scripts instead of Grunt/Bower (0.1.0 itself was LESS/Grunt).
+16. **AA colour shades.** Fills, text colours and button states now take the nearest shade of their own Material palette that reaches 4.5:1 against their label (the walk lives in `scss/_contrast.scss`), instead of mixing towards black or white.
+    - `$brand-danger` is red 700 (`#d32f2f`), `$brand-success` is green 800 (`#2e7d32`) and `$brand-muted` is grey 600 (`#757575`). Info (cyan 500) and Warning (amber 500) keep their dark labels. Keep the old colours with `@use "variables" with (...)`.
+    - Palette fills (`.bg-green`, `.bg-cyan`, `.bg-lime` and the rest) keep their label colour and move to the nearest passing shade, so most are deeper than before and carry white labels. Fills with dark labels (lime, yellow, amber, orange, info, warning) step lighter on hover and focus; white-label fills step darker.
+    - In light mode, links and `.text-primary` use blue 800, which also passes on tinted surfaces; buttons keep blue 700. `.text-muted` follows the colour mode. A customised brand colour (for example `$brand-primary: #e91e63`) drives its own link and text colours.
+    - Alerts, badges, active list-group rows, palette sidebars, dark navbar links (white on dark navbars, dark labels for Info and Warning) and pressed pagination links meet AA.
+17. Accessibility and UI fixes: the nav drawer manages keyboard focus (focus on open, Escape to close, focus restored) and keeps the scroll lock while any drawer is open; validation icons no longer overlap entered text; `.btn-link` and tabs show a keyboard focus indicator; the file input no longer draws a stray divider; the ripple on a plain light surface is visible; the docs scrollspy highlights the right menu item when clicking upwards.
 
 ## Version 0.1.0
 

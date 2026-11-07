@@ -1,25 +1,25 @@
 {
-  "scss/_bootstrap5-theme.scss:99|--bs-warning-border-subtle": {
+  "scss/_bootstrap5-theme.scss:102|--bs-warning-border-subtle": {
     "role": "fixed",
     "reason": "Dark-only override derived from the brand colour (the light value is Bootstrap's own).",
     "match": "rgb(128, 97, 4)"
   },
-  "scss/forms.scss:172|background-color": {
+  "scss/forms.scss:179|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes.",
     "match": "#92c2f2"
   },
-  "scss/forms.scss:178|background-color": {
+  "scss/forms.scss:185|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the pressed range thumb is the brand colour lightened); identical in both modes.",
     "match": "#92c2f2"
   },
-  "scss/loops/background.scss:10|background-color": {
+  "scss/loops/background.scss:11|background-color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#f8f8f8"
   },
-  "scss/loops/background.scss:19|background-color": {
+  "scss/loops/background.scss:32|background-color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#f8f8f8"
@@ -49,20 +49,30 @@
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#dfdfdf"
   },
+  "scss/mixins/alerts.scss:13|color": {
+    "role": "fixed",
+    "reason": "White alert links on the AA-deepened brand fills; paired with the fill, identical in both modes.",
+    "match": "#fff"
+  },
   "scss/mixins/alerts.scss:8|color": {
     "role": "fixed",
     "reason": "White text on a palette or brand fill; paired with the fill, identical in both modes.",
-    "match": "#FFFFFF"
+    "match": "#fff"
   },
   "scss/nav-sidebar.scss:56|background": {
     "role": "fixed",
     "reason": "Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes).",
     "match": "#333"
   },
-  "scss/nav-sidebar.scss:111|background-color": {
+  "scss/nav-sidebar.scss:122|background-color": {
     "role": "fixed",
     "reason": "Fallback declaration immediately followed by the tokenised one, or white text on the neutral active item (#666 in both modes).",
     "match": "#666"
+  },
+  "scss/navbar.scss:45|--bs-navbar-color": {
+    "role": "fixed",
+    "reason": "Full white links on a dark navbar: the bar is a deep palette fill by definition (data-bs-theme=dark or .navbar-dark), identical in both modes.",
+    "match": "#fff"
   },
   "scss/navbar.scss:27|--bs-navbar-color": {
     "role": "fixed",
@@ -109,22 +119,22 @@
     "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme.",
     "match": "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")"
   },
-  "scss/navbar.scss:45|box-shadow": {
+  "scss/navbar.scss:55|box-shadow": {
     "role": "fixed",
     "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme.",
     "match": "inset 0 -1px 0 rgba(255, 255, 255, 0.35)"
   },
-  "scss/navbar.scss:47|color": {
+  "scss/navbar.scss:57|color": {
     "role": "fixed",
     "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme.",
     "match": "rgba(255, 255, 255, 0.75)"
   },
-  "scss/navbar.scss:53|box-shadow": {
+  "scss/navbar.scss:63|box-shadow": {
     "role": "fixed",
     "reason": "`.navbar-light` and `.navbar-dark` are a fixed light and a fixed dark navbar by definition; they do not follow the page theme.",
     "match": "inset 0 -2px 0 #fff"
   },
-  "scss/pagination.scss:55|background-color": {
+  "scss/pagination.scss:57|background-color": {
     "role": "fixed",
     "reason": "Brand-derived (the active page darkened); identical in both modes.",
     "match": "#145ca4"
@@ -134,17 +144,17 @@
     "reason": "Fallback declaration immediately followed by the tokenised one.",
     "match": "#ddd"
   },
-  "scss/loops/background.scss:27|background-color": {
+  "scss/loops/background.scss:40|background-color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#dfdfdf"
   },
-  "scss/loops/background.scss:33|background-color": {
+  "scss/loops/background.scss:46|background-color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#dfdfdf"
   },
-  "scss/loops/background.scss:36|background-color": {
+  "scss/loops/background.scss:49|background-color": {
     "role": "fixed",
     "reason": "Palette colours and the neutral `default` swatch are identity colours: fixed fills and fixed-colour utilities, as in Bootstrap.",
     "match": "#c5c5c5"

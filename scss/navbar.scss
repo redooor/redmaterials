@@ -37,6 +37,16 @@
     --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+// Bootstrap's 55% white link is 2.4:1 on a deep palette fill.  Links on a dark bar are full white
+// so they reach the fill's own contrast.
+.navbar[data-bs-theme="dark"],
+[data-bs-theme="dark"] .navbar:not([data-bs-theme="light"]),
+.navbar-dark {
+    --bs-navbar-color: #fff;
+    --bs-navbar-hover-color: #fff;
+    --bs-navbar-active-color: #fff;
+}
+
 // Search fields inside a dark navbar must not inherit the light body colour.
 .navbar-dark {
     .form-control {
@@ -93,4 +103,18 @@
             display: none;
         }
     }
+}
+
+// Info and warning fills are light enough to need a dark label even on a dark navbar.
+[data-bs-theme="dark"] .navbar.bg-info:not([data-bs-theme="light"]),
+[data-bs-theme="dark"] .navbar.bg-warning:not([data-bs-theme="light"]),
+.navbar.bg-info[data-bs-theme="dark"],
+.navbar.bg-warning[data-bs-theme="dark"],
+.navbar-dark.bg-info,
+.navbar-dark.bg-warning {
+    --bs-navbar-color: #111111;
+    --bs-navbar-hover-color: #000;
+    --bs-navbar-active-color: #000;
+    --bs-navbar-brand-color: #111111;
+    --bs-navbar-brand-hover-color: #000;
 }

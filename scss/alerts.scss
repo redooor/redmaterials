@@ -5,29 +5,31 @@
 //
 // Alerts
 // --------------------------------------------------
+// A white label and white links on the (AA-deepened) success, danger and primary fills; a near-black label and links on
+// the cyan and amber fills, which no white label can reach 4.5:1 on.
 .alert {
     padding: 2em;
     border-radius: 2px;
 }
 
 .alert-primary {
-    @include alert-variant($brand-primary, $brand-primary, $blue-text, $blue-50);
+    @include alert-variant($brand-primary, $brand-primary, #fff, #fff);
 }
 
 .alert-success {
-    @include alert-variant($brand-success, $brand-success, $green-text, $green-50);
+    @include alert-variant($brand-success, $brand-success, #fff, #fff);
 }
 
 .alert-info {
-    @include alert-variant($brand-info, $brand-info, $cyan-text, $cyan-50);
+    @include alert-variant($brand-info, $brand-info, #111111, #111111);
 }
 
 .alert-warning {
-    @include alert-variant($brand-warning, $brand-warning, $orange-text, #111111);
+    @include alert-variant($brand-warning, $brand-warning, #111111, #111111);
 }
 
 .alert-danger {
-    @include alert-variant($brand-danger, $brand-danger, $deep-orange-text, $deep-orange-50);
+    @include alert-variant($brand-danger, $brand-danger, #fff, #fff);
 }
 
 .alert-dismissible .btn-close {

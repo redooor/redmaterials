@@ -1,71 +1,104 @@
 @use "sass:color";
 @use "sass:list";
-@use "sass:math";
+@use "sass:map";
 @use "variables" as *;
+@use "contrast" as *;
 
 //
 // Palette text tokens
 // --------------------------------------------------
 // Brand and palette colours are identity colours and do not change between
 // modes when they are used as a fill.  When they are used as *text* (flat
-// buttons, outline buttons, .text-*) on a dark surface, a colour that falls
-// below 4.5:1 against Bootstrap's dark body background is lifted towards
-// white in 5% steps until it passes; colours that already pass are untouched.
+// buttons, outline buttons, .text-*) they move along their own Material scale
+// to the nearest shade that reaches 4.5:1 on the surface: darker on a light
+// page, lighter on a dark one (see _contrast.scss).  A colour with no palette
+// family, or no passing shade, is deepened or lifted by mixing instead.
 //
 // For each colour: base, hover, active and focus.  The light values are the
 // values the loops always used (darker for hover/active/focus); the dark
 // values step lighter instead.
 
-$dark-surface: #212529;
-$dark-hover-surface: #3b3f44; // rgba(255, 255, 255, .08) over $dark-surface
-$dark-active-surface: #4c5054; // rgba(255, 255, 255, .16) over $dark-surface
+// Text must pass on the raised dark surfaces (navbar, card, well) as well as the page, so the walk targets the lighter one.
+$dark-surface: #2b3035;
+$dark-hover-surface: #3c4145; // rgba(255, 255, 255, .08) over $dark-surface
+$dark-active-surface: #4d5155; // rgba(255, 255, 255, .16) over $dark-surface
 
-@function channel-luminance($value) {
-    $s: math.div($value, 255);
-    @if $s <= 0.03928 {
-        @return math.div($s, 12.92);
-    }
-    @return math.pow(math.div($s + 0.055, 1.055), 2.4);
+// The light-mode mirror of lift(): flat button labels sit on the page (white) or on the flat hover/press wash, so a
+// colour below $min against that surface is darkened in 5% steps until it passes.  Passing colours are untouched.
+$light-surface: #f8f9fa; // the page is white, but cards, footers, pagination and .bg-body-tertiary tint it; text must pass on the tint
+$light-hover-surface: color.adjust(#999, $lightness: 30%); // --rdm-flat-hover-bg
+$light-active-surface: color.adjust(#999, $lightness: 20%); // --rdm-flat-active-bg and -focus-bg
+
+@function min-index($a, $b) {
+    @return pick($a < $b, $a, $b);
 }
 
-@function luminance($c) {
-    @return 0.2126 * channel-luminance(color.channel($c, "red", $space: rgb))
-        + 0.7152 * channel-luminance(color.channel($c, "green", $space: rgb))
-        + 0.0722 * channel-luminance(color.channel($c, "blue", $space: rgb));
+@function max-index($a, $b) {
+    @return pick($a > $b, $a, $b);
 }
 
-@function contrast($a, $b) {
-    $la: luminance($a);
-    $lb: luminance($b);
-    @return math.div(math.max($la, $lb) + 0.05, math.min($la, $lb) + 0.05);
+// base, hover, active, focus text colours on a light page: the nearest shade at or below 500 that passes on the page, then
+// each state one shade further down that passes on its own wash.
+@function text-ramp-light($family, $color) {
+    $i: shade-index($family, $light-surface, $shade-base, 1);
+    @if not $i {
+        @return deepen($color, $light-surface), deepen(color.adjust($color, $lightness: -10%), $light-hover-surface),
+            deepen(color.adjust($color, $lightness: -20%), $light-active-surface),
+            deepen(color.adjust($color, $lightness: -30%), $light-active-surface);
+    }
+    $base: shade-colour($family, list.nth($shade-scale, $i));
+    $h: shade-index($family, $light-hover-surface, min-index($i + 1, 10), 1);
+    $a: shade-index($family, $light-active-surface, min-index($i + 2, 10), 1);
+    $f: shade-index($family, $light-active-surface, min-index($i + 3, 10), 1);
+    @return $base,
+        shade-or($family, $h, deepen($base, $light-hover-surface)),
+        shade-or($family, $a, deepen($base, $light-active-surface)),
+        shade-or($family, $f, deepen($base, $light-active-surface));
 }
 
-// The colour a translucent foreground actually shows on top of $background.
-// Opaque foregrounds are returned unchanged (bit-for-bit).
-@function composite($foreground, $background) {
-    $alpha: color.channel($foreground, "alpha");
-    @if $alpha >= 1 {
-        @return $foreground;
+// The dark mirror: nearest shade at or above 500 that passes on the dark page, hover/active/focus one shade lighter each.
+@function text-ramp-dark($family, $color) {
+    $i: shade-index($family, $dark-surface, $shade-base, -1);
+    @if not $i {
+        $base: lift($color, $dark-surface);
+        @return $base, lift(color.adjust($base, $lightness: 10%), $dark-hover-surface),
+            lift(color.adjust($base, $lightness: 18%), $dark-active-surface),
+            lift(color.adjust($base, $lightness: 26%), $dark-active-surface);
     }
-    @if $alpha <= 0 {
-        @return $background;
-    }
-    @return rgb(
-        color.channel($foreground, "red", $space: rgb) * $alpha + color.channel($background, "red", $space: rgb) * (1 - $alpha),
-        color.channel($foreground, "green", $space: rgb) * $alpha + color.channel($background, "green", $space: rgb) * (1 - $alpha),
-        color.channel($foreground, "blue", $space: rgb) * $alpha + color.channel($background, "blue", $space: rgb) * (1 - $alpha)
-    );
+    $base: shade-colour($family, list.nth($shade-scale, $i));
+    $h: shade-index($family, $dark-hover-surface, max-index($i - 1, 1), -1);
+    $a: shade-index($family, $dark-active-surface, max-index($i - 2, 1), -1);
+    $f: shade-index($family, $dark-active-surface, max-index($i - 3, 1), -1);
+    @return $base,
+        shade-or($family, $h, lift($base, $dark-hover-surface)),
+        shade-or($family, $a, lift($base, $dark-active-surface)),
+        shade-or($family, $f, lift($base, $dark-active-surface));
 }
 
-@function lift($c, $surface: $dark-surface, $min: 4.5) {
-    @for $i from 0 through 20 {
-        $m: color.mix(#fff, $c, $i * 5%);
-        $visible: composite($m, $surface);
-        @if contrast($visible, $surface) >= $min {
-            @return $visible;
-        }
+// Flat button label colours: base, hover, active and focus per brand colour.  default, light and white are near-white
+// labels meant for dark surfaces, so they are not deepened.
+@mixin palette-flat-light($name, $color, $family: null) {
+    @if $name == "default" or $name == "light" or $name == "white" {
+        --rdm-flat-#{$name}: var(--rdm-ctx-#{$name});
+        // their washes are light overlays, so the label keeps its colour in every state rather than darkening into it
+        --rdm-flat-#{$name}-hover: var(--rdm-ctx-#{$name});
+        --rdm-flat-#{$name}-active: var(--rdm-ctx-#{$name});
+        --rdm-flat-#{$name}-focus: var(--rdm-ctx-#{$name});
+    } @else {
+        $ramp: text-ramp-light($family, $color);
+        --rdm-flat-#{$name}: #{list.nth($ramp, 1)};
+        --rdm-flat-#{$name}-hover: #{list.nth($ramp, 2)};
+        --rdm-flat-#{$name}-active: #{list.nth($ramp, 3)};
+        --rdm-flat-#{$name}-focus: #{list.nth($ramp, 4)};
     }
-    @return #fff;
+}
+
+// In dark mode the (already lifted) ctx tokens are the flat label colours.
+@mixin palette-flat-dark($name) {
+    --rdm-flat-#{$name}: var(--rdm-ctx-#{$name});
+    --rdm-flat-#{$name}-hover: var(--rdm-ctx-#{$name}-hover);
+    --rdm-flat-#{$name}-active: var(--rdm-ctx-#{$name}-active);
+    --rdm-flat-#{$name}-focus: var(--rdm-ctx-#{$name}-focus);
 }
 
 @mixin palette-light($prefix, $name, $color) {
@@ -75,27 +108,42 @@ $dark-active-surface: #4c5054; // rgba(255, 255, 255, .16) over $dark-surface
     --rdm-#{$prefix}-#{$name}-focus: #{color.adjust($color, $lightness: -30%)};
 }
 
+// The palette's own text colours on a light page (--rdm-pal-*): the same ramp the flat buttons use.
+@mixin palette-text-light($prefix, $name, $color, $family) {
+    $ramp: text-ramp-light($family, $color);
+    --rdm-#{$prefix}-#{$name}: #{list.nth($ramp, 1)};
+    --rdm-#{$prefix}-#{$name}-hover: #{list.nth($ramp, 2)};
+    --rdm-#{$prefix}-#{$name}-active: #{list.nth($ramp, 3)};
+    --rdm-#{$prefix}-#{$name}-focus: #{list.nth($ramp, 4)};
+}
+
 // Dark tokens that are identical to their light twin are omitted: every light
 // scope redeclares all of them, so the inherited light value is correct.
-@mixin palette-dark($prefix, $name, $color) {
-    $base: lift($color);
-    // Hover and active/focus sit on a lighter wash (--rdm-flat-hover-bg and
-    // --rdm-flat-active-bg composited on the dark surface), so they are lifted
-    // against that wash rather than the page.
-    $hover: lift(color.adjust($base, $lightness: 10%), $dark-hover-surface);
-    $active: lift(color.adjust($base, $lightness: 18%), $dark-active-surface);
-    $focus: lift(color.adjust($base, $lightness: 26%), $dark-active-surface);
+@mixin palette-dark($prefix, $name, $color, $family: null) {
+    $ramp: text-ramp-dark($family, $color);
+    $base: list.nth($ramp, 1);
+    $hover: list.nth($ramp, 2);
+    $active: list.nth($ramp, 3);
+    $focus: list.nth($ramp, 4);
+    // the light twin this token is compared with: the palette's text ramp, or the plain -10/-20/-30% steps
+    $twin: ();
+    @if $prefix == "pal" {
+        $twin: text-ramp-light($family, $color);
+    } @else {
+        $twin: $color, color.adjust($color, $lightness: -10%), color.adjust($color, $lightness: -20%),
+            color.adjust($color, $lightness: -30%);
+    }
 
-    @if not ($base == $color) {
+    @if not ($base == list.nth($twin, 1)) {
         --rdm-#{$prefix}-#{$name}: #{$base};
     }
-    @if not ($hover == color.adjust($color, $lightness: -10%)) {
+    @if not ($hover == list.nth($twin, 2)) {
         --rdm-#{$prefix}-#{$name}-hover: #{$hover};
     }
-    @if not ($active == color.adjust($color, $lightness: -20%)) {
+    @if not ($active == list.nth($twin, 3)) {
         --rdm-#{$prefix}-#{$name}-active: #{$active};
     }
-    @if not ($focus == color.adjust($color, $lightness: -30%)) {
+    @if not ($focus == list.nth($twin, 4)) {
         --rdm-#{$prefix}-#{$name}-focus: #{$focus};
     }
 }
@@ -104,17 +152,19 @@ $dark-active-surface: #4c5054; // rgba(255, 255, 255, .16) over $dark-surface
 [data-bs-theme="light"] {
     @each $name, $color in $brand-color-map {
         @include palette-light("ctx", $name, $color);
+        @include palette-flat-light($name, $color, map.get($brand-families, $name));
     }
     @each $name, $pair in $color-name-text-map {
-        @include palette-light("pal", $name, list.nth($pair, 1));
+        @include palette-text-light("pal", $name, list.nth($pair, 1), pick($name == "default", null, $name));
     }
 }
 
 [data-bs-theme="dark"] {
     @each $name, $color in $brand-color-map {
-        @include palette-dark("ctx", $name, $color);
+        @include palette-dark("ctx", $name, $color, map.get($brand-families, $name));
+        @include palette-flat-dark($name);
     }
     @each $name, $pair in $color-name-text-map {
-        @include palette-dark("pal", $name, list.nth($pair, 1));
+        @include palette-dark("pal", $name, list.nth($pair, 1), pick($name == "default", null, $name));
     }
 }

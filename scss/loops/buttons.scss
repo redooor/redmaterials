@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:list";
 @use "../variables" as *;
 
 // The neutral "default" variant follows the colour mode (see _tokens.scss);
@@ -12,12 +13,30 @@
 
 // Buttons variations
 
+// Info and warning carry a black label, so their hover, pressed and focus fills step lighter: darkening them would
+// lower the label's contrast (a focused filled Info button used to fall to 3.0:1).
+$dark-label-contexts: "info", "warning";
+
+@function if-near-white($context, $yes, $no) {
+    @if $context == "default" or $context == "light" or $context == "white" {
+        @return $yes;
+    }
+    @return $no;
+}
+
+@function state-fill($context, $color, $amount) {
+    @if list.index($dark-label-contexts, $context) {
+        @return color.adjust($color, $lightness: $amount);
+    }
+    @return color.adjust($color, $lightness: -$amount);
+}
+
 // For contexture backgrounds
 @each $context, $color in $brand-color-map {
     .btn-#{$context} {
         background-color: neutral($context, $color, bg);
         &:hover {
-            background-color: neutral($context, color.adjust($color, $lightness: -10%), hover-bg);
+            background-color: neutral($context, state-fill($context, $color, 10%), hover-bg);
         }
         // Bootstrap paints :first-child:active and :not(.btn-check) + .btn:active
         // with --bs-btn-active-bg (three-class specificity), so match them too
@@ -25,12 +44,12 @@
         &.active,
         &:first-child:active,
         :not(.btn-check) + &:active {
-            background-color: neutral($context, color.adjust($color, $lightness: -10%), active-bg);
+            background-color: neutral($context, state-fill($context, $color, 10%), active-bg);
 
         }
         &:focus,
         &:focus-visible {
-            background-color: neutral($context, color.adjust($color, $lightness: -20%), focus-bg);
+            background-color: neutral($context, state-fill($context, $color, 20%), focus-bg);
         }
         //## color for riple-effect
         .ink {
@@ -38,20 +57,22 @@
         }
 
         &.btn-flat {
-            color: var(--rdm-ctx-#{$context});
+            // default, light and white are near-white labels for dark surfaces: a light wash would swallow them in light mode
+            $wash: if-near-white($context, "onDark-", "");
+            color: var(--rdm-flat-#{$context});
             background-color: transparent;
             &:hover {
-                color: var(--rdm-ctx-#{$context}-hover);
-                background-color: var(--rdm-flat-hover-bg);
+                color: var(--rdm-flat-#{$context}-hover);
+                background-color: var(--rdm-flat-#{$wash}hover-bg);
             }
             &:active,
             &.active {
-                color: var(--rdm-ctx-#{$context}-active);
-                background-color: var(--rdm-flat-active-bg);
+                color: var(--rdm-flat-#{$context}-active);
+                background-color: var(--rdm-flat-#{$wash}active-bg);
             }
             &:focus {
-                color: var(--rdm-ctx-#{$context}-focus);
-                background-color: var(--rdm-flat-focus-bg);
+                color: var(--rdm-flat-#{$context}-focus);
+                background-color: var(--rdm-flat-#{$wash}active-bg);
             }
             //## color for riple-effect
             .ink {

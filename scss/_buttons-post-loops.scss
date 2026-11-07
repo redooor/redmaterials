@@ -5,6 +5,10 @@
 .btn {
     min-width: 3em; //88px; em is easier to scale
     padding: 0.8em 1.5em; //10px 14px; em is easier to scale
+    // min-width replaces the automatic flex minimum (content size), so without
+    // this a button in a flex row (e.g. a navbar search form) is squeezed below
+    // its text and the label overflows the padding.
+    flex-shrink: 0;
 }
 // The base .btn rule removes borders for the flat Material look; Bootstrap 5
 // outline buttons need their border back.

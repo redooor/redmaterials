@@ -50,11 +50,19 @@ export function expandVersion(html, version) {
 }
 
 const escapeHtml = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// Lines inside a <pre> are content, not markup layout: they keep their indentation, so they neither set the common
+// indent nor lose any of it (a <pre> body has to start at column 0 in the source for the live preview to be right).
 const dedent = s => {
   const lines = s.replace(/^\n+|\s+$/g, '').split('\n');
-  const sized = lines.filter(l => l.trim());
+  let open = 0;
+  const outside = lines.map(l => {
+    const eligible = open === 0;
+    open = Math.max(0, open + (l.match(/<pre[\s>]/g) || []).length - (l.match(/<\/pre>/g) || []).length);
+    return eligible;
+  });
+  const sized = lines.filter((l, i) => outside[i] && l.trim());
   const indent = sized.length ? Math.min(...sized.map(l => l.match(/^ */)[0].length)) : 0;
-  return lines.map(l => l.slice(indent)).join('\n');
+  return lines.map((l, i) => outside[i] ? l.slice(indent) : l).join('\n');
 };
 // Highlighted at build time (no runtime script). The code element deliberately lacks the `hljs` class: that class
 // carries the theme's own background and text colour, so only the token colours (hljs-*) apply on Bootstrap's surface.
@@ -70,14 +78,14 @@ export function expandExamples(html) {
     .replace(/<!--@code\s*-->([\s\S]*?)<!--@end-->/g, (_, inner) => snippet(inner));
 }
 
-// The sidebar is Bootstrap's own `nav`, themed by Redmaterials: no docs CSS. The first section starts as the static
-// active default; docs.js keeps the active styling (bold + aria-current) in step with scrollspy as the reader scrolls.
+// The sidebar is Redmaterials' own `.nav-sidebar-menu` in the neutral `.nav-sidebar-default` variant: no docs CSS. The first
+// section starts as the static active default; docs.js keeps `li.active` and aria-current in step with scrollspy.
 export function renderSidebar(sections) {
   const links = sections.redmaterials.map((s, i) => {
     const active = i === 0;
-    return `<li class="nav-item"><a class="nav-link link-body-emphasis${active ? ' active fw-bold' : ''}" href="#${s.id}"${active ? ' aria-current="location"' : ''}>${s.title}</a></li>`;
+    return `<li${active ? ' class="active"' : ''}><a href="#${s.id}"${active ? ' aria-current="location"' : ''}>${s.title}</a></li>`;
   }).join('\n');
-  return `<ul class="nav flex-column" id="nav_spy">\n${links}\n</ul>`;
+  return `<div class="nav-sidebar-default">\n<ul class="nav flex-column nav-sidebar-menu" id="nav_spy">\n${links}\n</ul>\n</div>`;
 }
 
 // {{root}} is '' (pages live next to dist/ and assets/), so every asset URL is relative and works from file://.

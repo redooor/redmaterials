@@ -43,6 +43,30 @@ async function settle(page, max = 4000) {
 }
 const poll = async (fn, ok, max = 3000) => { let v; for (let t = 0; t < max; t += 150) { v = await fn(); if (ok(v)) return v; await sleep(150); } return v; };
 
+// Drive the [data-probe] button through rest, hover, focus and pressed; push "<label> <state> <ratio>" for each state under 4.5:1.
+async function probeStates(page, label, bad) {
+  for (const state of ['rest', 'hover', 'focus', 'active']) {
+    const el = await page.$('[data-probe="1"]');
+    if (state === 'hover') await el.hover();
+    else if (state === 'active') { await el.hover(); await page.mouse.down(); }
+    else { await page.mouse.move(0, 0); await page.evaluate(s => { const e = document.querySelector('[data-probe="1"]'); if (s === 'focus') e.focus({ focusVisible: true }); else document.activeElement && document.activeElement.blur(); }, state); }
+    await sleep(260);
+    const r = await page.evaluate(() => {
+      const el = document.querySelector('[data-probe="1"]'), parse = c => { const m = c.match(/[\d.]+/g).map(Number); return { r: m[0], g: m[1], b: m[2], a: m.length > 3 ? m[3] : 1 }; };
+      const over = (f, b) => ({ r: f.r * f.a + b.r * (1 - f.a), g: f.g * f.a + b.g * (1 - f.a), b: f.b * f.a + b.b * (1 - f.a), a: 1 });
+      const lum = c => { const v = [c.r, c.g, c.b].map(x => { x /= 255; return x <= .03928 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4; }); return .2126 * v[0] + .7152 * v[1] + .0722 * v[2]; };
+      // composite the button's own (possibly translucent) background over its ancestors
+      const chain = []; for (let e = el; e; e = e.parentElement) { const c = parse(getComputedStyle(e).backgroundColor); chain.push(c); if (c.a >= 1) break; }
+      const dark = document.documentElement.getAttribute('data-bs-theme') === 'dark'; let bg = chain[chain.length - 1].a >= 1 ? chain.pop() : { r: dark ? 33 : 255, g: dark ? 37 : 255, b: dark ? 41 : 255, a: 1 };
+      for (const c of chain.reverse()) bg = over(c, bg);
+      const f = parse(getComputedStyle(el).color), fg = f.a < 1 ? over(f, bg) : f, a = lum(fg), b = lum(bg);
+      return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
+    });
+    if (state === 'active') await page.mouse.up();
+    if (r < 4.5) bad.push(`${label} ${state} ${r.toFixed(2)}`);
+  }
+}
+
 async function open(file, { width = 1280, height = 800, scheme = 'light', init, prefs = {} } = {}) {
   const page = await browser.newPage();
   const issues = [];
@@ -88,10 +112,12 @@ try {
         const chrome = [...document.querySelectorAll('nav.sticky-top [style], #docs-sidebar [style], footer [style]')].map(e => e.tagName + '#' + e.id);
         // example content may size things inline, as Bootstrap's own examples do, but only with sizing properties
         const SIZING = /^(width|max-width|min-width|height|max-height|min-height|display|aspect-ratio|--bs-[\w-]+)$/;
-        const examples = [...document.querySelectorAll('main [style]')].flatMap(e => e.getAttribute('style').split(';').map(x => x.split(':')[0].trim()).filter(Boolean).filter(p => !SIZING.test(p)).map(p => p + ' on ' + e.tagName));
+        // the one exception is a palette swatch cell (td[data-swatch]), which paints the hex it names
+        const SWATCH = /^(background-color|color)$/;
+        const examples = [...document.querySelectorAll('main [style]')].flatMap(e => e.getAttribute('style').split(';').map(x => x.split(':')[0].trim()).filter(Boolean).filter(p => !SIZING.test(p) && !(e.matches('td[data-swatch]') && SWATCH.test(p))).map(p => p + ' on ' + e.tagName));
         return { sheets, styles, chrome, examples: [...new Set(examples)] };
       });
-      check('3b the docs define no styles (allowed stylesheets only, no <style>, style-free chrome, only sizing in example inline styles)', !styling.sheets.length && !styling.styles && !styling.chrome.length && !styling.examples.length, JSON.stringify(styling));
+      check('3b the docs define no styles (allowed stylesheets only, no <style>, style-free chrome, only sizing in example inline styles, except palette swatch cells)', !styling.sheets.length && !styling.styles && !styling.chrome.length && !styling.examples.length, JSON.stringify(styling));
       const dupes = await page.evaluate(() => { const seen = {}, d = []; document.querySelectorAll('[id]').forEach(e => { if (seen[e.id]) d.push(e.id); seen[e.id] = 1; }); return [...new Set(d)]; });
       check('4 no duplicate ids', !dupes.length, dupes.slice(0, 8).join(','));
       await page.close();
@@ -155,12 +181,248 @@ try {
       await page.close();
     }
 
+    // 15: a link inside a live example is a demo, so clicking it must not navigate, and a .ripple-effect link must show its ink
+    {
+      const { page } = await open(file);
+      const sel = '.bs-component a.ripple-effect[href^="#"]';
+      const link = await page.$(sel);
+      if (!link) { check('15 an example link does not navigate and still ripples', false, `no ${sel} in the docs`); } else {
+        await page.evaluate(s => document.querySelector(s).scrollIntoView({ block: 'center' }), sel);
+        await sleep(200);
+        const before = await page.evaluate(() => ({ y: Math.round(scrollY), hash: location.hash }));
+        await link.click(); await sleep(250);
+        const after = await page.evaluate(s => ({ y: Math.round(scrollY), hash: location.hash, ink: !!document.querySelector(s + ' .ink.animate') }), sel);
+        check('15 an example link does not navigate and still ripples', after.y === before.y && after.hash === before.hash && after.ink, JSON.stringify({ before, after }));
+      }
+      await page.close();
+    }
+
+    // 16: clicking sidebar links from the bottom upwards activates the clicked link, not its upper neighbour
+    {
+      const { page } = await open(file);
+      const hrefs = await page.$$eval('#nav_spy a', as => as.map(a => a.getAttribute('href')));
+      const wrong = [];
+      for (const h of hrefs.slice().reverse()) {
+        await page.click(`#nav_spy a[href="${h}"]`); await sleep(350);
+        const got = await page.evaluate(() => document.querySelector('#nav_spy li.active a')?.getAttribute('href'));
+        if (got !== h) wrong.push(`${h} -> ${got}`);
+      }
+      check('16 sidebar links clicked from the bottom up activate the clicked link', wrong.length === 0, wrong.join('; '));
+      await page.close();
+    }
+
+    // 17: the validated inputs keep room for their icon, so a long value does not run underneath it
+    {
+      const { page } = await open(file);
+      const pads = await page.evaluate(() => ['rdm-forms-valid', 'rdm-forms-invalid'].map(id => parseFloat(getComputedStyle(document.getElementById(id)).paddingRight)));
+      check('17 .is-valid and .is-invalid inputs reserve at least 24px for their icon', pads.every(p => p >= 24), JSON.stringify(pads));
+      const aria = await page.evaluate(() => { const i = document.getElementById('rdm-forms-invalid'); const d = document.getElementById(i.getAttribute('aria-describedby') || '-'); return { invalid: i.getAttribute('aria-invalid'), described: !!d && d.classList.contains('invalid-feedback') }; });
+      check('17b the invalid example exposes aria-invalid and its feedback', aria.invalid === 'true' && aria.described, JSON.stringify(aria));
+      await page.close();
+    }
+
+    // 18: keyboard focus is visible on a link button, an active tab and a pagination link, and the pagination label stays readable
+    {
+      const { page } = await open(file);
+      const probe = async sel => { // focus, let the .15s colour transition finish, then read
+        const has = await page.evaluate(sel => { const el = document.querySelector(sel); if (el) el.focus({ focusVisible: true }); return !!el; }, sel);
+        if (!has) return null;
+        await sleep(300);
+        return page.evaluate(sel => { const el = document.querySelector(sel); const cs = getComputedStyle(el);
+        return { outline: cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0, shadow: cs.boxShadow !== 'none', color: cs.color, bg: cs.backgroundColor }; }, sel);
+      };
+      await page.keyboard.press('Tab'); // make the page show :focus-visible
+      const lum = c => { const m = c.match(/[\d.]+/g).map(Number).slice(0, 3).map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; }); return .2126 * m[0] + .7152 * m[1] + .0722 * m[2]; };
+      const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+      const link = await probe('.bs-component .btn.btn-flat, .bs-component .btn');
+      check('18 a focused flat button shows a focus indicator', !!link && (link.outline || link.shadow), JSON.stringify(link));
+      const tab = await probe('.nav-tabs .nav-link.active');
+      check('18b a focused active tab shows a focus indicator', !!tab && (tab.outline || tab.shadow), JSON.stringify(tab));
+      const pg = await probe('.pagination .page-item:not(.active):not(.disabled) .page-link');
+      check('18c a focused pagination link is at least 4.5:1', !!pg && ratio(pg.color, pg.bg) >= 4.5, JSON.stringify(pg));
+      await page.close();
+    }
+
+    // 19: the palette tables sit in a scroll wrapper, so they cannot clip at a phone width
+    {
+      const { page } = await open(file);
+      const bad = await page.evaluate(() => [...document.querySelectorAll('table[class*="table-"]')].filter(t => !t.closest('.table-responsive, .table-responsive-vertical')).map(t => t.className));
+      check('19 every table in the docs is inside a .table-responsive (or .table-responsive-vertical) wrapper', bad.length === 0, bad.slice(0, 3).join(' | '));
+      await page.close();
+    }
+
+    // 20: the off-canvas drawer keeps closed links out of the tab order, moves focus in, closes on Escape and returns focus
+    {
+      const { page } = await open(file);
+      const id = '#nav-sidebar-live', btn = '#nav-sidebar-live-toggle';
+      const state = () => page.evaluate((id, btn) => ({ active: document.querySelector(id).classList.contains('active'), locked: document.body.classList.contains('rdm-ui-disable-scroll'),
+        inside: !!document.activeElement && document.querySelector(id + ' .nav-sidebar').contains(document.activeElement), onTrigger: document.activeElement === document.querySelector(btn),
+        expanded: document.querySelector(btn).getAttribute('aria-expanded'), vis: getComputedStyle(document.querySelector(id + ' .nav-sidebar')).visibility }), id, btn);
+      await page.evaluate(btn => document.querySelector(btn).scrollIntoView({ block: 'center' }), btn);
+      const closed = await state();
+      await page.click(btn); await sleep(400);
+      const opened = await state();
+      await page.keyboard.press('Escape'); await sleep(450);
+      const after = await state();
+      check('20 a closed drawer is hidden from the tab order and the accessibility tree', closed.vis === 'hidden', JSON.stringify(closed));
+      check('20b opening the drawer moves focus into it, locks scrolling and sets aria-expanded', opened.active && opened.locked && opened.inside && opened.expanded === 'true' && opened.vis === 'visible', JSON.stringify(opened));
+      check('20c Escape closes the drawer, unlocks scrolling and returns focus to its trigger', !after.active && !after.locked && after.onTrigger && after.expanded === 'false', JSON.stringify(after));
+      // two drawers open at once keep the body locked until the last one closes
+      const two = await page.evaluate(async () => {
+        const wait = ms => new Promise(r => setTimeout(r, ms));
+        const a = document.querySelector('#nav-sidebar-live'), b = a.cloneNode(true); b.id = 'nav-sidebar-live-2';
+        b.querySelectorAll('[data-target]').forEach(n => n.setAttribute('data-target', '#nav-sidebar-live-2')); a.after(b);
+        const mk = t => { const x = document.createElement('button'); x.type = 'button'; x.setAttribute('data-toggle', 'nav-sidebar-toggle'); x.setAttribute('data-target', t); document.body.appendChild(x); return x; };
+        const ta = mk('#nav-sidebar-live'), tb = mk('#nav-sidebar-live-2'), out = {};
+        ta.click(); tb.click(); await wait(50); out.both = document.body.classList.contains('rdm-ui-disable-scroll');
+        ta.click(); await wait(50); out.afterOne = document.body.classList.contains('rdm-ui-disable-scroll');
+        tb.click(); await wait(50); out.afterAll = document.body.classList.contains('rdm-ui-disable-scroll');
+        return out;
+      });
+      check('20d the scroll lock holds while any drawer is open and clears with the last', two.both && two.afterOne && !two.afterAll, JSON.stringify(two));
+      await page.close();
+    }
+
+    // 21: a ripple on a plain light surface (the card) is a visible ink, not white on white
+    {
+      const { page } = await open(file);
+      const ink = await page.evaluate(() => { const c = document.querySelector('.card.ripple-effect, .ripple-effect.card'); if (!c) return null;
+        let i = c.querySelector('.ink'); if (!i) { i = document.createElement('span'); i.className = 'ink'; c.appendChild(i); }
+        return getComputedStyle(i).backgroundColor; });
+      check('21 the ink on a ripple card is not white in light mode', !!ink && !/^rgb\(255, 255, 255\)$/.test(ink), String(ink));
+      await page.close();
+    }
+
+    // 22: no live-example text falls below AA (4.5:1, or 3:1 for large text) in either colour mode
+    {
+      const { page } = await open(file);
+      for (const mode of ['light', 'dark']) {
+        await page.evaluate(m => document.documentElement.setAttribute('data-bs-theme', m), mode);
+        await sleep(400);
+        const res = await page.evaluate(() => {
+          const parse=c=>{const m=c.match(/[\d.]+/g).map(Number);return {r:m[0],g:m[1],b:m[2],a:m.length>3?m[3]:1}};
+          const over=(f,b)=>({r:f.r*f.a+b.r*(1-f.a),g:f.g*f.a+b.g*(1-f.a),b:f.b*f.a+b.b*(1-f.a),a:1});
+          const lum=c=>{const v=[c.r,c.g,c.b].map(x=>{x/=255;return x<=.03928?x/12.92:((x+.055)/1.055)**2.4});return .2126*v[0]+.7152*v[1]+.0722*v[2]};
+          const cr=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+          const bgOf=el=>{let chain=[];for(let e=el;e;e=e.parentElement){const cs=getComputedStyle(e);if(cs.backgroundImage!=='none')return null;chain.push(parse(cs.backgroundColor));if(chain[chain.length-1].a>=1)break;}
+            let base=chain.length&&chain[chain.length-1].a>=1?chain.pop():{r:255,g:255,b:255,a:1};
+            const dark=document.documentElement.getAttribute('data-bs-theme')==='dark'; if(!(chain.length===0&&base.a>=1)&&base.a<1) base={r:dark?33:255,g:dark?37:255,b:dark?41:255,a:1};
+            for(const c of chain.reverse()) base=over(c,base); return base;};
+          const out={};
+          const walker=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT);
+          let n; while(n=walker.nextNode()){
+           const t=n.textContent.trim(); if(!t) continue; const el=n.parentElement;
+           if(el.closest('pre,code,.hljs,[aria-hidden=true],.visually-hidden,.opacity-25,.opacity-50,.opacity-75,[class*=opacity],.disabled,[disabled],.modal:not(.show)')) continue;
+           const cs=getComputedStyle(el); if(cs.visibility==='hidden'||cs.display==='none'||el.getClientRects().length===0) continue;
+           const bg=bgOf(el); if(!bg) continue;
+           const f=parse(cs.color); const fg=f.a<1?over(f,bg):f; const r=cr(fg,bg);
+           const size=parseFloat(cs.fontSize), bold=parseInt(cs.fontWeight)>=700; const large=size>=24||(bold&&size>=18.66);
+           if(r<(large?3:4.5)){const key=(el.closest('[class]')||el).tagName.toLowerCase()+'.'+[...el.classList].join('.')+' <'+([...(el.closest('.bs-component')?.parentElement?.id?[el.closest('section,div[id]')?.id]:[])][0]||'')+'>';
+            (out[key]??={n:0,min:99,sample:t.slice(0,24)}); out[key].n++; out[key].min=Math.min(out[key].min,+r.toFixed(2));}
+          }
+          return out; });
+        const groups = Object.entries(res).sort((a, b) => a[1].min - b[1].min).map(([k, v]) => `${v.min} ${k} "${v.sample}"`);
+        check(`22 no example text is below AA in ${mode} mode`, groups.length === 0, groups.slice(0, 4).join(' | '));
+      }
+      await page.close();
+    }
+
+    // 23: every distinct button variant in the examples (filled, flat, outline, palette) keeps 4.5:1 at rest, on hover, on focus and while pressed
+    {
+      const { page } = await open(file);
+      const bad = []; let variants = 0;
+      // the pressed-state probe clicks: keep anchors and submit buttons from navigating away
+      await page.evaluate(() => document.addEventListener('click', e => e.preventDefault(), true));
+      for (const mode of ['light', 'dark']) {
+        await page.evaluate(m => document.documentElement.setAttribute('data-bs-theme', m), mode);
+        const keys = await page.evaluate(() => {
+          const seen = new Map();
+          for (const el of document.querySelectorAll('.bs-component .btn')) {
+            if (el.disabled || el.classList.contains('disabled') || !el.getClientRects().length || el.closest('.modal:not(.show), [aria-hidden=true], [class*=opacity]')) continue;
+            const key = [...el.classList].filter(c => c !== 'ripple-effect' && c !== 'active').sort().join('.');
+            if (!seen.has(key)) { seen.set(key, 1); el.setAttribute('data-variant', key); }
+          }
+          return [...seen.keys()];
+        });
+        variants = Math.max(variants, keys.length);
+        for (const key of keys) {
+          await page.evaluate(k => { const el = document.querySelector(`[data-variant="${k}"]`); el.setAttribute('data-probe', '1'); el.scrollIntoView({ block: 'center' }); }, key);
+          await probeStates(page, `${mode} ${key.replace(/btn\./g, '')}`, bad);
+          await page.evaluate(() => { document.querySelector('[data-probe="1"]').removeAttribute('data-probe'); });
+        }
+        await page.evaluate(() => document.querySelectorAll('[data-variant]').forEach(e => e.removeAttribute('data-variant')));
+      }
+      check(`23 all ${variants} button variants keep 4.5:1 in every state, both modes`, bad.length === 0, bad.slice(0, 6).join(' | '));
+      await page.close();
+    }
+
+    // 24: flat and outline buttons in every brand and palette colour keep 4.5:1 on the surfaces they are placed on (page, tertiary, card)
+    {
+      const { page } = await open(file);
+      const bad = []; let n = 0;
+      await page.evaluate(() => document.addEventListener('click', e => e.preventDefault(), true));
+      const names = await page.evaluate(() => {
+        const bg = new Set(), brand = new Set();
+        for (const el of document.querySelectorAll('.bs-component .btn')) {
+          for (const c of el.classList) { if (/^bg-/.test(c) && !/^bg-(body|transparent|opacity|gradient)/.test(c)) bg.add(c); const m = c.match(/^btn-(primary|secondary|success|danger|warning|info|light|dark)$/); if (m) brand.add(m[1]); }
+        }
+        return { bg: [...bg], brand: [...brand] };
+      });
+      const variants = [...names.bg.map(c => `btn btn-flat ${c}`), ...names.brand.map(c => `btn btn-flat btn-${c}`), ...names.brand.map(c => `btn btn-outline-${c}`)];
+      for (const mode of ['light', 'dark']) {
+        await page.evaluate(m => document.documentElement.setAttribute('data-bs-theme', m), mode);
+        for (const surface of ['', 'bg-body-tertiary', 'card']) {
+          await page.evaluate(({ variants, surface }) => {
+            document.getElementById('probe-fixture')?.remove();
+            const box = document.createElement('div'); box.id = 'probe-fixture'; box.className = `p-3 ${surface}`; box.style.cssText = 'position:fixed;top:70px;left:70px;z-index:9999;width:760px;max-height:calc(100vh - 140px);overflow:auto';
+            box.innerHTML = variants.map((c, i) => `<button type="button" class="${c}" data-v="${i}">Button</button>`).join('');
+            document.body.appendChild(box);
+          }, { variants, surface });
+          for (let i = 0; i < variants.length; i++) {
+            // .btn-light is a near-white label made for dark surfaces; it is not meant to read on a light page
+            if (mode === 'light' && /btn-(flat btn-|outline-)?light$/.test(variants[i])) continue;
+            await page.evaluate(i => { const b = document.querySelector(`#probe-fixture [data-v="${i}"]`); b.setAttribute('data-probe', '1'); b.scrollIntoView({ block: 'center' }); }, i);
+            await probeStates(page, `${mode} ${surface || 'page'} ${variants[i].replace(/^btn /, '')}`, bad); n++;
+            await page.evaluate(() => document.querySelector('[data-probe="1"]').removeAttribute('data-probe'));
+          }
+        }
+      }
+      check(`24 ${variants.length} flat/outline colours keep 4.5:1 in every state on page, tertiary and card surfaces (${n} probes)`, bad.length === 0 && variants.length > 20, [...new Set(bad.map(b => b.replace(/ (rest|hover|focus|active) [\d.]+$/, '')))].slice(0, 40).join(' | '));
+      await page.close();
+    }
+
+    // 25: pieces the examples do not show still read: an info badge, and coloured navbars under an inherited dark theme
+    {
+      const { page } = await open(file);
+      const bad = [];
+      for (const mode of ['light', 'dark']) {
+        await page.evaluate(m => document.documentElement.setAttribute('data-bs-theme', m), mode);
+        // a coloured navbar needs a dark theme to read; on a light page that is up to the markup (.navbar-dark), so only the inherited dark theme is probed
+        const rows = await page.evaluate(withNavbars => {
+          const parse = c => { const m = c.match(/[\d.]+/g).map(Number); return { r: m[0], g: m[1], b: m[2], a: m.length > 3 ? m[3] : 1 }; };
+          const over = (f, b) => ({ r: f.r * f.a + b.r * (1 - f.a), g: f.g * f.a + b.g * (1 - f.a), b: f.b * f.a + b.b * (1 - f.a), a: 1 });
+          const lum = c => { const v = [c.r, c.g, c.b].map(x => { x /= 255; return x <= .03928 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4; }); return .2126 * v[0] + .7152 * v[1] + .0722 * v[2]; };
+          const ratio = (el, bgEl) => { const bg = parse(getComputedStyle(bgEl).backgroundColor), f = parse(getComputedStyle(el).color), fg = f.a < 1 ? over(f, bg) : f, a = lum(fg), b = lum(bg); return (Math.max(a, b) + .05) / (Math.min(a, b) + .05); };
+          const box = document.createElement('div'); box.id = 'probe25';
+          const names = ['primary', 'secondary', 'success', 'danger', 'info', 'warning'];
+          box.innerHTML = names.map(n => `<span class="badge bg-${n}" data-k="badge ${n}">Badge</span>${withNavbars ? `<nav class="navbar bg-${n}"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" data-k="navbar ${n} link" href="#">Link</a></li></ul><span class="navbar-text" data-k="navbar ${n} text">Text</span></nav>` : ''}`).join('');
+          document.body.appendChild(box);
+          const out = [];
+          for (const el of box.querySelectorAll('[data-k]')) out.push([el.dataset.k, ratio(el, el.closest('.navbar') || el)]);
+          box.remove(); return out;
+        }, mode === 'dark');
+        for (const [k, r] of rows) if (r < 4.5) bad.push(`${mode} ${k} ${r.toFixed(2)}`);
+      }
+      check('25 badges and coloured navbars (inherited theme) keep 4.5:1 in both modes', bad.length === 0, bad.slice(0, 6).join(' | '));
+      await page.close();
+    }
+
     // 5, 11: sidebar links scroll to their section; the matching sidebar link (and only a #nav_spy link) becomes active
     {
       const { page } = await open(file);
       const probe = id => page.evaluate(id => {
         const sec = document.getElementById(id).getBoundingClientRect();
-        const active = [...document.querySelectorAll('#docs-sidebar .nav-link.active')];
+        const active = [...document.querySelectorAll('#nav_spy li.active a')];
         return { top: Math.round(sec.top), active: active.map(a => a.getAttribute('href')), outside: active.filter(a => !a.closest('#nav_spy')).length,
           atBottom: window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60 };
       }, id);
@@ -195,7 +457,7 @@ try {
         await settle(d.page); await sleep(500);
         const v = verdict(s.id, await d.page.evaluate(id => {
           const sec = document.getElementById(id).getBoundingClientRect();
-          const active = [...document.querySelectorAll('#docs-sidebar .nav-link.active')];
+          const active = [...document.querySelectorAll('#nav_spy li.active a')];
           return { top: Math.round(sec.top), active: active.map(a => a.getAttribute('href')), outside: active.filter(a => !a.closest('#nav_spy')).length, atBottom: window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60 };
         }, s.id));
         if (v) badHash.push('#' + s.id + ' ' + v);

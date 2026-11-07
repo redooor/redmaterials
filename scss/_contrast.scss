@@ -1,0 +1,135 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "colors";
+
+//
+// Contrast helpers
+// --------------------------------------------------
+// WCAG contrast maths, plus the Material shade walk: a palette colour keeps its identity by moving along its own
+// 50..900 scale to the nearest shade that reaches AA, instead of being mixed towards black or white.
+
+$material-shades: meta.module-variables("colors");
+$shade-scale: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900;
+$shade-base: 6; // index of 500 in $shade-scale (Sass lists are 1-based)
+
+// A plain conditional: Sass's if() function syntax is deprecated.
+@function pick($condition, $if-true, $if-false) {
+    @if $condition {
+        @return $if-true;
+    }
+    @return $if-false;
+}
+
+@function channel-luminance($value) {
+    $s: math.div($value, 255);
+    @if $s <= 0.03928 {
+        @return math.div($s, 12.92);
+    }
+    @return math.pow(math.div($s + 0.055, 1.055), 2.4);
+}
+
+@function luminance($c) {
+    @return 0.2126 * channel-luminance(color.channel($c, "red", $space: rgb))
+        + 0.7152 * channel-luminance(color.channel($c, "green", $space: rgb))
+        + 0.0722 * channel-luminance(color.channel($c, "blue", $space: rgb));
+}
+
+@function contrast($a, $b) {
+    $la: luminance($a);
+    $lb: luminance($b);
+    @return math.div(math.max($la, $lb) + 0.05, math.min($la, $lb) + 0.05);
+}
+
+// The colour a translucent foreground actually shows on top of $background.
+// Opaque foregrounds are returned unchanged (bit-for-bit).
+@function composite($foreground, $background) {
+    $alpha: color.channel($foreground, "alpha");
+    @if $alpha >= 1 {
+        @return $foreground;
+    }
+    @if $alpha <= 0 {
+        @return $background;
+    }
+    @return rgb(
+        color.channel($foreground, "red", $space: rgb) * $alpha + color.channel($background, "red", $space: rgb) * (1 - $alpha),
+        color.channel($foreground, "green", $space: rgb) * $alpha + color.channel($background, "green", $space: rgb) * (1 - $alpha),
+        color.channel($foreground, "blue", $space: rgb) * $alpha + color.channel($background, "blue", $space: rgb) * (1 - $alpha)
+    );
+}
+
+// Mix towards white until $c reaches $min on $surface (dark surfaces).  Fallback for colours with no palette family.
+@function lift($c, $surface: #212529, $min: 4.5) {
+    @for $i from 0 through 20 {
+        $m: color.mix(#fff, $c, $i * 5%);
+        $visible: composite($m, $surface);
+        @if contrast($visible, $surface) >= $min {
+            @return $visible;
+        }
+    }
+    @return #fff;
+}
+
+// Mix towards black until $c reaches $min on $surface (light surfaces).  Fallback for colours with no passing shade.
+@function deepen($c, $surface: #fff, $min: 4.5) {
+    @for $i from 0 through 20 {
+        $m: color.mix(#000, $c, $i * 5%);
+        @if contrast($m, $surface) >= $min {
+            @return $m;
+        }
+    }
+    @return #000;
+}
+
+// The colour of one shade of a palette family, e.g. shade-colour("red", 700) -> #D32F2F.
+@function shade-colour($family, $shade) {
+    @return map.get($material-shades, "#{$family}-#{$shade}");
+}
+
+// The 1-based scale index of the nearest shade that reaches $min against $against, walking from $from by $step (1 =
+// darker, -1 = lighter).  null when no shade on that side of $from passes.
+@function shade-index($family, $against, $from, $step, $min: 4.5) {
+    @if not $family {
+        @return null;
+    }
+    $i: $from;
+    @while $i >= 1 and $i <= list.length($shade-scale) {
+        @if contrast(shade-colour($family, list.nth($shade-scale, $i)), $against) >= $min {
+            @return $i;
+        }
+        $i: $i + $step;
+    }
+    @return null;
+}
+
+// A fill for a label colour: the shade nearest 500 (500 itself first) that reaches AA against $label.  A white label
+// walks darker, a dark label walks lighter.  Falls back to $fallback (the plain 500) when nothing passes.
+@function fill-for($family, $label, $fallback) {
+    $step: pick(luminance($label) > 0.5, 1, -1);
+    $i: shade-index($family, $label, $shade-base, $step);
+    @if $i {
+        @return shade-colour($family, list.nth($shade-scale, $i));
+    }
+    @return $fallback;
+}
+
+// The shade at scale index $index, or $fallback when there is none (index null).
+@function shade-or($family, $index, $fallback) {
+    @if $index {
+        @return shade-colour($family, list.nth($shade-scale, $index));
+    }
+    @return $fallback;
+}
+
+// $family when $color is one of its shades, otherwise null.  A customised brand colour (say $brand-primary: #e91e63)
+// is no longer drawn from the default family, so its text colours are mixed from the colour itself instead.
+@function family-or-null($family, $color) {
+    @each $shade in $shade-scale {
+        @if shade-colour($family, $shade) == $color {
+            @return $family;
+        }
+    }
+    @return null;
+}
